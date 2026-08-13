@@ -1,0 +1,613 @@
+{
+  "name": "finviz-us-sector-rotation",
+  "version": "0.2",
+  "created": "2026-08-12",
+  "design": "original-daily-weekly-contract-preserved-current-overrides-layered",
+  "files": [
+    {
+      "path": "CODEX_PROMPT.md",
+      "sha256": "0b755a1ca1da5e09dbb5185a6773322ebf6d1a771c2adddb1d14153b332b03f9",
+      "size": 4111
+    },
+    {
+      "path": "README-CODEX.md",
+      "sha256": "597f9af20b71116e80357d850b01b268b5cb029beb8445699b2b034333b9e15f",
+      "size": 1068
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "5ce2b1f93e6d24c5b4ec71bce80f96f072bfd9f3680fae8ae442f60691a29c08",
+      "size": 10258
+    },
+    {
+      "path": "examples/baseline/美股板块轮动分析｜2026.8.10.docx",
+      "sha256": "b8431090b502c8ea6c07b032205865467df3b4eeb5c6b13d3fe087f1d8da466a",
+      "size": 30487
+    },
+    {
+      "path": "examples/legacy/us_sector_rotation_2026-08-05.md",
+      "sha256": "69b998c2d87697f2e10f8dbec8ffab52a63468cf901404bf2581d7cfee3dc986",
+      "size": 20984
+    },
+    {
+      "path": "examples/negative/us_sector_rotation_2026-08-11.md",
+      "sha256": "cb48cb2c1c5e804e79b58d61bfade0d80fefd166433f91d54512ad8951c27d49",
+      "size": 19398
+    },
+    {
+      "path": "finviz_2026-08-11_all_codes.txt",
+      "sha256": "2ae8b82b254f7ff988899e2e26f36293cf039a298b439b045f3da23756d2c619",
+      "size": 529
+    },
+    {
+      "path": "finviz_2026-08-11_report.md",
+      "sha256": "f3bf8677cc87d46dc9d57ae9cc7542d86969854473d7aadcc97445a6e7ee9e78",
+      "size": 32260
+    },
+    {
+      "path": "finviz_2026-08-11_stocks.txt",
+      "sha256": "1e6fa7b3b4d8beaf5963650bac7cb15c87538b3543803ad561c85f160d1f7379",
+      "size": 499
+    },
+    {
+      "path": "finviz_2026-08-12_all_codes.txt",
+      "sha256": "535767dabe1a3c3652ed4a9259d677febdc609b920fcebacf13401f98f518832",
+      "size": 544
+    },
+    {
+      "path": "finviz_2026-08-12_report.md",
+      "sha256": "4b6fcd590b6c859a48c9d5a1bbab762ee6b00c5176eaecb13c36337e77ef8b4e",
+      "size": 48817
+    },
+    {
+      "path": "finviz_2026-08-12_stocks.txt",
+      "sha256": "8559d0fd45797a2ebf8d9a6867c963a737cb594c526d46d3e14c0120c7cae5f6",
+      "size": 513
+    },
+    {
+      "path": "history/README.md",
+      "sha256": "171d8f5fadc3af4e21534ab6dfe9086538588d2ee639b18b9febf9f19e26f6c0",
+      "size": 598
+    },
+    {
+      "path": "history/daily/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "history/daily/us_sector_rotation_2026-08-12.md",
+      "sha256": "bf1c4404dd21aa9f2c678c4fba82f6b250f19697148a2bb0b7fe826ec13974b6",
+      "size": 16735
+    },
+    {
+      "path": "history/daily/美股板块轮动分析｜2026.8.10.docx",
+      "sha256": "b8431090b502c8ea6c07b032205865467df3b4eeb5c6b13d3fe087f1d8da466a",
+      "size": 30487
+    },
+    {
+      "path": "history/daily/美股板块轮动分析｜2026.8.11.docx",
+      "sha256": "0bfc7b7f6f895cb94bc9402c9407d8f3265afbdc92365e6fe2e2c822b41d71fb",
+      "size": 24263
+    },
+    {
+      "path": "history/daily/美股资金与板块轮动分析｜2026.8.5.docx",
+      "sha256": "1b75eb9a4d01a62c3e843a3b7e9723177acbeaf6ac6c2c1cedcab9aac80df45b",
+      "size": 29075
+    },
+    {
+      "path": "history/weekly/.gitkeep",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size": 0
+    },
+    {
+      "path": "references/01-original-daily-task-verbatim.txt",
+      "sha256": "1d3201f8246d68fcd8921778cba3a87385b2e093954cefdecbd87b5a72e46c66",
+      "size": 17550
+    },
+    {
+      "path": "references/02-original-weekly-task-verbatim.txt",
+      "sha256": "eed1350be20455fafa55744b94dad99e0942a97ac3c5a0d308597cb0d8a9622f",
+      "size": 13608
+    },
+    {
+      "path": "references/03-current-overrides-and-precedence.md",
+      "sha256": "296f155d4c5a9cf7c982c693c850a637313e82d4930fc17d79a818a8486477b7",
+      "size": 19076
+    },
+    {
+      "path": "references/04-consistency-first-statistics.md",
+      "sha256": "0ceb9855f95a9dc8e4194aca33ea7780ce09254c7afb5aeef4415a45fbec1bc8",
+      "size": 2875
+    },
+    {
+      "path": "references/05-rotation-report-current.md",
+      "sha256": "6761b84ced913a4f126229c822d264e8ed8ee226764acfe9b3b0664bdfb05358",
+      "size": 5860
+    },
+    {
+      "path": "references/06-market-state-continuity.md",
+      "sha256": "13551888c01dcd29e4353e8b5de072750996a9102499e1f3c32a773f8406407f",
+      "size": 5833
+    },
+    {
+      "path": "references/07-persistence-and-commodities.md",
+      "sha256": "8f870ec98cfe4bed18e918b532aeea117f4651f6bd147206f2fc50ede18eda0b",
+      "size": 1080
+    },
+    {
+      "path": "references/08-bloomberg-tv-macro-context.md",
+      "sha256": "d20a1e7fb9f6aadc9c092dac474fec9130cc08cca779825931f92184f7ba5d54",
+      "size": 4037
+    },
+    {
+      "path": "references/09-author-voice-style.md",
+      "sha256": "1a5d5633dfeec87fee98e9209816798c942fc1f1990826c0f133bb2b15f51d84",
+      "size": 16422
+    },
+    {
+      "path": "references/10-hard-bans.md",
+      "sha256": "729ca911a9bfbcad1694d34b4fc348b07d4f9089a5b8da53cefacbd35f667920",
+      "size": 22838
+    },
+    {
+      "path": "references/11-evidence-and-output-boundaries.md",
+      "sha256": "b46dd6e3511a4f602289f355b07ad1f557deffd31234dc391eeddae18027b0ed",
+      "size": 3773
+    },
+    {
+      "path": "references/12-quality-audit.md",
+      "sha256": "2c153d54b1cdd66f7a39d7b23c857f476c2009fc59d8eadd3535c948bc4155e8",
+      "size": 7742
+    },
+    {
+      "path": "references/13-negative-example-lessons.md",
+      "sha256": "ad54a590747e7d7092bd9895fc899a0bc03975b0b0094af341f574a85bb07edd",
+      "size": 1777
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-10/bloomberg-surveillance.md",
+      "sha256": "a508d77fc952feb991abb5eefc790623264af939c49c8185a2feebc0141751a8",
+      "size": 19056
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-10/closing-bell.md",
+      "sha256": "bc67f0fe63bf70d125fa92c93a8e8f3ab510aeb032d18b51190f0a2af9777ed6",
+      "size": 4414
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-10/daily-macro-context.md",
+      "sha256": "c06aca131afc30158e184931833b04aeb2c9e7034e2a5fd4aef263c1382cca78",
+      "size": 5442
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-10/open-interest.md",
+      "sha256": "b6a5b3882c4df257bc5c91124269da2dfac00f35ccfc0466eaece9483f72c95f",
+      "size": 8692
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-10/the-close.md",
+      "sha256": "a3b1b075d9a759273876d18a5810c7a68bf376466d5486be8192f0a7ad12933a",
+      "size": 9883
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-11/bloomberg-surveillance.md",
+      "sha256": "02cadedda45cd223cea2991e56eed40edcc7f70f1849526115625879e5aca8ad",
+      "size": 10458
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-11/closing-bell.md",
+      "sha256": "a1a0c48ce12fea4b0f4e1ee7fc0a3b7588487bfd18cda5940bedff6aecf97213",
+      "size": 3202
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-11/daily-macro-context.md",
+      "sha256": "10f5d6da5daa397f3508895071a4db0d63da12af2a6a17d8dd822c83f39c7fe8",
+      "size": 3269
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-11/open-interest.md",
+      "sha256": "fdaee3d956e2a0f1fcd156089d54f4000e60ed59da56c7f0884780b47efed189",
+      "size": 9212
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-11/the-close.md",
+      "sha256": "cc378bbcc82b18d2e9c9277711856c4e3faf10c593398f50765ec4bc2a4e6cb4",
+      "size": 10519
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-12/bloomberg-surveillance.md",
+      "sha256": "194bdc696a0c9daf63fa17b29fce524935487de6449e9d7001294c549feae7c8",
+      "size": 16062
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-12/closing-bell.md",
+      "sha256": "ac27226c00e5ed880e3aebdce548d728ab4b698aa0f76a724cd3c29a4ee644aa",
+      "size": 1275
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-12/daily-macro-context.md",
+      "sha256": "3d6ac10545e1ddb40b40d730c18ceb482dd29808143f44c4656d630116ab88c2",
+      "size": 6216
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-12/open-interest.md",
+      "sha256": "c72de676ef084fc509d4469ad90a6e60b82170fb8223592fa28d0ab58c288950",
+      "size": 12732
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/2026-08-12/the-close.md",
+      "sha256": "b98c1bc10fbcbaa2007a6a2fac4c8f8ca829ff9137d1bdf2939d84bd40efd879",
+      "size": 12515
+    },
+    {
+      "path": "research/bloomberg-tv/2026-W33/week-macro-context.md",
+      "sha256": "39dc0f7061a33358c7bf18a5d6c56d714c4279327a3bbdd6f8d120c4f2328309",
+      "size": 10931
+    },
+    {
+      "path": "research/bloomberg-tv/README.md",
+      "sha256": "dfcf08ab5fee9e41232476ef0d5f8295e308a2bbbf2353fc3cc1635a5745077d",
+      "size": 1234
+    },
+    {
+      "path": "research/finviz/2026-08-11/README-audit-artifacts.md",
+      "sha256": "f0d23e5ce6c23188b48005982dfa93025e2f8ac6d6f9c7c97f1829829d7ccad3",
+      "size": 595
+    },
+    {
+      "path": "research/finviz/2026-08-11/README.md",
+      "sha256": "9bcfe6281bbe25ff125663a3c01ccd29f21ab1a2be14d8deeaa8933733f42d9c",
+      "size": 347
+    },
+    {
+      "path": "research/finviz/2026-08-11/all_stocks_hierarchy.json",
+      "sha256": "4c8ce8ef6a851d2b154a6c909f6b46422024d53641a5bd8af54934fd8a731aac",
+      "size": 814230
+    },
+    {
+      "path": "research/finviz/2026-08-11/all_stocks_perf.json",
+      "sha256": "f7ee4faa66b67b303087604940eb3cf175a82b0150add9a3b6791d80f3786bb6",
+      "size": 116672
+    },
+    {
+      "path": "research/finviz/2026-08-11/calculate.py",
+      "sha256": "b1990e5c76053adb8bc37004ff86f52eb187af3aa689aff40202fd680acfa3c0",
+      "size": 10203
+    },
+    {
+      "path": "research/finviz/2026-08-11/calculated-statistics.json",
+      "sha256": "6be78acacb2650c6452dbfc6bcf734613becf149b191dc00bb4838a78bf02232",
+      "size": 2350898
+    },
+    {
+      "path": "research/finviz/2026-08-11/dow30_hierarchy.json",
+      "sha256": "98333c08797e8c0cb134571293c9005db6799e935620a11fbca725424b45fb52",
+      "size": 7677
+    },
+    {
+      "path": "research/finviz/2026-08-11/dow30_perf.json",
+      "sha256": "d5ebccec04d952916657889c07faea0cb0eb760ed7328656c6e8bf2b0370cf1d",
+      "size": 745
+    },
+    {
+      "path": "research/finviz/2026-08-11/etf_hierarchy.json",
+      "sha256": "2020c43ed8004a999e219940755eed8d76e0938c912cb7860a26a547ea95d7d2",
+      "size": 114508
+    },
+    {
+      "path": "research/finviz/2026-08-11/etf_perf.json",
+      "sha256": "5c81ced79242972e14ee844f99047186c2f9e150dc188568adb4893e9cc70f0f",
+      "size": 118743
+    },
+    {
+      "path": "research/finviz/2026-08-11/fetch_and_build.py",
+      "sha256": "40767d6707ae63ee11431939cc9eab3d16d3d760f99b1fa6f2aea438f93ac470",
+      "size": 4771
+    },
+    {
+      "path": "research/finviz/2026-08-11/generate_outputs.py",
+      "sha256": "d5533dcc53c7fa556a9d13b085af88c7158f5294ef81251b28160ce9464db59f",
+      "size": 31599
+    },
+    {
+      "path": "research/finviz/2026-08-11/mandatory-rotation-coverage-set.json",
+      "sha256": "ddbdd2bf644c7e6fa4c30e5e81a1b28fc88c7f032028a0a8b2ab4fb751cc2d0b",
+      "size": 2037
+    },
+    {
+      "path": "research/finviz/2026-08-11/nasdaq100_hierarchy.json",
+      "sha256": "6baa15fade550f577688d4620288a1a4fa7dc13b9fc069bf90fe12a987041849",
+      "size": 19819
+    },
+    {
+      "path": "research/finviz/2026-08-11/nasdaq100_perf.json",
+      "sha256": "615864a8cf7de3b21f5f6e54737769b558e872adc0584d808c29b425e1dc1f2d",
+      "size": 2212
+    },
+    {
+      "path": "research/finviz/2026-08-11/russell2000_hierarchy.json",
+      "sha256": "06e5df7ee9628a9c476b18525d4ca58ad9ada6d815bf540bde99e5a6cf6c14d5",
+      "size": 295555
+    },
+    {
+      "path": "research/finviz/2026-08-11/russell2000_perf.json",
+      "sha256": "b09f6229bd7a7d2c0c1aaab311658014b94a92c9664843b5f09cd657075159b2",
+      "size": 39000
+    },
+    {
+      "path": "research/finviz/2026-08-11/source-manifest.json",
+      "sha256": "8ce565ba9422d34e9bcc79d289954a6faf6e495c265d47ca178068a3e44299b7",
+      "size": 7324
+    },
+    {
+      "path": "research/finviz/2026-08-11/sp500_hierarchy.json",
+      "sha256": "89f33b6bbd226e6bc6ce4266beac22d32015c69e619c223d31605556bc284099",
+      "size": 83939
+    },
+    {
+      "path": "research/finviz/2026-08-11/sp500_perf.json",
+      "sha256": "9471898e3eb15ca0b8f1657b04ae238cb9932907aaf2268ac9b8a96c5b03d732",
+      "size": 9987
+    },
+    {
+      "path": "research/finviz/2026-08-11/themes_hierarchy.json",
+      "sha256": "abec0866b5590c03ceae7425171cfce79ffef3cca96c55779e1799d5974e3692",
+      "size": 77208
+    },
+    {
+      "path": "research/finviz/2026-08-11/themes_perf.json",
+      "sha256": "4a014668c95cfcb1f3d9cc3774b99657fe38911310a13b75ef90f39fb2b279cb",
+      "size": 9080
+    },
+    {
+      "path": "research/finviz/2026-08-12/README-audit-artifacts.md",
+      "sha256": "173dd20f17bea6e0d9a5337e91af739102b42cc4f3f4e31607eb53d161a6d038",
+      "size": 1313
+    },
+    {
+      "path": "research/finviz/2026-08-12/README.md",
+      "sha256": "e554dfed9144c37cd8693359cf13fd4a665a1dcab3fa7cff09005d308941ddfe",
+      "size": 745
+    },
+    {
+      "path": "research/finviz/2026-08-12/all_stocks_hierarchy.json",
+      "sha256": "4c8ce8ef6a851d2b154a6c909f6b46422024d53641a5bd8af54934fd8a731aac",
+      "size": 814230
+    },
+    {
+      "path": "research/finviz/2026-08-12/all_stocks_perf.json",
+      "sha256": "467773b11c0a3f45bfb4eff8ea7bd40e23319c460813f3d3b8162972c3ac3f5e",
+      "size": 116936
+    },
+    {
+      "path": "research/finviz/2026-08-12/calculate.py",
+      "sha256": "b082138302958eb2e6e0568f146fda837af139d644e45e1c0f639022e5c7524f",
+      "size": 16269
+    },
+    {
+      "path": "research/finviz/2026-08-12/calculated-statistics.json",
+      "sha256": "b5054479446b8db79cf389357ec7ad2fe0278a0c05653f1a8ce79d8a71c36b81",
+      "size": 2437611
+    },
+    {
+      "path": "research/finviz/2026-08-12/catalyst-research.md",
+      "sha256": "68a983cd93a943047b63ea4f15caa46a98ac54a55fe09d51af1ffdcd741b0d87",
+      "size": 30994
+    },
+    {
+      "path": "research/finviz/2026-08-12/coverage-audit.json",
+      "sha256": "2ae590e0956af7cea61cd32e6546929a0fbcf40c92eb23266e051ff90c7ef98f",
+      "size": 98679
+    },
+    {
+      "path": "research/finviz/2026-08-12/dow30_hierarchy.json",
+      "sha256": "98333c08797e8c0cb134571293c9005db6799e935620a11fbca725424b45fb52",
+      "size": 7677
+    },
+    {
+      "path": "research/finviz/2026-08-12/dow30_perf.json",
+      "sha256": "31c786201c2357c2df4a2419f61e5a44227b3abf5bbb2e8c748717b9221f02c3",
+      "size": 743
+    },
+    {
+      "path": "research/finviz/2026-08-12/etf-universe-audit.json",
+      "sha256": "2e7f8697123e96d4e2e4a5c5327aadca34c2b003c68f1ab44ace3243b5b3059e",
+      "size": 10606
+    },
+    {
+      "path": "research/finviz/2026-08-12/etf_hierarchy.json",
+      "sha256": "2020c43ed8004a999e219940755eed8d76e0938c912cb7860a26a547ea95d7d2",
+      "size": 114508
+    },
+    {
+      "path": "research/finviz/2026-08-12/etf_perf.json",
+      "sha256": "86f6abdac04146a45e380325ab6a38c132330a3f811dc81f1cab540f5a420d6f",
+      "size": 117958
+    },
+    {
+      "path": "research/finviz/2026-08-12/fetch_and_build.py",
+      "sha256": "f686431273bc0676155f7f6f530d4aa1d7f82acebe90b314cbefb349d9c23f35",
+      "size": 5517
+    },
+    {
+      "path": "research/finviz/2026-08-12/generate_outputs.py",
+      "sha256": "c0d3220289efa7b289b9da1c5552386ff72c29532f0e6591fbc6cde73ab8ad52",
+      "size": 36032
+    },
+    {
+      "path": "research/finviz/2026-08-12/mandatory-rotation-coverage-set.json",
+      "sha256": "788897fd5efe9bff4e49ca80c97c2ce7c2327482c091cd4750aa45480d4e0771",
+      "size": 2323
+    },
+    {
+      "path": "research/finviz/2026-08-12/nasdaq100_hierarchy.json",
+      "sha256": "6baa15fade550f577688d4620288a1a4fa7dc13b9fc069bf90fe12a987041849",
+      "size": 19819
+    },
+    {
+      "path": "research/finviz/2026-08-12/nasdaq100_perf.json",
+      "sha256": "703e08a817de59014ea7189e93f5c5bed11818bf461fdf642fb1441790440f8d",
+      "size": 2215
+    },
+    {
+      "path": "research/finviz/2026-08-12/russell2000_hierarchy.json",
+      "sha256": "06e5df7ee9628a9c476b18525d4ca58ad9ada6d815bf540bde99e5a6cf6c14d5",
+      "size": 295555
+    },
+    {
+      "path": "research/finviz/2026-08-12/russell2000_perf.json",
+      "sha256": "391de9d8f15f5c5bca4a5147ef326dc45bd8e34268f4fd6a2bbdf54c9825f869",
+      "size": 38999
+    },
+    {
+      "path": "research/finviz/2026-08-12/sec-event-exhibits.json",
+      "sha256": "7e7fd38706089a5f128062ff663f3e94c2a6be13ea7f34cf2b6d0c57eb43efcc",
+      "size": 1292321
+    },
+    {
+      "path": "research/finviz/2026-08-12/sec-filing-snippets.json",
+      "sha256": "bc5afe2b0f2dbfeb71376212f2a662d02c5818b0961a6a0b969965ca5b87b118",
+      "size": 216393
+    },
+    {
+      "path": "research/finviz/2026-08-12/sec-filing-window.json",
+      "sha256": "7a0432f4ca6a0b1de4172297b996dec1b296d9dcee0f951354eff588e43f7e80",
+      "size": 124562
+    },
+    {
+      "path": "research/finviz/2026-08-12/selected-event-release-text.json",
+      "sha256": "9ee5b31cad3e2a6d74d1858dfef4dc62da7f59d9af61fd7cba7f74a9f838b4de",
+      "size": 376963
+    },
+    {
+      "path": "research/finviz/2026-08-12/source-manifest.json",
+      "sha256": "270ae0a99c6c60100d79b510e92c27914d68b29ae8a22d6185b4b1d994ed3d15",
+      "size": 7520
+    },
+    {
+      "path": "research/finviz/2026-08-12/sp500_hierarchy.json",
+      "sha256": "89f33b6bbd226e6bc6ce4266beac22d32015c69e619c223d31605556bc284099",
+      "size": 83939
+    },
+    {
+      "path": "research/finviz/2026-08-12/sp500_perf.json",
+      "sha256": "e47028f5c917c29761df25ec0c20e22088756c4f2e3a087207889eaeba46e628",
+      "size": 9997
+    },
+    {
+      "path": "research/finviz/2026-08-12/themes_hierarchy.json",
+      "sha256": "abec0866b5590c03ceae7425171cfce79ffef3cca96c55779e1799d5974e3692",
+      "size": 77208
+    },
+    {
+      "path": "research/finviz/2026-08-12/themes_perf.json",
+      "sha256": "104f9b0ac8282fe85dfe31ccaad364ce18fe599ed9a11c8c2f79bfb926a04618",
+      "size": 9077
+    },
+    {
+      "path": "script/Bloomberg Surveillance 2026-8-10.txt",
+      "sha256": "65342f494e2a7bd2f501ff2026a997f9609ac141b1e19d66c4ea81815fc3fb9c",
+      "size": 165558
+    },
+    {
+      "path": "script/Bloomberg_Surveillance_2026-08-11 (1).txt",
+      "sha256": "729470f6236b92ac6646f323ceef5fb38bf6318e2dd67cad99fe9cc5eae1a02b",
+      "size": 162648
+    },
+    {
+      "path": "script/Closing_Bell_2026-08-11.txt",
+      "sha256": "98cfbd006fab8b1184508a578b5d17c93fc79b8452b64431f47a256b12134e03",
+      "size": 11682
+    },
+    {
+      "path": "script/Open Interest 2026-8-10.txt",
+      "sha256": "5a7b851d998e7a297e6ef6feb1a939b46fe53221fdd2ab14708690cc14454cd1",
+      "size": 98483
+    },
+    {
+      "path": "script/Open_Interest_2026-08-11.txt",
+      "sha256": "5947310f26fd44d624cbdd2d5d369e8c81bbf837412f4f2847e87d505fa371d7",
+      "size": 104296
+    },
+    {
+      "path": "script/The_Close_2026-08-11.txt",
+      "sha256": "cabd9ed0d4df91b33b6f16e9caf6a69f8275a8b161bec1063bad2a5886677ed2",
+      "size": 107932
+    },
+    {
+      "path": "script/bloomberg surveillance-Bloomberg Surveillance 8 12 2026-2026-08-12.txt",
+      "sha256": "95cc81fe800418b49852216646c94af43ade09e76b63c16de90de38b66934b3f",
+      "size": 168381
+    },
+    {
+      "path": "script/closing bell 2026-8-10.txt",
+      "sha256": "2a21bd6d7e91b952f9239eb5ec55e279a874d0146297b05e5e4528ca2a49ae88",
+      "size": 12382
+    },
+    {
+      "path": "script/closing bell-AI Infrastructure Boom Drives Market Movers   Closing Bell-2026-08-12.txt",
+      "sha256": "eb4fc00798c15141840910693f64d29caefb2d6a402cc4487faf2f69bf121ddd",
+      "size": 11678
+    },
+    {
+      "path": "script/open interest-Cooler Inflation Gives Fed Breathing Room-2026-08-12.txt",
+      "sha256": "3c71a6b036a28a250a9c6f5e8794588a9a420de3ef25c4b97bb1e8fb4f1e51f7",
+      "size": 100896
+    },
+    {
+      "path": "script/the close 2026-8-10.txt",
+      "sha256": "f63d69cfb0a6dfbcc1334bbedb619570791b041ebb2557c8ac7993feae910371",
+      "size": 111494
+    },
+    {
+      "path": "script/the close-CPI Relief & AI Earnings Push Stocks Toward Records-2026-08-12.txt",
+      "sha256": "f6aba4dc613aab52333208dab0855ca4e69b455fe38031b875ea7e228f596f79",
+      "size": 109707
+    },
+    {
+      "path": "source/original-task/原周度任务要求.txt",
+      "sha256": "eed1350be20455fafa55744b94dad99e0942a97ac3c5a0d308597cb0d8a9622f",
+      "size": 13608
+    },
+    {
+      "path": "source/original-task/原日度任务要求.txt",
+      "sha256": "1d3201f8246d68fcd8921778cba3a87385b2e093954cefdecbd87b5a72e46c66",
+      "size": 17550
+    },
+    {
+      "path": "state/market-state-ledger.yaml",
+      "sha256": "2978168515172373e964c6e6bf132663ad6cd6147597dabb6e8db48f4fdfabf6",
+      "size": 12178
+    },
+    {
+      "path": "templates/bloomberg-program-note.md",
+      "sha256": "abb0e725c7429329d5e3a9e7228aea5c28e449b332a6d8d853948b91046a87cc",
+      "size": 1005
+    },
+    {
+      "path": "templates/daily-statistics.md",
+      "sha256": "d3e6996795bd4c18bc208ecd3a59d5b2f46340d16b515066798adcb794eccf73",
+      "size": 1394
+    },
+    {
+      "path": "templates/rotation-report.md",
+      "sha256": "e375b7fbe077de7a15074cb351a852358a876c49d785a749f0be7df0999b2c90",
+      "size": 996
+    },
+    {
+      "path": "templates/weekly-statistics.md",
+      "sha256": "9eaa405682dd75224f1ba18d2566747bcd92a5f77ed7235c826fa25e91b37f7c",
+      "size": 1173
+    },
+    {
+      "path": "us_sector_rotation_2026-08-11.md",
+      "sha256": "54f2ad2e5c3e51c6f8efad93b674ef4e1c9b7180df1ebbe8b0c48abc0f622fd2",
+      "size": 14682
+    },
+    {
+      "path": "us_sector_rotation_2026-08-12.md",
+      "sha256": "bf1c4404dd21aa9f2c678c4fba82f6b250f19697148a2bb0b7fe826ec13974b6",
+      "size": 16735
+    }
+  ]
+}

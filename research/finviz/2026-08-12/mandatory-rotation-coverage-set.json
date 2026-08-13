@@ -1,0 +1,38 @@
+{
+  "date": "2026-08-12",
+  "selection_basis": "All Stocks、S&P 500、Dow Jones 30、Nasdaq 100、Russell 2000和主题各自涨3/跌3；同名项目合并，保留全部范围证据。",
+  "source_label_note": "Finviz的Biometrics与Cybersecurity是两个独立主题：前者固定译为生物识别，后者固定译为网络安全；不得依据代表ETF或子主题近似含义互换。",
+  "unique_count": 17,
+  "items": [
+    {"name": "工业", "evidence": ["All Stocks涨1", "Dow Jones 30涨3", "Nasdaq 100涨3", "Russell 2000跌3"]},
+    {"name": "科技", "evidence": ["All Stocks涨2", "S&P 500涨1", "Russell 2000涨1"]},
+    {"name": "房地产", "evidence": ["All Stocks涨3", "S&P 500涨2", "Russell 2000涨3"]},
+    {"name": "可选消费", "evidence": ["All Stocks跌1", "S&P 500跌1", "Nasdaq 100跌3", "Russell 2000跌2"]},
+    {"name": "通信服务", "evidence": ["All Stocks跌2", "S&P 500跌3", "Dow Jones 30跌2", "Russell 2000涨2"]},
+    {"name": "基础材料", "evidence": ["All Stocks跌3", "S&P 500跌2", "Dow Jones 30跌1", "Nasdaq 100跌1", "Russell 2000跌1"]},
+    {"name": "必需消费", "evidence": ["S&P 500涨3", "Dow Jones 30涨2"]},
+    {"name": "医疗保健", "evidence": ["Dow Jones 30涨1"]},
+    {"name": "能源", "evidence": ["Dow Jones 30跌3", "Nasdaq 100跌2"]},
+    {"name": "公用事业", "evidence": ["Nasdaq 100涨1"]},
+    {"name": "金融", "evidence": ["Nasdaq 100涨2"]},
+    {"name": "太空科技", "evidence": ["主题涨1"]},
+    {"name": "量子计算", "evidence": ["主题涨2"]},
+    {"name": "硬件", "evidence": ["主题涨3"]},
+    {"name": "社交媒体", "evidence": ["主题跌1"]},
+    {"name": "生物识别", "raw_finviz_label": "Biometrics", "evidence": ["主题跌2"]},
+    {"name": "教育科技", "evidence": ["主题跌3"]}
+  ],
+  "selected_rotation_3_in_3_out": {
+    "in": ["科技与硬件", "房地产", "工业"],
+    "out": ["基础材料", "可选消费", "通信服务与社交媒体"]
+  },
+  "report_checks": {
+    "section_2_selected_six_complete": true,
+    "section_3_selected_six_complete": true,
+    "full_set_is_internal_and_not_required_in_sections_2_or_3": true,
+    "section_4_all_17_classified": true,
+    "semiconductors_inherited_as_head": true,
+    "ledger_all_17_present": true,
+    "report_incomplete": false
+  }
+}
