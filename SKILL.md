@@ -1,130 +1,137 @@
 ---
 name: finviz-us-sector-rotation
-description: Finviz美股日度/周度板块统计与连续性轮动分析。完整保留原日度与周度任务，以当前覆盖规则只修改明确冲突项；先执行一致性优先的Finviz机械统计与逐股催化核查，再用历史行情性质和本地宏观节目研究在后台生成全中文、三项轮入与三项轮出的六部分轮动深度报告。
+description: 使用稳定程序完成Finviz美股日度或周度机械统计，并基于增量作者状态、一次性股票催化缓存和Bloomberg本地字幕缓存生成连续性的六部分板块轮动AI候选报告。适用于最新已收盘交易日或完整交易周的Finviz统计、板块轮动分析、作者正式报告后的状态同步，以及用户明确要求时的Skill规则或代码维护。
 ---
 
 # Finviz US Sector Rotation
 
-## 核心原则
+## 先判定运行模式
 
-这个 Skill 是原 Finviz 日度任务与周度任务的合并升级版。
+每次任务先读取 `references/14-runtime-modes-and-incremental-workflow.md`，再根据用户当前请求选择模式。
 
-**原任务不是参考资料，而是仍然生效的任务合同。**
+### DAILY_WEEKLY_RUN
 
-每次运行必须完整读取：
+这是默认模式。凡用户要求执行日度或周度Finviz统计、轮动分析或正常更新运行数据，且没有明确要求修改Skill、规则或代码，均使用本模式。
 
-1. `references/01-original-daily-task-verbatim.txt`
-2. `references/02-original-weekly-task-verbatim.txt`
-3. `references/03-current-overrides-and-precedence.md`
-4. `references/04-consistency-first-statistics.md`
-5. `references/05-rotation-report-current.md`
-6. `references/06-market-state-continuity.md`
-7. `references/07-persistence-and-commodities.md`
-8. `references/08-bloomberg-tv-macro-context.md`
-9. `references/09-author-voice-style.md`
-10. `references/10-hard-bans.md`
-11. `references/11-evidence-and-output-boundaries.md`
-12. `references/12-quality-audit.md`
-13. `references/13-negative-example-lessons.md`
-14. `examples/legacy/us_sector_rotation_2026-08-05.md`（只学习内容深度、分析逻辑和证据标准；与当前规则冲突处以03为准）
-15. `state/market-state-ledger.yaml`
+只允许更新：
 
-### 规则优先级
+- `state/market-state-ledger.yaml`；
+- `state/author-terminology.yaml`；
+- 当日或当周 `research/` 运行数据；
+- Bloomberg节目摘要与宏观缓存；
+- 股票催化缓存；
+- Finviz机械统计数据产物；
+- `AI_reports/` 中的AI候选稿。
 
-1. 用户当前prompt中的明确新要求；
-2. `03-current-overrides-and-precedence.md` 中列出的明确覆盖项；
-3. 原日度/周度任务全文；
-4. 其他辅助reference与模板。
+禁止修改Skill规则、templates、稳定脚本、Python代码、validator或manifest；禁止执行全Skill验证、全包哈希审计、GitHub登录、commit或push；禁止重读历史对话、旧负面案例、全部旧报告或未变化的原始字幕；禁止调试正常工作的代码。
 
-**凡 `03` 没有明确否定、替换或修改的原任务条款，一律原样继续生效。不得因为SKILL.md没有重写一遍，就视为失效。**
+### DEVELOPMENT
 
-## 两阶段工作流
+只有用户当前请求明确包含“修改Skill”“修改规则”“修改代码”“修复长期系统性错误”等要求时才进入本模式。
 
-### A. Finviz机械统计
+本模式允许在用户指定范围内维护 `SKILL.md`、`references/`、`templates/`、稳定脚本、Python代码、validator和manifest，但“允许”不等于自动执行。严格服从当前请求的文件范围和禁止项。
 
-严格按原任务全部要求执行，尤其是“一致性优先”的涨3/跌3筛选。统计阶段不能被轮动分析简化或替代。
+GitHub始终需要用户在当前请求中明确授权。仅仅进入DEVELOPMENT，不构成登录、创建仓库、commit、push或修改远端可见性的授权。
 
-### B. 独立轮动深度报告
+## 三层数据边界
 
-统计完成后再写轮动分析。轮动报告使用新的六部分结构、五种行情性质、历史连续性、趋势条件规则和宏观节目研究。
+### 1. Skill规则层
 
-正式成稿只呈现市场事实与分析结论。所有非公司板块、行业、子行业和主题名称统一写中文；英文源标签只用于后台匹配。禁止把历史同步、state ledger、强制覆盖、审计、纠错、建档、本地字幕来源、Bloomberg节目如何形成判断等内部过程写入正式报告。
+包括 `SKILL.md`、`references/`、`templates/` 和稳定运行脚本，只保存长期稳定规则。作者对具体板块的新判断、具体ETF或主题的中文名称、某一天的翻译修正及最新正式报告日期不得写入这一层。
 
-术语必须先按源标签核对再翻译：`Cybersecurity` 只能写“网络安全”，`Biometrics` 只能写“生物识别”。二者是两个独立主题，不得依据代表ETF、个股业务或子主题相似性互换名称。
+### 2. 作者动态状态层
 
-### C. AUTHOR_CONFIRMED_HISTORY 与唯一状态台账
+统一位于 `state/`：
 
-`history/daily/` 内由作者人工修改或明确确认的日度DOCX，以及规范命名的 `us_sector_rotation_YYYY-MM-DD.md`，统一视为 `AUTHOR_CONFIRMED_HISTORY`。同一交易日同时存在多份时，以用户明确指定的人工版优先；没有明确指定时，以最新修改的正式文件优先。必须读取其第四部分“行情性质”，并可为机器读取保留规范MD镜像，但台账来源必须指向真实的作者正式文件。`state/market-state-ledger.yaml` 是唯一的各板块/主题最新行情性质总表，禁止另建第二套状态数据库。
+- `state/market-state-ledger.yaml` 保存最新基础行情性质、作者精确阶段、日期与来源；
+- `state/author-terminology.yaml` 保存作者最新名称与翻译映射。
 
-每个新交易日开始前，必须先扫描 `history/daily/`，按日期从旧到新读取所有晚于 ledger `as_of` 的正式报告，并提取第四部分“行情性质”同步到 ledger；同一项目以最新日期的作者判断为准。还必须重新读取日期等于 ledger `as_of` 的最新正式报告，以捕捉作者对同日文件的人工修改。完成同步后才能进行当天 Finviz 统计与轮动分析。
+具体行情判断和术语值只从state与新增作者正式报告读取，不在规则文件中复制一份。
 
-每期报告完成并保存到 `history/daily/` 后，必须再按正式报告同步 ledger，并把 ledger 总体 `as_of` 和最新基准来源推进到该报告日期；即使没有任何行情性质变化也必须推进日期，不得伪造状态改变。每个条目至少记录名称、代表ETF、当前行情性质、`as_of`、`source_report` 和一句必要的状态说明。
+### 3. AI运行结果层
 
-### D. Bloomberg 本地字幕唯一输入
+AI自动生成的轮动报告只能写入：
 
-Bloomberg 节目内容的唯一字幕输入目录是本 Skill 根目录内的 `script/`。运行时先以当前 `SKILL.md` 所在目录解析 Skill 根目录，再访问其直接子目录 `script/`；不得依赖工作目录、盘符、用户名或外部绝对路径。每次运行只扫描该目录，按日期与节目名称匹配 The Close、Closing Bell、Open Interest、Bloomberg Surveillance 的 TXT，完整读取对应文件全文后生成节目研究MD。
+- 日度：`AI_reports/daily/美股板块轮动观察｜YYYY.M.D.md`；
+- 周度：`AI_reports/weekly/us_sector_rotation_week_YYYY-MM-DD.md`。
 
-禁止为 Bloomberg 节目自行访问 YouTube 获取或判断字幕、Transcript、视频正文、节目简介或替代片段。某档节目没有对应本地字幕时，只记录 `LOCAL_TRANSCRIPT_MISSING`；不得上网寻找替代节目，不得根据标题、简介或零散片段补写节目事实。详细流程见 `references/08-bloomberg-tv-macro-context.md`。
+`AI_reports/` 是AI候选稿。不得自动复制、移动或覆盖 `history/daily/` 与 `history/weekly/` 中的文件，也不得把AI候选稿反向认定为作者正式判断。
 
-### E. MANDATORY_ROTATION_COVERAGE_SET
+## 规则与数据优先级
 
-Finviz 机械统计完成后，必须先建立 `MANDATORY_ROTATION_COVERAGE_SET`：纳入 All Stocks、S&P 500、Dow Jones 30、Nasdaq 100、Russell 2000 各自涨3与跌3，以及 Themes 涨3与跌3；跨范围同名项目去重，但保留其在每个范围的证据。
+规则优先级：
 
-集合只用于后台研究与完整性审计，不得作为正式报告的栏目或叙述对象：
+1. 用户当前请求中的明确要求；
+2. `references/14-runtime-modes-and-incremental-workflow.md`；
+3. `references/03-current-overrides-and-precedence.md`；
+4. 原日度、周度任务合同；
+5. 其他按需加载的reference与模板。
 
-- 第二部分不机械罗列全集合。先统计六个范围涨3/跌3出现频率，合并名称相近、个股交叉度高且经济敞口实质相同的方向，严格精选轮入3项和轮出3项；
-- 第二部分表格严格只有四列：`轮动强度`、`板块和主题`、`当日表现情况`、`轮动分析`（周报把“当日”改为“本周”）；
-- 第三部分仅分析第二部分最终筛出的三项轮入与三项轮出，每个不同板块/主题分别设小标题；只有实质相同的方向可以合并，例如能源与能源商品；
-- 第四部分覆盖集合中具有板块/主题意义的项目并完成五种行情性质分类；
-- 全部相关项目已存在于 ledger，或在后台完成状态补建后写入 ledger。
+数据优先级：
 
-历史无记录不是省略理由。后台对新项目结合历史资料和近期真实价格结构完成分类并写入状态台账；正式报告只写最终“行情性质”，禁止写“初始性质”“建档”“作者历史”等过程话术。核心结论只能是一段高信息密度文字。
+1. `history/daily/` 中最新选定的 `AUTHOR_CONFIRMED_HISTORY`，包括同日期内容变化或用户明确指定的更新文件；
+2. state中保留的作者精确判断与作者术语；
+3. state中的五类基础行情性质；
+4. `AI_reports/` 候选稿、旧state和Codex此前自动判断。
 
-## DAILY
+规范命名本身不能证明一份文件经过作者确认。只有作者人工修改或用户明确确认的报告才能成为 `AUTHOR_CONFIRMED_HISTORY`。
 
-- 使用 Finviz 1-Day Performance。
-- 最新一个已完成正常收盘的美股交易日。
-- 无新交易日：只报告“没有新交易日”，不重复旧报告。
-- 输出文件名遵守原日度任务与 `11-evidence-and-output-boundaries.md`。
+每次DAILY_WEEKLY_RUN开始时，必须定位最新作者正式报告，读取报告日期并计算SHA-256，与 ledger 的 `author_history_as_of`、`latest_author_confirmed_report`、`latest_author_confirmed_report_sha256` 比较。日期更晚、同日期哈希变化或用户明确指定同一交易日另一更新文件时，必须重读并同步；三者均未触发时才复用已有状态而不读正文。同日期重读不得制造虚假基础状态变化记录。
 
-## WEEKLY
+## 按需加载，不做全包预读
 
-- 使用 Finviz 1-Week Performance。
-- 以该周最后一个正常交易日为数据日期。
-- 无新的完整交易周：只报告“没有新的完整交易周”。
-- 周度统计仍完整执行原周度任务，不得退化成日度报告汇总。
+DAILY_WEEKLY_RUN不得因为“熟悉规则”而完整读取全部reference、01/02原任务全文、legacy范文或旧负面案例。
 
-## 强制执行顺序
+正常成稿的主要输入固定为：
 
-1. 确认 DAILY / WEEKLY、目标日期与是否有新数据；
-2. 读取原任务全文和当前覆盖规则；
-3. 扫描 `history/daily/`，把 `AUTHOR_CONFIRMED_HISTORY` 按日期从旧到新同步进唯一 ledger，并复核同日人工修订；
-4. 从当前 Skill 根目录解析并扫描 `script/`，完整读取目标日期/当周可用的四档 Bloomberg 本地字幕并完成研究归档；缺失只记 `LOCAL_TRANSCRIPT_MISSING`；
-5. 完成五个股票范围、Themes、ETFs的完整机械统计；
-6. 由五个股票范围及 Themes 的涨3/跌3建立去重后的 `MANDATORY_ROTATION_COVERAGE_SET`；
-7. 逐只入选股票专项核查公司公告、财报、监管、合同、评级及可靠新闻与发布时间；按桌面旧版主报告的格式、内容组织和深度生成主统计报告与两个TXT；
-8. 读取最近一期轮动报告与同步后的状态台账，判断是否发生真正结构变化；首次出现的覆盖项目必须在后台从五种合法行情性质中完成分类并写入台账；
-9. 研究集合内全部项目的直接驱动、盈利预期、宏观背景和商品基本面；
-10. 按跨范围频率、宽度、ETF与权重股印证，选出第二节轮入3和轮出3；第三节只逐项分析这六项；第四节覆盖内部涨3/跌3集合中具有板块意义的项目；
-11. 执行统计完整性、连续性、Hard Bans、来源边界、格式和 `MANDATORY_ROTATION_COVERAGE_SET` 逐项审计；
-12. 只有 `REPORT_INCOMPLETE = FALSE` 才能保存与交付报告；
-13. 保存正式历史报告到 `history/daily/`；
-14. 从保存后的正式报告再次同步唯一 ledger；即使没有状态变化，也推进总体 `as_of`、条目确认日期与来源报告。
+1. 当日或当周 calculated statistics；
+2. coverage audit 与 mandatory rotation coverage；
+3. 去重后的股票催化缓存；
+4. `daily-macro-context.md` 或一周的日度宏观上下文；
+5. 最新 `market-state-ledger`；
+6. 最新 `author-terminology`；
+7. 最新一期作者正式报告一份；
+8. `references/09-author-voice-style.md`；
+9. `references/10-hard-bans.md`；
+10. 对应报告模板与唯一一次最终审计清单。
 
-## 禁止的捷径
+只有发生明确缺口时才读取对应reference或原始材料：字幕摘要缺失或哈希变化时读取原字幕；ticker催化缓存缺失时补该ticker；稳定程序真实报错时停止并报告。缺什么只补什么。
 
-- 禁止只按板块平均涨跌幅选前三；
-- 禁止只看极端三只股票判断板块方向；
-- 禁止删掉原任务中的任何市场、Themes、ETF、TXT、驱动核验或复核环节；
-- 禁止为了新轮动写作规则而修改机械统计规则；
-- 禁止把单日/单周涨跌直接改写为新的行情性质；
-- 禁止把没有热点的交易日硬写成“轮动主线丰富”。
-- 禁止因 ledger/历史没有记录、补位、样本噪声或“不是真热点”而删除 `MANDATORY_ROTATION_COVERAGE_SET` 中的项目；
-- 禁止把后台覆盖集合全部机械塞入第二节；第二节只能写频率与证据排序后的3项轮入和3项轮出；
-- 禁止给第二节增加第五列，或把规定四列改名；
-- 禁止把无实质关系的板块合并分析；
-- 禁止正式成稿混用中英文板块/主题名称；
-- 禁止把修改建议、自我纠正、作者历史、ledger、强制覆盖、初始性质、字幕来源或“节目提到”等内部话术写入正式报告；
-- 禁止用一次泛搜和模板化“暂未找到”替代每只入选股票的专项催化核查；
-- 禁止使用本地 TXT 之外的 YouTube 字幕、Transcript、视频正文、简介或片段生成 Bloomberg 节目内容；
-- 禁止在 `state/market-state-ledger.yaml` 之外建立另一套行情性质状态数据库。
+## Finviz机械统计不可简化
+
+使用项目现有稳定抓取、计算和输出程序生成机械统计，不让模型手工遍历全部股票或重新计算已有中间结果。保持以下规则完整生效：
+
+- All Stocks、S&P 500、Dow Jones 30、Nasdaq 100、Russell 2000五个股票范围；
+- Themes与ETFs；
+- 一致性优先、清一色候选优先、不足3项时才按平均表现补位；
+- 板块与主题宽度、准确收益、涨3/跌3和完整性审计；
+- ETF排除杠杆与反向产品，并按相同经济敞口去重；
+- 股票去重集合与两个TXT。
+
+原日度与周度任务全文继续保留为机械统计合同，但DAILY_WEEKLY_RUN不重复全文读取。DEVELOPMENT修改机械规则或稳定程序时，才按需读取原合同与 `references/04-consistency-first-statistics.md`。
+
+正常运行不得修改 `fetch_and_build.py`、`calculate.py` 或 `generate_outputs.py`。程序真实报错时停止并报告，不在日常任务中顺手调试或重写代码。
+
+## 行情性质与作者精确阶段
+
+AI能够自主创建的 `base_state` 只有：上涨趋势、下跌趋势、大型震荡、头部、底部。
+
+作者正式报告可以给出更具体的 `author_exact_state`。创建时同时记录其五类父状态 `author_exact_base_state`、来源 `author_exact_source_report`，并将 `author_exact_active` 设为 `true`。只有 `author_exact_active: true` 且当前 `base_state` 等于 `author_exact_base_state` 时，才在正式报告中逐字展示作者精确阶段。AI只能继承，不能创造、扩展、压缩或改写作者精确阶段，也不能把它复制给其他板块。
+
+作者精确阶段不是第六种AI基础分类；state必须同时保留五类 `base_state` 与作者原话及来源。若真实结构证据使 `base_state` 离开其父状态，机械地将 `author_exact_active` 设为 `false`，保留作者原话、日期、父状态和来源作为历史记录，正式报告改为显示新的 `base_state`。以后即使 `base_state` 返回旧父状态也不得自动复活旧精确阶段，只有较新的作者明确重申才可重新激活。
+
+## 轮动报告固定边界
+
+Finviz机械统计完成后建立去重的 `MANDATORY_ROTATION_COVERAGE_SET`。第二部分只精选三项轮入与三项轮出；第三部分只分析这六项；第四部分固定按 `references/15-fixed-section-four-etf-pool.md` 的顺序写24行ETF观察池，只有当天涨3/跌3中存在可靠代表ETF的其他行业才追加；无可靠代表ETF的Theme不得进入第四部分。该展示边界不改变Finviz机械统计、mandatory coverage或涨3/跌3规则。
+
+第四部分固定三列：`板块/ETF`、`当天表现`、`行情性质及说明`。指定的双ETF行必须同时取得两只ETF表现并解释方向或幅度分化；能源与金融各自合并为一行。状态从唯一 ledger 的ETF状态与作者连续性字段读取，不从一次性外部参考池重复读取。
+
+日度轮动报告标题固定为 `美股板块轮动观察｜YYYY.M.D`，月份和日期不补0。Markdown成稿的标题与六个部分标题全部使用普通正文加粗，不得使用 `#`、`##`、`###` Heading语法；DOCX标题使用加粗正文段落且不设置大纲级别，表格字体比正文字体小一号。
+
+独立轮动报告固定六部分，使用全中文板块与主题名称；具体译名从 `state/author-terminology.yaml` 读取。正文不得展示内部同步、缓存、审计、字幕来源或状态数据库过程，不得含超链接、技术指标或投资建议。公司名称必须带股票代码。
+
+## 完成条件
+
+只执行一次最终综合审计。通过后立即结束；发现问题时只修正失败项并定点复查，不重新开始第二轮或第三轮全量审计。
+
+DAILY_WEEKLY_RUN完成后，不修改Skill、不重建manifest、不运行全Skill validator、不执行全包hash审计，也不访问GitHub。

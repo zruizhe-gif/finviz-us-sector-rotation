@@ -1,37 +1,15 @@
-以 `finviz-us-sector-rotation-v0.2` 为唯一基线。
+# Codex运行入口
 
-1. 先完整读取 `SKILL.md`、`references/01-original-daily-task-verbatim.txt`、`references/02-original-weekly-task-verbatim.txt`、其余全部 references，以及 `examples/legacy/us_sector_rotation_2026-08-05.md`。01/02 是原任务全文，除 `03-current-overrides-and-precedence.md` 明确修改的冲突项外，其余要求一律保留，不得删减。8月5日范文只保留内容深度、分析逻辑和证据标准，冲突的旧技术/结构/持续性规则不得恢复。
+以当前目录中的 `finviz-us-sector-rotation-v0.2` 为唯一基线。
 
-2. 日常运行以本Skill内的 `references/09-author-voice-style.md` 与 `references/10-hard-bans.md` 为权威快照。只有用户明确要求维护Skill，且可验证的相邻 `research-publisher` 源存在时，才同步对应最新版；不得让日常分析依赖项目外目录。
+1. 先读取 `SKILL.md` 和 `references/14-runtime-modes-and-incremental-workflow.md`，根据用户当前请求判定 `DAILY_WEEKLY_RUN` 或 `DEVELOPMENT`。
+2. 默认使用 `DAILY_WEEKLY_RUN`。不要完整预读所有references、01/02原任务、历史对话、legacy范文、旧负面案例、全部历史报告或全部原始字幕。
+3. 日度或周度运行先读state，再定位 `history/daily/` 中最新 `AUTHOR_CONFIRMED_HISTORY`，计算其SHA-256并与 `author_history_as_of`、`latest_author_confirmed_report`、`latest_author_confirmed_report_sha256` 比较。日期更晚、同日期哈希变化或用户明确指定同日另一更新文件时都必须重读并同步；否则不重读正文。具体行情判断和术语只更新state，不修改Skill规则。
+4. Finviz机械统计固定由项目现有稳定程序完成。保持五个股票范围、Themes、ETFs、一致性优先、清一色优先、不足3项才补位、ETF去杠杆/反向/相同经济敞口和完整性审计，不让模型手工重算全部股票。
+5. 同一ticker的催化只研究一次并写入当日缓存；已有缓存直接复用。Bloomberg节目摘要按 `source_sha256` 复用；哈希未变化时不得重读原字幕。
+6. 轮动成稿只读取已经整理好的统计、coverage、催化缓存、宏观上下文、state、最新一期作者正式报告、Voice Style、Hard Bans和模板。缺什么只补什么。
+7. AI自动稿只能写入 `AI_reports/daily/` 或 `AI_reports/weekly/`，不得写入或覆盖 `history/`。只有作者人工修改或明确确认的版本才能进入正式历史并更新作者状态。
+8. 最终只执行一次综合审计。通过后立即结束；不得进行第二轮、第三轮全量复核。
+9. `DEVELOPMENT` 只在用户明确要求修改Skill、规则、代码或修复系统性问题时使用，并严格遵守当前请求的文件范围。GitHub登录、commit、push或可见性修改仍需用户在当前请求中明确授权。
 
-3. 重点检查“一致性优先”统计规则已经完整执行：五个股票范围必须先扫描每个板块全部有效成分；Themes先扫描每个大类全部子主题；清一色候选优先于平均表现；每个入选项披露完整宽度和“清一色优先/平均表现补位”；最终单列每个范围清一色上涨/下跌完整候选数、候选名单与最终入选结果。
-
-4. Bloomberg节目内容只扫描当前Skill根目录 `script/` 中的本地TXT；以 `SKILL.md` 所在目录解析路径，不得写死盘符或用户名。按日期和节目名匹配 The Close、Closing Bell、Open Interest、Bloomberg Surveillance，完整读取后按Skill目录每个节目单独保存MD，再生成 `daily-macro-context.md` 和 `week-macro-context.md`。禁止自行访问YouTube寻找或判断字幕、视频正文、简介或替代内容；缺失时只记录 `LOCAL_TRANSCRIPT_MISSING`。
-
-5. 按V0.2完整执行当前prompt指定的目标交易日或交易周：
-- 先生成完整Finviz统计主报告和两个TXT；
-- 再生成对应日期的独立轮动深度报告；
-- 开始前扫描 `history/daily/` 内作者正式DOCX与规范MD，先同步唯一 `state/market-state-ledger.yaml`；没有真实结构变化不得改行情性质；
-- 2026-08-12及以后必须先继承8月11日作者正式DOCX中的修订，尤其半导体（XSD）为“头部”；
-- 行情性质只能使用上涨趋势、下跌趋势、大型震荡、头部、底部；
-- 只有上涨/下跌趋势写趋势维持条件，其他三类不写持续性；
-- 禁止高/中高/中/中低/低持续性评级；
-- 六个标题严格使用当前规则，第六节只写未来观察点；
-- Finviz主统计报告继续保留核验链接；独立轮动深度报告删除来源、超链接、脚注和引用标记。
-
-6. 本轮最高优先级成稿规则：
-- 除公司名称、代码和必要指数/范围专名外，板块、行业、子行业、主题与子主题全部统一中文；
-- 正式报告禁止出现作者历史、后台同步、ledger/state、强制覆盖、初始性质、修改建议、自我纠正、字幕来源或“节目提到”等内部过程；
-- 第二节只选跨六范围涨3/跌3频率最高并经宽度、ETF、权重股复核的轮入3项、轮出3项，相似且底层成分高交叉者合并；严格四列“轮动强度、板块和主题、当日表现情况、轮动分析”；
-- 第三节只分析第二节最终六项，不同板块逐项分开，只有实质同类方向可合并；
-- Finviz主报告统计规则不变，格式与内容深度以 Skill 根目录内的 `finviz_2026-08-11_report.md` 为基准；每只入选股票分别做催化与时间线专项核查，禁止批量套用“暂未找到”。
-
-7. GitHub发布要求以当前用户prompt为准；不得把旧任务中“一次不上传GitHub”的临时限制延续到新任务。仍不得修改原始01/02任务文件，不运行与本轮无关的测试。
-
-完成后汇报：
-- 实际修改/新增文件；
-- research-publisher两份规则是否同步成功；
-- 本周Bloomberg节目归档清单与缺口；
-- 目标日期统计报告、两个TXT、轮动报告路径；
-- 一致性优先复核结果；
-- state ledger是否变化，如变化说明具体结构证据。
+完成后只汇报当前请求要求的文件、状态、目录结构和验证结果，不主动运行额外Finviz任务、全Skill validator、manifest重建、全包hash审计或GitHub操作。

@@ -1,8 +1,8 @@
 # Finviz YYYY-MM-DD 当周报告
 
-> 按 `02-original-weekly-task-verbatim.txt` 全文执行；本模板不能替代原任务。
+> 周度运行直接使用稳定代码生成的 1-Week calculated statistics、coverage audit、mandatory rotation coverage set、股票去重集合和 ETF 结果；不得重读原任务全文，也不得让模型手工遍历全部股票。
 
-> 沿用日度桌面旧版的简洁四列表格与信息密度，全部收益改用1-Week Performance；统计规则不变。每只入选股票分别核查同周直接催化与时间线，不得批量套用“暂未找到”。生成正式报告时删除本模板指令。
+> 全部收益使用 1-Week Performance，统计规则不变。入选股票先按 ticker 去重，只读取对应周度运行的 catalyst cache；同一股票跨范围重复出现时复用同一缓存，不得重复检索。未找到独立事件时固定写“暂未找到同周直接催化”，再给已经确认的板块、行业或宏观联动。生成正式报告时删除本模板指令。
 
 ## All Stocks
 |方向|板块与入选身份|宽度与整体收益|入选个股及原因|
@@ -25,5 +25,5 @@
 ## ETFs
 ### 最终上涨三只
 ### 最终下跌三只
-## 一致性优先最终复核
-## TXT文件与最终复核
+## 一致性优先结果
+## TXT文件结果
