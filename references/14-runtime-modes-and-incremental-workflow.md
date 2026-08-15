@@ -163,7 +163,8 @@ source_report: <适用时填写>
 3. 生成 calculated statistics；
 4. 生成 coverage audit；
 5. 生成 `MANDATORY_ROTATION_COVERAGE_SET`；
-6. 生成股票去重集合、ETF结果和两个TXT。
+6. 生成股票去重集合、ETF结果和两个TXT；
+7. 保留上述全部机器底稿，并运行 `scripts/build_runtime_briefs.py` 生成 `runtime-brief.json`。
 
 稳定程序必须继续实现：
 
@@ -177,7 +178,7 @@ source_report: <适用时填写>
 - 相同经济敞口去重；
 - 完整性审计。
 
-模型不得为了再次确认而手工遍历全部股票。正常运行禁止修改 `fetch_and_build.py`、`calculate.py`、`generate_outputs.py`。程序真实报错时立即停止并报告；需要修复时由用户另行授权进入DEVELOPMENT。
+模型不得为了再次确认而手工遍历全部股票。`calculated-statistics.json`、coverage、mandatory、hierarchy/perf、ETF audit与其他完整文件永久保留，但正常LLM成稿禁止全文读取；它只读取runtime brief。brief质量门失败或出现具名异常时才定点回查。正常运行禁止修改 `fetch_and_build.py`、`calculate.py`、`generate_outputs.py` 或brief生成程序。程序真实报错时立即停止并报告；需要修复时由用户另行授权进入DEVELOPMENT。
 
 ## 7. 股票催化一次去重缓存
 
@@ -185,18 +186,20 @@ source_report: <适用时填写>
 
 `research/finviz/YYYY-MM-DD/catalyst-cache.json`
 
-ticker为key。同一股票无论出现在多少指数、主题或板块，只研究一次，后续直接复用缓存。
+ticker为key。同一股票无论出现在多少指数、主题或板块，只研究一次，后续直接复用缓存。第一轮必须由 `scripts/batch_catalyst_screen.py` 对完整唯一ticker集合执行一次批量机械候选事件筛查，不得按ticker启动大量彼此独立的高推理工作线。
 
 普通股票研究顺序：
 
-1. 搜索公司名或ticker、目标日期和当日新闻、财报或公告；
-2. 只有必要时检查公司IR或SEC；
-3. 找到明确同日直接事件后立即停止继续搜索；
-4. 两步仍没有独立事件时，记录“暂未找到同日直接催化”，再依据已经确认的板块、行业或宏观联动解释。
+1. 批量机械扫描全部ticker在目标时间窗内的公司新闻、财报和公告候选；
+2. 没有候选事件且表现与所属板块一致的ticker，完成必要核查后立即记录“暂未找到同日直接催化”，再依据已经确认的板块、行业或宏观联动解释；
+3. 找到候选事件或命中升级条件的ticker，才定点检查可靠新闻、公司IR或SEC等对应一手来源；
+4. 找到明确同日直接事件后立即停止继续搜索。
 
 不得为了证明“没有事件”继续穷举所有SEC表单、评级、内部人交易、融资、合同和监管信息。
 
-只有以下情况升级完整事件调查：异常大涨大跌、财报、并购、监管、融资、重大合同、明显脱离板块或信息互相冲突。
+只有以下情况升级完整事件调查：找到候选事件、异常大涨大跌、财报或指引、并购、监管、融资或资本结构、重大合同、明显脱离板块或信息互相冲突。
+
+完整 `catalyst-cache.json` 覆盖全部唯一ticker并永久保留。全部记录完成后运行 `scripts/build_runtime_briefs.py` 生成 `catalyst-brief.json`；成稿只读brief，只有具名ticker存在冲突时才回查完整cache。
 
 ## 8. Bloomberg字幕永久缓存
 
@@ -226,20 +229,19 @@ source_sha256: <sha256>
 
 成稿阶段只读取：
 
-1. 当期 calculated statistics；
-2. mandatory rotation coverage；
-3. catalyst cache；
-4. daily macro context或一周的日度宏观上下文；
-5. 最新market-state-ledger；
-6. 最新author-terminology；
-7. 最新一期作者正式报告一份；
-8. `09-author-voice-style.md`；
-9. `10-hard-bans.md`；
-10. 对应报告模板。
+1. 当期 `runtime-brief.json`；
+2. 当期 `catalyst-brief.json`；
+3. daily macro context或一周的日度宏观上下文；
+4. 本次需要的market-state-ledger条目；
+5. 最新author-terminology；
+6. 最新一期作者正式报告的新增或变更内容；
+7. `09-author-voice-style.md`；
+8. `10-hard-bans.md`；
+9. 对应报告模板。
 
 日度第四部分另按 `references/15-fixed-section-four-etf-pool.md` 读取已经固化的24行、去重关系和多ETF交叉验证规则，并从唯一 `market-state-ledger.yaml` 的 `etf_states.states` 读取ETF状态。建立该ledger域时使用的一次性外部参考池不属于日常输入，不得再次读取。
 
-成稿阶段禁止重新抓取Finviz、全网重查所有股票、重读Bloomberg原始字幕或重读全部历史报告。缺少哪一项，只回到对应阶段补哪一项。
+成稿阶段禁止全文读取calculated、hierarchy/perf、coverage、ETF audit或完整catalyst cache；禁止重新抓取Finviz、全网重查所有股票、重读Bloomberg原始字幕或重读全部历史报告。缺少哪一项，只回到对应阶段补哪一项；异常核查只打开具名原始记录。若正常日报反复触发context compaction，先检查是否误读大型底稿，不得删除统计、个股、Bloomberg或报告内容要求。
 
 ## 10. AI报告与正式历史隔离
 
@@ -272,7 +274,7 @@ Finviz机械统计报告和TXT继续按现有数据产物结构保存，不迁�
 - 无投资建议；
 - 所有公司名称带股票代码。
 
-通过后立即结束。若存在失败项，只修正该项并定点复查，不重新运行第二轮或第三轮全量审计。
+通过后立即结束。brief质量门是终审输入而不是削减项；若存在失败项，只修正该项并定点回查相应底稿，不重新运行第二轮或第三轮全量审计。
 
 ## 12. DAILY_WEEKLY_RUN中永久删除的操作
 

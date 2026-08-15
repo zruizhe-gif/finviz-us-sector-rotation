@@ -22,7 +22,7 @@
 4. `01-original-daily-task-verbatim.txt` 与 `02-original-weekly-task-verbatim.txt`；
 5. 其他辅助reference与模板。
 
-原任务继续作为机械统计合同保存，但正常日度、周度运行不再全文重读。稳定程序及其 calculated statistics、coverage audit 和代码集合是日常执行载体。
+原任务继续作为机械统计合同保存，但正常日度、周度运行不再全文重读。稳定程序生成的 calculated statistics、coverage audit、完整代码集合及其他大型JSON是机器计算与追溯底稿；LLM日常成稿的执行载体是由 `scripts/build_runtime_briefs.py` 生成的 `runtime-brief.json` 与 `catalyst-brief.json`。
 
 ## A. Finviz机械统计保持完整
 
@@ -58,6 +58,8 @@
 
 DAILY_WEEKLY_RUN只运行现有稳定抓取、计算和输出程序。模型不得为“再次确认”手工遍历全部股票，也不得修改 `fetch_and_build.py`、`calculate.py` 或 `generate_outputs.py`。程序真实报错时停止并报告；代码维护必须另行进入DEVELOPMENT。
 
+完整底稿一项不删且永久保留。正常成稿禁止全文读取calculated、coverage、hierarchy/perf、ETF audit或完整catalyst cache；两个brief的质量门失败或出现具名异常时，才定点回查对应原始记录。该读取隔离不得改变统计范围、涨3跌3、个股覆盖或证据标准。
+
 ## B. Finviz主统计报告
 
 主统计报告保持简洁、完整、可核验：
@@ -73,7 +75,7 @@ DAILY_WEEKLY_RUN只运行现有稳定抓取、计算和输出程序。模型不�
 
 Themes固定列为：`方向`、`主题与入选身份`、`子主题宽度与等权收益`、`主要子主题及个股原因`。
 
-逐股催化研究按ticker去重缓存和有限升级机制执行，见 `14-runtime-modes-and-incremental-workflow.md`。同一ticker不得因跨范围或跨主题出现而重复研究。
+逐股催化研究按ticker去重缓存和有限升级机制执行，见 `14-runtime-modes-and-incremental-workflow.md` 与 `16-runtime-briefs-and-batch-catalysts.md`。全部ticker先由同一批量机械筛查覆盖；同一ticker不得因跨范围或跨主题出现而重复研究。
 
 ## C. 独立轮动报告固定结构
 

@@ -1,8 +1,8 @@
 # Finviz YYYY-MM-DD 日报
 
-> 日常运行直接使用稳定代码生成的 calculated statistics、coverage audit、mandatory rotation coverage set、股票去重集合和 ETF 结果；不得重读原任务全文，也不得让模型手工遍历全部股票。
+> 完整calculated statistics、coverage audit、mandatory rotation coverage set、股票去重集合、ETF结果及原始JSON全部由稳定程序生成并永久保留。LLM成稿只读取 `research/finviz/YYYY-MM-DD/runtime-brief.json`；只有其中具名质量门失败时才定点回查大型底稿。不得重读原任务全文，也不得让模型手工遍历全部股票。
 
-> 统计规则不变。入选股票先按 ticker 去重，只读取 `research/finviz/YYYY-MM-DD/catalyst-cache.json` 中的一次研究结果；同一股票跨范围重复出现时复用同一缓存，不得重复检索。未找到独立事件时固定写“暂未找到同日直接催化”，再给已经确认的板块、行业或宏观联动。生成正式报告时删除本模板指令。
+> 统计规则不变。入选股票先按 ticker 去重并100%完成批量机械初筛；成稿只读取 `research/finviz/YYYY-MM-DD/catalyst-brief.json`，具体股票异常时才回查完整cache。同一股票跨范围重复出现时复用同一结论，不得重复检索。未找到独立事件时固定写“暂未找到同日直接催化”，再给已经确认的板块、行业或宏观联动。生成正式报告时删除本模板指令。
 
 > 下列五个股票范围与Themes表格均须恰好填写涨1、涨2、涨3、跌1、跌2、跌3六行；每只股票原因在对应表格行内写完，不得拆成表后逐股模板段。生成正式报告时删除本模板指令。
 

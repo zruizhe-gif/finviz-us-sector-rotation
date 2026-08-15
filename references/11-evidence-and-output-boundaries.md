@@ -11,6 +11,8 @@ Finviz 统计固定使用现有稳定代码完成，模型不得为了再次确�
 - 准确涨跌幅、严格时间线、直接催化与联动/推断的区分；
 - 主统计报告中的可点击来源链接和发布日期。
 
+上述完整文件全部永久保留。完成机械层后运行 `scripts/build_runtime_briefs.py` 生成 `runtime-brief.json`；正常成稿只读brief，禁止全文加载calculated、coverage、hierarchy/perf或ETF audit。只有brief质量门失败或出现具名异常时才定点回查原文件。
+
 五个股票范围与 Themes 各保留恰好六行四列表格，股票原因写在对应表格行内。正常日度运行不得修改或调试正常工作的 `fetch_and_build.py`、`calculate.py`、`generate_outputs.py`；程序真实报错时停止并报告，不得在 DAILY_WEEKLY_RUN 中现场改代码。
 
 ## 股票催化一次去重缓存
@@ -22,6 +24,8 @@ Finviz 统计固定使用现有稳定代码完成，模型不得为了再次确�
 `research/finviz/YYYY-MM-DD/catalyst-cache.json`
 
 以股票代码为 key。结构遵守 `templates/catalyst-cache.json`，至少保存公司名称、全部入选位置、涨跌幅、研究层级、结论状态、直接事件及时间线、必要来源、已确认联动、停止原因和完成时间。缓存元数据保存来源统计文件及其 SHA-256、唯一 ticker 数和 ticker 集合指纹。
+
+第一轮候选事件判断必须对唯一ticker集合进行一次批量机械筛查。无候选事件且与所属板块方向一致的普通股票不启动独立高推理工作线；完成必要核查后立即写入固定无直接催化结论。只有候选事件或本文件规定的深度升级条件才交给模型定点核验。完整cache落盘后，由 `scripts/build_runtime_briefs.py` 生成 `catalyst-brief.json`；成稿只读brief，具体ticker有冲突时才回查完整cache。
 
 同一交易日期内，ticker 记录完整且来源统计仍覆盖该股票时，直接记为 `CATALYST_CACHE_HIT`，禁止重复搜索。统计集合变化时只研究新增或未完成 ticker；已经完成的记录继续复用。
 
@@ -66,18 +70,17 @@ Bloomberg 的唯一字幕输入、直接子目录扫描、SHA-256 判定、节�
 
 成稿阶段只读取已经整理好的中间结果：
 
-1. 当日/当周 calculated statistics；
-2. mandatory rotation coverage set；
-3. catalyst cache；
-4. daily macro context 或 week macro context；
-5. 最新 market-state-ledger；
-6. 最新 author-terminology；
-7. 上一期作者正式报告；
-8. Voice Style；
-9. Hard Bans。
-10. `references/15-fixed-section-four-etf-pool.md` 中已经固化的第四部分观察池与去重关系。
+1. 当日/当周 `runtime-brief.json`；
+2. 当日/当周 `catalyst-brief.json`；
+3. daily macro context 或 week macro context；
+4. 本次需要的 market-state-ledger 条目；
+5. 最新 author-terminology；
+6. 上一期作者正式报告的新增或变更内容；
+7. Voice Style；
+8. Hard Bans；
+9. 当前报告模板与已经固化的第四部分观察池规则。
 
-成稿阶段不得重新抓 Finviz、全网重查所有股票、重读 Bloomberg 原始字幕或重读全部历史报告。缺什么只补什么。
+成稿阶段不得全文读取大型机器底稿、重新抓 Finviz、全网重查所有股票、重读 Bloomberg 原始字幕或重读全部历史报告。缺什么只补什么；brief指出具体异常时只打开对应底稿片段。
 
 正式候选报告删除全部 URL、超链接、引用标记、脚注、来源尾注和 References/Sources；删除来源后不得留下残缺括号或半句话。所有非公司板块、行业、子行业和主题名称按作者术语表统一写中文。禁止展示缓存、历史同步、ledger、state、强制覆盖、字幕来源或审计过程。
 

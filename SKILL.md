@@ -84,16 +84,17 @@ DAILY_WEEKLY_RUN不得因为“熟悉规则”而完整读取全部reference、0
 
 正常成稿的主要输入固定为：
 
-1. 当日或当周 calculated statistics；
-2. coverage audit 与 mandatory rotation coverage；
-3. 去重后的股票催化缓存；
-4. `daily-macro-context.md` 或一周的日度宏观上下文；
-5. 最新 `market-state-ledger`；
-6. 最新 `author-terminology`；
-7. 最新一期作者正式报告一份；
-8. `references/09-author-voice-style.md`；
-9. `references/10-hard-bans.md`；
-10. 对应报告模板与唯一一次最终审计清单。
+1. `research/finviz/YYYY-MM-DD/runtime-brief.json`；
+2. `research/finviz/YYYY-MM-DD/catalyst-brief.json`；
+3. `daily-macro-context.md` 或一周的日度宏观上下文；
+4. 本次需要的 `market-state-ledger` 状态；
+5. 最新 `author-terminology`；
+6. 最新一期作者正式报告的新增或变更内容；
+7. `references/09-author-voice-style.md`；
+8. `references/10-hard-bans.md`；
+9. 对应报告模板与唯一一次最终审计清单。
+
+`calculated-statistics.json`、coverage、mandatory coverage、hierarchy/perf、ETF audit与完整 `catalyst-cache.json` 永久保留为机器底稿。稳定后处理程序 `scripts/build_runtime_briefs.py` 在不改变任何统计结果的前提下生成两个brief。正常DAILY_WEEKLY_RUN中，LLM不得全文读取这些大型底稿；只有brief指出具体异常或终审某一项失败时，才定点打开对应文件或ticker记录。详细边界见 `references/16-runtime-briefs-and-batch-catalysts.md`。
 
 只有发生明确缺口时才读取对应reference或原始材料：字幕摘要缺失或哈希变化时读取原字幕；ticker催化缓存缺失时补该ticker；稳定程序真实报错时停止并报告。缺什么只补什么。
 
@@ -108,9 +109,13 @@ DAILY_WEEKLY_RUN不得因为“熟悉规则”而完整读取全部reference、0
 - ETF排除杠杆与反向产品，并按相同经济敞口去重；
 - 股票去重集合与两个TXT。
 
+完整机械底稿生成后运行 `scripts/build_runtime_briefs.py`。它只建立LLM读取层，不替代、删减或重算Finviz核心逻辑；其一致性、coverage、ETF、固定观察池和ticker覆盖断言失败时，停止成稿并定点核查完整底稿。
+
 原日度与周度任务全文继续保留为机械统计合同，但DAILY_WEEKLY_RUN不重复全文读取。DEVELOPMENT修改机械规则或稳定程序时，才按需读取原合同与 `references/04-consistency-first-statistics.md`。
 
 正常运行不得修改 `fetch_and_build.py`、`calculate.py` 或 `generate_outputs.py`。程序真实报错时停止并报告，不在日常任务中顺手调试或重写代码。
+
+股票催化第一轮必须由 `scripts/batch_catalyst_screen.py` 一次覆盖全部唯一ticker，不得为每只普通股票启动独立高推理工作线。只有候选事件、异常涨跌、财报/指引、并购、融资或资本结构、监管、重大合同、明显脱离板块或证据冲突才进入模型定点深度核验；无候选事件且与板块方向一致的ticker完成必要机械核查后立即记录“暂未找到同日直接催化”。
 
 ## 行情性质与作者精确阶段
 
@@ -132,6 +137,6 @@ Finviz机械统计完成后建立去重的 `MANDATORY_ROTATION_COVERAGE_SET`。�
 
 ## 完成条件
 
-只执行一次最终综合审计。通过后立即结束；发现问题时只修正失败项并定点复查，不重新开始第二轮或第三轮全量审计。
+只执行一次最终综合审计。优先使用两个brief中的完整性断言；通过后立即结束。发现问题时只修正失败项并定点回查对应大型底稿或ticker，不重新开始第二轮或第三轮全量审计。
 
 DAILY_WEEKLY_RUN完成后，不修改Skill、不重建manifest、不运行全Skill validator、不执行全包hash审计，也不访问GitHub。

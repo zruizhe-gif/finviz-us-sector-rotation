@@ -1,8 +1,8 @@
 # Finviz YYYY-MM-DD 当周报告
 
-> 周度运行直接使用稳定代码生成的 1-Week calculated statistics、coverage audit、mandatory rotation coverage set、股票去重集合和 ETF 结果；不得重读原任务全文，也不得让模型手工遍历全部股票。
+> 完整1-Week calculated statistics、coverage audit、mandatory rotation coverage set、股票去重集合、ETF结果及原始JSON全部由稳定程序生成并永久保留。LLM成稿只读取当周 `runtime-brief.json`；只有其中具名质量门失败时才定点回查大型底稿。不得重读原任务全文，也不得让模型手工遍历全部股票。
 
-> 全部收益使用 1-Week Performance，统计规则不变。入选股票先按 ticker 去重，只读取对应周度运行的 catalyst cache；同一股票跨范围重复出现时复用同一缓存，不得重复检索。未找到独立事件时固定写“暂未找到同周直接催化”，再给已经确认的板块、行业或宏观联动。生成正式报告时删除本模板指令。
+> 全部收益使用 1-Week Performance，统计规则不变。入选股票先按 ticker 去重并100%完成批量机械初筛；成稿只读取对应周度运行的 `catalyst-brief.json`，具体股票异常时才回查完整cache。同一股票跨范围重复出现时复用同一结论，不得重复检索。未找到独立事件时固定写“暂未找到同周直接催化”，再给已经确认的板块、行业或宏观联动。生成正式报告时删除本模板指令。
 
 ## All Stocks
 |方向|板块与入选身份|宽度与整体收益|入选个股及原因|
