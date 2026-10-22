@@ -32,7 +32,7 @@ RANGE_KEYS = (
 FIXED_SECTION_FOUR_ROWS = (
     ("信息技术", ("XLK",)),
     ("半导体", ("SOXX", "XSD")),
-    ("存储/内存", ("DRAM",)),
+    ("存储器", ("DRAM",)),
     ("软件", ("IGV", "XSW")),
     ("云计算", ("WCLD",)),
     ("网络安全", ("IHAK",)),
@@ -46,14 +46,15 @@ FIXED_SECTION_FOUR_ROWS = (
     ("医疗保健", ("XLV",)),
     ("生物科技", ("XBI",)),
     ("金融", ("XLF", "KBE", "KRE", "KIE", "IAI")),
-    ("综合工业", ("XLI",)),
+    ("工业", ("XLI",)),
     ("航空国防", ("ITA",)),
     ("运输", ("IYT",)),
     ("基础材料", ("XLB",)),
     ("金属矿业", ("XME",)),
-    ("房地产/REIT", ("IYR", "RSPR")),
+    ("房地产", ("IYR", "RSPR")),
     ("电信", ("IYZ",)),
     ("公用事业", ("XLU",)),
+    ("加密货币", ("IBIT", "ETHA", "DIME")),
 )
 
 COMMODITY_OBSERVATION_ROWS = (
@@ -66,7 +67,8 @@ COMMODITY_OBSERVATION_ROWS = (
 )
 
 # Only industries already authorized by references/15 may be appended after the
-# fixed 24 rows. Aliases cover the English labels used by Finviz maps.
+# fixed 25 rows (row 25 = crypto IBIT/ETHA/DIME; rows renamed per author 2026-08-20/21).
+# Aliases cover the English labels used by Finviz maps.
 RELIABLE_APPEND_INDUSTRIES = {
     "Pharmaceuticals": ("制药", ("PPH",), ("XPH",)),
     "Pharmaceutical": ("制药", ("PPH",), ("XPH",)),
