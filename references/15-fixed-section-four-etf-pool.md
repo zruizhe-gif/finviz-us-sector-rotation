@@ -2,38 +2,43 @@
 
 本文件只保存长期稳定的第四部分观察池、展示顺序和ETF去重关系。具体行情性质只保存在 `state/market-state-ledger.yaml`；建立本规则时使用的一次性ETF参考池不得成为日常运行输入，以后无需重复读取。
 
-## 固定24行与顺序
+## 固定25行与顺序
 
-日度轮动报告第四部分先按下列顺序完整写出24行，不得漏行、换序或把同一行拆开：
+日度轮动报告第四部分先按下列顺序完整写出25行，不得漏行、换序或把同一行拆开。第一列格式为板块名＋两个空格＋ETF名称（不加竖杠）。第25行为加密货币：IBIT代表比特币、ETHA代表以太坊、DIME代表山寨币，三个ETF当天表现都要列出：
 
 | 顺序 | 板块/ETF |
 |---:|---|
-| 1 | 信息技术｜XLK |
-| 2 | 半导体｜SOXX / XSD |
-| 3 | 存储/内存｜DRAM |
-| 4 | 软件｜IGV / XSW |
-| 5 | 云计算｜WCLD |
-| 6 | 网络安全｜IHAK |
-| 7 | 通信服务｜XLC / RSPC |
-| 8 | 可选消费｜XLY / RSPD |
-| 9 | 必需消费｜XLP |
-| 10 | 食品饮料｜PBJ |
-| 11 | 零售｜XRT |
-| 12 | 住宅建筑｜XHB |
-| 13 | 能源｜XLE / XOP / AMLP / CRAK |
-| 14 | 医疗保健｜XLV |
-| 15 | 生物科技｜XBI |
-| 16 | 金融｜XLF / KBE / KRE / KIE / IAI |
-| 17 | 综合工业｜XLI |
-| 18 | 航空国防｜ITA |
-| 19 | 运输｜IYT |
-| 20 | 基础材料｜XLB |
-| 21 | 金属矿业｜XME |
-| 22 | 房地产/REIT｜IYR / RSPR |
-| 23 | 电信｜IYZ |
-| 24 | 公用事业｜XLU |
+| 1 | 信息技术  XLK |
+| 2 | 半导体  SOXX / XSD |
+| 3 | 存储器  DRAM |
+| 4 | 软件  IGV / XSW |
+| 5 | 云计算  WCLD |
+| 6 | 网络安全  IHAK |
+| 7 | 通信服务  XLC / RSPC |
+| 8 | 可选消费  XLY / RSPD |
+| 9 | 必需消费  XLP |
+| 10 | 食品饮料  PBJ |
+| 11 | 零售  XRT |
+| 12 | 住宅建筑  XHB |
+| 13 | 能源  XLE / XOP / AMLP / CRAK |
+| 14 | 医疗保健  XLV |
+| 15 | 生物科技  XBI |
+| 16 | 金融  XLF / KBE / KRE / KIE / IAI |
+| 17 | 工业  XLI |
+| 18 | 航空国防  ITA |
+| 19 | 运输  IYT |
+| 20 | 基础材料  XLB |
+| 21 | 金属矿业  XME |
+| 22 | 房地产  IYR / RSPR |
+| 23 | 电信  IYZ |
+| 24 | 公用事业  XLU |
+| 25 | 加密货币  IBIT / ETHA / DIME |
+| 26 | 核能铀矿  NLR / NUKZ / URNM / URNJ |
+| 27 | 太空科技（商业航天）  NASA / WARP / ORBX |
 
-当天Finviz涨3/跌3出现的其他行业，只有存在可靠代表ETF时才追加在第24行之后。没有可靠代表ETF的Theme或细分行业不得进入第四部分；大数据、金属商品、生物识别等无可靠代表ETF项目只保留机械统计与其他适当分析，不进入第四部分。该展示限制不得删减Finviz的Themes机械统计、mandatory coverage或第二、第三部分对重要方向的分析。
+第26行（核能铀矿：NLR、NUKZ、URNM、URNJ四只）与第27行（太空科技/商业航天：NASA、WARP、ORBX三只）为2026-09-09起作者指令新增的固定行：无论当日主题涨3/跌3是否包含相关行业，两行都必须写出并单独分析；行内全部ETF的当天表现都必须列出。**数据获取规则**：先取Finviz ETF数据；某只ETF在Finviz缺值时，必须通过网络检索该ETF的当日表现补齐（以ETF官网、发行商或可靠行情源为准，报告内可标注"网络检索"口径），不得以"缺值/缺省"为由省略该ETF或整行；仅当网络检索亦无法获得时才如实说明检索未果。两行初始行情性质均为大型震荡，此后仅随作者正式稿修订。
+
+当天Finviz涨3/跌3出现的其他行业，只有存在可靠代表ETF时才追加在第27行之后。没有可靠代表ETF的Theme或细分行业不得进入第四部分；大数据、金属商品、生物识别等无可靠代表ETF项目只保留机械统计与其他适当分析，不进入第四部分。该展示限制不得删减Finviz的Themes机械统计、mandatory coverage或第二、第三部分对重要方向的分析。
 
 ## ETF去重与禁止单列
 
@@ -41,7 +46,7 @@
 
 - 综合信息技术：保留XLK；VGT、RSPT不得单列。
 - 半导体：保留SOXX / XSD；SMH、FTXL只可内部辅助，不得单列。
-- 存储/内存：保留DRAM；KMEM、DISK不得单列。
+- 存储器：保留DRAM；KMEM、DISK不得单列。
 - 云计算：保留WCLD；SKYY、CLOU不得单列。
 - 网络安全：保留IHAK；CIBR、HACK不得单列。
 - 通信服务：保留XLC / RSPC；VOX不得单列。
@@ -54,10 +59,11 @@
 - 医疗保健：保留XLV；VHT、RSPH不得单列。
 - 生物科技：保留XBI；IBB、BBH不得单列。
 - 金融：只在金融一行保留XLF / KBE / KRE / KIE / IAI；VFH、RSPF、KBWB、FTXO、IAT、QABA、IAK、KBWP、FDIQ、KCE不得另起金融行。
-- 综合工业：保留XLI；VIS、RSPN不得单列。
+- 工业：保留XLI；VIS、RSPN不得单列。
 - 航空国防：保留ITA；PPA、XAR不得单列。
 - 运输：保留IYT；FTXR、XTN不得单列。
 - 基础材料：保留XLB；VAW、RSPM不得单列。
+- 加密货币：保留IBIT / ETHA / DIME；其他比特币、以太坊或山寨币产品（如FBTC、ARKB、GBTC、BITB等）不得另起加密货币行。
 - 金属矿业：保留XME；PICK、SLX不得单列。
 - 房地产/REIT：保留IYR / RSPR；VNQ不得单列。
 - 电信：保留IYZ；NXTG、XTL不得单列。

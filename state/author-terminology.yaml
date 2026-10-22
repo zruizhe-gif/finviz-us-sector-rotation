@@ -1,40 +1,300 @@
 schema_version: 1
-as_of: 2026-08-14
-source_precedence:
-  - AUTHOR_EXPLICIT_INSTRUCTION
-  - AUTHOR_CONFIRMED_HISTORY
+as_of: 2026-10-16
+latest_source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+policy: |
+  本文件是作者术语与翻译动态表，属于动态状态层（DAILY_STATE_UPDATE），不属于Skill规则。
+  作者正式报告中对板块/主题/ETF中文名、行业称谓、翻译错误的修正统一记录于此，正式成稿必须沿用。
+  单项名称修正只更新本文件；禁止为此修改SKILL.md、references/或templates/，除非用户明确判定为系统性规则问题（进入DEVELOPMENT）。
+  每天读取新的作者正式报告时同时检查本表是否需要更新；作者明确改过就记录并以后沿用。
 
-# Dynamic author terminology. Daily corrections update this file only; they do not modify Skill rules,
-# references, templates, or stable Python scripts.
-mappings:
-  etf:
-    VGT:
-      preferred_zh: "信息技术"
-      forbidden_zh:
-        - "硬件"
-      source: AUTHOR_EXPLICIT_INSTRUCTION
-      source_date: 2026-08-14
-      note: "只约束ETF VGT的正式名称；不得根据当日成分表现临时重新命名，也不改变Finviz Hardware主题的身份。"
+author_overrides:
+  MSTR_company_name:
+    label: "Strategy"
+    overrides: "MicroStrategy/微策略"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿轮出1与第四部分加密货币行均写Strategy（MSTR），不再用MicroStrategy。后续沿用。"
+  FANG_translation:
+    label: "响尾蛇能源"
+    overrides: "Diamondback/FANG不译"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿将FANG译为响尾蛇能源（Diamondback Energy）。轮入/轮出表与第四部分沿用。"
+  KMI_translation:
+    label: "金德摩根"
+    overrides: "Kinder Morgan不译"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿将KMI译为金德摩根。"
+  FLEX_translation:
+    label: "伟创力"
+    overrides: "Flex不译"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿将FLEX译为伟创力。"
+  SMCI_translation:
+    label: "超微电脑"
+    overrides: "Super Micro/超微型"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿将SMCI写为超微电脑（此前候选稿曾用Super Micro）。"
+  MGM_translation:
+    label: "美高梅"
+    overrides: "MGM不译"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿将MGM译为美高梅。"
+  PM_translation:
+    label: "菲利普莫里斯"
+    overrides: "Philip Morris不译"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿将PM译为菲利普莫里斯。"
+  NGG_translation:
+    label: "英国国家电网"
+    overrides: "National Grid不译"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿将NGG译为英国国家电网。"
+  standalone_market_translation:
+    label: "单独市场"
+    overrides: "独立市场（Standalone Market）"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿把MSCI的Standalone Market译为单独市场（候选稿曾用独立市场）。后续沿用单独市场。"
+  microcap_full_names:
+    label: "微盘股写公司全名"
+    overrides: "只写代码"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿观察点写ATA Creativity（AACG）/Republic Power Group（RPGL）——微盘异动条目公司全名+代码。"
+  part6_macro_structure:
+    label: "第六部分五小节结构"
+    overrides: "按区域分段（美国/中国/新兴市场/其他）"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿把宏观讨论固定为五小节：1全球经济数据（区域并列）/2对宏观经济的判断/3企业盈利预期/4货币政策预期/5市场状况。嘉宾观点按主题归类而非按区域。后续候选稿直接按五小节成稿。"
+  part3_state_ending:
+    label: "第三部分行情性质收尾"
+    overrides: "无固定收尾"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿第三部分每条驱动因素以行情性质：…收尾（含分项列明）。后续沿用。"
+  part1_no_change_declaration:
+    label: "核心结论无变化声明"
+    overrides: "无"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    note: "作者10.16正式稿核心结论末尾显式声明当日无行情性质结构变化（有变化时写明变化）。三驱动编号（油价和利率/AI融资链信用担忧/卖压集中权重股）+板块轮动总结段。"
+  VGT:
+    label: "信息技术"
+    overrides: "硬件"
+    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
+    note: "作者在8.12正式DOCX中把原'硬件（VGT）'改名为'信息技术（VGT）'（含苹果支撑、与半导体SOXX最大回撤对比的解释）。正式报告统一写信息技术，禁止写回硬件，也不得按当天成分表现临时改名。2026-08-16起按ETF去重：VGT与XLK同属综合信息技术、高度重复，第四部分信息技术固定使用XLK，VGT不再单列（ledger原information_technology_VGT条目已退役）；如正文其他位置提及VGT仍译为信息技术。"
+  real_estate_row_label:
+    label: "房地产"
+    overrides: "房地产/REIT"
+    source_report: "history/daily/美股板块轮动观察｜2026.8.20.md"
+    note: "作者8.20正式稿起第22行行名为房地产（IYR / RSPR），不再写房地产/REIT。"
+  memory_row_label:
+    label: "存储器"
+    overrides: "存储/内存"
+    source_report: "history/daily/美股板块轮动观察｜2026.8.21.md"
+    note: "作者8.21正式稿起第3行行名为存储器（DRAM），不再写存储/内存。"
+  industrials_row_label:
+    label: "工业"
+    overrides: "综合工业"
+    source_report: "history/daily/美股板块轮动观察｜2026.8.21.md"
+    note: "作者8.21正式稿起第17行行名为工业（XLI），不再写综合工业。"
+  oil_futures_spot_divergence:
+    label: "油价的期现背离"
+    overrides: "油价的地面与期货背离"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.22.md"
+    note: "作者9.22正式稿把未来观察点标题'油价的地面与期货背离'定名为'油价的期现背离'。后续沿用期现背离。同稿核心结论改为三段式（指数总述/轮入侧/轮出侧分段），后续候选稿直接按三段式成稿。9.23正式稿延续并强化：信用端等独立主题可单独成段；核心结论尾部不堆宏观日历与个股事件（放进第三部分/观察点）；轮动表固定为且仅为6行（2026-09-25用户明令，禁止（不入前三）类补充行）。"
+  clean_energy_CNRG:
+    label: "清洁能源"
+    finviz_source_label: "Environmental Sustainability"
+    finviz_source_label_cn: "环境可持续发展"
+    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
+    note: "作者正式历史对独立状态项采用清洁能源（CNRG）；公开行情性质表与ledger沿用该正式名称，Finviz源标签在统计/审计层仍保留为环境可持续发展，不得假装源标签发生变化。"
 
-  finviz_theme:
-    Cybersecurity:
-      preferred_zh: "网络安全"
-      distinct_from:
-        - Biometrics
-      source: AUTHOR_EXPLICIT_INSTRUCTION
-      source_date: 2026-08-14
-      note: "必须按Finviz原始Theme标签识别，不得与Biometrics互换。"
+independent_themes_rule:
+  Cybersecurity: "网络安全"
+  Biometrics: "生物识别"
+  rule: "Cybersecurity与Biometrics是Finviz两个独立主题，严禁混译或互换；若子主题包含零信任、端点安全、网络安全、云安全、身份与访问管理、威胁情报、SIEM或应用安全，所属大类必须判定为网络安全，不得因其中含身份认证就改成生物识别。"
 
-    Biometrics:
-      preferred_zh: "生物识别"
-      distinct_from:
-        - Cybersecurity
-      source: AUTHOR_EXPLICIT_INSTRUCTION
-      source_date: 2026-08-14
-      note: "必须按Finviz原始Theme标签识别，不得与Cybersecurity互换。"
+default_translations:
+  sectors:
+    Utilities: "公用事业"
+    Energy: "能源"
+    Technology: "科技"
+    Communication Services: "通信服务"
+    Real Estate: "房地产"
+    Consumer Cyclical: "可选消费"
+    Industrials: "工业"
+    Basic Materials: "基础材料"
+    Financial: "金融"
+    Healthcare: "医疗保健"
+    Consumer Defensive: "必需消费"
+  themes:
+    Semiconductors: "半导体"
+    Commodities Energy: "能源商品"
+    Environmental Sustainability: "环境可持续发展"
+    Cybersecurity: "网络安全"
+    Biometrics: "生物识别"
+    Education Technology: "教育科技"
+    Consumer Goods: "消费品"
+    Space Tech: "太空科技"
+    Quantum Computing: "量子计算"
+    Hardware: "硬件"
+    Social Media: "社交媒体"
+    Software: "软件"
+    E-commerce: "电子商务"
+    Metals: "金属商品"
+    Energy Traditional: "传统能源"
+  subthemes:
+    Satellites: "卫星"
+    Launch: "发射"
+    Earth Observation: "地球观测"
+    Space Tourism: "太空旅游"
+    Manufacturing: "制造"
+    Data Analytics: "数据分析"
+    Defense: "国防"
+    Cloud: "云计算"
+    Enabling Tech: "支撑技术"
+    Applications: "应用"
+    PCs & Devices: "个人电脑与设备"
+    Servers: "服务器"
+    Data Centers: "数据中心"
+    Electronics: "电子设备"
+    Gaming: "游戏"
+    Printing: "打印设备"
+    Telecom: "电信设备"
+    Industrial IoT: "工业物联网"
+    Next-Gen: "下一代硬件"
+    Networks: "社交网络"
+    Visual Content: "视觉内容"
+    Niche: "垂直社群"
+    Identity: "身份认证"
+    Gov & Defense: "政府与国防"
+    Workforce: "职业教育"
+    Curriculum: "课程内容"
+    Infrastructure: "基础设施"
+    Platforms: "平台"
+    Advertising: "广告"
+    Creator Economy: "创作者经济"
+    Dating: "交友"
+    Community: "社区"
+    Packaging: "封装"
+    Lithography: "光刻"
+    Memory: "存储"
+    Foundries: "晶圆代工"
+    Compute: "计算芯片"
+    Analog: "模拟芯片"
+    Wireless: "无线芯片"
+    Design Tools: "芯片设计工具"
+    Oil: "原油"
+    Gas & LNG: "天然气与液化天然气"
+    Uranium: "铀"
+    Biofuels: "生物燃料"
+    Water: "水资源"
+    Waste: "废弃物处理"
+    Air Quality: "空气质量"
+    Climate: "气候科技"
+    Agriculture: "农业"
+    Food: "食品"
+    Apparel: "服装"
+    Luxury: "奢侈品"
+    Farm-Direct: "农场直供"
+    Household: "家庭用品"
+    Secondhand: "二手消费"
+    Storage: "存储"
+    Networking: "网络设备"
+    Components: "零部件"
+    Sensing: "传感"
+    Communication: "通信"
+    Security: "安全"
+  representative_etf_labels:
+    XLK: "信息技术"
+    SOXX: "半导体"
+    XSD: "半导体"
+    DRAM: "存储器"
+    IGV: "软件"
+    XSW: "软件"
+    WCLD: "云计算"
+    IHAK: "网络安全"
+    XLC: "通信服务"
+    RSPC: "通信服务"
+    XLY: "可选消费"
+    RSPD: "可选消费"
+    XLP: "必需消费"
+    PBJ: "食品饮料"
+    XRT: "零售"
+    XHB: "住宅建筑"
+    XLE: "能源"
+    XOP: "能源上游"
+    AMLP: "能源中游"
+    CRAK: "炼油"
+    XLV: "医疗保健"
+    XBI: "生物科技"
+    XLF: "金融"
+    KBE: "银行"
+    KRE: "区域银行"
+    KIE: "保险"
+    IAI: "资本市场"
+    XLI: "工业"
+    ITA: "航空国防"
+    IYT: "运输"
+    XLB: "基础材料"
+    XME: "金属矿业"
+    IYR: "房地产"
+    RSPR: "房地产"
+    IYZ: "电信"
+    XLU: "公用事业"
+    PPH: "制药"
+    IHI: "医疗器械"
+    IHF: "医疗服务"
+    OIH: "油服"
+    PAVE: "美国制造"
+    DBE: "能源商品"
+    CNRG: "清洁能源"
+    IYK: "消费品"
+    SLV: "白银"
+    ITB: "住宅建筑"
+    XTN: "运输（等权）"
+    ARKX: "太空科技"
+    QTUM: "量子计算"
+    VGT: "信息技术"
+    SOCL: "社交媒体"
+    BNO: "原油"
+    UNG: "天然气"
+    GLD: "黄金"
+    DBB: "工业金属"
+    CORN: "玉米"
 
-resolution_rules:
-  - "正式报告命名先读取本文件，再使用通用翻译。"
-  - "作者新正式报告中的明确修正按日期覆盖旧映射。"
-  - "AI_reports不得反向更新本文件。"
-  - "单项术语修正不得触发SKILL.md、references、templates或Python脚本修改。"
+author_editorial_rules:
+  note: "作者对成稿写法的明确要求（动态状态层，不改Skill规则）；每次成稿前对照执行。"
+  rules:
+    - as_of: 2026-10-15
+      source: "用户明确要求（2026-10-15对话）"
+      rule: "核心结论按内容分段，不机械分段（不必固定'轮入侧/轮出侧'模板）。"
+    - as_of: 2026-10-15
+      source: "用户明确要求（2026-10-15对话）"
+      rule: "众所周知的市场交易英文术语可保留，但不要动辄中英混杂表达。"
+    - as_of: 2026-10-15
+      source: "用户明确要求（2026-10-15对话）"
+      rule: "报告必须跟进最新宏观交易动态。"
+    - as_of: 2026-10-14
+      source_report: "history/daily/美股板块轮动观察｜2026.10.14.md"
+      rule: "第三部分不要写太长：每个方向只写要点总结（直接触发、盈利预期要点、行情性质），不展开长篇论证。"
+    - as_of: 2026-10-14
+      source_report: "history/daily/美股板块轮动观察｜2026.10.14.md"
+      rule: "第四部分不得乱加追加行。量子计算、太空科技、核能铀矿、加密货币等是新兴类别，可以单列；与固定行大量重合的细分行业不得追加（例如制药PPH与医疗保健XLV大量重合，作者已删除）。历史正式稿中出现过的追加行仅限社交媒体SOCL、量子计算QTUM这类非重合新兴类别。"
+    - as_of: 2026-10-14
+      source_report: "history/daily/美股板块轮动观察｜2026.10.14.md"
+      rule: "当日有行情性质改判时，核心结论不得再写'当日无行情性质结构变化'；去掉冗余表述（如'没有一个清一色上涨'这类重复信息）。"
+    - as_of: 2026-10-14
+      source_report: "history/daily/美股板块轮动观察｜2026.10.14.md"
+      rule: "云计算WCLD改判大型震荡：作者认为软件板块并未形成真正的板块beta、整体仍疲弱；单日回撤叠加板块疲弱时应主动审视趋势结构是否开始破坏，不要机械写'上涨结构未破坏'。"
+    - as_of: 2026-10-16
+      source: "用户明确要求（2026-10-16对话）"
+      rule: "报告改为七部分：第六部分为宏观讨论（依据Bloomberg字幕研究，总结美国、欧洲、日本、中国等主要经济体最新数据，以及对宏观经济、企业盈利、货币政策、市场状况的讨论），第七部分为未来观察点。已写入Skill规则（references/03、05、08、10、12、14，templates，SKILL.md）。"
+    - as_of: 2026-10-16
+      source: "用户明确要求（2026-10-16对话）"
+      rule: "反感情绪化浮夸表达（如'万物rally'）：用正常人的语气描述和还原市场波动的基本事实，不言过其实（BAN-010）。"
+    - as_of: 2026-10-20
+      source: "用户明确要求（2026-10-20对话）"
+      rule: "'裁决''最终裁决'列为永久禁忌词（BAN-011），正文不得出现；直接写事件和要看的内容。"
+    - as_of: 2026-10-20
+      source: "用户明确要求（2026-10-20对话，针对10.19报告）"
+      rule: "宏观讨论中'企业盈利预期'只写盈利本身；违约风险、信用利差、融资成本等信用问题放入'市场状况'，不得与盈利混为一谈。"
+    - as_of: 2026-10-20
+      source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+      rule: "作者把公用事业XLU当日涨幅由+1.35%改为+1.34%（原始值1.345）：ETF涨跌幅以Finviz显示值为准，三位小数恰为5的边界值不得机械四舍五入进位，报告前核对时按作者口径取较低一位。"

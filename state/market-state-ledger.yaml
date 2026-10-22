@@ -1,791 +1,1380 @@
 schema_version: 3
-# `as_of` is the AUTHOR_CONFIRMED_HISTORY synchronization cursor. AI candidate reports never advance it.
-as_of: 2026-08-13
-author_history_as_of: 2026-08-13
-latest_author_confirmed_report: "history/daily/us_sector_rotation_2026-08-13.md"
-latest_author_confirmed_report_sha256: "a93c9ecbb84dd59b6f58b53445bb4227f2e0ec97d9e03e9dc93ed73c2bcff591"
-# Backward-compatible aliases retained for existing readers.
-latest_source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-baseline_source: "history/daily/us_sector_rotation_2026-08-13.md"
+as_of: 2026-10-21
+latest_source_report: "history/daily/美股板块轮动观察｜2026.10.21.md"
+baseline_source: "history/daily/美股板块轮动观察｜2026.10.14.md"
+# SKILL.md增量同步所需的作者历史游标（与sync_checkpoint保持一致；AI_reports不得推进这三项）
+author_history_as_of: 2026-10-21
+latest_author_confirmed_report: "history/daily/美股板块轮动观察｜2026.10.21.md"
+latest_author_confirmed_report_sha256: "8c6f2071008d083b1af84c45996e945b5fa30644629103484298bdf25c0ab8d0"
 history_precedence: AUTHOR_CONFIRMED_HISTORY
-allowed_states:
-  - 上涨趋势
-  - 下跌趋势
-  - 大型震荡
-  - 头部
-  - 底部
+state_policy:
+  allowed_base_states:
+    - 上涨趋势
+    - 下跌趋势
+    - 大型震荡
+    - 头部
+    - 底部
+  author_exact_state_rule: "作者正式报告明确写出的更具体行情阶段（例如上涨趋势中继）原样保存在author_exact_state，并映射到五种base_state之一；这不是新的AI行情性质类别。AI只能继承作者原话，禁止自创、改回或套用其他条目；只有作者新判断可以覆盖。"
+  sync_mode: incremental
+  sync_rule: "每个新交易日只读取日期晚于as_of的新作者正式报告，并核对日期等于as_of的正式文件是否有新修改（sha256/mtime与sync_checkpoint比对）。AI_reports自动稿不得反向更新本台账；本台账只随作者正式报告推进。正式报告识别两种命名：旧规范us_sector_rotation_YYYY-MM-DD.md与2026-08-16起的新规范美股板块轮动观察｜YYYY.M.D（.md/.docx，月日不补0）。"
+sync_checkpoint:
+  report_date: 2026-10-21
+  source_report: "history/daily/美股板块轮动观察｜2026.10.21.md"
+  file_sha256: "8c6f2071008d083b1af84c45996e945b5fa30644629103484298bdf25c0ab8d0"
+  file_mtime: "2026-10-22T09:30:00"
 
-# One-time author ETF reference pool merged on 2026-08-15. The external source file is not a
-# DAILY_WEEKLY_RUN input; future runs read only this persisted ledger section.
+etf_reference_pool_merge:
+  source_file: "finviz_us_sector_etf_reference_pool_2026-08-14.txt"
+  source_date: 2026-08-14
+  merged_on: 2026-08-16
+  scope: "一次性合并：作者ETF参考池中已明确填写的行情性质全部并入本台账sectors_and_themes；不新建第二份ETF状态文件，本台账仍是唯一行情性质总表。"
+  workflow_status: "该ETF参考池不进入日常工作流，以后无需每天读取。"
+  pool_role_tags: "[L]=交易量/流动性基准；[W]=代表性权重股/主流权重结构；[E]=等权或修正等权（观察宽度）；[B]=宽度代理；[A]=差异化补充"
+  part4_link: "第四部分24行固定观察池、双ETF交叉验证与ETF去重关系见references/03（2026-08-16节）与references/05；VGT与XLK同属综合信息技术、高度重复，信息技术固定使用XLK，VGT不再单列（原information_technology_VGT条目已退役）。"
+  coverage: "池内36个子行业、105只ETF的行情性质全部填写、无空白项，已全部合并。"
+
 etf_states:
-  as_of: 2026-08-14
-  source: AUTHOR_EXPLICIT_INSTRUCTION
-  source_description: "用户提供的一次性美股行业ETF去重参考池（池内更新日期2026-08-14）"
-  raw_filled_rows: 106
-  unique_etf_count: 105
-  duplicate_rows:
-    IEO: "在油气勘探生产和炼油补充中各出现一次，两处均为上涨趋势。"
-  blank_state_items: []
-  states:
-    AIRR: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    AMLP: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    BBH: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    CIBR: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    CLOU: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    CRAK: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    DISK: {base_state: 头部, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    DRAM: {base_state: 头部, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    ENFR: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    FDIQ: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    FTXG: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    FTXO: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    FTXR: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    FXG: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    FXH: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    HACK: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IAI: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IAK: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IAT: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IBB: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IBUY: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IEO: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IEZ: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IGV: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IHAK: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IHE: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    IHF: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IHI: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    ITA: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    ITB: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    IYR: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    IYT: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    IYZ: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    KBE: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    KBWB: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    KBWP: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    KCE: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    KIE: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    KMEM: {base_state: 头部, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    KRE: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    MDEV: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    MLPX: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    NXTG: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    OIH: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    PAVE: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    PBJ: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    PICK: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    PKB: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    PPA: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    PPH: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    PXE: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    QABA: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPC: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPD: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPF: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPG: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPH: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPM: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPN: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPR: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPS: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RSPT: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    RSPU: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    RTH: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    SKYY: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    SLX: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    SMH: {base_state: 头部, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    SOXX: {base_state: 头部, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VAW: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VCR: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VDC: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VDE: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VFH: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VGT: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    VHT: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VIS: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VNQ: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    VOX: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    VPU: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    WCLD: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    WELD: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XAR: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XBI: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    XES: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XHB: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XHE: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XHS: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLB: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLC: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLE: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLF: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLI: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLK: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    XLP: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLU: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLV: {base_state: 上涨趋势, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XLY: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XME: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XOP: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XPH: {base_state: 上涨趋势, author_exact_state: 上涨趋势中继, author_exact_state_as_of: 2026-08-14, author_exact_base_state: 上涨趋势, author_exact_active: true, author_exact_source: AUTHOR_EXPLICIT_INSTRUCTION}
-    XRT: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XSD: {base_state: 头部, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XSW: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XTL: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
-    XTN: {base_state: 大型震荡, author_exact_state: null, author_exact_base_state: null, author_exact_active: false}
+  states: sectors_and_themes
+  note: "references/15所称etf_states.states即本台账sectors_and_themes（第四部分固定行与追加行的ETF状态均在其中），不另建第二份状态表；读取时以sectors_and_themes各条目为准。"
 
 sectors_and_themes:
-  utilities_XLU:
-    label: "公用事业"
-    representative_etf: XLU
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-12
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-12
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-    note: "纳斯达克样本全涨且代表ETF上行，但尚未形成跨范围结构突破。"
-  energy_XLE:
-    label: "能源"
-    representative_etf: XLE
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "窄指数样本回落而广义ETF接近平盘，霍尔木兹与油价仍可快速重定价。"
+  # ===== 第四部分24行固定观察池（顺序固定，行号对应references/05） =====
   technology_XLK:
     label: "信息技术"
     representative_etf: XLK
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-13
-    author_exact_state: 上涨趋势中继
-    author_exact_state_as_of: 2026-08-13
-    author_exact_base_state: 上涨趋势
-    author_exact_active: true
-    author_exact_source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "作者确认科技处于上涨趋势中继；AI服务器与光通信财报强劲，但广义科技宽度仅略偏正且软件与信息技术并未同步。"
-  communication_services_XLC:
-    label: "通信服务"
-    representative_etf: XLC
-    state: 大型震荡
     base_state: 大型震荡
-    base_state_as_of: 2026-08-14
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_EXPLICIT_INSTRUCTION
-    as_of: 2026-08-14
-    source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-    note: "作者最新ETF状态总表将XLC确认为大型震荡；固定第四部分同时使用RSPC观察等权宽度。"
-  real_estate_IYR:
-    label: "房地产/REIT"
-    representative_etf: IYR
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-14
-    author_exact_state: 上涨趋势中继
-    author_exact_state_as_of: 2026-08-14
-    author_exact_base_state: 上涨趋势
-    author_exact_active: true
-    author_exact_source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-    source: AUTHOR_EXPLICIT_INSTRUCTION
-    as_of: 2026-08-14
-    source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-    note: "作者最新ETF状态总表将IYR确认为上涨趋势中继；RSPR继续作为等权宽度单独记录。"
-  consumer_cyclical_XLY:
-    label: "可选消费"
-    representative_etf: XLY
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "四个范围和住宅链同步偏弱，但小盘消费均值接近平盘，尚非结构性下跌。"
-  industrials_XLI:
-    label: "工业"
-    representative_etf: XLI
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "AI电力和航空航天订单支撑盈利；趋势仍需订单转化、利润率和跨资本品扩散。"
-  basic_materials_XLB:
-    label: "基础材料"
-    representative_etf: XLB
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "五个股票范围轮出一致，财报与披露冲击又放大小盘股尾部。"
-  financial_XLF:
-    label: "金融"
-    representative_etf: XLF
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "广义ETF温和上涨；趋势仍需净息差、信用成本和资本市场收入稳定。"
-  large_healthcare_XLV:
-    label: "医疗保健"
-    representative_etf: XLV
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "道指医疗样本全涨且代表ETF温和上行，单日幅度没有破坏既有结构。"
-  small_biotech_XBI:
-    label: "生物科技"
-    representative_etf: XBI
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-14
-    author_exact_state: 上涨趋势中继
-    author_exact_state_as_of: 2026-08-14
-    author_exact_base_state: 上涨趋势
-    author_exact_active: true
-    author_exact_source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-    source: AUTHOR_EXPLICIT_INSTRUCTION
-    as_of: 2026-08-14
-    source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-    note: "作者最新ETF状态总表将XBI确认为上涨趋势中继；IBB与BBH状态继续保留在ETF域但不得单列。"
-  consumer_defensive_XLP:
-    label: "必需消费"
-    representative_etf: XLP
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "大盘防御现金流温和回流，但道指内部并非清一色上涨。"
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第1行（信息技术  XLK）。作者8.18正式稿将信息技术从上涨趋势中继改为大型震荡（第三节明确\"信息技术XLK明确进入大型震荡\"）：AI硬件动量链集中了结与应用软件逆势上涨并存、科技内部硬件向软件切换，原中继结构的高波动分化升级为结构转换。VGT退役、信息技术固定使用XLK不变。"
   semiconductors_XSD:
     label: "半导体"
-    representative_etf: XSD
-    state: 头部
+    representative_etf: "SOXX / XSD"
     base_state: 头部
-    base_state_as_of: 2026-08-13
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "服务器、光通信与云算力的订单和利润共同确认强修复，但高预期与内部剧烈分化尚未解除。"
-  commodities_energy_DBE:
-    label: "能源商品"
-    representative_etf: DBE
-    state: 大型震荡
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第2行（半导体  SOXX / XSD），双ETF交叉验证行：SOXX为权重结构，XSD为修正等权（宽度）。池内SMH/SOXX/XSD均为头部。禁止只看XSD概括半导体：SOXX涨而XSD跌说明大型权重半导体强、中小型与市场宽度偏弱（8月13日教训）。需要时内部可辅助查看SMH、FTXL，但第四部分固定只显示SOXX/XSD。"
+  memory_dram_DRAM:
+    label: "存储器"
+    representative_etf: DRAM
+    base_state: 头部
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第3行（存储器  DRAM，原存储/内存，作者8.21改名）。池内DRAM/KMEM/DISK均为头部；DRAM为内存/HBM产业链最直接交易基准。"
+  large_software_IGV:
+    label: "软件"
+    representative_etf: "IGV / XSW"
     base_state: 大型震荡
-    base_state_as_of: 2026-08-11
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "原油、天然气、生物燃料和核能的利润机制不同，不能以单日同向替代结构。"
-  clean_energy_CNRG:
-    label: "清洁能源"
-    representative_etf: CNRG
-    state: 大型震荡
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第4行（软件  IGV / XSW），双ETF交叉验证行：IGV为高流动性权重基准，XSW为修正等权（宽度）。作者8.27正式稿拆分行内状态：IGV维持大型震荡、等权XSW转为上涨趋势（等权+5.22%显示宽度真实），行内分别说明；等权XSW独立条目equal_weight_software_XSW同日改判。"
+  cloud_computing_WCLD:
+    label: "云计算"
+    representative_etf: WCLD
     base_state: 大型震荡
-    base_state_as_of: 2026-08-11
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "最新作者正式报告将该项确认为清洁能源大型震荡。"
+    as_of: 2026-10-14
+    source_report: "history/daily/美股板块轮动观察｜2026.10.14.md"
+    note: "第5行（云计算  WCLD）。作者10.14正式稿：WCLD -2.29%随软件回落，第三部分写“上涨受阻，转为震荡”，第四部分写“大型震荡。随软件回落，上涨结构开始破坏”；同时判断软件板块并未形成真正的板块beta、整体仍然疲弱。此前10.9正式稿曾改为上涨趋势。更早历史：作者8.27正式稿曾改为上涨趋势，9.4正式稿改回大型震荡（与XSW同步）：跷跷板回落（-2.98%）为三日检验的终结信号；SKYY/CLOU差异仅作后台理解。"
   cybersecurity_IHAK:
     label: "网络安全"
     representative_etf: IHAK
-    state: 上涨趋势
     base_state: 上涨趋势
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "作者确认网络安全仍为上涨趋势；八个子主题单日1涨7跌、代表ETF小幅回落，没有单独构成基础结构破坏。"
-  biometrics:
-    label: "生物识别"
-    representative_etf: "N/A"
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-13
-    author_exact_state: 震荡
-    author_exact_state_as_of: 2026-08-13
-    author_exact_base_state: 大型震荡
+    author_exact_state: "上涨趋势中继"
+    author_exact_base_state: 上涨趋势
     author_exact_active: true
-    author_exact_source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "作者原话为‘震荡’，基础父状态按五类映射为大型震荡；四个生物识别子主题同步走弱，但没有可靠独占ETF。"
-  education_technology:
-    label: "教育科技"
-    representative_etf: "N/A"
-    state: 下跌趋势
-    base_state: 下跌趋势
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "企业培训、在线学习和校园零售压力延续；趋势仍需订阅、招生与现金流继续下修。"
-  consumer_goods_IYK:
-    label: "消费品"
-    representative_etf: IYK
-    state: 大型震荡
+    author_exact_source_report: "history/daily/美股板块轮动观察｜2026.9.1.md"
+    as_of: 2026-09-01
+    source_report: "history/daily/美股板块轮动观察｜2026.9.1.md"
+    note: "第6行（网络安全  IHAK）。池内CIBR/IHAK/HACK均为上涨趋势；8.13正式报告确认上涨趋势。作者9.1正式稿将当日状态细化为上涨趋势中继（八子行业清一色下跌-4.66%后的首度宽幅回调），原词保存为AUTHOR_EXACT_STATE。"
+  communication_services_XLC:
+    label: "通信服务"
+    representative_etf: "XLC / RSPC"
     base_state: 大型震荡
-    base_state_as_of: 2026-08-11
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "六个子主题同步走弱但公司事件贡献较大，尚未改变区间结构。"
-  large_software_IGV:
-    label: "大型软件"
-    representative_etf: IGV
-    state: 大型震荡
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第7行（通信服务  XLC / RSPC），双ETF交叉验证行。作者ETF池（2026-08-14，最新总表）将XLC/VOX/RSPC统一为大型震荡；8.13正式报告曾写头部，以池为准改为大型震荡。"
+  consumer_cyclical_XLY:
+    label: "可选消费"
+    representative_etf: "XLY / RSPD"
     base_state: 大型震荡
-    base_state_as_of: 2026-08-11
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "权重软件走弱，等权软件接近平盘，盈利分化仍大。"
-  equal_weight_software_XSW:
-    label: "等权软件"
-    representative_etf: XSW
-    state: 大型震荡
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第8行（可选消费  XLY / RSPD），双ETF交叉验证行：XLY为权重基准，RSPD为S&P 500等权。池内XLY/VCR/RSPD均为大型震荡。"
+  consumer_defensive_XLP:
+    label: "必需消费"
+    representative_etf: XLP
     base_state: 大型震荡
-    base_state_as_of: 2026-08-11
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "当天几乎平盘，没有形成统一方向。"
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第9行（必需消费  XLP）。池内XLP/VDC/RSPS均为大型震荡。"
+  food_beverage_PBJ:
+    label: "食品饮料"
+    representative_etf: PBJ
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第10行（食品饮料  PBJ）。池内PBJ/FTXG/FXG均为大型震荡。"
+  retail_XRT:
+    label: "零售"
+    representative_etf: XRT
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第11行（零售  XRT）。XRT为高流动性+修正等权宽度核心指标；池内RTH/IBUY同为大型震荡。"
+  homebuilders_XHB:
+    label: "住宅建筑"
+    representative_etf: XHB
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第12行（住宅建筑  XHB）。原homebuilders_ITB条目，2026-08-16起固定观察池改用修正等权XHB（宽度指标）；池内ITB/PKB/XHB均为大型震荡，状态不变。"
+  energy_XLE:
+    label: "能源"
+    representative_etf: "XLE / XOP / AMLP / CRAK"
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-21
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+    note: '第13行合并行分项：大型权重能源。作者8.25正式稿将XLE从上涨趋势改回大型震荡（XLE重新回到大型震荡——获利回吐日BNO -4.8%、全分项下跌但中游偏强）。作者9.21正式稿将四分项全部改为大型震荡，至10.13正式稿仍为“均为大型震荡”。当前：XLE大型震荡；XOP大型震荡；AMLP大型震荡；CRAK大型震荡；油服OIH大型震荡。'
+  large_healthcare_XLV:
+    label: "医疗保健"
+    representative_etf: XLV
+    base_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    author_exact_base_state: 上涨趋势
+    author_exact_active: true
+    author_exact_source_report: "history/daily/美股板块轮动观察｜2026.9.9.md"
+    as_of: 2026-09-09
+    source_report: "history/daily/美股板块轮动观察｜2026.9.9.md"
+    note: "第14行（医疗保健  XLV）。池内XLV/VHT/RSPH均为上涨趋势；8.13正式报告确认上涨趋势（小盘生物科技拖累不改基础趋势）。；作者9.9正式稿细化为上涨趋势中继。"
+  small_biotech_XBI:
+    label: "生物科技"
+    representative_etf: XBI
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-09
+    source_report: "history/daily/美股板块轮动观察｜2026.9.9.md"
+    note: "第15行（生物科技  XBI）。作者8.25正式稿将生物科技从上涨趋势中继简化为上涨趋势（XBI大涨3.0%、Moderna +14%与小盘临床共同驱动），author_exact_state清空。；作者9.9正式稿由上涨趋势改为大型震荡（安进事件与临床试验ETF重挫后的降级）。"
+  financial_XLF:
+    label: "金融"
+    representative_etf: "XLF / KBE / KRE / KIE / IAI"
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-28
+    source_report: "history/daily/美股板块轮动观察｜2026.9.28.md"
+    note: "作者8.17正式稿写为趋势中继（8.27沿用）；9.28正式稿将五分项统一改判为均为大型震荡——利率冲击周（10Y 5.21）中另类资管全线-3%+、银行回落，8.17确立的金融趋势正式终结。"
+  industrials_XLI:
+    label: "工业"
+    representative_etf: XLI
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-09
+    source_report: "history/daily/美股板块轮动观察｜2026.9.9.md"
+    note: "第17行（工业  XLI，原综合工业，作者8.21改名）。作者8.18正式稿将综合工业写为上涨趋势中继：AI电力代理交易瓦解（电气化三剑客-6.8%至-7.6%、卡特彼勒-4.6%）而传统工业跌幅温和，属趋势内高波动检验；原话保存为AUTHOR_EXACT_STATE。；作者9.9正式稿由上涨趋势中继改为大型震荡（两日镜像、Vertiv -9.61%回吐）。"
+  aerospace_defense_ITA:
+    label: "航空国防"
+    representative_etf: ITA
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-09
+    source_report: "history/daily/美股板块轮动观察｜2026.9.9.md"
+    note: "第18行（航空国防  ITA）。作者ETF池（2026-08-14，最新总表）将ITA/PPA/XAR均定为上涨趋势；8.13正式报告曾写大型震荡，以池为准改为上涨趋势。；作者9.9正式稿由上涨趋势改为大型震荡。"
+  transportation_IYT:
+    label: "运输"
+    representative_etf: IYT
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-09
+    source_report: "history/daily/美股板块轮动观察｜2026.9.9.md"
+    note: "第19行（运输  IYT）。原transportation_XTN条目并入本条：固定观察池改用IYT（主流权重基准，池内IYT/FTXR均为上涨趋势中继）；等权XTN为大型震荡（铁路、卡车、航空等宽度偏弱），差异在行内说明。；作者9.9正式稿由上涨趋势中继改为大型震荡（油价成本端压制）。"
+  basic_materials_XLB:
+    label: "基础材料"
+    representative_etf: XLB
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第20行（基础材料  XLB）。池内XLB/VAW/RSPM均为大型震荡；8.13正式报告确认大型震荡。"
   metals_mining_XME:
     label: "金属矿业"
     representative_etf: XME
-    state: 大型震荡
     base_state: 大型震荡
-    base_state_as_of: 2026-08-11
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "贵金属、稀土和工业金属缺少同向供需变化。"
-  silver_SLV:
-    label: "白银"
-    representative_etf: SLV
-    state: 上涨趋势
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第21行（金属矿业  XME）。XME为高流动性+修正等权宽度核心指标；池内PICK/SLX同为大型震荡。"
+  real_estate_IYR:
+    label: "房地产"
+    representative_etf: "IYR / RSPR"
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-09
+    source_report: "history/daily/美股板块轮动观察｜2026.9.9.md"
+    note: "第22行（房地产  IYR / RSPR，原房地产/REIT，作者8.20改名），双ETF交叉验证行。作者ETF池将IYR/VNQ写为上涨趋势中继，等权RSPR为大型震荡（等权宽度弱于权重结构）；8.13正式报告曾写大型震荡，以池（最新总表）为准。；作者9.9正式稿由上涨趋势中继改为大型震荡。"
+  telecom_IYZ:
+    label: "电信"
+    representative_etf: IYZ
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第23行（电信  IYZ）。池内IYZ/NXTG/XTL均为大型震荡。"
+  utilities_XLU:
+    label: "公用事业"
+    representative_etf: XLU
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "第24行（公用事业  XLU）。池内XLU/VPU/RSPU均为大型震荡。"
+
+  # ===== ETF池其余子行业（不占24行固定行；当天Finviz涨3跌3出现且确需追加入第四部分时使用） =====
+  pharma_PPH:
+    label: "制药"
+    representative_etf: PPH
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "池内PPH为大型震荡（大型制药龙头集中），IHE/XPH为上涨趋势中继（美国制药与等权宽度更强）。作者10.14正式稿删除第四部分追加的制药PPH行：制药与医疗保健XLV大量重合，不得追加进第四部分；状态仅在本台账维护。"
+  medical_devices_IHI:
+    label: "医疗器械"
+    representative_etf: IHI
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "池内IHI/MDEV/XHE均为大型震荡。"
+  healthcare_services_IHF:
+    label: "医疗服务"
+    representative_etf: IHF
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "池内IHF为大型震荡（保险与服务权重结构），FXH/XHS为上涨趋势。"
+  upstream_XOP:
+    label: "能源上游E&P"
+    representative_etf: XOP
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-21
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+    note: "能源合并行分项：上游E&P。XOP为高流动性+修正等权宽度核心指标（大型震荡）；IEO（大型E&P权重）为上涨趋势，PXE为大型震荡。；作者9.9正式稿由大型震荡改为上涨趋势。"
+  oil_services_OIH:
+    label: "油服"
+    representative_etf: OIH
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "池内OIH/IEZ/XES均为大型震荡。"
+  midstream_AMLP:
+    label: "中游管道储运"
+    representative_etf: AMLP
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-21
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+    note: "能源合并行分项：中游。AMLP（能源基础设施MLP）为上涨趋势；MLPX/ENFR为上涨趋势中继。"
+  refining_CRAK:
+    label: "炼油"
+    representative_etf: CRAK
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-21
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+    note: "能源合并行分项：炼油。CRAK为纯炼厂基准（覆盖MPC、VLO、PSX、DINO、PBF等，含海外炼厂），上涨趋势；IEO的炼油敞口亦为上涨趋势。"
+  reshoring_PAVE:
+    label: "美国制造/回流"
+    representative_etf: PAVE
     base_state: 上涨趋势
-    base_state_as_of: 2026-08-11
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "单日回落没有破坏既有上涨结构。"
-  homebuilders_ITB:
-    label: "住宅建筑"
-    representative_etf: ITB
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-11
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "消费大类和长期融资约束没有同步转向。"
-  transportation_XTN:
-    label: "运输"
-    representative_etf: XTN
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-11
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-    note: "油价提高成本预期，单日波动没有改变原结构。"
-  space_technology_ARKX:
-    label: "太空科技"
-    representative_etf: ARKX
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-13
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "五个子主题全涨，但短上市历史与高波动个股放大收益，商业兑现仍分化。"
-  quantum_computing_QTUM:
-    label: "量子计算"
-    representative_etf: QTUM
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-12
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-12
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-    note: "作者将量子计算确认为大型震荡；六个子主题虽同步上涨，盈利规模、研发投入与资本需求仍远落后于预期定价。"
-  hardware_VGT:
-    # Legacy internal key retained for backward compatibility; public terminology is controlled by state/author-terminology.yaml.
-    label: "信息技术"
-    representative_etf: VGT
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-13
-    author_exact_state: 上涨趋势中继
-    author_exact_state_as_of: 2026-08-13
+    author_exact_state: "上涨趋势中继"
     author_exact_base_state: 上涨趋势
     author_exact_active: true
-    author_exact_source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "作者确认信息技术处于上涨趋势中继；苹果此前的支撑令其最大回撤小于半导体，服务器、存储、数据中心与电信设备的强势集中于AI基础设施。"
-  social_media_SOCL:
-    label: "社交媒体"
-    representative_etf: SOCL
-    state: 下跌趋势
-    base_state: 下跌趋势
-    base_state_as_of: 2026-08-13
-    author_exact_state: 下跌趋势中继
-    author_exact_state_as_of: 2026-08-13
-    author_exact_base_state: 下跌趋势
-    author_exact_active: true
-    author_exact_source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-13
-    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "作者确认社交媒体处于下跌趋势中继；五个子主题同步下跌，广告与用户增长预期继续压缩。"
+    author_exact_source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    as_of: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.8.27.md"
+    note: "池内PAVE（基础设施与制造资本开支代理）为上涨趋势中继；AIRR/WELD为大型震荡。"
+  banks_KBE:
+    label: "银行"
+    representative_etf: KBE
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-28
+    source_report: "history/daily/美股板块轮动观察｜2026.9.28.md"
+    note: "作者8.17正式稿写为趋势中继（8.27沿用）；9.28正式稿随金融五分项统一改判为大型震荡。"
+  regional_banks_KRE:
+    label: "区域银行"
+    representative_etf: KRE
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-28
+    source_report: "history/daily/美股板块轮动观察｜2026.9.28.md"
+    note: "作者8.17正式稿写为趋势中继（8.27沿用）；9.28正式稿随金融五分项统一改判为大型震荡。"
+  insurance_KIE:
+    label: "保险"
+    representative_etf: KIE
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-28
+    source_report: "history/daily/美股板块轮动观察｜2026.9.28.md"
+    note: "作者8.17正式稿写为趋势中继（8.27沿用）；9.28正式稿随金融五分项统一改判为大型震荡。"
+  capital_markets_IAI:
+    label: "资本市场"
+    representative_etf: IAI
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-28
+    source_report: "history/daily/美股板块轮动观察｜2026.9.28.md"
+    note: "作者8.17正式稿写为趋势中继（8.27沿用）；9.28正式稿随金融五分项统一改判为大型震荡。"
+  equal_weight_software_XSW:
+    label: "软件（等权宽度）"
+    representative_etf: XSW
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-04
+    source_report: "history/daily/美股板块轮动观察｜2026.9.4.md"
+    note: "与large_software_IGV同属第4行软件交叉验证行；作者8.27正式稿曾改为上涨趋势，9.4正式稿改回大型震荡——8.27确认的上涨趋势经'两日宽幅回调—一日反弹—再度回落'的三日检验后被取消，软硬件跷跷板被定性为区间行为。"
+
+  # ===== 无可靠代表ETF的主题/其他条目（不进入第四部分；Finviz统计照常，ledger保留作者状态） =====
   big_data:
     label: "大数据"
     representative_etf: "N/A"
-    state: 大型震荡
     base_state: 大型震荡
-    base_state_as_of: 2026-08-13
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
     as_of: 2026-08-13
     source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "8月11日至12日内部方向分化，8月13日四个子主题同步上涨；单日扩散不足以确认跨期趋势。"
-  defense_aerospace:
-    label: "航空国防"
-    representative_etf: ITA
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-14
-    author_exact_state: null
-    author_exact_state_as_of: null
-    author_exact_base_state: null
-    author_exact_active: false
-    author_exact_source_report: null
-    source: AUTHOR_EXPLICIT_INSTRUCTION
-    as_of: 2026-08-14
-    source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-    note: "作者最新ETF状态总表将ITA确认为上涨趋势；PPA与XAR仅作内部辅助，不在第四部分单列。"
-  commodities_metals:
+    note: "无可靠独占ETF，不进入第四部分。8.13作者判断大型震荡：四个子主题全涨、等权上涨2.63%，单日扩散没有确认跨期趋势。"
+  metals_commodity:
     label: "金属商品"
     representative_etf: "N/A"
-    state: 大型震荡
     base_state: 大型震荡
-    base_state_as_of: 2026-08-13
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
     as_of: 2026-08-13
     source_report: "history/daily/us_sector_rotation_2026-08-13.md"
-    note: "贵金属、工业金属和电池金属三日表现分化，8月13日弱势集中于贵金属与工业金属，尚未形成统一下跌趋势。"
+    note: "无可靠独占ETF，不进入第四部分。8.13作者判断大型震荡：工业金属与贵金属当天共同回落，品种间中期结构仍有差异。"
+  biometrics:
+    label: "生物识别"
+    representative_etf: "N/A"
+    base_state: 大型震荡
+    author_exact_state: "震荡"
+    author_exact_base_state: 大型震荡
+    author_exact_active: true
+    author_exact_source_report: "history/daily/us_sector_rotation_2026-08-13.md"
+    as_of: 2026-08-13
+    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
+    note: "无可靠独占ETF，不进入第四部分。8.13作者写震荡（base映射大型震荡）；与网络安全是两个独立主题，禁止混译。"
+  education_technology:
+    label: "教育科技"
+    representative_etf: "N/A"
+    base_state: 下跌趋势
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-08-13
+    source_report: "history/daily/us_sector_rotation_2026-08-13.md"
+    note: "无可靠独占ETF，不进入第四部分。8.13确认下跌趋势：单日反弹及个别公司事件没有改变原有下行结构。"
+  nuclear_uranium_NLR:
+    label: "核能铀矿"
+    representative_etf: NLR
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-08
+    source_report: "作者2026-09-09指令（新增第四部分固定行）"
+    note: "作者2026-09-09指令新增第四部分固定行'核能铀矿'：NLR/NUKZ/URNM/URNJ四只ETF，有数据的都列出、缺值如实标注；初始行情性质为大型震荡，此后仅随作者正式稿修订。"
+  space_technology_ARKX:
+    label: "太空科技（商业航天）"
+    representative_etf: NASA
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-08
+    source_report: "作者2026-09-09指令（第四部分固定行扩容并更正ETF清单）"
+    note: "8.13确认大型震荡；作者2026-09-09指令：自下一份日度报告起第四部分固定单列'太空科技/商业航天'行、覆盖NASA/WARP/ORBX三只ETF（作者同日更正：此前误写的UFO/ROCT/ARKX作废），初始行情性质维持大型震荡；条目键名space_technology_ARKX为历史沿用。"
+  quantum_computing_QTUM:
+    label: "量子计算"
+    representative_etf: QTUM
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-10-14
+    source_report: "history/daily/美股板块轮动观察｜2026.10.14.md"
+    note: "8.13确认大型震荡。作者10.14正式稿保留第四部分追加的量子计算QTUM行（新兴类别，与固定行不重合），行情性质大型震荡。"
+  crypto_IBIT:
+    label: "加密货币"
+    representative_etf: "IBIT / ETHA / DIME"
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-10-08
+    source_report: "history/daily/美股板块轮动观察｜2026.10.8.md"
+    note: "第25行（加密货币  IBIT / ETHA / DIME）：IBIT代表比特币、ETHA代表以太坊、DIME代表山寨币，三个ETF当天表现都要列出（2026-08-20作者加入固定观察池）。9.21作者升格为上涨趋势（SEC代币化+连续两日+6.5%）；10.8正式稿回落为大型震荡（连续回调：山寨币ETF -6.43%）。"
+  social_media_SOCL:
+    label: "社交媒体"
+    representative_etf: SOCL
+    base_state: 底部
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-21
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+    note: "8.13确认下跌趋势中继：当天五个子主题全部上涨仅构成反弹，原有基础结构没有改变；8.28追加行再确认；8.31正式稿追加行确认（当日-1.36%、五子行业清一色跌，原有下行结构延续）；9.2正式稿追加行确认（当日+1.44%、五子行业清一色涨属超跌修复，原有下行结构未改）；9.3正式稿追加行确认（当日+0.48%，微涨）；9.8正式稿追加行确认（当日+0.84%反弹，原有下行结构未改）。；9.9正式稿追加行确认（当日-1.38%，下行结构延续）。"
+  clean_energy_CNRG:
+    label: "清洁能源"
+    representative_etf: CNRG
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    note: "最新作者正式报告将该项确认为清洁能源大型震荡；Finviz源标签在统计层仍为环境可持续发展。8.13报告未更新，沿用旧判断。"
+  consumer_goods_IYK:
+    label: "消费品"
+    representative_etf: IYK
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    note: "8.12、8.13报告未更新，沿用旧判断：六个子主题同步走弱但公司事件贡献较大，尚未改变区间结构。"
+  silver_SLV:
+    label: "白银"
+    representative_etf: SLV
+    base_state: 底部
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    note: "作者8.28正式稿与commodities.silver同步由上涨趋势改回底部（Warsh鹰派重定价、贬值交易当日平仓，白银-4.38%）；2026-08-20曾由底部改判上涨趋势。"
+  commodities_energy_DBE:
+    label: "能源商品"
+    representative_etf: DBE
+    base_state: 大型震荡
+    author_exact_state: null
+    author_exact_base_state: null
+    author_exact_active: false
+    author_exact_source_report: null
+    as_of: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    note: "原油、天然气、生物燃料和核能的利润机制不同，不能以单日同向替代结构。"
 
 commodities:
   crude_oil:
     label: "原油"
     representative_etf: BNO
-    state: 大型震荡
     base_state: 大型震荡
-    base_state_as_of: 2026-08-12
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-12
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-    note: "价格波动降温，但霍尔木兹船流、库存、保险和运输风险未解除。"
+    as_of: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    note: "8.13第五部分确认大型震荡：布伦特回落至86-87美元附近，风险溢价降温与供应预期压低价格，航运通道不确定性未解除。"
   natural_gas:
     label: "天然气"
     representative_etf: UNG
-    state: 大型震荡
-    base_state: 大型震荡
-    base_state_as_of: 2026-08-12
+    base_state: 底部
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-12
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-    note: "天气、库存、产量与液化天然气出口流量共同决定区间结构。"
+    as_of: 2026-09-24
+    source_report: "history/daily/美股板块轮动观察｜2026.9.24.md"
+    note: "8.13第五部分确认大型震荡；9.24作者正式稿升格为底部——周二+5.85%/周四+6.26%两根大阳线的独立行情确认底部结构。"
   gold:
     label: "黄金"
     representative_etf: GLD
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-12
+    base_state: 底部
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-12
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-    note: "温和CPI、收益率与美元缓和继续支持结构；趋势仍需实际利率和投资需求确认。"
+    as_of: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    note: "作者8.28正式稿由上涨趋势改回底部：Warsh鹰派重定价推升实际利率与美元，财政部回购驱动的弱美元贬值交易当日集中平仓，黄金-3.24%为本月最大跌幅（核心结论明确金银及相关ETF行情性质由上涨转回底部）；2026-08-20曾由底部改判上涨趋势。"
   silver:
     label: "白银商品"
     representative_etf: SLV
-    state: 上涨趋势
-    base_state: 上涨趋势
-    base_state_as_of: 2026-08-12
+    base_state: 底部
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-12
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-    note: "宏观支撑仍在，趋势还需工业需求、库存与矿山供给确认。"
+    as_of: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    note: "作者8.28正式稿与黄金同步由上涨趋势改回底部（-4.38%、贵金属链全线暴跌）；白银主题条目silver_SLV同步更正；2026-08-20曾由底部改判上涨趋势。"
   industrial_metals:
     label: "工业金属"
     representative_etf: DBB
-    state: 大型震荡
     base_state: 大型震荡
-    base_state_as_of: 2026-08-12
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-12
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-    note: "基础金属与矿业同跌，但各金属的库存、供应、成本和制造业需求仍分化。"
+    as_of: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    note: "8.13第五部分确认大型震荡。"
   corn:
     label: "玉米"
     representative_etf: CORN
-    state: 大型震荡
     base_state: 大型震荡
-    base_state_as_of: 2026-08-12
     author_exact_state: null
-    author_exact_state_as_of: null
     author_exact_base_state: null
     author_exact_active: false
     author_exact_source_report: null
-    source: AUTHOR_CONFIRMED_HISTORY
-    as_of: 2026-08-12
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-    note: "供需报告触发单日重定价，天气、单产、南美供应和出口竞争仍决定区间。"
+    as_of: 2026-09-30
+    source_report: "history/daily/美股板块轮动观察｜2026.9.30.md"
+    note: "作者8.25正式稿升格为上涨趋势；9.30正式稿回落为大型震荡（季末-2.36%大跌、农业商品主题清一色跌——8.25以来的上涨趋势终结）。"
 
 change_log:
-  - entry: technology_XLK
+  - item: cloud_computing_WCLD
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-10-14
+    evidence_summary: "作者10.14正式稿：云计算WCLD随软件回落，上涨受阻、转为震荡，上涨结构开始破坏；软件板块未形成真正的板块beta。"
+    source_report: "history/daily/美股板块轮动观察｜2026.10.14.md"
+  - item: energy_XLE
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-21
+    evidence_summary: "作者9.21正式稿：能源分项由上涨趋势改为大型震荡。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+
+  - item: upstream_XOP
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-21
+    evidence_summary: "作者9.21正式稿：能源分项由上涨趋势改为大型震荡。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+
+  - item: midstream_AMLP
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-21
+    evidence_summary: "作者9.21正式稿：能源分项由上涨趋势改为大型震荡。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+
+  - item: refining_CRAK
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-21
+    evidence_summary: "作者9.21正式稿：能源分项由上涨趋势改为大型震荡。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+
+  - item: crypto_IBIT
+    previous_state: 底部
+    new_state: 上涨趋势
+    effective_date: 2026-09-21
+    evidence_summary: "作者9.21正式稿：该条目由底部改为上涨趋势。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+
+  - item: social_media_SOCL
+    previous_state: 下跌趋势
+    new_state: 底部
+    effective_date: 2026-09-21
+    evidence_summary: "作者9.21正式稿：该条目由下跌趋势改为底部。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+  - item: energy_XLE
     previous_state: 大型震荡
     new_state: 上涨趋势
-    new_author_exact_state: 上涨趋势中继
-    effective_date: 2026-08-12
-    evidence_summary: "同日期作者正式修改稿将科技明确为上涨趋势中继，基础父状态同步为上涨趋势。"
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-  - entry: quantum_computing_QTUM
+    effective_date: 2026-09-09
+    evidence_summary: "作者9.9正式稿将大型权重能源XLE由大型震荡改为上涨趋势：油价破百（布伦特101美元）、细分板块ETF均创新高。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: upstream_XOP
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    effective_date: 2026-09-09
+    evidence_summary: "作者9.9正式稿将上游XOP由大型震荡改为上涨趋势（与XLE同步）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: small_biotech_XBI
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-09
+    evidence_summary: "作者9.9正式稿将生物科技XBI由上涨趋势改为大型震荡（临床试验ETF -3.12%领跌全市场、安进事件余波）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: industrials_XLI
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-09
+    evidence_summary: "作者9.9正式稿将工业XLI由上涨趋势中继改为大型震荡（一日反转、Vertiv -9.61%）；author_exact_state清空。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: aerospace_defense_ITA
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-09
+    evidence_summary: "作者9.9正式稿将航空国防ITA由上涨趋势改为大型震荡。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: transportation_IYT
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-09
+    evidence_summary: "作者9.9正式稿将运输IYT由上涨趋势中继改为大型震荡（油价成本端压制）；author_exact_state清空。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: real_estate_IYR
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-09
+    evidence_summary: "作者9.9正式稿将房地产IYR由上涨趋势中继改为大型震荡；author_exact_state清空。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: large_healthcare_XLV
+    previous_state: 上涨趋势
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    effective_date: 2026-09-09
+    evidence_summary: "作者9.9正式稿将医疗保健XLV细化为上涨趋势中继（昨日三重打击后的企稳日）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: nuclear_uranium_NLR
+    new_state: 大型震荡
+    effective_date: 2026-09-08
+    evidence_summary: "作者2026-09-09指令：第四部分新增固定行'核能铀矿'（NLR/NUKZ/URNM/URNJ四只ETF），初始行情性质大型震荡；自下一份日度报告起执行。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: space_technology_ARKX
+    previous_state: 大型震荡
+    new_state: 大型震荡
+    effective_date: 2026-09-08
+    evidence_summary: "作者2026-09-09指令：第四部分固定行'太空科技/商业航天'扩容为NASA/WARP/ORBX三只ETF并自下一份日度报告起单列（8.13确认的大型震荡维持不变）；同步规则：固定行ETF在Finviz缺值时必须网络检索补齐当日表现、不得标注缺值省略。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: equal_weight_software_XSW
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-04
+    evidence_summary: "作者9.4正式稿将等权软件XSW由上涨趋势改回大型震荡（第四部分第4行）：8.27确认的上涨趋势经'两日宽幅回调—一日反弹—再度回落'的三日检验后被取消，软件与半导体的跷跷板切换被定性为区间行为。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: cloud_computing_WCLD
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-09-04
+    evidence_summary: "作者9.4正式稿将云计算WCLD由上涨趋势改回大型震荡（与XSW同步）：跷跷板回落（-2.98%）为三日检验的终结信号。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: cybersecurity_IHAK
+    previous_state: 上涨趋势
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    effective_date: 2026-09-01
+    evidence_summary: "作者9.1正式稿将网络安全由上涨趋势细化为上涨趋势中继（第四部分第6行）：当日八子行业清一色下跌（等权-4.66%）、IHAK -3.82%，为8.27确认上涨趋势后的首度宽幅回调；base维持上涨趋势，作者原词保存为AUTHOR_EXACT_STATE。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: gold
+    previous_state: 上涨趋势
+    new_state: 底部
+    effective_date: 2026-08-28
+    evidence_summary: "作者8.28正式稿将黄金由上涨趋势改回底部：Warsh鹰派重定价推升实际利率与美元，财政部回购驱动的弱美元贬值交易当日集中平仓，黄金-3.24%为本月最大跌幅；核心结论明确金银及相关ETF行情性质由上涨转回底部。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: silver
+    previous_state: 上涨趋势
+    new_state: 底部
+    effective_date: 2026-08-28
+    evidence_summary: "作者8.28正式稿将白银由上涨趋势改回底部（-4.38%、与黄金同根因的贬值交易平仓）；白银主题条目silver_SLV同步更正。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: cloud_computing_WCLD
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    effective_date: 2026-08-27
+    evidence_summary: "作者8.27正式稿将等权云计算WCLD由大型震荡改为上涨趋势（核心结论明确\"当日软件等权与云计算ETF转为上涨趋势\"，SaaS财报行情与AI应用层风险偏好修复共振、当日+7.51%）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: equal_weight_software_XSW
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    effective_date: 2026-08-27
+    evidence_summary: "作者8.27正式稿将等权软件XSW由大型震荡改为上涨趋势（第4行拆分为IGV大型震荡、XSW上涨趋势；等权+5.22%显示宽度真实）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: energy_XLE
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-08-25
+    evidence_summary: "作者8.25正式稿将大型权重能源XLE从上涨趋势改回大型震荡。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: small_biotech_XBI
+    previous_state: 上涨趋势
+    previous_author_exact_state: "上涨趋势中继"
+    new_state: 上涨趋势
+    effective_date: 2026-08-25
+    evidence_summary: "作者8.25正式稿将生物科技从上涨趋势中继简化为上涨趋势。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: corn
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    effective_date: 2026-08-25
+    evidence_summary: "作者8.25正式稿将玉米从大型震荡改为上涨趋势。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: energy_XLE
+    previous_state: 上涨趋势
+    new_state: 大型震荡
+    effective_date: 2026-08-25
+    evidence_summary: "作者8.25正式稿将大型权重能源XLE从上涨趋势改回大型震荡（获利回吐日BNO -4.8%、全分项下跌但中游偏强）。仅XLE分项变更。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: small_biotech_XBI
+    previous_state: 上涨趋势
+    previous_author_exact_state: "上涨趋势中继"
+    new_state: 上涨趋势
+    effective_date: 2026-08-25
+    evidence_summary: "作者8.25正式稿将生物科技从上涨趋势中继简化为上涨趋势；author_exact_state清空。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: corn
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    effective_date: 2026-08-25
+    evidence_summary: "作者8.25正式稿将玉米从大型震荡改为上涨趋势（玉米期货创阶段新高）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: real_estate_IYR
+    previous_state: 大型震荡
+    new_state: 大型震荡
+    previous_label: "房地产/REIT"
+    new_label: "房地产"
+    effective_date: 2026-08-20
+    evidence_summary: "作者8.20正式稿将第22行行名由房地产/REIT改为房地产；行情性质不变（IYR上涨趋势中继、RSPR大型震荡）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: memory_dram_DRAM
+    previous_state: 头部
+    new_state: 头部
+    previous_label: "存储/内存"
+    new_label: "存储器"
+    effective_date: 2026-08-21
+    evidence_summary: "作者8.21正式稿将第3行行名由存储/内存改为存储器；行情性质不变（头部）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: industrials_XLI
+    previous_state: 上涨趋势
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    previous_label: "综合工业"
+    new_label: "工业"
+    effective_date: 2026-08-21
+    evidence_summary: "作者8.21正式稿将第17行行名由综合工业改为工业；行情性质不变（上涨趋势中继）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: gold
+    previous_state: 底部
+    new_state: 上涨趋势
+    effective_date: 2026-08-19
+    evidence_summary: "作者2026-08-20反馈确认：财政部动作引发的暴涨已改变行情性质，黄金由底部转为上涨趋势（现货金4484美元、金矿ETF单日+9.4%—9.8%）。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: silver
+    previous_state: 底部
+    new_state: 上涨趋势
+    effective_date: 2026-08-19
+    evidence_summary: "作者2026-08-20反馈确认：白银与黄金同步由底部转为上涨趋势（白银+4.5%、白银矿业ETF +9.5%）；白银主题条目silver_SLV同步更正。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: crypto_IBIT
+    new_state: 底部
+    effective_date: 2026-08-20
+    evidence_summary: "新增第25行固定观察池条目：加密货币（IBIT/ETHA/DIME），作者2026-08-20加入；当前记录为底部。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: technology_XLK
+    previous_state: 上涨趋势
+    previous_author_exact_state: "上涨趋势中继"
+    new_state: 大型震荡
+    effective_date: 2026-08-18
+    evidence_summary: "作者8.18正式稿将信息技术（XLK）从上涨趋势中继改为大型震荡（第三节明确「信息技术XLK明确进入大型震荡」）：AI硬件动量链集中了结与应用软件逆势上涨并存、科技内部硬件向软件切换。author_exact_state清空。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: energy_XLE
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    effective_date: 2026-08-18
+    evidence_summary: "作者8.18正式稿将大型权重能源XLE从大型震荡改为上涨趋势：能源权重ETF突破新高、重回上涨趋势。仅XLE分项变更，XOP大型震荡/AMLP上涨趋势/CRAK上涨趋势不变。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: industrials_XLI
+    previous_state: 上涨趋势
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    effective_date: 2026-08-18
+    evidence_summary: "作者8.18正式稿将综合工业细化为上涨趋势中继：AI电力代理交易瓦解而传统工业跌幅温和，属趋势内高波动检验；base保持上涨趋势，作者原话保存。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: financial_five_subsectors
+    previous_state: 上涨趋势
+    new_state: 上涨趋势
+    author_exact_state: "趋势中继"
+    effective_date: 2026-08-17
+    evidence_summary: "作者8.17正式稿第四部分将综合金融XLF、银行KBE、区域银行KRE、保险KIE、资本市场IAI五分项统一写为趋势中继（上涨趋势的延续；当日五分项全线收跌属利率新高下的趋势内回调，曲线陡峭化对银行的利好未变）。base保持上涨趋势，作者原话原样保存。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: gold
+    previous_state: 上涨趋势
+    new_state: 底部
+    effective_date: 2026-08-13
+    evidence_summary: "作者2026-08-16反馈确认：黄金白银反弹受阻、明显仍处底部，8.13正式报告第五部分表格中的底部为准确判断（同行延续条件文字为旧表述）；据此更正ledger。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: silver
+    previous_state: 上涨趋势
+    new_state: 底部
+    effective_date: 2026-08-13
+    evidence_summary: "作者2026-08-16反馈确认：白银已下跌大半年、当前仅为底部反弹初期；8.13正式报告写底部为准确判断；白银主题条目（silver_SLV）同日更正。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: communication_services_XLC
     previous_state: 头部
     new_state: 大型震荡
-    effective_date: 2026-08-12
-    evidence_summary: "同日期作者正式修改稿将量子计算改为大型震荡。"
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-  - entry: hardware_VGT
-    previous_state: 头部
-    new_state: 上涨趋势
-    new_author_exact_state: 上涨趋势中继
-    effective_date: 2026-08-12
-    evidence_summary: "同日期作者正式修改稿将VGT名称确认为信息技术，并将其行情性质改为上涨趋势中继，基础父状态为上涨趋势。"
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-  - entry: social_media_SOCL
-    previous_state: 头部
-    new_state: 下跌趋势
-    new_author_exact_state: 下跌趋势中继
-    effective_date: 2026-08-12
-    evidence_summary: "同日期作者正式修改稿将社交媒体改为下跌趋势中继，基础父状态为下跌趋势。"
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-  - entry: cybersecurity_IHAK
+    effective_date: 2026-08-14
+    evidence_summary: "作者ETF参考池（2026-08-14，最新行情性质总表）将XLC/VOX/RSPC统一为大型震荡；8.13正式报告曾写头部，以池为准。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: real_estate_IYR
     previous_state: 大型震荡
     new_state: 上涨趋势
-    effective_date: 2026-08-12
-    evidence_summary: "同日期作者正式修改稿将网络安全改为上涨趋势。"
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-  - entry: biometrics
+    author_exact_state: "上涨趋势中继"
+    effective_date: 2026-08-14
+    evidence_summary: "作者ETF参考池将IYR/VNQ写为上涨趋势中继；等权RSPR仍为大型震荡（等权宽度弱于权重结构），在第四部分合并行内分别说明。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: small_biotech_XBI
+    previous_state: 上涨趋势
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    effective_date: 2026-08-14
+    evidence_summary: "作者ETF参考池将XBI细化为上涨趋势中继（base仍为上涨趋势）；IBB/BBH大中型龙头为上涨趋势。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: aerospace_defense_ITA
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    effective_date: 2026-08-14
+    evidence_summary: "作者ETF参考池将ITA/PPA/XAR均定为上涨趋势；8.13正式报告曾写大型震荡，池为最新作者总表，按池执行。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: transportation_IYT
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    effective_date: 2026-08-14
+    evidence_summary: "固定观察池第19行改用IYT为代表：池内IYT/FTXR为上涨趋势中继；等权XTN为大型震荡，差异在行内说明。原transportation_XTN条目并入本条。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: information_technology_VGT
+    previous_state: 上涨趋势
+    new_state: retired
+    author_exact_state: "上涨趋势中继"
+    effective_date: 2026-08-16
+    evidence_summary: "按ETF去重规则，VGT与XLK同属综合信息技术、高度重复，信息技术固定使用XLK，VGT不再作为独立条目、不得在第四部分单列；两者性质一致（上涨趋势中继），无信息损失。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: technology_XLK
+    previous_state: 上涨趋势
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    new_label: "信息技术"
+    effective_date: 2026-08-16
+    evidence_summary: "状态不变（上涨趋势中继）。行名由科技改为信息技术，与固定观察池第1行一致；VGT退役后信息技术行情性质唯一来源为XLK条目。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: semiconductors_XSD
+    previous_state: 头部
+    new_state: 头部
+    new_label: "半导体（SOXX / XSD）"
+    effective_date: 2026-08-16
+    evidence_summary: "状态不变（头部）。固定观察池第2行改为SOXX/XSD双ETF交叉验证行，禁止只看XSD概括半导体。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: homebuilders_XHB
     previous_state: 大型震荡
     new_state: 大型震荡
-    previous_author_exact_state: null
-    new_author_exact_state: 震荡
-    effective_date: 2026-08-12
-    evidence_summary: "同日期作者正式修改稿使用原话‘震荡’；基础父状态仍为大型震荡，仅新增作者精确表述。"
-    source_report: "history/daily/美股板块轮动分析｜2026.8.12.docx"
-  - previous_state: 大型震荡
+    new_label: "住宅建筑（XHB）"
+    effective_date: 2026-08-16
+    evidence_summary: "状态不变（大型震荡）。原homebuilders_ITB条目，固定观察池第12行改用修正等权XHB为代表。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: industrials_XLI
+    previous_state: 上涨趋势
+    new_state: 上涨趋势
+    new_label: "综合工业（XLI）"
+    effective_date: 2026-08-16
+    evidence_summary: "状态不变（上涨趋势）。行名改为综合工业，与航空国防、运输分行显示。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: semiconductors_XSD
+    previous_state: 大型震荡
     new_state: 头部
     effective_date: 2026-08-11
     evidence_summary: "8月11日作者正式DOCX将半导体修订为头部；8月12日强势属于头部结构内修复，没有满足结构转换门槛。"
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
-  - entry: communication_services_XLC
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: technology_XLK
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    effective_date: 2026-08-12
+    evidence_summary: "作者2026-08-14修订的8.12正式DOCX将科技(XLK)写为上涨趋势中继；按v0.3规则原样保存为AUTHOR_EXACT_STATE，base映射为上涨趋势。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: cybersecurity_IHAK
+    previous_state: 大型震荡
+    new_state: 上涨趋势
+    effective_date: 2026-08-12
+    evidence_summary: "作者8.12正式DOCX将网络安全从大型震荡改为上涨趋势；八个子主题1涨/7跌，作者判断单日弱势未形成跨期结构变化。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: quantum_computing_QTUM
     previous_state: 头部
     new_state: 大型震荡
-    effective_date: 2026-08-14
-    evidence_summary: "作者最新ETF状态总表将XLC从头部更新为大型震荡。"
-    source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-  - entry: real_estate_IYR
+    effective_date: 2026-08-12
+    evidence_summary: "作者8.12正式DOCX将量子计算从头部改为大型震荡：盈利规模、研发投入与资本需求仍远落后于预期定价。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: social_media_SOCL
+    previous_state: 头部
+    new_state: 下跌趋势
+    author_exact_state: "下跌趋势中继"
+    effective_date: 2026-08-12
+    evidence_summary: "作者8.12正式DOCX将社交媒体从头部改写为下跌趋势中继；按v0.3规则原样保存为AUTHOR_EXACT_STATE，base映射为下跌趋势。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: information_technology_VGT
+    previous_state: 头部
+    new_state: 上涨趋势
+    author_exact_state: "上涨趋势中继"
+    previous_label: "硬件（VGT）"
+    new_label: "信息技术（VGT）"
+    effective_date: 2026-08-12
+    evidence_summary: "作者8.12正式DOCX将原硬件(VGT)改名为信息技术(VGT)并定性为上涨趋势中继（含苹果支撑与最大回撤对比解释）；名称修正同步写入state/author-terminology.yaml。该条目已于2026-08-16按ETF去重退役。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+  - item: biometrics
     previous_state: 大型震荡
-    new_state: 上涨趋势
-    new_author_exact_state: 上涨趋势中继
-    effective_date: 2026-08-14
-    evidence_summary: "作者最新ETF状态总表将IYR更新为上涨趋势中继，基础父状态为上涨趋势。"
-    source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-  - entry: small_biotech_XBI
-    previous_state: 上涨趋势
-    new_state: 上涨趋势
-    previous_author_exact_state: null
-    new_author_exact_state: 上涨趋势中继
-    effective_date: 2026-08-14
-    evidence_summary: "作者最新ETF状态总表保留XBI上涨趋势基础状态，并新增上涨趋势中继精确阶段。"
-    source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
-  - entry: defense_aerospace
-    previous_state: 大型震荡
-    new_state: 上涨趋势
-    effective_date: 2026-08-14
-    evidence_summary: "作者最新ETF状态总表将ITA对应的航空国防更新为上涨趋势。"
-    source_report: "AUTHOR_EXPLICIT_INSTRUCTION 2026-08-14"
+    new_state: 大型震荡
+    author_exact_state: "震荡"
+    effective_date: 2026-08-12
+    evidence_summary: "作者8.12正式DOCX将生物识别写为震荡；base保持大型震荡，作者原词原样保存为AUTHOR_EXACT_STATE。8.13报告确认维持。"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
 
-coverage_classifications:
+  - effective_date: 2026-10-21
+    source_report: "history/daily/美股板块轮动观察｜2026.10.21.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.21正式稿：其余内容与AI候选稿一致，无行情性质修订。2026-10-22用户要求重写第三部分：每个方向围绕驱动因素、盈利预期、持续性分析，每项100—200字，删除第三部分逐项罗列的行情性质（行情性质只在第四部分），规则写入references/03第4条、05、12与SKILL.md。KRE/KIE/DIME当日Finviz显示0.00%，待核实。"
+  - effective_date: 2026-10-20
+    source_report: "history/daily/美股板块轮动观察｜2026.10.20.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.20正式稿：与AI候选稿内容完全一致（仅表格列宽对齐重排），无任何修订，无行情性质变化。DIME -14.17%按\"暂未找到同日原因\"处理的写法作者未改。10.19正式稿sha256未变。"
+  - effective_date: 2026-10-19
+    source_report: "history/daily/美股板块轮动观察｜2026.10.19.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.19正式稿（该日AI初稿由另一AI撰写、经全文重写后由作者确认）：与重写稿内容完全一致，仅表格列宽对齐重排，无行情性质修订（核心结论显式声明当日无行情性质结构变化；网络安全/医疗保健上涨趋势中继、半导体与存储器头部、社交媒体底部、天然气黄金白银底部均与台账一致）。同日规则更新：裁决/最终裁决列入禁用词（BAN-011）；第六部分企业盈利预期只写盈利，信用利差、违约风险、融资成本、评级与承销归入市场状况；公司名附股票代码。10.16正式稿sha256未变。"
+  - effective_date: 2026-10-16
+    source_report: "history/daily/美股板块轮动观察｜2026.10.16.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.16正式稿：无行情性质修订（核心结论显式声明当日无行情性质结构变化；网络安全上涨趋势中继/医疗保健上涨趋势中继为base上的限定词，社交媒体底部/天然气黄金白银底部/存储器头部均与台账一致）。术语批量修正见author-terminology.yaml（MSTR=Strategy、FANG响尾蛇能源、KMI金德摩根、FLEX伟创力、SMCI超微电脑、MGM美高梅、PM菲利普莫里斯、NGG英国国家电网、Standalone Market=单独市场、微盘股写公司全名）。结构变化：第六部分宏观讨论改为五小节（全球经济数据/对宏观经济的判断/企业盈利预期/货币政策预期/市场状况），区域数据并入全球经济数据、嘉宾观点按主题归类；第三部分每条以行情性质收尾；核心结论三驱动编号+板块段+无变化声明。作者采纳候选稿增量：必需消费配对交易平仓（BTIG）、CXMT长鑫存储、MSCI印尼、黄仁勋辩护。新增事实：沃尔玛获德意志银行上调评级；Volta贷款收益率上调方为摩根大通与高盛；能源前一日五范围轮出与当日轮入方向相反。"
+  - effective_date: 2026-10-15
+    source_report: "history/daily/美股板块轮动观察｜2026.10.15.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.15正式稿：无行情性质修订。多处数值口径与行文细化（存储器主题口径、RSPD尾数、轮入2范围数表述等）；结构与候选稿一致（六部分）。"
+  - effective_date: 2026-10-14
+    source_report: "history/daily/美股板块轮动观察｜2026.10.14.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX, quantum_computing_QTUM]
+    evidence_summary: "作者10.14正式稿：唯一行情性质变化为云计算WCLD由上涨趋势改为大型震荡；删除第四部分追加的制药PPH行（与医疗保健XLV大量重合），保留量子计算QTUM行；删除核心结论末段“当日无行情性质结构变化”（当日有性质变化）及“没有一个清一色上涨”的冗余表述；RUM涨跌幅写作-9.98%。其余条目性质不变。"
+  - effective_date: 2026-10-13
+    source_report: "history/daily/美股板块轮动观察｜2026.10.13.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.13正式稿：与AI候选稿完全一致（仅表格分隔线重排），无任何修订。"
+  - effective_date: 2026-10-12
+    source_report: "history/daily/美股板块轮动观察｜2026.10.12.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.12正式稿：与AI候选稿完全一致（仅表格分隔线重排），无任何修订。"
+  - effective_date: 2026-10-09
+    source_report: "history/daily/美股板块轮动观察｜2026.10.9.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.9正式稿：一处状态修订——云计算（WCLD）由大型震荡升格为上涨趋势（第四部分表格；OpenAI收入澄清后的应用层避险+主题清一色涨）。行文修订：加密行删'（10.8改判）'注；观察点'极端化'改'持续'。"
+  - effective_date: 2026-10-08
+    source_report: "history/daily/美股板块轮动观察｜2026.10.8.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.8正式稿：一处状态修订——加密货币（IBIT/ETHA/DIME）由上涨趋势回落为大型震荡（第四部分表格；连续回调、山寨币ETF -6.43%——9.21升格的趋势终结）。其余仅表格重排。"
+  - effective_date: 2026-10-07
+    source_report: "history/daily/美股板块轮动观察｜2026.10.7.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.7正式稿：无行情性质修订。行文修订：观察点贵金属bullet'底部反复'改'底部震荡'、'集中逆转'改'集中大跌'。其余仅表格重排。"
+  - effective_date: 2026-10-06
+    source_report: "history/daily/美股板块轮动观察｜2026.10.6.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.6正式稿：无行情性质修订。行文修订：观察点财报季bullet删'（口径有科技与科技与能源两说并存）'括号注。其余仅表格重排。"
+  - effective_date: 2026-10-05
+    source_report: "history/daily/美股板块轮动观察｜2026.10.5.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.5正式稿：无行情性质修订。行文修订：P2轮入侧删'（拉美通信端：Vivo +9.36%）'括号补注（表格行保留）。其余仅表格重排。"
+  - effective_date: 2026-10-02
+    source_report: "history/daily/美股板块轮动观察｜2026.10.2.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.2正式稿：与AI候选稿完全一致（仅表格分隔线重排），无任何修订。"
+  - effective_date: 2026-10-01
+    source_report: "history/daily/美股板块轮动观察｜2026.10.1.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者10.1正式稿：无行情性质修订（28行与AI候选稿一致）。行文修订：P1删'10月首个交易日'引导语。其余仅表格重排。"
+  - effective_date: 2026-09-30
+    source_report: "history/daily/美股板块轮动观察｜2026.9.30.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.30正式稿：一处状态修订——玉米（CORN）由上涨趋势回落为大型震荡（第五部分商品表；季末大跌、农业商品主题清一色跌）。行文修订：盘后美光段独立成段。注意：作者版沿用Claros拼写，据数据文件CIM=Chimera Investment Corp，后续报告沿用Chimera。"
+  - effective_date: 2026-09-29
+    source_report: "history/daily/美股板块轮动观察｜2026.9.29.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.29正式稿：与AI候选稿完全一致（仅表格分隔线重排），无任何修订。"
+  - effective_date: 2026-09-28
+    source_report: "history/daily/美股板块轮动观察｜2026.9.28.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.28正式稿：一处重要状态修订——金融五分项（XLF/KBE/KRE/KIE/IAI）由趋势中继统一改判为均为大型震荡（8.17确立的金融趋势正式终结；利率冲击周另类资管全线-3%+）。行文修订：①P1删引导语；②观察点Russell判断利率地板改天花板；③贵金属bullet通胀预期改加息预期。"
+  - effective_date: 2026-09-25
+    source_report: "history/daily/美股板块轮动观察｜2026.9.25.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.25正式稿：无行情性质修订（28行与AI候选稿一致）。仅两处观察点瘦身（美光bullet删动量句、Meta bullet删稳定器句）。"
+  - effective_date: 2026-09-24
+    source_report: "history/daily/美股板块轮动观察｜2026.9.24.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.24正式稿：一处状态修订——天然气（UNG）由大型震荡升格为底部（周二+5.85%/周四+6.26%两根大阳线，第五部分商品表）。行文修订：①P1删天然气加粗与'第二根大阳线'表述；②第三部分能源段删'第二根大阳线'；③观察点天然气bullet删涨幅复读。轮动表6行规矩首次执行、作者未改。"
+  - effective_date: 2026-09-23
+    source_report: "history/daily/美股板块轮动观察｜2026.9.23.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.23正式稿：无行情性质修订（28行状态与AI候选稿一致）。行文修订：①核心结论瘦身——删轮入侧Meta新高/轮出侧Trade Desk细节、删尾部宏观日历与波音/麦当劳事件堆叠、删'当日无行情性质结构变化'句；②信用端（SoftBank垃圾债）独立成段；③'周二三范围领涨'改'前两天'；④观察点删'半导体头部回调性质'bullet。另：用户当日明令轮动表固定为且仅为6行、禁止'（不入前三）'类补充行（已写入SKILL.md与references/14）。"
+  - effective_date: 2026-09-22
+    source_report: "history/daily/美股板块轮动观察｜2026.9.22.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.22正式稿：无行情性质修订（28行状态与AI候选稿一致）。三处行文修订：①核心结论改为三段式（指数总述/轮入侧/轮出侧分段）；②油价观察点标题定名'油价的期现背离'（替代'地面与期货背离'）；③Muse表述'爆红后快速冷却'。数据零改动。"
+  - effective_date: 2026-09-21
+    source_report: "history/daily/美股板块轮动观察｜2026.9.21.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.21正式稿：六处状态修订——能源四分项（XLE/XOP/AMLP/CRAK）由上涨趋势回落至大型震荡（油价四连跌触发回调重判）；加密货币由底部升格为上涨趋势（SEC代币化+连续两日+6.5%+站稳80,000美元）；社交媒体由下跌趋势中继改为底部（Meta+11.34%的超跌修复）；核心结论定调加密币底部反转。"
+  - effective_date: 2026-09-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.18正式稿：内容与AI候选稿完全一致（仅表格分隔线重排），无任何修订。"
+  - effective_date: 2026-09-17
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.17正式稿：第四部分28行全部确认无变化；商品六项无变化；编辑调整——贵金属'暴涨'降调为'上涨'、'反弹确认'降调为'底部观察'、删除两处过度修辞。"
+  - effective_date: 2026-09-16
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.16正式稿：与AI候选稿完全一致（normalized equal），无任何修订。"
+  - effective_date: 2026-09-15
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.15正式稿：与AI候选稿完全一致（normalized equal），无任何修订。"
+  - effective_date: 2026-09-14
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.14正式稿：第四部分28行全部确认无变化；商品六项无变化；编辑调整——核心结论以宏观三重压制开篇再叙市场行为；Anthropic IPO纪念碑论与GEV评级杀扩散的详细分析保留并微调位置。"
+  - effective_date: 2026-09-11
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.11正式稿：第四部分28行全部确认无变化；商品六项无变化；核心修正在于ETF涨跌幅的全面更正（AI稿错误使用了前日数据）与多处编辑精简——无状态或术语修正。"
+  - effective_date: 2026-09-10
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.10正式稿：第四部分28行全部确认无变化（含核能铀矿与太空科技两新固定行）；商品六项无变化；两处编辑精简——删除Oracle盘后财报段与杜克教授论证段（编辑精简，非状态或术语修正）。"
+  - effective_date: 2026-09-09
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.9正式稿（首次含核能铀矿/太空科技两固定行）：八处状态修订——能源XLE与上游XOP升级为上涨趋势；生物科技XBI、工业XLI、航空国防ITA、运输IYT、房地产IYR降级为大型震荡；医疗保健XLV细化为上涨趋势中继；核心结论新增'大批前期仍能维持上涨的行业板块在利率压力下已经进入大型震荡，美股压力越来越明显'并删除'当日无行情性质结构变化'句；两新行维持大型震荡。"
+  - effective_date: 2026-09-08
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT, nuclear_uranium_NLR, space_technology_ARKX]
+    evidence_summary: "作者9.8正式稿：第四部分26行全部确认无变化；商品六项无变化；三处编辑——删除核心结论中'INTC不在入选池'的自指括注、铀矿ETF补全代码（URA）、UROY与FCEL补全ticker标注；无术语修正、无行名修订；作者2026-09-09指令的核能铀矿/太空科技两行自下一份报告起执行（本稿为9.8、不追溯）。"
+  - effective_date: 2026-09-04
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, nuclear_uranium_NLR, space_technology_ARKX, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT]
+    evidence_summary: "作者9.4正式稿：两处状态修订——等权软件XSW与云计算WCLD由上涨趋势改回大型震荡（8.27确认的三日检验失败、核心结论'当日无行情性质结构变化'句随之删除）；硬件清一色涨定性为'震荡区间内的反弹'；观察点改为'软硬件间不断切换为近1月来的资金分配主线'；SanDisk年内+600%表述去重；无术语修正、无行名修订。"
+  - effective_date: 2026-09-03
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT]
+    evidence_summary: "作者9.3正式稿：第四部分26行全部确认无变化；商品六项无变化；唯一文字修正为核心结论日历表述由'下周CPI与9月16日FOMC'改为'今晚非农和下周CPI'（编辑锐化，非状态或术语修正）。"
+  - effective_date: 2026-09-02
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT]
+    evidence_summary: "作者9.2正式稿：第四部分26行全部确认无变化（网络安全IHAK维持9.1细化的上涨趋势中继）；商品六项无变化；唯一文字修正为删除核心结论中'七个清一色上涨'前的'罕见地'（编辑精简，非状态或术语修正）。"
+  - effective_date: 2026-09-01
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT]
+    evidence_summary: "作者9.1正式稿：一处状态细化——网络安全IHAK写为上涨趋势中继（AUTHOR_EXACT_STATE）；核心结论加息概率口径修正为'利率期货隐含定价约67%、卖方(Evercore)评估略低于50%、即便67%亦非板上钉钉'（区分市场定价与卖方评估）；结尾观察点措辞锐化（调整后继续上涨还是重新掉入大型震荡）；MongoDB观察点改为'市场风险偏好和定价纪律开始收紧'；其余状态、术语、行名均无变化。"
+  - effective_date: 2026-08-31
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT]
+    evidence_summary: "作者8.31正式稿：第四部分26行全部确认无变化（含追加行社交媒体SOCL下跌趋势中继）；商品六项无变化（金银维持8.28改判的底部）；无术语修正、无行名修订；唯一编辑为删除AI稿核心结论中金银企稳一句（编辑精简，非修正）。"
+  - effective_date: 2026-08-28
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT]
+    evidence_summary: "作者8.28正式稿：第四部分26行全部确认无变化（含追加行社交媒体SOCL下跌趋势中继）；商品两处修订——黄金与白银由上涨趋势改为底部；无术语修正、无行名修订。"
+  - effective_date: 2026-08-27
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, equal_weight_software_XSW, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, crypto_IBIT]
+    evidence_summary: "作者8.27正式稿：两处修订——等权软件XSW由大型震荡改为上涨趋势（第4行与IGV分别说明）、云计算WCLD由大型震荡改为上涨趋势；社交媒体SOCL当日无追加行、状态沿用8.26；无术语修正、无行名修订；商品六项无变化。"
+  - effective_date: 2026-08-26
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT]
+    evidence_summary: "作者8.26正式稿：全部行情性质无变化（含金银上涨趋势、加密底部、玉米上涨趋势再确认）；无术语修正、无行名修订。"
+  - effective_date: 2026-08-24
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: &p4keys
+      [technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT]
+    evidence_summary: "作者8.24正式稿确认全部无变化。"
+  - effective_date: 2026-08-25
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: *p4keys
+    evidence_summary: "三处修订：XLE改回大型震荡、XBI简化为上涨趋势、玉米改上涨趋势。"
+  - effective_date: 2026-08-24
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT
+    evidence_summary: "作者8.24正式稿确认：全部行情性质无变化；金银维持上涨趋势、加密维持底部。"
+  - effective_date: 2026-08-25
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT
+    evidence_summary: "作者8.25正式稿：三处修订——XLE改回大型震荡、XBI简化为上涨趋势、玉米改为上涨趋势；其余无变化。"
+  - effective_date: 2026-08-19
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT
+    evidence_summary: "作者8.19正式稿确认：黄金白银上涨趋势（此前作者反馈已改判）与加密货币底部（第25行新增）均获正式确认；其余状态无变化。"
+  - effective_date: 2026-08-20
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT
+    evidence_summary: "作者8.20正式稿（另一AI代跑）：全部行情性质无变化；行名修订——房地产/REIT改为房地产。加密货币行维持底部。"
+  - effective_date: 2026-08-21
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries: technology_XLK, semiconductors_XSD, memory_dram_DRAM, large_software_IGV, cloud_computing_WCLD, cybersecurity_IHAK, communication_services_XLC, consumer_cyclical_XLY, consumer_defensive_XLP, food_beverage_PBJ, retail_XRT, homebuilders_XHB, energy_XLE, upstream_XOP, midstream_AMLP, refining_CRAK, large_healthcare_XLV, small_biotech_XBI, financial_XLF, banks_KBE, regional_banks_KRE, insurance_KIE, capital_markets_IAI, industrials_XLI, aerospace_defense_ITA, transportation_IYT, basic_materials_XLB, metals_mining_XME, real_estate_IYR, telecom_IYZ, utilities_XLU, social_media_SOCL, crypto_IBIT
+    evidence_summary: "作者8.21正式稿（另一AI代跑）：全部行情性质无变化；行名修订——存储/内存改为存储器、综合工业改为工业。金银维持上涨趋势、加密维持底部。"
+  - effective_date: 2026-08-18
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries:
+      - technology_XLK
+      - semiconductors_XSD
+      - memory_dram_DRAM
+      - large_software_IGV
+      - cloud_computing_WCLD
+      - cybersecurity_IHAK
+      - communication_services_XLC
+      - consumer_cyclical_XLY
+      - consumer_defensive_XLP
+      - food_beverage_PBJ
+      - retail_XRT
+      - homebuilders_XHB
+      - energy_XLE
+      - upstream_XOP
+      - midstream_AMLP
+      - refining_CRAK
+      - large_healthcare_XLV
+      - small_biotech_XBI
+      - financial_XLF
+      - banks_KBE
+      - regional_banks_KRE
+      - insurance_KIE
+      - capital_markets_IAI
+      - industrials_XLI
+      - aerospace_defense_ITA
+      - transportation_IYT
+      - basic_materials_XLB
+      - metals_mining_XME
+      - real_estate_IYR
+      - telecom_IYZ
+      - utilities_XLU
+      - social_media_SOCL
+    evidence_summary: "按作者8.18正式稿第四部分同步：24行固定池+追加行社交媒体SOCL全部确认；三处修订为信息技术XLK改大型震荡、大型权重能源XLE改上涨趋势、综合工业XLI细化为上涨趋势中继；金融五分项维持趋势中继；黄金白银维持底部（第五部分再确认，表述更新为反弹受阻/再探底风险）；无术语修正。"
+  - effective_date: 2026-08-17
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries:
+      - technology_XLK
+      - semiconductors_XSD
+      - memory_dram_DRAM
+      - large_software_IGV
+      - cloud_computing_WCLD
+      - cybersecurity_IHAK
+      - communication_services_XLC
+      - consumer_cyclical_XLY
+      - consumer_defensive_XLP
+      - food_beverage_PBJ
+      - retail_XRT
+      - homebuilders_XHB
+      - energy_XLE
+      - large_healthcare_XLV
+      - small_biotech_XBI
+      - financial_XLF
+      - banks_KBE
+      - regional_banks_KRE
+      - insurance_KIE
+      - capital_markets_IAI
+      - industrials_XLI
+      - aerospace_defense_ITA
+      - transportation_IYT
+      - basic_materials_XLB
+      - metals_mining_XME
+      - real_estate_IYR
+      - telecom_IYZ
+      - utilities_XLU
+      - social_media_SOCL
+    evidence_summary: "按作者8.17正式稿第四部分同步：24行固定池+追加行社交媒体SOCL全部确认；唯一状态修订为金融五分项统一写为趋势中继；黄金白银维持底部（第五部分再次确认）；无术语修正。"
+  - effective_date: 2026-08-13
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries:
+      - communication_services_XLC
+      - technology_XLK
+      - real_estate_IYR
+      - industrials_XLI
+      - basic_materials_XLB
+      - large_healthcare_XLV
+      - energy_XLE
+      - consumer_defensive_XLP
+      - big_data
+      - metals_commodity
+      - consumer_cyclical_XLY
+      - cybersecurity_IHAK
+      - aerospace_defense_ITA
+      - education_technology
+      - financial_XLF
+      - space_technology_ARKX
+      - quantum_computing_QTUM
+      - social_media_SOCL
+      - biometrics
+      - semiconductors_XSD
+    evidence_summary: "按作者8.13正式报告第四部分同步20项；其中信息技术(VGT)行按ETF去重退役、状态并入technology_XLK，国防与航空航天(ITA)与通信服务(XLC)、房地产(IYR)、运输(IYT)后续被作者ETF池（2026-08-14，更新）覆盖，以池为准。"
+  - effective_date: 2026-08-14
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
+    entries:
+      - technology_XLK
+      - semiconductors_XSD
+      - memory_dram_DRAM
+      - large_software_IGV
+      - equal_weight_software_XSW
+      - cloud_computing_WCLD
+      - cybersecurity_IHAK
+      - communication_services_XLC
+      - consumer_cyclical_XLY
+      - consumer_defensive_XLP
+      - food_beverage_PBJ
+      - retail_XRT
+      - homebuilders_XHB
+      - energy_XLE
+      - upstream_XOP
+      - oil_services_OIH
+      - midstream_AMLP
+      - refining_CRAK
+      - large_healthcare_XLV
+      - small_biotech_XBI
+      - pharma_PPH
+      - medical_devices_IHI
+      - healthcare_services_IHF
+      - financial_XLF
+      - banks_KBE
+      - regional_banks_KRE
+      - insurance_KIE
+      - capital_markets_IAI
+      - industrials_XLI
+      - aerospace_defense_ITA
+      - transportation_IYT
+      - reshoring_PAVE
+      - basic_materials_XLB
+      - metals_mining_XME
+      - real_estate_IYR
+      - telecom_IYZ
+      - utilities_XLU
+    evidence_summary: "一次性合并作者ETF参考池（2026-08-14）：36个子行业、105只ETF行情性质全部写入，无空白项；AUTHOR_EXACT_STATE按原话保存（上涨趋势中继等），base_state只用五种合法状态；VGT按去重规则退役。该池此后不进入日常工作流。"
   - effective_date: 2026-08-11
-    source_report: "history/daily/美股板块轮动分析｜2026.8.11.docx"
+    source_report: "history/daily/美股板块轮动观察｜2026.9.18.md"
     entries:
       - technology_XLK
       - communication_services_XLC
@@ -816,29 +1405,9 @@ coverage_classifications:
       - financial_XLF
       - space_technology_ARKX
       - quantum_computing_QTUM
-      - hardware_VGT
+      - information_technology_VGT
       - social_media_SOCL
       - biometrics
       - education_technology
       - semiconductors_XSD
-    evidence_summary: "六个统计范围涨3/跌3去重后的17项均完成分类；另按当前明确要求继承并复核半导体头部判断。单日轮动没有制造虚假状态变化。"
-  - effective_date: 2026-08-13
-    source_report: "AI_reports/daily/us_sector_rotation_2026-08-13.md"
-    entries:
-      - communication_services_XLC
-      - technology_XLK
-      - real_estate_IYR
-      - industrials_XLI
-      - basic_materials_XLB
-      - large_healthcare_XLV
-      - energy_XLE
-      - consumer_cyclical_XLY
-      - consumer_defensive_XLP
-      - financial_XLF
-      - education_technology
-      - cybersecurity_IHAK
-      - space_technology_ARKX
-      - big_data
-      - defense_aerospace
-      - commodities_metals
-    evidence_summary: "8月13日六个统计范围涨3/跌3去重后的16项均完成分类；新增大数据、国防与航空航天、金属商品三项基础状态，既有项目没有因单日波动制造结构变化。"
+    evidence_summary: "按作者8.12正式DOCX第四部分同步18项（含6处作者修订：科技、网络安全、量子计算、信息技术(VGT)改名、社交媒体、生物识别）；AUTHOR_EXACT_STATE原样保存，base_state只使用五种合法状态。其中information_technology_VGT已于2026-08-16退役。"

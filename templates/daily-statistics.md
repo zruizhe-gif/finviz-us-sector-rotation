@@ -1,8 +1,8 @@
 # Finviz YYYY-MM-DD 日报
 
-> 完整calculated statistics、coverage audit、mandatory rotation coverage set、股票去重集合、ETF结果及原始JSON全部由稳定程序生成并永久保留。LLM成稿只读取 `research/finviz/YYYY-MM-DD/runtime-brief.json`；只有其中具名质量门失败时才定点回查大型底稿。不得重读原任务全文，也不得让模型手工遍历全部股票。
+> 按 `01-original-daily-task-verbatim.txt` 全文执行；本模板不能替代原任务。
 
-> 统计规则不变。入选股票先按 ticker 去重并100%完成批量机械初筛；成稿只读取 `research/finviz/YYYY-MM-DD/catalyst-brief.json`，具体股票异常时才回查完整cache。同一股票跨范围重复出现时复用同一结论，不得重复检索。未找到独立事件时固定写“暂未找到同日直接催化”，再给已经确认的板块、行业或宏观联动。生成正式报告时删除本模板指令。
+> 当前格式与内容深度以 Skill 根目录内的 `finviz_2026-08-11_report.md` 为基准；统计规则不变。对每只入选股票分别核查直接催化与时间线，不得批量套用“暂未找到”。生成正式报告时删除本模板指令。
 
 > 下列五个股票范围与Themes表格均须恰好填写涨1、涨2、涨3、跌1、跌2、跌3六行；每只股票原因在对应表格行内写完，不得拆成表后逐股模板段。生成正式报告时删除本模板指令。
 
@@ -27,5 +27,5 @@
 ## ETFs
 ### 最终上涨三只
 ### 最终下跌三只
-## 一致性优先结果
-## TXT文件结果
+## 一致性优先最终复核
+## TXT文件与最终复核

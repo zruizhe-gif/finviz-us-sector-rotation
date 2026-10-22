@@ -1,105 +1,73 @@
-# 11 Evidence and Output Boundaries｜证据、缓存与文件边界
+# 11 Evidence and Output Boundaries｜证据、链接与文件边界
 
-## Finviz 机械统计报告
+## Finviz主统计报告
 
-Finviz 统计固定使用现有稳定代码完成，模型不得为了再次确认而手工遍历全部股票。机械层继续保留：
+继续完整执行原日度/周度原因核验标准：
 
-- 五个股票范围、Themes 与 ETF；
-- 一致性优先、清一色优先、不足三项才按平均表现补位；
-- ETF 去杠杆、反向和相同经济敞口；
-- calculated statistics、coverage audit、mandatory rotation coverage set、股票去重集合、ETF 结果与两个 TXT；
-- 准确涨跌幅、严格时间线、直接催化与联动/推断的区分；
-- 主统计报告中的可点击来源链接和发布日期。
+- 公司公告、监管文件、IR、交易所、政府/行业数据、FactSet、Reuters等；
+- 给出可点击来源链接和发布日期；
+- 严格时间线；
+- 区分直接催化、联动/推断、未核实；
+- 盘后事件不得解释正常交易时段/本周收盘前价格。
 
-上述完整文件全部永久保留。完成机械层后运行 `scripts/build_runtime_briefs.py` 生成 `runtime-brief.json`；正常成稿只读brief，禁止全文加载calculated、coverage、hierarchy/perf或ETF audit。只有brief质量门失败或出现具名异常时才定点回查原文件。
+**主统计报告保留链接。**
 
-五个股票范围与 Themes 各保留恰好六行四列表格，股票原因写在对应表格行内。正常日度运行不得修改或调试正常工作的 `fetch_and_build.py`、`calculate.py`、`generate_outputs.py`；程序真实报错时停止并报告，不得在 DAILY_WEEKLY_RUN 中现场改代码。
+当前格式与内容基准为 `AI_reports/daily/finviz_2026-08-11_report.md`（2026-09-05起机械产出统一存放于AI_reports）。除一致性优先统计规则保持不变外，沿用其简洁口径、五范围各一张恰好六行的四列表格、Themes一张恰好六行的四列表格、ETF涨跌分表、一致性最终复核和代码文件审计；每只股票的原因在对应表格行内写完，禁止拆成表后模板段；不得擅自增加无用栏目或把同一信息反复展开。
 
-## 股票催化一次去重缓存
+### 逐股催化专项核查
 
-当日机械统计完成后，先从其入选股票建立唯一 ticker 集合。跨指数、Themes 或板块重复出现的同一股票只研究一次，随后由所有出现位置共同复用该 ticker 的缓存结论。
+对五范围及Themes每只入选股票分别执行，不能把一批股票合并做一次泛搜：
 
-缓存固定保存于：
+1. 核对公司法定名称、代码、事件日期和正常交易时段；
+2. 依次检查公司公告/IR、SEC及其他监管文件、最新财报与电话会、指引、并购、融资、合同、监管、分析师评级、内部人交易及可靠新闻；
+3. 记录发现了什么，以及盘前、盘中、盘后时间线是否能解释当期价格；
+4. 找到直接催化时，写事件、时间和关键数据，再写产业/宏观传导；
+5. 全部专项核查后仍无匹配事件，才写“暂未找到同日/同周直接催化”，并在同一股票项中写明主要检索边界及该股票特有的板块联动、权重、流动性或经营背景。
 
-`research/finviz/YYYY-MM-DD/catalyst-cache.json`
+禁止让绝大多数股票套用相同的“未找到硬催化”模板；禁止以“获利了结”“市场情绪”“技术性卖盘”等空话替代核查。
 
-以股票代码为 key。结构遵守 `templates/catalyst-cache.json`，至少保存公司名称、全部入选位置、涨跌幅、研究层级、结论状态、直接事件及时间线、必要来源、已确认联动、停止原因和完成时间。缓存元数据保存来源统计文件及其 SHA-256、唯一 ticker 数和 ticker 集合指纹。
+## 独立轮动深度报告
 
-第一轮候选事件判断必须对唯一ticker集合进行一次批量机械筛查。无候选事件且与所属板块方向一致的普通股票不启动独立高推理工作线；完成必要核查后立即写入固定无直接催化结论。只有候选事件或本文件规定的深度升级条件才交给模型定点核验。完整cache落盘后，由 `scripts/build_runtime_briefs.py` 生成 `catalyst-brief.json`；成稿只读brief，具体ticker有冲突时才回查完整cache。
+- 后台必须完成同等级核验；
+- 最终正文删除全部URL、超链接、引用标记、脚注、来源尾注、References/Sources；
+- 不设置资料来源章节；
+- 删除来源后不能留下残缺括号或半句话。
+- 所有非公司板块、行业、子行业、主题与子主题名称统一写中文；英文只保留在公司法定名称、股票代码、ETF代码和必要的指数/数据范围专名中。
+- 禁止展示内部生成过程：修改建议、自我纠正、历史同步、作者、ledger、state、强制覆盖、初始性质/建档、审计结果、本地字幕路径、字幕完整性以及“节目/彭博/字幕提到或验证”等措辞。
 
-同一交易日期内，ticker 记录完整且来源统计仍覆盖该股票时，直接记为 `CATALYST_CACHE_HIT`，禁止重复搜索。统计集合变化时只研究新增或未完成 ticker；已经完成的记录继续复用。
+## Bloomberg内部研究MD
 
-### 普通股票固定两步
+唯一内容输入是从当前 `SKILL.md` 所在目录解析得到的 `script/` 中、按日期和节目名匹配的本地字幕 TXT。内部研究MD必须保留：
 
-普通股票只执行以下顺序：
+- 本地字幕文件绝对路径；
+- 节目日期和节目名称；
+- 本地字幕全文读取状态；
+- 字幕能够确认的研究内容与必要信息缺口。
 
-1. 搜索“公司名/股票代码 + 日期 + 当日新闻/财报/公告”；
-2. 第一步结果含糊、需要确认原始披露或确有必要时，再检查公司 IR 或 SEC/其他对应监管来源。
+禁止为节目研究访问 YouTube 获取或判断字幕、Transcript、视频正文、标题简介或片段，也禁止保留视频URL作为内容证据。没有匹配的本地字幕时，节目MD全文只写 `LOCAL_TRANSCRIPT_MISSING`；不得用网络替代内容、标题、简介、旧摘要或零散片段补写节目事实。
 
-发现能够解释当期正常交易时段的明确直接事件后立即停止继续搜索，保存事件、发布时间、关键数据与时间线。不得为了让材料显得更完整继续穷举其他表单或新闻。
+这些本地字幕总结是内部研究记录，不是最终发表文章。
 
-两步仍没有独立事件时，固定记录：
-
-- 日报：`暂未找到同日直接催化`
-- 周报：`暂未找到同周直接催化`
-
-随后依据已经由机械统计、板块宽度、行业事实或宏观上下文确认的联动，给出该股票的具体解释。不得用“获利了结”“技术性卖盘”“市场情绪”等空话，也不得为了证明“没有事件”继续穷举 SEC 表单、评级、内部人交易、融资、合同和监管信息。
-
-### 深度升级的唯一条件
-
-只有以下情况才进入完整事件调查，并在缓存中保存 `research_level: deep` 与明确的 `deep_research_reason`：
-
-- 异常大涨或大跌；
-- 财报或重大指引变化；
-- 并购；
-- 监管事件；
-- 融资或资本结构冲击；
-- 重大合同；
-- 股价明显脱离已确认的板块方向；
-- 信息互相冲突。
-
-没有命中上述条件时，不得自行升级研究深度。直接事件一经确认仍执行“找到即停”。
-
-## Bloomberg 内部研究缓存
-
-Bloomberg 的唯一字幕输入、直接子目录扫描、SHA-256 判定、节目 MD 元数据、`PROGRAM_SUMMARY_CACHE_HIT`、日度和周度宏观读取边界统一遵守 `references/08-bloomberg-tv-macro-context.md` 与 `templates/bloomberg-program-note.md`。
-
-节目 MD 的 `source_file` 必须是 Skill 根目录相对路径，并保存 `source_sha256`。相同哈希命中缓存时禁止重新读取原始字幕全文。日度报告主要读取 `daily-macro-context.md`；周度报告只读取本周各日 `daily-macro-context.md` 并使用 `week-macro-context.md`，默认不得回到周内原始字幕。
-
-## 独立轮动候选报告的固定输入
-
-成稿阶段只读取已经整理好的中间结果：
-
-1. 当日/当周 `runtime-brief.json`；
-2. 当日/当周 `catalyst-brief.json`；
-3. daily macro context 或 week macro context；
-4. 本次需要的 market-state-ledger 条目；
-5. 最新 author-terminology；
-6. 上一期作者正式报告的新增或变更内容；
-7. Voice Style；
-8. Hard Bans；
-9. 当前报告模板与已经固化的第四部分观察池规则。
-
-成稿阶段不得全文读取大型机器底稿、重新抓 Finviz、全网重查所有股票、重读 Bloomberg 原始字幕或重读全部历史报告。缺什么只补什么；brief指出具体异常时只打开对应底稿片段。
-
-正式候选报告删除全部 URL、超链接、引用标记、脚注、来源尾注和 References/Sources；删除来源后不得留下残缺括号或半句话。所有非公司板块、行业、子行业和主题名称按作者术语表统一写中文。禁止展示缓存、历史同步、ledger、state、强制覆盖、字幕来源或审计过程。
-
-## 输出文件边界
-
-Finviz 机械统计报告与 TXT 继续按现有数据产物结构保存：
+## 输出文件
 
 ### DAILY
 
-- `finviz_YYYY-MM-DD_report.md`
-- `finviz_YYYY-MM-DD_stocks.txt`
-- `finviz_YYYY-MM-DD_all_codes.txt`
-- `AI_reports/daily/美股板块轮动观察｜YYYY.M.D.md`
+- `AI_reports/daily/finviz_YYYY-MM-DD_report.md`（Finviz主统计报告，保留核验链接；2026-09-05起与AI候选稿同存于AI_reports/daily/，不再写入Skill根目录）
+- `AI_reports/daily/finviz_YYYY-MM-DD_stocks.txt`
+- `AI_reports/daily/finviz_YYYY-MM-DD_all_codes.txt`
+- `AI_reports/daily/美股板块轮动观察｜YYYY.M.D.md`（AI轮动候选稿，2026-08-16起新命名，月日不补0；禁止写入 `history/daily/`，禁止放到Skill根目录）
 
 ### WEEKLY
 
-- `finviz_weekly_YYYY-MM-DD_report.md`
-- `finviz_weekly_YYYY-MM-DD_stocks.txt`
-- `finviz_weekly_YYYY-MM-DD_all_codes.txt`
-- `AI_reports/weekly/us_sector_rotation_week_YYYY-MM-DD.md`
+- `AI_reports/weekly/finviz_weekly_YYYY-MM-DD_report.md`
+- `AI_reports/weekly/finviz_weekly_YYYY-MM-DD_stocks.txt`
+- `AI_reports/weekly/finviz_weekly_YYYY-MM-DD_all_codes.txt`
+- `AI_reports/weekly/美股板块轮动观察｜YYYY.M.D.md`（AI轮动候选稿，日期取该周最后一个交易日；禁止写入 `history/weekly/`）
 
-`AI_reports/` 只保存 AI 候选稿。AI 不得自行复制、移动或覆盖 `history/daily/`；只有作者人工修改或明确确认的版本才进入正式历史。
+两个TXT规则完全按原任务执行。
+
+### 作者正式历史
+
+- 只有作者人工修改或明确确认后的报告才进入 `history/daily/`（或 `history/weekly/`），属于 `AUTHOR_CONFIRMED_HISTORY`；2026-08-16起正式稿命名 `美股板块轮动观察｜YYYY.M.D.md` / `.docx`（月日不补0），旧的 `us_sector_rotation_YYYY-MM-DD.md` 规范命名仍视为正式历史（既有文件不重命名）；
+- 第二天行情性质与术语同步只从 `history/` 读取，禁止从 `AI_reports/` 反向更新作者状态；
+- 每日催化研究按股票代码去重缓存于 `research/finviz/YYYY-MM-DD/catalyst-cache.json`，同一股票只研究一次（两步研究，命中同日直接事件立即停止；异常样本才深挖）。
