@@ -1,0 +1,40 @@
+schema_version: 1
+as_of: 2026-08-14
+source_precedence:
+  - AUTHOR_EXPLICIT_INSTRUCTION
+  - AUTHOR_CONFIRMED_HISTORY
+
+# Dynamic author terminology. Daily corrections update this file only; they do not modify Skill rules,
+# references, templates, or stable Python scripts.
+mappings:
+  etf:
+    VGT:
+      preferred_zh: "信息技术"
+      forbidden_zh:
+        - "硬件"
+      source: AUTHOR_EXPLICIT_INSTRUCTION
+      source_date: 2026-08-14
+      note: "只约束ETF VGT的正式名称；不得根据当日成分表现临时重新命名，也不改变Finviz Hardware主题的身份。"
+
+  finviz_theme:
+    Cybersecurity:
+      preferred_zh: "网络安全"
+      distinct_from:
+        - Biometrics
+      source: AUTHOR_EXPLICIT_INSTRUCTION
+      source_date: 2026-08-14
+      note: "必须按Finviz原始Theme标签识别，不得与Biometrics互换。"
+
+    Biometrics:
+      preferred_zh: "生物识别"
+      distinct_from:
+        - Cybersecurity
+      source: AUTHOR_EXPLICIT_INSTRUCTION
+      source_date: 2026-08-14
+      note: "必须按Finviz原始Theme标签识别，不得与Cybersecurity互换。"
+
+resolution_rules:
+  - "正式报告命名先读取本文件，再使用通用翻译。"
+  - "作者新正式报告中的明确修正按日期覆盖旧映射。"
+  - "AI_reports不得反向更新本文件。"
+  - "单项术语修正不得触发SKILL.md、references、templates或Python脚本修改。"
