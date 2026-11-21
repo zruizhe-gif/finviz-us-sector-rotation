@@ -1,0 +1,58 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "period": "DAILY",
+    "trading_date": "YYYY-MM-DD",
+    "source_statistics": "research/finviz/YYYY-MM-DD/calculated-statistics.json",
+    "source_statistics_sha256": "SHA256",
+    "selected_ticker_set_sha256": "SHA256",
+    "unique_ticker_count": 0,
+    "generated_at": "YYYY-MM-DDTHH:MM:SSZ",
+    "ordinary_research_order": [
+      "company_or_ticker_plus_date_plus_news_earnings_announcement",
+      "ir_or_sec_only_if_needed"
+    ],
+    "deep_research_allowed_reasons": [
+      "abnormal_price_move",
+      "earnings_or_guidance",
+      "merger_or_acquisition",
+      "regulatory_event",
+      "financing_or_capital_structure",
+      "major_contract",
+      "clear_sector_divergence",
+      "conflicting_information"
+    ]
+  },
+  "TICKER": {
+    "company": "Company Legal Name",
+    "occurrences": [
+      {
+        "range": "sp500",
+        "group": "Technology",
+        "direction": "up",
+        "rank": 1,
+        "performance_pct": 0.0
+      }
+    ],
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "primary_search": {
+      "performed": true,
+      "query_scope": "Company/TICKER + YYYY-MM-DD + news/earnings/announcement",
+      "result": "no_independent_event_found"
+    },
+    "official_source_check": {
+      "performed": false,
+      "source_type": null,
+      "result": null
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "sources": [],
+    "confirmed_linkage": "Use only already-confirmed sector, industry or macro linkage.",
+    "output_conclusion": "暂未找到同日直接催化",
+    "stop_reason": "ORDINARY_TWO_STEPS_COMPLETED",
+    "completed_at": "YYYY-MM-DDTHH:MM:SSZ"
+  }
+}

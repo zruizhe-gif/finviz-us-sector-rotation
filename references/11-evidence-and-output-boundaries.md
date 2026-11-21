@@ -12,7 +12,7 @@
 
 **主统计报告保留链接。**
 
-当前格式与内容基准为 Skill 根目录内的 `finviz_2026-08-11_report.md`。除一致性优先统计规则保持不变外，沿用其简洁口径、五范围各一张恰好六行的四列表格、Themes一张恰好六行的四列表格、ETF涨跌分表、一致性最终复核和代码文件审计；每只股票的原因在对应表格行内写完，禁止拆成表后模板段；不得擅自增加无用栏目或把同一信息反复展开。
+当前格式与内容基准为 `AI_reports/daily/finviz_2026-08-11_report.md`（2026-09-05起机械产出统一存放于AI_reports）。除一致性优先统计规则保持不变外，沿用其简洁口径、五范围各一张恰好六行的四列表格、Themes一张恰好六行的四列表格、ETF涨跌分表、一致性最终复核和代码文件审计；每只股票的原因在对应表格行内写完，禁止拆成表后模板段；不得擅自增加无用栏目或把同一信息反复展开。
 
 ### 逐股催化专项核查
 
@@ -52,16 +52,22 @@
 
 ### DAILY
 
-- `finviz_YYYY-MM-DD_report.md`
-- `finviz_YYYY-MM-DD_stocks.txt`
-- `finviz_YYYY-MM-DD_all_codes.txt`
-- `us_sector_rotation_YYYY-MM-DD.md`
+- `AI_reports/daily/finviz_YYYY-MM-DD_report.md`（Finviz主统计报告，保留核验链接；2026-09-05起与AI候选稿同存于AI_reports/daily/，不再写入Skill根目录）
+- `AI_reports/daily/finviz_YYYY-MM-DD_stocks.txt`
+- `AI_reports/daily/finviz_YYYY-MM-DD_all_codes.txt`
+- `AI_reports/daily/美股板块轮动观察｜YYYY.M.D.md`（AI轮动候选稿，2026-08-16起新命名，月日不补0；禁止放到Skill根目录；2026-11-04起另存同名副本到 `history/daily/` 供作者修改，同日文件已存在时不得覆盖）
 
 ### WEEKLY
 
-- `finviz_weekly_YYYY-MM-DD_report.md`
-- `finviz_weekly_YYYY-MM-DD_stocks.txt`
-- `finviz_weekly_YYYY-MM-DD_all_codes.txt`
-- `us_sector_rotation_weekly_YYYY-MM-DD.md`
+- `AI_reports/weekly/finviz_weekly_YYYY-MM-DD_report.md`
+- `AI_reports/weekly/finviz_weekly_YYYY-MM-DD_stocks.txt`
+- `AI_reports/weekly/finviz_weekly_YYYY-MM-DD_all_codes.txt`
+- `AI_reports/weekly/美股板块轮动观察｜YYYY.M.D.md`（AI轮动候选稿，日期取该周最后一个交易日；禁止写入 `history/weekly/`）
 
 两个TXT规则完全按原任务执行。
+
+### 作者正式历史
+
+- 只有作者人工修改或明确确认后的报告才进入 `history/daily/`（或 `history/weekly/`），属于 `AUTHOR_CONFIRMED_HISTORY`；2026-08-16起正式稿命名 `美股板块轮动观察｜YYYY.M.D.md` / `.docx`（月日不补0），旧的 `us_sector_rotation_YYYY-MM-DD.md` 规范命名仍视为正式历史（既有文件不重命名）；
+- 第二天行情性质与术语同步只从 `history/` 读取，禁止从 `AI_reports/` 反向更新作者状态；
+- 每日催化研究按股票代码去重缓存于 `research/finviz/YYYY-MM-DD/catalyst-cache.json`，同一股票只研究一次（两步研究，命中同日直接事件立即停止；异常样本才深挖）。
