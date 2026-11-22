@@ -1,8 +1,9 @@
-# Closing Bell｜2026-08-11
+﻿# Closing Bell｜2026-08-11
 
 - 节目日期：2026-08-11
 - 节目名称：Closing Bell
 - 本地字幕文件：`{SKILL_ROOT}\script\Closing_Bell_2026-08-11.txt`
+- 来源字幕SHA-256：98CFBD006FAB8B1184508A578B5D17C93FC79B8452B64431F47A256B12134E03
 - 字幕覆盖：00:00:00—00:09:50，覆盖收盘、主要个股和第一批盘后财报。
 
 ## 收盘概况

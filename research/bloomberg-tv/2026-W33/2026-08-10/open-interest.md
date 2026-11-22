@@ -1,8 +1,9 @@
-# Open Interest｜2026-08-10
+﻿# Open Interest｜2026-08-10
 
 - 节目日期：2026-08-10
 - 节目名称：Open Interest
 - 本地字幕文件：`{SKILL_ROOT}\script\Open Interest 2026-8-10.txt`
+- 来源字幕SHA-256：5A7B851D998E7A297E6EF6FEB1A939B46FE53221FDD2AB14708690CC14454CD1
 - 字幕覆盖：00:00:00—01:26:58，覆盖盘前、开盘、开盘后一小时及节目结尾。
 
 ## 节目主线

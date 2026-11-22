@@ -1,0 +1,383 @@
+from __future__ import annotations
+
+import hashlib
+import json
+import re
+from collections import Counter
+from pathlib import Path
+
+
+HERE = Path(__file__).resolve().parent
+SKILL = HERE.parents[2]
+DATA = json.loads((HERE / "calculated-statistics.json").read_text(encoding="utf-8"))
+
+RANGE_ORDER = ("all_stocks", "sp500", "dow30", "nasdaq100", "russell2000", "themes")
+SECTION_LABEL = {
+    "all_stocks": "一、All Stocks", "sp500": "二、S&P 500",
+    "dow30": "三、Dow Jones 30", "nasdaq100": "四、Nasdaq 100",
+    "russell2000": "五、Russell 2000", "themes": "六、主题",
+}
+MAP_URLS = {
+    "all_stocks": "https://finviz.com/map?t=sec_all&st=d1",
+    "sp500": "https://finviz.com/map?t=sec&st=d1",
+    "dow30": "https://finviz.com/map?t=sec_dji&st=d1",
+    "nasdaq100": "https://finviz.com/map?t=sec_ndx&st=d1",
+    "russell2000": "https://finviz.com/map?t=sec_rut&st=d1",
+    "themes": "https://finviz.com/map?t=themes&st=d1",
+    "etf": "https://finviz.com/map?t=etf&st=d1",
+}
+
+CN = {
+    "Utilities": "公用事业", "Energy": "能源", "Technology": "科技",
+    "Communication Services": "通信服务", "Real Estate": "房地产",
+    "Consumer Cyclical": "可选消费", "Industrials": "工业",
+    "Basic Materials": "基础材料", "Financial": "金融", "Healthcare": "医疗保健",
+    "Consumer Defensive": "必需消费", "Semiconductors": "半导体",
+    "Commodities Energy": "能源商品", "Environmental Sustainability": "环境可持续发展",
+    "Cybersecurity": "网络安全", "Biometrics": "生物识别",
+    "Education Technology": "教育科技", "Consumer Goods": "消费品",
+    "Space Tech": "太空科技", "Quantum Computing": "量子计算",
+    "Hardware": "硬件", "Social Media": "社交媒体", "Software": "软件",
+    "E-commerce": "电子商务", "Big Data": "大数据",
+    "Defense & Aerospace": "国防与航空航天", "Commodities Metals": "金属商品",
+    "Cloud Computing": "云计算", "Transportation & Logistics": "运输与物流",
+    "Artificial Intelligence": "人工智能", "Digital Entertainment": "数字娱乐",
+    "Real Estate & REITs": "房地产与REITs", "Energy Traditional": "传统能源",
+    "Healthcare & Biotech": "医疗保健与生物科技",
+}
+
+SUB_CN = {
+    "Curriculum": "课程内容", "Platforms": "平台", "Infrastructure": "基础设施",
+    "Workforce": "职业教育", "ThreatOps": "威胁情报", "App Security": "应用安全",
+    "Cloud": "云计算", "Endpoint": "端点安全", "ZeroTrust": "零信任", "SIEM": "安全信息与事件管理",
+    "Identity IAM": "身份与访问管理", "Network": "网络",
+    "Analytics & BI": "分析与商业智能", "AI Platforms": "人工智能平台", "Providers": "数据服务商",
+    "Satellites": "卫星", "Data Analytics": "数据分析", "Launch": "发射", "Defense": "国防",
+    "Drones": "无人机", "SpaceTech": "太空科技", "Missiles": "导弹", "Aviation": "航空",
+    "Weapons": "武器", "Manufacturing": "制造", "CyberDefense": "网络防御",
+    "Hardware": "硬件", "Software": "软件",
+    "Advertising": "广告", "Enabling Tech": "支撑技术", "Gov & Defense": "政府与国防",
+    "Identity": "身份认证", "Networks": "社交网络", "Niche": "垂直社群", "Visual Content": "视觉内容",
+    "Silver": "白银", "Gold": "黄金", "Precious": "贵金属", "Industrial": "工业金属",
+    "Battery": "电池", "Rare Earth": "稀土", "Recycling": "回收",
+}
+
+THEME_COMPANY = {
+    "RDDT": "Reddit Inc", "CRTO": "Criteo S.A", "PINS": "Pinterest Inc",
+    "RCAT": "Red Cat Holdings Inc", "MP": "MP Materials Corp", "ONDS": "Ondas Inc",
+    "AMD": "Advanced Micro Devices Inc", "LAES": "SEALSQ Corp", "IONQ": "IonQ Inc",
+    "AVGO": "Broadcom Inc", "RPD": "Rapid7 Inc", "QLYS": "Qualys Inc",
+    "IDN": "Intellicheck Inc", "BKYI": "Bio-Key International Inc", "OKTA": "Okta Inc",
+    "DUOL": "Duolingo Inc", "SKIL": "Skillsoft Corp", "ZM": "Zoom Communications Inc",
+}
+
+COMPANY_NAME_FIX = {
+    "APP": "AppLovin Corp", "SPCX": "Space Exploration Technologies Corp",
+    "PSKY": "Paramount Skydance Corp", "STRZ": "Starz Entertainment Corp",
+    "ESTC": "Elastic NV", "YXT": "YXT.com Group Holding Ltd",
+    "SNDK": "SanDisk Corp",
+}
+
+# R 催化字典：TICKER -> (label, 原因文本)。label 见 11-evidence-and-output-boundaries。
+# 事件时间口径：8月13日16:00 ET盘后事件可解释8月14日；8月14日16:00 ET后事件不得倒推。
+R = {
+    "BANL": ("结构", "CBL International（亚太船用燃料物流/ bunkering）在8/13-14无任何公司公告（StockTitan最新新闻为8/4恢复纳斯达克最低股价合规）。7/20实施1并13缩股后流通筹码极度稀少，8/13已涨15%后8/14再遭投机资金拉升+55.9%，为典型低流通微盘资金驱动；当日油价大涨（布伦特约87美元、霍尔木兹封锁）仅提供题材背景。"),
+    "PROP": ("结构", "Prairie Operating（DJ盆地微型E&P）8/13-14无公司新闻稿（最新公告仍为7/22董事任命），Q2财报在8月中下旬才发布，无法解释当日行情。此前一周已累涨约36%，油价飙升日低流通盘资金惯性拉升+19.1%并收复1美元关口，属微盘动量/逼空式上涨，能源板块仅提供顺风。"),
+    "SLNG": ("财报延续", "Stabilis Solutions于8/11盘后发布Q2业绩：收入虽降31%但给出2026下半年收入环比+50%以上、2027年超1亿美元的收入指引，并宣布美国数据中心LNG供电新合同（Q3启动）及2027年初更大数据中心合同，市场对其持续重估；8/14在能源/LNG大涨氛围中延续财报后买盘+15.5%。"),
+    "EMAT": ("结构", "Evolution Metals & Technologies（1月经SPAC上市的关键金属/回收微盘股）8/14日内区间2.44-3.52美元、巨幅震荡后收涨34.1%，此前8月初刚创52周新低2.16美元，无当日公司新闻（近期仅有7/2 Litchfield Hills买入评级）。属于超跌微盘投机性反弹，叠加金属矿业板块（XME+1.6%）联动。"),
+    "TMCR": ("结构", "The Metals Royalty Company（4/8直接上市的权利金公司，日均成交仅约7万股）8/14无当日新闻稿，但旗舰Mesabi铁矿权利金资产（2.65亿美元收购）所对应的Mesabi Metallics项目已95.5%完工、目标2026年8月投产且已完成首次生产爆破，投产临近成为资金炒作催化；当日缩量急拉+25.5%，属低流通盘资金驱动+金属矿板块联动。"),
+    "METC": ("联动", "Ramaco Resources自8/4盘后Q2财报后再无公司新闻。当日焦煤/能源商品与金属矿集体走强，Ramaco兼具南阿巴拉契亚焦煤主业与怀俄明Brook Mine稀土/关键矿产（REalloys框架下可获最多20%美国混合稀土碳酸供应权）双重题材，小盘资金借大宗商品全面上涨日拉升+16.3%。"),
+    "VGAS": ("联动", "Verde Clean Fuels（天然气制汽油微盘股）8/10盘后Q2亏损同比收窄24%、账上5350万美元现金且零负债，提供基本面安全垫。8/14无新公告，当日原油/成品油价格因地缘冲突大涨，改善其天然气制汽油的价差与项目经济性预期，微盘弹性放大至+8.6%。"),
+    "NRG": ("联动", "NRG 8/13-14无公司新闻。此前8/4-6披露的Q2财报及与超大规模云厂商1.2GW德州燃气电站协议（15年期、可扩至2.4GW）曾因EPS不及预期遭遇抛售，8/14随数据中心供电主题与电力板块（XLU+0.6%、CEG+1.4%）集体反弹，天然气与电力价格上涨亦强化其ERCOT盈利逻辑，收涨5.4%。"),
+    "HNRG": ("联动", "Hallador Energy（印第安纳煤电一体化）8/10盘后Q2业绩将天然气发电项目资本预算削减至8亿美元以下，随后无新公司事件。8/14煤炭股集体大涨（同业Ramaco +16.3%）、小盘能源材料强势，煤价与电力价格上行预期推动其上涨4.3%。"),
+    "BZAI": ("直接", "8-13盘后发布Q2 FY2026财报：营收$12.0M、净亏损$28.8M，并将FY2026营收指引从上季重申的$130M大幅砍至$40-43M（约-68%，理由为订单转化放缓/需求疲弱），H2毛利率指引仅17-19%（Q1为58%），8-14暴跌49.3%至约$0.59（[公司IR新闻稿](https://ir.blaize.com/news-releases/news-release-details/blaize-reports-second-quarter-2026-financial-results/)）。"),
+    "MVIS": ("融资定价", "8-14前后启动约$17M公开发行：680万单元@$2.50（每单元=1股普通股+1份五年期$2.50行权价期权证，WestPark Capital承销），折让定价引发稀释与期权证悬顶抛售，当周股价自约$4.65滑向$2.18、8-14收跌40.7%；叠加8-1生效的1拆15并股与8-6疲弱Q2（营收仅约$1.5M）（[Timothy Sykes](https://www.timothysykes.com/news/microvisioninc-mvis-news-2026_08_15/)）。"),
+    "CXAI": ("直接", "8-14公司宣布1比50反向拆股、8-18生效，旨在9-7合规大限前重新满足纳斯达克$1最低买价要求；股价仅$0.176（8-13收），深度缩股映射的退市风险引发微盘资金出逃，当日大跌37.1%（[Moomoo](https://www.moomoo.com/hans/news/post/74738274/cxapp-to-carry-out-1-for-50-reverse-stock-split)、[Investing.com](https://hk.investing.com/news/company-news/article-93CH-1357498)）。"),
+    "DARE": ("融资定价", "8-14宣布定价$6.0M注册直接发行：约437.96万股@$1.37（或预融资期权证$1.3699）并同步私募，8-17前后交割；8-13财报后盘后曾涨约21%至$1.66，8-14股价向发行价乃至下方回落收跌32.1%，属典型增发摊薄重定价（[StockTitan](https://www.stocktitan.net/news/DARE/dare-bioscience-announces-pricing-of-6-0-million-registered-direct-98zvmd50mjhq.html)、[Yahoo](https://sg.finance.yahoo.com/news/dar-bioscience-announces-pricing-6-164500995.html)）。"),
+    "HCTI": ("财报延续", "8-13发布Q2财报：营收$9.19M（同比+158%）、毛利+322%，但环比低于Q1的$9.9M；财报消息先推动股价冲高（收约$1.73），8-14纳米盘（市值约$2.5M）剧烈回吐30.1%收约$1.21，此前7-29刚增发1250万股以解决纳斯达克$5M最低市值合规，摊薄与流动性薄弱放大波动（[StockTitan](https://www.stocktitan.net/news/HCTI/)）。"),
+    "MDCX": ("财报延续", "8-12 18:00发布Q2财报：净亏损扩大至$11.7M（上年同期$6.2M）且持续存在持续经营（going-concern）疑虑（现金及受限现金$25.2M），虽有SkinJect II期积极数据与FDA注册性试验(SKNJCT-005)许可，8-14纳米盘下跌20.9%至约$0.28（[StockTitan](https://www.stocktitan.net/news/MDCX/)）。"),
+    "UCAR": ("结构", "StockTitan新闻流显示8-10至8-15无任何公司公告；$0.66纳米盘（自高点累计下跌约97%），8-4刚完成$16M老股东私募（975.6万股@$1.64），股价长期运行在发行价下方，低流动性微盘资金持续撤离，当日随微盘/可选消费普跌-16.4%（[StockTitan](https://www.stocktitan.net/news/UCAR/)）。"),
+    "FFAI": ("财报延续", "Q2财报于8-12盘后至8-13电话会窗口发布：营收$836K（同比+1500%但低于约$1.36M预期）、调整后每股亏损$17.38，消息公布初期上涨后8-14掉头大跌16.2%收$3.92；叠加7-24生效的1拆150并股后的持续摊薄与退市合规担忧（[Business Wire](https://www.businesswire.com/news/home/20260806990899/en/Faraday-Future-Announces-Second-Quarter-2026-Earnings-Release-Date-and-Conference-Call-Details-to-Be-Held-on-August-13-2026)）。"),
+    "LESL": ("财报延续", "8-12盘后FQ3财报：销售额$458.5M（-8.4%）显著低于预期（约$503M）、可比销售-6.2%、EPS $3.96远低于预期$4.86-5.06，盘后一度暴跌44%；8-14为财报后第二个交易日延续跌势-16.2%（[公司新闻稿](https://ir.lesliespool.com/news-events/press-releases/detail/223/leslies-inc-announces-third-quarter-2026-financial)、[Benzinga](https://www.tradingview.com/news/benzinga:579191ccf094b:0-leslie-s-lesl-stock-falls-44-after-hours-what-s-going-on/)）。"),
+    "HAL": ("联动", "Halliburton 8/14无公司特定新闻。美国预告对伊朗实施'经济孤立'制裁、霍尔木兹海峡封锁持续，布伦特站上87美元，市场预期能源安全驱动的上游勘探开发支出回升，油服板块全面领涨（OIH+2.6%、IEZ+2.8%、BKR+2.2%），压裂龙头HAL收涨4.8%。"),
+    "TRGP": ("联动", "Targa Resources 8/6已发布创纪录Q2（调整后EBITDA +38%至16亿美元）后无新公司事件，8/14仅为例行支付每股1.25美元季度股息（年化5美元、同比+25%）的除息后派款日。二叠盆地中游商随油价上行与能源板块整体涨势收涨3.3%。"),
+    "TPL": ("联动", "Texas Pacific Land 8/14无公司新闻（8/5 Q2营收+31.2%、8/4宣布每股0.60美元派息）。作为二叠盆地油气/水权特许权公司，其收入直接挂钩油气产量与价格，油价因地缘冲突升至87美元附近直接抬升其权利金现金流预期，股价贴近52周高点续涨3.3%。"),
+    "ALB": ("联动", "Albemarle 8/14无公司新闻（Q2财报已于7月底发布）。当日为大宗商品全面上涨日：金属矿业XME+1.6%、金矿、玉米等普涨，锂业龙头作为'硬资产'随材料/资源板块轮动走高+4.3%。"),
+    "NEM": ("联动", "Newmont 8/14无公司新闻（Q2于7/23发布、EPS 2.10美元超预期）。中东局势升级（对伊制裁预告、霍尔木兹封锁）激发避险买盘推升金价，金矿股集体跑赢（NEM+3.1%、RING+2.4%、GLD+0.6%），行业龙头NEM领涨大盘金矿股。"),
+    "DOW": ("联动", "Dow Inc. 8/14无公司新闻（Q2已于7月末发布，净销售121亿美元、同比+20%）。当日大盘微跌（道指-0.2%、标普-0.2%）而大宗商品与材料板块逆势走强，资金轮动至涨价受益的化工/材料股，陶氏凭借低气价原料与化工品涨价逻辑收涨2.3%。"),
+    "PCG": ("联动", "PG&E 8/14无公司新闻（Q2于7月末发布、核心EPS 0.40美元超预期）。当日公用事业防御板块走强（XLU+0.6%），叠加加州电力需求与电价上行预期，资金在避险情绪下流入防御性公用事业，PCG上涨2.2%。"),
+    "CEG": ("联动", "Constellation Energy 8/14无公司新闻（8/18为除息日）。核电/独立发电商板块随电力价格上涨与数据中心长期购电需求预期走强，跟随板块内NRG(+5.4%)等电力股反弹，CEG温和收涨1.4%（收282.50美元）。"),
+    "VEEV": ("联动", "当日无独立公司事件（其FY2027 Q2财报定于8-26发布），QuiverQuant当日报道亦指无单一新利空，属医疗保健板块普跌的一员（VRTX -2.1%、DXCM -1.9%同步走弱）；市场在风格轮动中减持高估值医疗软件股，AI变现节奏与估值消化是主要压制因素。"),
+    "IDXX": ("联动", "医疗保健板块当日整体回调拖累IDXX收跌2.8%；盘初股价曾因癌症检测产品相关消息上冲，但午后随板块走弱翻绿，显示跌幅主因板块资金流出而非公司利空。"),
+    "ZTS": ("联动", "无当日独立事件，随医疗保健板块普跌（-2.7%）；公司此前已因下调2026年指引并重组管理层处于弱势通道，板块轮动中继续被减持。"),
+    "AVGO": ("直接", "美国银行8-14发布报告警告博通AI芯片客户融资载体到2029年中或累积高达3700亿美元优先债务（需新增约1500亿美元融资），并下调其目标价与信用观点，引发对博通AI收入依赖与自身资产负债表风险的重新定价；叠加安全研究人员追踪到361个IP、47国的VMware系统被攻陷的报道，当日领跌标普500（-5.9%）并跌破400美元。来源：[24/7 Wall St](https://247wallst.com/investing/2026/08/14/broadcom-sinks-6-as-bofa-flags-370b-in-ai-debt-amd-climbs-4-on-bairds-1250-call/)"),
+    "GDDY": ("直接", "8-14盘中（13:30 ET起）Kaplan Fox等多家律所集中发布针对GoDaddy的证券欺诈调查/索赔征集公告，调查矛头指向2月24日财报中披露的一年期.com域名促销定价损害预收订单与收入增长一事；叠加当日高估值软件股遭轮动抛售，股价大跌5.6%。来源：[GlobeNewswire](https://www.globenewswire.com/news-release/2026/08/14/3345557/1020/en/kaplan-fox-encourages-investors-of-godaddy-inc-nyse-gddy-to-contact-the-firm-about-a-potential-securities-claim.html)"),
+    "AMAT": ("直接", "8-13盘后（电话会16:30 ET）公布FY2026 Q3创纪录业绩：营收91.2亿美元同比+25%（史上最大环比增幅）、non-GAAP EPS 3.50美元均超预期，但业绩兑现后遭遇\"利好出尽\"式获利了结，市场对AI资本开支持续性与中国业务敞口的审慎情绪压过超预期数字，8-14为财报后首个交易日大跌5.1%，与半导体设备板块回调共振。来源：[Applied Materials IR](https://ir.appliedmaterials.com/news-releases/news-release-details/applied-materials-announces-third-quarter-2026-results)"),
+    "NCLH": ("联动", "7月零售销售环比-0.6%创一年最差，直接打击消费与旅行类个股，邮轮股作为高Beta消费敞口领跌可选消费板块；油价上行强化燃油成本担忧，对NCLH构成双重压制。"),
+    "YUM": ("联动", "无当日独立事件，餐饮消费情绪随零售销售数据走弱而转谨慎，YUM随可选消费板块小幅回落1.8%；此前6月完成向百胜中国出售必胜客中国业务的利好已消化。"),
+    "ORLY": ("联动", "7月零售销售疲弱压制消费零售类个股，ORLY随可选消费板块回落1.7%；当日完成16亿美元三档优先票据交割（8-11定价，属常规融资）及Mizuho将目标价由105上调至110美元等中性偏多事件未能对冲板块压力。"),
+    "CVX": ("联动", "能源为当日唯一强势板块，油价上行（布伦特站上87美元、早间隔一度逼近90美元）直接抬升上游盈利预期，完成赫斯并购后的Chevron对油价弹性更大；在科技与消费走弱的轮动日获资金增持收涨1.2%。"),
+    "BA": ("联动", "无当日独立事件，航空航天防务相对稳健叠加737 MAX 7取证进展与近期评级上调的余温，波音作为道指工业权重在科技与消费走弱日获防御性资金青睐，小幅收涨0.6%。"),
+    "CAT": ("联动", "无当日独立事件，能源与基建需求预期支撑机械板块，Q2创纪录的720亿美元积压订单和上调的2026年指引提供基本面托底，CAT在大盘因消费数据回落的日子小幅收涨0.2%。"),
+    "MMM": ("联动", "随道指工业板块微涨、当日收平；7月21日Q2财报超预期并上调全年指引后股价运行于52周高位附近，无同日独立事件。"),
+    "DIS": ("联动", "当日QuiverQuant报道指上涨源于投资者权衡其新一轮成本削减计划与即将到来的财报，流媒体减亏叙事改善基本面预期；通信服务板块在科技与消费走弱日相对稳健，迪士尼逆势上涨2.0%。"),
+    "GOOGL": ("联动", "万亿市值权重股当日基本持平（-0.1%）：AI硬件链（AVGO/AMAT）遭抛售但未扩散至平台型广告股，AMD、SNDK等AI芯片个股大涨显示板块内部分化，GOOGL横盘消化；盘后因The Information报道一度触及4.8万亿美元市值（盘后事件不用于解释当日）。"),
+    "SHW": ("联动", "无当日独立事件，材料板块随大盘小幅走低；Q2净销售额67.9亿美元同比+7.5%及宣布8%提价的利好动能已在此前消化，当日资金轮动流向能源等强板块，SHW微跌0.7%。"),
+    "NKE": ("联动", "7月零售销售-0.6%创一年最差直接压制消费股，耐克因转型期销售疲弱（大中华区下滑）的叙事放大跌幅、跑输可选消费板块ETF；当日CEO等内部人增持的消息提供一定支撑但未能扭转，收跌1.2%。"),
+    "AMZN": ("联动", "8月初凭借Q2超预期财报与AWS加速增长触及3万亿美元市值的历史新高后处于高位整固，当日AI硬件抛售与零售销售疲弱的双重压制下小幅回调0.9%，无独立公司利空。"),
+    "HD": ("联动", "零售销售疲弱压制家装零售等利率与消费敏感股，HD随消费板块回落0.8%；8-13的评级动向（RBC维持持有、Citi买入）影响中性，市场在8月中下旬Q2财报前观望。"),
+    "V": ("联动", "8-13报道的约7%裁员与AI相关重组计划获市场正面解读、股价冲上52周收盘新高（366.59美元）后，8-14高位小幅回落整固（-0.4%）；支付股对当日疲弱消费数据保持敏感但跌幅克制，财报临近。"),
+    "AXP": ("联动", "无当日独立事件，消费金融股窄幅波动；7月零售销售疲弱对以消费支出为基本面的AXP构成温和压制，但16%的股息上调与BofA维持买入（目标价420→382美元）等前期利好托底，仅微跌0.3%。"),
+    "GS": ("联动", "8-12盘后公布的Q2业绩强劲（EPS 20.98美元、年化ROE 23.5%）推动股价上摸高位后，8-14属财报后高位窄幅整固（-0.3%），当日金融板块整体波动有限，无新增独立事件。"),
+    "BKR": ("联动", "8/14油轮遇袭叠加美国威胁对伊朗'无限期封锁'，布伦特原油涨逾1美元至约87美元并录周线涨幅，能源板块领涨大盘，油服与LNG设备商Baker Hughes随油价与板块整体上行（公司当日无独立公告，最近LNG大单为8/8）。[Reuters](https://www.reuters.com/business/energy/oil-set-weekly-gains-after-us-threatens-indefinite-blockade-iran-2026-08-14/)、[Morningstar能源综述](https://www.morningstar.com/news/dow-jones/2026081410127/energy-up-with-oil-futures-energy-roundup)"),
+    "FANG": ("联动", "美国威胁对伊朗无限期封锁推动油价上涨，Permian纯油气生产商Diamondback对油价弹性最高，随能源板块领涨；叠加8月初Q2财报总产量首次突破100万BOE/d的乐观基本面，当日无独立事件。[Reuters油价报道](https://www.reuters.com/business/energy/oil-set-weekly-gains-after-us-threatens-indefinite-blockade-iran-2026-08-14/)"),
+    "PYPL": ("直接", "临近收盘路透/WSJ报道Advent International正筹组收购资金、拟对PayPal发起新一轮出价，而7月15日Stripe+Advent的60.50美元/约530亿美元报价已被董事会认为低估拒绝，加价收购预期升温推动尾盘走强收涨1.8%。来源：[Yahoo Finance（2026-08-14 16:27 EDT）](https://finance.yahoo.com/markets/stocks/articles/stripe-advent-bid-60-50-202741307.html)"),
+    "LIN": ("联动", "8/14基础材料与能源为当日最强板块（防御型/成长型资金轮动），工业气体龙头Linde跟随材料板块走强；当日无独立事件，Q3股息1.60美元已于7月末宣布、9月初才除息。"),
+    "VRTX": ("联动", "医疗保健板块当日整体走弱（VRTX -2.1%、DXCM -1.9%），Vertex在8/3 Q2财报上调全年指引后曾大涨约11%，8/14属板块疲弱叠加高位获利回吐，当日无公司独立新闻。"),
+    "DXCM": ("联动", "医疗保健/医疗器械板块当日走弱，DexCom自7月末Q2财报（营收+13%并上调指引）大涨后股价接近52周高位、年内涨约35%，8/14为板块性获利回吐；当日仅内部人Form 144等常规文件，无实质公司事件。"),
+    "TRI": ("联动", "8/14无公司独立事件（Q2财报8月初已发布且上调全年指引），当日-2.3%属于生成式AI替代法律/税务信息服务的持续担忧与防御型专业服务股遭轮动抛售的一部分，8月中旬股价波动明显加大。"),
+    "ODFL": ("联动", "8/14工业运输板块回落（IYT -0.8%），Old Dominion收盘210.97美元跌2.21%，无公司独立事件（Q2财报7月末已发，当日仅常规SEC文件），属LTL货运股随板块回调、回吐前期涨幅。"),
+    "HONA": ("财报延续", "Honeywell Aerospace于8/6发布分拆后首份独立财报，利润不及预期并下调2026年有机增速指引至4-5%（原7-9%），当日暴跌26%；8/14的-2.0%是该财报冲击后的持续消化与高波动（8/13曾反弹至169.81美元）。[Reuters](https://www.reuters.com/business/aerospace-defense/honeywell-aerospace-shares-tank-sales-forecast-cut-profit-miss-disappoint-2026-08-06/)"),
+    "SBUX": ("结构", "8/14为星巴克每股0.62美元季度股息的除息日（8/28派息），除息调整本身约占0.58个百分点，-0.8%的跌幅绝大部分为除息所致，实际交投基本平盘。[星巴克IR](https://investor.starbucks.com/news/financial-releases/news-details/2026/Starbucks-Declares-Quarterly-Cash-Dividend-bfcb10c2a/default.aspx)"),
+    "BORR": ("直接", "Borr Drilling于8/14发布Q2 2026业绩：亏损虽大于预期一度下挫约10%，但同步宣布通过50:50墨西哥合资BC Ventures以2.87亿美元收购5座优质自升式钻井平台（自有/合资船队扩至34座），且公司董事在疲弱业绩后增持股票提振信心，股价日内V型反转收涨9.7%。[PR Newswire](https://www.prnewswire.com/news-releases/borr-drilling-limited-announces-second-quarter-2026-results-302849111.html)"),
+    "EU": ("财报延续", "enCore Energy于8/13发布Q2财报：每股净亏损0.19美元、铀提取量降至13.1万磅且成本升至57.36美元/磅、7月已裁员削减开支，当日股价暴跌17.4%；8/14的+6.1%属超卖后的技术性反弹（收1.21美元），仍处于该财报的消化过程。[StockTitan新闻列表](https://www.stocktitan.net/news/EU/)"),
+    "NEXT": ("联动", "NextDecade 8/12-15无新闻稿（最新为7/30 Q2更新：Rio Grande LNG施工提前且在预算内、Train 1预计2026下半年投产）。中东冲突升级与霍尔木兹封锁强化'美国LNG承接长期需求'的逻辑（公司此前亦公开表示中东冲突利好LNG需求），LNG概念随能源地缘溢价走强，NEXT收涨6.1%。"),
+    "ALOY": ("直接", "8/13盘后发布Q2财报：营收同比翻倍，虽净亏损3,680万美元但主因3,210万美元非现金股权激励费用，关键利好为获美国陆军选定就Tooele陆军仓库独家加强使用租赁（EUL）进行谈判、并已承诺5,830万美元SRC设施升级，稀土+国防叙事推动8/14放量大涨13.7%。[StockTitan新闻列表](https://www.stocktitan.net/news/ALOY/)"),
+    "SBMT": ("联动", "Silver Bow Mining在8/10-8/14期间无任何公司新闻稿（最近一条为7/27高管任命）；8/14白银同比涨超70%处十年高位附近，花旗当日重申0-3个月75美元、6-12个月90美元目标价，材料板块领涨放大了这只低流通小盘银矿股（日均成交仅约7.6万股）的涨幅。"),
+    "RCMT": ("直接", "8/13晚间9:50PM发布Q2财报：营收9,380万美元同比+20%，GAAP净利润490万美元、摊薄EPS 0.68美元，调整后EBITDA 930万美元同比+14.8%，8/14放量大涨21.2%收于35.05美元。[StockTitan新闻列表](https://www.stocktitan.net/news/RCMT/)"),
+    "NPWR": ("直接", "8/13盘后4:15PM发布Q2财报及业务更新：战略转向为AI/数据中心快速部署无碳天然气发电，Project Permian已签约两台模块化燃气轮机组（合计约68MW），在手现金及投资3.1亿美元，8/14盘中从平盘附近拉升收涨20.4%至1.95美元。[StockTitan新闻列表](https://www.stocktitan.net/news/NPWR/)"),
+    "SBC": ("直接", "SBC Medical Group于8/13发布Q2财报：营收同比+13%、净利润同比+335%、调整后EBITDA同比+32%，并宣布重组完成、增长重新加速，8/14股价大涨14.7%至3.66美元。[StockAnalysis公司页](https://stockanalysis.com/stocks/sbc/)"),
+    "KLC": ("直接", "KinderCare 8-13盘后发布Q2财报：季度净亏损$8.8M并将全年展望下调约$50M，8-14盘前一度-32%、全天收跌46.2%；此前2月已因2026年EBITDA指引（-25%）暴雷单日跌32-39%，市场对盈利持续恶化集中定价（[Yahoo Finance](https://uk.finance.yahoo.com/news/wall-street-turns-bearish-kindercare-131812115.html)、[Portland Business Journal](https://www.bizjournals.com/portland/news/2026/08/14/kindercare-stock-plummets-after-q2-2026-report.html)）。"),
+    "VITL": ("财报延续", "8月6日Q2财报后弱势延续：营收1.66亿美元同比-10.1%、净亏3110万美元（蛋类供给过剩），管理层称“谷底季度”；当日7月零售销售疲弱再度压制必需消费小盘。[公司IR](https://investors.vitalfarms.com/news/news-details/2026/Vital-Farms-Reports-Second-Quarter-2026-Financial-Results/default.aspx)"),
+    "HNST": ("联动", "8-14收跌3.8%至$4.84，当日无独立公司事件：属8-5 Q2财报（EPS $0.04超预期、上调全年营收指引至$319-325M）后从约$3.85一路涨至$5.60+高位的获利回吐，叠加7月零售销售环比-0.6%（一年最差）拖累小盘必需消费/零售情绪。"),
+    "SKYH": ("财报延续", "8-12盘后Q2财报：营收约$9.9M同比+50%、调整后EPS -$0.04好于预期、季度经营现金流转正，但市场更关注其高杠杆资本开支扩张（期内新发$150M票据）与持续融资摊薄，财报后连续两日下跌，8-14再跌6.7%至$10.26（[Investing.com电话会纪要](https://www.investing.com/news/transcripts/earnings-call-transcript-sky-harbour-beats-q2-2026-estimates-as-cash-flow-turns-positive-93CH-4856383)）。"),
+    "CMTG": ("联动", "商业地产抵押贷款mREIT（Claros），8-14无公司独立事件；近期分析师将目标价从$3.00下调至$2.50，CRE信用担忧与商业抵押贷款板块下行趋势延续，属小盘地产弱（同日IYR +0.2%背离）中的资金流出（[Simply Wall St](https://simplywall.st/stocks/us/diversified-financials/nyse-cmtg/claros-mortgage-trust)）。"),
+    "HPP": ("联动", "8-14收$13.90（-4.1%），无当日独立公告；Q2财报曾上调2026年FFO指引至$1.12-1.20/股，属反弹后回落，且8-21到期期权隐含约±116%的巨幅预期波动显示资金博弈激烈，随小盘REIT板块资金流出走弱。"),
+    "JACK": ("直接", "8-13发布FQ3（截至7-5季度）财报：调整后EPS $0.96超预期，但营收$257.7M不及预期、同店销售-1.1%（连锁店-1.2%）、下调FY利润率指引（调整后EBITDA $225-230M），8-14作为财报反应日收跌9.2%至约$17（[Yahoo/Zacks](https://ca.finance.yahoo.com/news/jack-q3-earnings-top-estimates-144900135.html)、[QSR Web](https://www.qsrweb.com/news/jack-in-the-box-comps-down-11-shifts-focus-to-simplification-quality-customer-experience/)）。"),
+    "TRON": ("联动", "Tron Inc.（Justin Sun的TRX代币财库公司，类MicroStrategy模式）8-14无公司公告，仍按$5万/日节奏增持TRX（8-12购入约14.9万枚@$0.3357，持仓超7.09亿枚）；当日下跌系加密财库概念自6月高点以来的持续退潮（该股自$12.80回撤约85%）叠加TRX疲弱的联动。"),
+    "CNNE": ("财报延续", "8-10盘后Q2财报（营收$102.2M超预期约$2.55M）后股价高波动：8-13反弹+3.6%收$15.56，8-14以$15.62开盘后全日走低收$14.63（-6.0%）完全回吐反弹；持有型公司净值随持仓重估波动，且存在Carronade Capital激进股东施压背景（[Morningstar/Business Wire财报](https://www.morningstar.com/news/business-wire/20260810459518/cannae-holdings-inc-announces-second-quarter-2026-financial-results)）。"),
+    "RDDT": ("直接", "8-13盘后标普道琼斯指数宣布Reddit将于8-18开盘前纳入标普500指数（替代AvalonBay Communities），被动资金配置预期推动8-14上涨12.6%（[CNBC](https://www.cnbc.com/2026/08/13/reddit-shares-jump-11percent-on-inclusion-in-sp-500.html)）。"),
+    "CRTO": ("联动", "8-14收$19.00（+4.3%），无直接公司利好：属8-5 Q2财报（调整后EPS $0.80超预期但2026展望疲弱）后暴跌的超跌反弹，并受RDDT纳入标普500带动社交媒体/广告主题当日全线走强的情绪联动（当日另有Levi & Korsinsky股东调查公告但未阻止反弹）（[公司Q2新闻稿](https://criteo.investorroom.com/2026-08-05-CRITEO-REPORTS-SECOND-QUARTER-2026-RESULTS)）。"),
+    "PINS": ("联动", "8-13盘后标普道琼斯宣布将Reddit纳入标普500（8-18生效），8-14 RDDT大涨约11%带动社交媒体5子主题全线走强；PINS当日无独立新闻，属8-4财报后股价大跌约20%的超跌反弹叠加板块联动。参考[CNBC](https://www.cnbc.com/2026/08/13/reddit-shares-jump-11percent-on-inclusion-in-sp-500.html)"),
+    "RCAT": ("直接", "8-13特朗普签署232条款公告，对进口无人机及零部件征收最高100%关税（9-3生效），Red Cat作为美国本土军用无人机厂商（Black Widow）直接受益，8-14大涨8.8%，CEO当日上Yahoo Finance节目解读关税影响。[Motley Fool](https://www.fool.com/investing/2026/08/14/why-red-cat-stock-just-popped/)、[白宫Fact Sheet](https://www.whitehouse.gov/fact-sheets/2026/08/fact-sheet-president-donald-j-trump-bolsters-national-security-and-strengthens-u-s-supply-chains-by-imposing-tariffs-on-drones-and-their-parts-and-components/)"),
+    "MP": ("直接", "8-13盘后发布Q2财报：营收1.085亿美元同比+89%，调整后利润超华尔街预期（稀土销量攀升），8-14大涨（盘中一度+8.6%）并带动稀土板块周五齐涨。[MINING.com](https://www.mining.com/web/mp-materials-adjusted-profit-beats-street-on-rising-rare-earths-sales/)、[TradingKey](https://www.tradingkey.com/news/market-movers/262108784-market-movers-mp-20260814)"),
+    "ONDS": ("直接", "受8-13签署的232无人机进口关税（最高100%、9-3生效）直接提振，Yahoo报道当日ONDS与UMAC/RCAT等本土无人机股齐涨（ONDS约+4%）；当周公司还公布创纪录Q2营收8380万美元并上调全年指引至5.25-5.5亿美元。[Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/unusual-machines-soars-22-red-172202581.html)"),
+    "AMD": ("融资定价", "8/13 AMD定价47.5亿美元四档无担保优先票据（期限最长至2036年），为公司史上最大美元债券发行、规模为上次发债的三倍多，募资用于一般公司用途以支撑AI驱动的资本开支扩张（上半年资本开支12亿美元、同比大增），8/14股价大涨逾6%。[Yahoo Finance](https://finance.yahoo.com/markets/stocks/articles/amd-stock-jumps-5-6-191626837.html)、[Bloomberg](https://www.bloomberg.com/news/articles/2026-08-13/amd-plans-to-raise-as-much-as-5-billion-from-debt-offering)"),
+    "LAES": ("联动", "SEALSQ当日无独立公告（最近新闻为8-4任命首席量子官），+6.0%属量子计算6子主题当日全线上涨的板块联动；量子财报季业绩强劲叠加英伟达发布面向量子计算的AI模型推动板块资金回流（当日AMD +6.5%）。"),
+    "IONQ": ("联动", "IONQ当日无独立新闻（Q2财报早于8-5发布：营收8010万美元同比+287%创纪录并上调FY26指引，当日+2.85%不属财报反应），属量子板块8-14整体走强的联动上涨。"),
+    "RPD": ("联动", "当日无独立新闻，属网络安全8子主题全跌的联动抛售（AVGO -5.9%、QLYS -5.0%同日齐跌）；此前Q2财报后的全年疲弱指引已使股价持续承压。"),
+    "QLYS": ("联动", "Q2财报于8-4盘后发布且营收1.822亿美元(+11%)/EPS 1.98美元双超预期（当时股价上涨），8-14的-5.0%无独立事件，属网络安全板块当日全跌联动。"),
+    "IDN": ("直接", "8-13盘后Q2财报电话会披露：占上半年营收约29%的大客户（因并购整合）正进行全供应商审查、拟转向多供应商IDV策略以避免单一依赖，若该客户按原计划过渡则2026年收入将略低于2025年，收入集中度风险引爆恐慌，8-14暴跌25.2%（财报本身营收590万美元+16%、EPS 0.03美元均达标）。[TradingKey电话会纪要](https://www.tradingkey.com/news/transcripts/262106091-tradingkey)"),
+    "BKYI": ("直接", "8-13发布Q2财报（8-14提交8-K并于当日10点召开电话会）：约80万美元硬件订单推迟致Q2营收192万美元（仅+13%）远低于管理层自身预期，CEO直言结果'低于我们的预期'且仍净亏损58万美元，8-14暴跌15.7%。[StockTitan 8-K](https://www.stocktitan.net/sec-filings/BKYI/8-k-bio-key-international-inc-reports-material-event-d29df94a9023.html)"),
+    "OKTA": ("联动", "当日无独立事件，2026年以来持续受增长放缓与AI颠覆软件担忧压制（年内跌约20%、贴近52周低点）；8-14网络安全8子主题全跌，且其同时隶属的身份认证/生物识别主题亦全跌，-4.9%属双重板块联动抛售。"),
+    "DUOL": ("直接", "8-13宣布收购伦敦动画工作室Animade（条款未披露）后股价先涨，8-14获利回吐大跌近8%，叠加市场对变现放缓的担忧与成长股轮动。[Duolingo IR](http://investors.duolingo.com/news-releases/news-release-details/duolingo-invests-world-class-motion-design-acquisition-animade)、[Benzinga](https://www.benzinga.com/trading-ideas/movers/26/08/61218690/why-is-duolingo-stock-falling-friday)"),
+    "SKIL": ("联动", "当日无独立新闻（8-4 NYSE已接受其恢复上市合规计划），股价在8月上旬投机性上涨（8-11约9.4美元）后连续回落，8-14的-5.4%属获利回吐叠加教育科技4子主题全跌的板块联动。"),
+    "ZM": ("联动", "当日无独立事件（财报要到8月下旬），-3.5%属教育科技4子主题全跌的板块联动；当日纳指回落0.3%、科技股整体走弱亦形成压制。"),
+}
+
+CONTEXT = {}
+
+ETF_SELECTION = {
+    "up": [
+        {"ticker": "OIH", "perf": 2.621, "form": "交易所交易基金", "exposure": "油服（油气设备与服务）",
+         "reason": "布伦特原油当日上涨近2%至87美元附近，对伊朗“史无前例”经济措施预告与霍尔木兹海峡封锁预期推升油气服务链，油服为当日最强行业敞口。合并删除：IEZ +2.781%、XES +2.764%、PXJ +2.386%（同为油气设备与服务敞口，按敞口去重只保留一只）。"},
+        {"ticker": "RING", "perf": 2.383, "form": "交易所交易基金", "exposure": "全球金矿股",
+         "reason": "金价与金矿股同步走强（黄金信托+0.632%），金矿企业利润率处于高位；Newmont（NEM）+3.1%领涨标普500材料权重股。合并删除：GDX +1.928%、GDXJ +1.903%、SGDM +1.919%（同簇金矿股，只保留最极端一只）。"},
+        {"ticker": "CORN", "perf": 1.954, "form": "商品信托", "exposure": "玉米期货",
+         "reason": "玉米期货价格当日领涨商品类产品；Teucrium玉米基金为非杠杆商品信托，与油服股票、金矿股票为不同商品敞口。合并删除：无同簇产品进入本轮极值候选。"},
+    ],
+    "down": [
+        {"ticker": "HACK", "perf": -3.044, "form": "交易所交易基金", "exposure": "网络安全",
+         "reason": "网络安全主题八个子主题清一色下跌（等权-2.92%），权重股Broadcom（AVGO）-5.9%、Rapid7（RPD）-5.7%、Qualys（QLYS）-5.0%同步走弱，前一日全线大涨后整体反转。合并删除：CIBR -2.544%（同簇网络安全，保留最弱一只）。"},
+        {"ticker": "SKYY", "perf": -2.114, "form": "交易所交易基金", "exposure": "云计算",
+         "reason": "云计算与软件链走弱：等权云计算WCLD -2.627%、软件IGV -2.070%、等权软件XSW -1.881%；“AI自编程替代软件”叙事与甲骨文数据中心传闻扰动板块情绪。合并删除：无同簇产品进入本轮极值候选。"},
+        {"ticker": "VNM", "perf": -2.055, "form": "交易所交易基金", "exposure": "越南股票",
+         "reason": "越南单一国家ETF当日跌幅居前，为美国行业ETF之外的地域敞口；非杠杆、非反向，与网络安全、云计算敞口相互独立。合并删除：无同簇产品进入本轮极值候选。"},
+    ],
+}
+
+ETFS_UP = [x["ticker"] for x in ETF_SELECTION["up"]]
+ETFS_DOWN = [x["ticker"] for x in ETF_SELECTION["down"]]
+
+
+def pct(value: float) -> str:
+    return f"{value:+.3f}%"
+
+
+def cn(name: str) -> str:
+    if name not in CN:
+        raise AssertionError(f"未翻译分类名称：{name}")
+    return CN[name]
+
+
+def reason(group: str, ticker: str) -> tuple[str, str]:
+    return CONTEXT.get((group, ticker), R[ticker])
+
+
+def stock_cell(group: str, stock: dict) -> str:
+    label, text = reason(group, stock["ticker"])
+    company = COMPANY_NAME_FIX.get(stock["ticker"], stock.get("company") or THEME_COMPANY.get(stock["ticker"], stock["ticker"]))
+    if label in {"结构", "联动", "权重", "单样本", "估值", "财报延续", "背离"} and "https://" not in text:
+        text = "核查8月13日盘后至14日公司披露与可靠新闻后，暂未找到同日直接催化；" + text
+    return f"{company}（{stock['ticker']}）**{pct(stock['perf'])}**【{label}】{text}"
+
+
+def width(row: dict) -> str:
+    return (f"{row['count']}只；{row['up']}涨/{row['down']}跌/{row['flat']}平；"
+            f"上涨{row['up_pct']:.2f}%/下跌{row['down_pct']:.2f}%；整体{pct(row['overall_perf'])}")
+
+
+def subthemes(row: dict, direction: str) -> str:
+    ordered = sorted(row["subthemes"], key=lambda x: x["perf"], reverse=direction == "up")[:4]
+    result = []
+    for x in ordered:
+        name = SUB_CN.get(x["display"], SUB_CN.get(x["name"], x["display"]))
+        if re.search(r"[A-Za-z]", name):
+            raise AssertionError(f"未翻译子主题：{x['display']}")
+        result.append(f"{name}{pct(x['perf'])}")
+    return (f"{row['count']}个；{row['up']}涨/{row['down']}跌/{row['flat']}平；"
+            f"上涨{row['up_pct']:.2f}%/下跌{row['down_pct']:.2f}%；等权{pct(row['overall_perf'])}；"
+            + "主要方向：" + "；".join(result))
+
+
+def render_range(key: str) -> list[str]:
+    block = DATA["ranges"][key]
+    theme = key == "themes"
+    display_label = "主题" if theme else block["label"]
+    out = [f"## {SECTION_LABEL[key]}", "", f"核验入口：[Finviz {display_label} 1-Day Map]({MAP_URLS[key]})。", ""]
+    if theme:
+        out += ["一致性按子主题判定，不按主题内重复股票；大类收益为全部有效子主题的等权平均。", "",
+                "| 方向 | 主题与入选身份 | 子主题宽度与等权收益 | 主要子主题及个股原因 |", "|---|---|---|---|"]
+    else:
+        out += ["| 方向 | 板块与入选身份 | 宽度与整体收益 | 入选个股及原因 |", "|---|---|---|---|"]
+    for direction, sign in (("up", "涨"), ("down", "跌")):
+        for rank, row in enumerate(block[f"selected_{direction}"], 1):
+            third = subthemes(row, direction) if theme else width(row)
+            stocks = "；".join(stock_cell(row["name"], x).rstrip("。") for x in row["extreme"]) + "。"
+            out.append(f"| {sign}{rank} | {cn(row['name'])}（{row['identity']}） | {third} | {stocks} |")
+    out += [""]
+    return out
+
+
+def render_etf() -> list[str]:
+    out = ["## 七、ETFs：排除杠杆、反向并按底层敞口去重", "", f"核验入口：[Finviz ETF 1-Day Map]({MAP_URLS['etf']})。先排除杠杆、反向与每日倍数产品，再按底层经济敞口去重。", ""]
+    for direction, title in (("up", "上涨三只"), ("down", "下跌三只")):
+        out += [f"### {title}", "", "| 产品 | 涨跌幅 | 法律形式与独立敞口 | 驱动及去重证明 |", "|---|---:|---|---|"]
+        for row in ETF_SELECTION[direction]:
+            out.append(f"| {row['ticker']} | {pct(row['perf'])} | {row['form']}；{row['exposure']} | {row['reason']} |")
+        out += [""]
+    return out
+
+
+def selected_mentions() -> list[str]:
+    return [x["ticker"] for key in RANGE_ORDER for d in ("selected_up", "selected_down") for row in DATA["ranges"][key][d] for x in row["extreme"]]
+
+
+def expected_txt() -> tuple[list[str], list[str]]:
+    stocks = sorted(set(selected_mentions()))
+    etfs = ETFS_UP + ETFS_DOWN
+    return stocks, sorted(set(stocks + etfs))
+
+
+def audit_inputs() -> tuple[list[str], list[str]]:
+    assert DATA["date"] == "2026-08-14"
+    stocks, all_codes = expected_txt()
+    assert set(stocks) == set(R), f"逐股原因缺失或多余：missing={set(stocks)-set(R)} extra={set(R)-set(stocks)}"
+    for key in RANGE_ORDER:
+        block = DATA["ranges"][key]
+        assert len(block["selected_up"]) == len(block["selected_down"]) == 3
+        for direction in ("up", "down"):
+            selected = block[f"selected_{direction}"]
+            uniform = block[f"uniform_{direction}"]
+            if len(uniform) >= 3:
+                assert all(x["identity"] == "清一色优先" for x in selected)
+            else:
+                assert sum(x["identity"] == "清一色优先" for x in selected) == len(uniform)
+            for row in selected:
+                assert row["count"] == row["up"] + row["down"] + row["flat"]
+                assert len(row["extreme"]) <= 3
+    assert len(ETFS_UP) == len(ETFS_DOWN) == 3
+    return stocks, all_codes
+
+
+def candidate_text(rows: list[dict]) -> str:
+    return "、".join(cn(x["name"]) for x in rows) if rows else "无"
+
+
+def selected_text(rows: list[dict]) -> str:
+    return "、".join(f"{cn(x['name'])}（{x['identity']}）" for x in rows)
+
+
+def render_audit(stocks: list[str], all_codes: list[str]) -> list[str]:
+    out = ["## 一致性优先最终复核", "", "| 范围 | 清一色上涨完整候选 | 最终上涨3项 | 清一色下跌完整候选 | 最终下跌3项 |", "|---|---|---|---|---|"]
+    for key in RANGE_ORDER:
+        b = DATA["ranges"][key]
+        display_label = "主题" if key == "themes" else b["label"]
+        out.append(f"| {display_label} | {len(b['uniform_up'])}项：{candidate_text(b['uniform_up'])} | {selected_text(b['selected_up'])} | {len(b['uniform_down'])}项：{candidate_text(b['uniform_down'])} | {selected_text(b['selected_down'])} |")
+    mentions = selected_mentions()
+    duplicates = {k: v for k, v in Counter(mentions).items() if v > 1}
+    out += ["", "复核结论：六个范围均先扫描全部有效板块或全部子主题；清一色候选先于平均表现排序，不足三项才补位。表内每个入选项均披露完整宽度或子主题宽度、整体收益及入选身份。ETF按地图可见产品母集完成杠杆/反向排除及独立敞口去重；金矿股簇（RING/GDXJ/GDX/SGDM）在成稿层合并、白银矿业与钯金保持独立敞口。", "",
+            "## 代码文件审计", "",
+            f"- 报告共有{len(mentions)}次个股提及，去重后{len(stocks)}只；跨范围或跨主题重复：" + "、".join(f"{k}×{v}" for k, v in sorted(duplicates.items())) + "。",
+            f"- `finviz_2026-08-14_stocks.txt`：{len(stocks)}行、{len(stocks)}只唯一股票代码，不含ETF。",
+            f"- `finviz_2026-08-14_all_codes.txt`：{len(all_codes)}行、{len(all_codes)}只唯一代码，等于{len(stocks)}只股票加6只最终ETF，股票与ETF交集为0。",
+            "- 结构核验结果：五个股票范围与主题各1张4列表、每张6个数据行；ETF共2张4列表、各3个数据行；候选身份、宽度恒等式、逐股原因覆盖及两个TXT集合一致。", ""]
+    return out
+
+
+def build_report() -> str:
+    stocks, all_codes = audit_inputs()
+    out = ["# 2026年8月14日 Finviz 美股热力图日报", "",
+           "**数据时点**：2026年8月14日美股正常交易时段收盘；七套Finviz数据均为 `subtype=d1`，层级资源发布时间为美东收盘后。", "",
+           "**市场背景**：7月零售销售环比-0.6%、为一年多来最大降幅（控制组-0.4%），密歇根8月初值消费者情绪降至51、1年期通胀预期回升至4.3%；市场将其解读为Prime Day时点、世界杯结束等暂时性扰动并强化9月按兵不动预期。标普500当日下跌约0.2%自纪录高位回落、周线仍上涨约0.3%，罗素2000逆势上涨约0.5%，10年期收益率回落至约4.65%后长端回压（30年期拍卖成本为2001年以来最高）。布伦特原油上涨近2%至87美元附近（对伊朗“史无前例”经济措施预告与霍尔木兹海峡封锁），能源与油服领涨板块；存储链（SanDisk获摩根大通首覆增持）与Reddit纳入标普500为个股事件焦点，博通领跌权重科技，网络安全、云计算、教育科技主题清一色下跌。[美国人口普查局月度零售销售](https://www.census.gov/retail/marts/www/marts_current.pdf)", "",
+           "**统计口径**：五个股票范围逐板块扫描地图全部有效成分，主题逐大类扫描全部有效子主题；宽度按上涨、下跌、平盘家数统计，板块整体收益沿用Finviz方块权重，主题按子主题等权。先选清一色候选，不足三项才按整体收益补位；个股原因按公告、财报及可靠新闻逐只核验，盘后消息不倒置解释此前价格。", "",
+           "**数据完整性**：有效表现值覆盖All Stocks 5512/5537、S&P 500 500/500、Dow 30 30/30、Nasdaq 100 101/102、Russell 2000 1944/1946、Themes 268/268和ETF 658/659；缺值代码不参与计算。", ""]
+    for key in RANGE_ORDER:
+        out += render_range(key)
+    out += render_etf()
+    out += render_audit(stocks, all_codes)
+    return "\n".join(out) + "\n"
+
+
+def structural_audit(text: str) -> None:
+    lines = text.splitlines()
+    sections = {}
+    heading = None
+    for line in lines:
+        if line.startswith("## "):
+            heading = line[3:]
+            sections[heading] = []
+        elif heading:
+            sections[heading].append(line)
+    for label in [SECTION_LABEL[k] for k in RANGE_ORDER]:
+        rows = [x for x in sections[label] if x.startswith("| ") and not x.startswith("|---")]
+        assert len(rows) == 7 and all(x.count("|") == 5 for x in rows), label
+    etf = sections["七、ETFs：排除杠杆、反向并按底层敞口去重"]
+    rows = [x for x in etf if x.startswith("| ") and not x.startswith("|---")]
+    assert len(rows) == 8 and all(x.count("|") == 5 for x in rows)
+    forbidden = ["Consumer Goods", "Environmental Sustainability", "Commodities Energy", "Communication Services", "Consumer Cyclical", "Education Technology", "Cybersecurity", "Biometrics", "Big Data", "Defense & Aerospace", "Space Tech", "Social Media", "Cloud Computing", "Artificial Intelligence", "E-commerce", "Digital Entertainment", "Real Estate & REITs", "Transportation & Logistics", "Quantum Computing", "Commodities Metals", "Hardware"]
+    body_without_urls = re.sub(r"https?://[^)\s]+", "", text)
+    for term in forbidden:
+        assert term not in body_without_urls, term
+    assert text.count("暂未找到同日直接催化") > 0
+    assert "CIK=&" not in text
+    for ticker, company in THEME_COMPANY.items():
+        assert f"{company}（{ticker}）" in text, ticker
+
+
+def main() -> None:
+    stocks, all_codes = audit_inputs()
+    (SKILL / "finviz_2026-08-14_stocks.txt").write_text("\n".join(stocks) + "\n", encoding="utf-8-sig")
+    (SKILL / "finviz_2026-08-14_all_codes.txt").write_text("\n".join(all_codes) + "\n", encoding="utf-8-sig")
+    report = build_report()
+    structural_audit(report)
+    target = SKILL / "finviz_2026-08-14_report.md"
+    target.write_text(report, encoding="utf-8")
+    digest = hashlib.sha256(target.read_bytes()).hexdigest().upper()
+    print(target)
+    print("lines", len(report.splitlines()), "sha256", digest)
+    print("REPORT_AUDIT_OK")
+
+
+if __name__ == "__main__":
+    main()

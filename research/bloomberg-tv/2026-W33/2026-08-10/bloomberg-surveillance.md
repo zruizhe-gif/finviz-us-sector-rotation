@@ -1,8 +1,9 @@
-# Bloomberg Surveillance｜2026-08-10
+﻿# Bloomberg Surveillance｜2026-08-10
 
 > 本文件是内部研究记录。生成轮动深度报告时只使用消化后的事实和宏观判断，禁止把节目名称、字幕路径、读取状态、完整性说明或“彭博/节目/字幕提到、支持、验证”等来源话术复制进正式报告。
 
-- 本地字幕文件：`G:\其他计算机\我的计算机\Skill\finviz-us-sector-rotation\finviz-us-sector-rotation-v0.2\script\Bloomberg Surveillance 2026-8-10.txt`
+- 本地字幕文件：`{SKILL_ROOT}\script\Bloomberg Surveillance 2026-8-10.txt`
+- 来源字幕SHA-256：65342F494E2A7BD2F501FF2026A997F9609AC141B1E19D66C4EA81815FC3FB9C
 - 节目日期：2026-08-10
 - 节目名称：Bloomberg Surveillance
 - 本地字幕读取状态：全文已读取

@@ -1,8 +1,9 @@
-# The Close｜2026-08-12
+﻿# The Close｜2026-08-12
 
 > 本文件是内部研究记录。生成轮动深度报告时只使用消化后的事实和宏观判断，禁止把节目名称、字幕路径、读取状态、完整性说明或“彭博/节目/字幕提到、支持、验证”等来源话术复制进正式报告。
 
-- 本地字幕文件：`G:\其他计算机\我的计算机\Skill\finviz-us-sector-rotation\finviz-us-sector-rotation-v0.2\script\the close-CPI Relief & AI Earnings Push Stocks Toward Records-2026-08-12.txt`
+- 本地字幕文件：`{SKILL_ROOT}\script\the close-CPI Relief & AI Earnings Push Stocks Toward Records-2026-08-12.txt`
+- 来源字幕SHA-256：F6ABA4DC613AAB52333208DAB0855CA4E69B455FE38031B875EA7E228F596F79
 - 节目日期：2026-08-12
 - 节目名称：The Close
 - 本地字幕读取状态：全文已读取

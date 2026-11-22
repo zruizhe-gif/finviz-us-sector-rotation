@@ -1,0 +1,179 @@
+{
+  "date": "2026-08-19",
+  "selection_basis": "All Stocks、S&P 500、Dow Jones 30、Nasdaq 100、Russell 2000和主题各自涨3/跌3；同名项目合并，保留全部范围证据。第二节3入3出只使用五大股票范围的一级行业（2026-08-16规则：主题/子行业不参与第二节排序）。",
+  "source_label_note": "Finviz的Biometrics与Cybersecurity是两个独立主题：前者固定译为生物识别，后者固定译为网络安全。第四部分执行24行固定观察池：无可靠代表ETF的主题不进入报告第四部分，仅在台账维护。",
+  "unique_count": 15,
+  "items": [
+    {
+      "name": "医疗保健",
+      "evidence": [
+        "All Stocks涨1",
+        "S&P 500涨1",
+        "Nasdaq 100涨1（清一色优先）",
+        "Russell 2000涨1"
+      ]
+    },
+    {
+      "name": "基础材料",
+      "evidence": [
+        "All Stocks涨2",
+        "S&P 500涨3",
+        "Dow Jones 30涨1（清一色优先）",
+        "Nasdaq 100涨3（清一色优先）",
+        "Russell 2000涨2"
+      ]
+    },
+    {
+      "name": "可选消费",
+      "evidence": [
+        "All Stocks涨3",
+        "S&P 500涨2",
+        "Dow Jones 30涨2（清一色优先）"
+      ]
+    },
+    {
+      "name": "工业",
+      "evidence": [
+        "All Stocks跌1",
+        "S&P 500跌1",
+        "Dow Jones 30跌1（清一色优先）",
+        "Nasdaq 100跌1",
+        "Russell 2000跌3"
+      ]
+    },
+    {
+      "name": "金融",
+      "evidence": [
+        "All Stocks跌2",
+        "S&P 500跌3",
+        "Dow Jones 30跌2",
+        "Nasdaq 100涨2（清一色优先）",
+        "Russell 2000跌2"
+      ]
+    },
+    {
+      "name": "科技",
+      "evidence": [
+        "All Stocks跌3",
+        "S&P 500跌2",
+        "Nasdaq 100跌2",
+        "Russell 2000跌1"
+      ]
+    },
+    {
+      "name": "通信服务",
+      "evidence": [
+        "Dow Jones 30涨3（清一色优先）"
+      ]
+    },
+    {
+      "name": "能源",
+      "evidence": [
+        "Dow Jones 30跌3",
+        "Nasdaq 100跌3"
+      ]
+    },
+    {
+      "name": "房地产",
+      "evidence": [
+        "Russell 2000涨3"
+      ]
+    },
+    {
+      "name": "医疗保健与生物科技",
+      "evidence": [
+        "主题涨1（清一色优先）"
+      ]
+    },
+    {
+      "name": "加密货币与区块链",
+      "evidence": [
+        "主题涨2（清一色优先）"
+      ]
+    },
+    {
+      "name": "消费品",
+      "evidence": [
+        "主题涨3（清一色优先）"
+      ]
+    },
+    {
+      "name": "网络安全",
+      "evidence": [
+        "主题跌1（清一色优先）"
+      ]
+    },
+    {
+      "name": "太空科技",
+      "evidence": [
+        "主题跌2（清一色优先）"
+      ]
+    },
+    {
+      "name": "国防与航空航天",
+      "evidence": [
+        "主题跌3（清一色优先）"
+      ]
+    }
+  ],
+  "etf_final_selection": {
+    "up": [
+      {
+        "ticker": "SGDM",
+        "perf": 9.823,
+        "cluster": "金矿股（全球）"
+      },
+      {
+        "ticker": "SIL",
+        "perf": 9.528,
+        "cluster": "白银矿业股"
+      },
+      {
+        "ticker": "IBB",
+        "perf": 6.583,
+        "cluster": "生物科技（权重）"
+      }
+    ],
+    "down": [
+      {
+        "ticker": "PTF",
+        "perf": -5.362,
+        "cluster": "科技动量（Dorsey Wright）"
+      },
+      {
+        "ticker": "ASHS",
+        "perf": -4.027,
+        "cluster": "中国股票（小盘）"
+      },
+      {
+        "ticker": "PRN",
+        "perf": -3.203,
+        "cluster": "工业动量（Dorsey Wright）"
+      }
+    ],
+    "merged_up": [
+      {
+        "ticker": "GDXJ",
+        "perf": 9.643,
+        "cluster": "金矿股（与SGDM同簇合并）"
+      },
+      {
+        "ticker": "RING",
+        "perf": 9.524,
+        "cluster": "金矿股（与SGDM同簇合并）"
+      },
+      {
+        "ticker": "GDX",
+        "perf": 9.421,
+        "cluster": "金矿股（与SGDM同簇合并）"
+      },
+      {
+        "ticker": "XBI",
+        "perf": 5.896,
+        "cluster": "生物科技等权（与IBB同簇合并）"
+      }
+    ],
+    "merged_down": [],
+    "note": "成稿层按相同经济敞口只保留最极端一只：金矿簇SGDM/GDXJ/RING/GDX保留SGDM；生物科技簇IBB/XBI保留IBB；白银矿业SIL与金矿为不同经济敞口分别保留；科技动量PTF、中国小盘ASHS、工业动量PRN相互独立。"
+  }
+}

@@ -1,0 +1,4393 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "period": "DAILY",
+    "date": "2026-11-04",
+    "trading_date": "2026-11-04",
+    "research_window_et": "2026-11-03T16:00:00-05:00 / 2026-11-04T16:00:00-05:00",
+    "normal_session_cutoff_et": "2026-11-04T16:00:00-04:00",
+    "source_screen": "research/finviz/2026-11-04/catalyst-screen.json",
+    "source_screen_sha256": "a97b78dccc6298187c987f4e48871b3433ccd6dab0e9f412b0ac8cede9c5d69a",
+    "source_adjudications": "research/finviz/2026-11-04/catalyst-adjudications.json",
+    "source_adjudications_sha256": "b778c0d9aaa2f71154f7cb2f53e8265e0a08c86670219c9f8263fe8040a9e1a9",
+    "selected_ticker_set": "research/finviz/2026-11-04/stock-ticker-universe.json",
+    "selected_ticker_source_sha256": "ad6b67acf11e54ef7c483ad0ba2567f8c0cd541af07a4fe47b4729b60d346791",
+    "unique_count": 91,
+    "unique_ticker_count": 91,
+    "batch_screen_coverage_pct": 100.0,
+    "model_verification_ticker_count": 75,
+    "ordinary_research_order": [
+      "batch_mechanical_company_event_screen",
+      "model_verification_only_for_candidates_or_exceptions"
+    ],
+    "completed_at": "2026-11-04T23:55:38.820439Z",
+    "generated_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "AEP": {
+    "company": "American Electric Power Company Inc",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "down",
+        "group": "Utilities",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": -0.477
+      }
+    ],
+    "performance_pct": -0.477,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz AEP quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=AEP&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Utilities 的偏弱方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Utilities 的偏弱方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "AESI": {
+    "company": "Atlas Energy Solutions Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 3,
+        "perf": -17.322
+      }
+    ],
+    "performance_pct": -17.322,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz AESI quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=AESI&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "布伦特单日跌约8%，能源股下跌。",
+    "output_conclusion": "暂未找到同日直接催化；布伦特单日跌约8%，能源股下跌。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "AMZN": {
+    "company": "Amazon.com Inc",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": 6.119
+      }
+    ],
+    "performance_pct": 6.119,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 26,
+      "candidate_event_count": 6,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz AMZN quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=AMZN&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "选后资本开支放缓预期改善超大规模云厂商自由现金流，收益率下行利好家装零售。",
+    "output_conclusion": "暂未找到同日直接催化；选后资本开支放缓预期改善超大规模云厂商自由现金流，收益率下行利好家装零售。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "APP": {
+    "company": "Applovin Corp",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "up",
+        "group": "Communication Services",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": 10.688
+      }
+    ],
+    "performance_pct": 10.688,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 4,
+      "candidate_event_count": 3,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "AppLovin公布三季度业绩",
+    "event_time_et": "2026-11-04T15:05:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "AppLovin Announces Third Quarter 2026 Financial Results",
+        "url": "https://finviz.com/news/415920/applovin-announces-third-quarter-2026-financial-results",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T15:05:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Communication Services 的偏强方向一致。",
+    "output_conclusion": "AppLovin公布三季度业绩",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "ARE": {
+    "company": "Alexandria Real Estate Equities Inc",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Real Estate",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": 8.798
+      }
+    ],
+    "performance_pct": 8.798,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz ARE quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=ARE&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "收益率下行，房地产上涨。",
+    "output_conclusion": "暂未找到同日直接催化；收益率下行，房地产上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "BA": {
+    "company": "Boeing Co",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": 2.129
+      }
+    ],
+    "performance_pct": 2.129,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 2,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz BA quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=BA&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "道指工业成分分化，选后资金转向可选消费与金融。",
+    "output_conclusion": "暂未找到同日直接催化；道指工业成分分化，选后资金转向可选消费与金融。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "BKNG": {
+    "company": "Booking Holdings Inc",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": 9.828
+      }
+    ],
+    "performance_pct": 9.828,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 12,
+      "candidate_event_count": 6,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Booking三季度营收不及预期、四季度展望偏弱，财报次日随选后旅游股反弹",
+    "event_time_et": "2026-11-04T12:58:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Booking Holdings earnings analysis: questions answered and next catalysts",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/booking-holdings-earnings-analysis-questions-175810033.html",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T12:58:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Cyclical 的偏强方向一致。",
+    "output_conclusion": "Booking三季度营收不及预期、四季度展望偏弱，财报次日随选后旅游股反弹",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "BKR": {
+    "company": "Baker Hughes Co",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": -5.531
+      }
+    ],
+    "performance_pct": -5.531,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz BKR quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=BKR&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Energy 的偏弱方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Energy 的偏弱方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "BTU": {
+    "company": "Peabody Energy Corp",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 3,
+        "perf": -17.619
+      },
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": -17.619
+      },
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Energy Traditional",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": -17.619
+      }
+    ],
+    "performance_pct": -17.619,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 3,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Peabody公布三季度业绩，叠加煤炭与能源股下跌",
+    "event_time_et": "2026-11-04T07:45:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Peabody Reports Results for the Quarter Ended September 30, 2026",
+        "url": "https://finviz.com/news/415315/peabody-reports-results-for-the-quarter-ended-september-30-2026",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T07:45:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Energy, Energy Traditional 的偏弱方向一致。",
+    "output_conclusion": "Peabody公布三季度业绩，叠加煤炭与能源股下跌",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CAMT": {
+    "company": "Camtek Ltd",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Semiconductors",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": -9.709
+      }
+    ],
+    "performance_pct": -9.709,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 3,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Camtek三季度EPS略低于预期、毛利率停滞",
+    "event_time_et": "2026-11-04T15:29:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Camtek Misses The Whisper By A Penny As A Stalled Gross Margin Shadows A Record Quarter And An $800M 2027 Outlook",
+        "url": "https://finviz.com/news/415731/camtek-misses-the-whisper-by-a-penny-as-a-stalled-gross-margin-shadows-a-record-quarter-and-an-800m-2027-outlook",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T15:29:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Semiconductors 的偏弱方向一致。",
+    "output_conclusion": "Camtek三季度EPS略低于预期、毛利率停滞",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CAT": {
+    "company": "Caterpillar Inc",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": -5.231
+      }
+    ],
+    "performance_pct": -5.231,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 1,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz CAT quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=CAT&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "道指工业成分分化，选后资金转向可选消费与金融。",
+    "output_conclusion": "暂未找到同日直接催化；道指工业成分分化，选后资金转向可选消费与金融。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CCEP": {
+    "company": "Coca-Cola Europacific Partners Plc",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": 3.836
+      }
+    ],
+    "performance_pct": 3.836,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz CCEP quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=CCEP&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Defensive 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Consumer Defensive 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CCI": {
+    "company": "Crown Castle Inc",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Real Estate",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": 6.456
+      }
+    ],
+    "performance_pct": 6.456,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz CCI quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=CCI&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Real Estate 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Real Estate 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CEG": {
+    "company": "Constellation Energy Corp",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Utilities",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": -6.712
+      },
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "down",
+        "group": "Utilities",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": -6.712
+      }
+    ],
+    "performance_pct": -6.712,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 4,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz CEG quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=CEG&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Utilities 的偏弱方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Utilities 的偏弱方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CIFR": {
+    "company": "Cipher Digital Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": -19.951
+      }
+    ],
+    "performance_pct": -19.951,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 6,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Cipher Digital营收大幅不及预期",
+    "event_time_et": "2026-11-03T16:43:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Cipher Digital Beats On EPS But Misses Badly On Revenue As Backlog Grows And Costs, Leverage And Leasing Delays Mount",
+        "url": "https://finviz.com/news/414953/cipher-digital-beats-on-eps-but-misses-badly-on-revenue-as-backlog-grows-and-costs-leverage-and-leasing-delays-mount",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:43:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Technology 的偏弱方向一致。",
+    "output_conclusion": "Cipher Digital营收大幅不及预期",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CMCSA": {
+    "company": "Comcast Corp",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "up",
+        "group": "Communication Services",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": 4.985
+      }
+    ],
+    "performance_pct": 4.985,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz CMCSA quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=CMCSA&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Communication Services 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Communication Services 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "COCO": {
+    "company": "Vita Coco Company Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": 9.683
+      }
+    ],
+    "performance_pct": 9.683,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz COCO quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=COCO&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "必需消费反弹，折扣零售与食品股上涨。",
+    "output_conclusion": "暂未找到同日直接催化；必需消费反弹，折扣零售与食品股上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "COHU": {
+    "company": "Cohu Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Semiconductors",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": -12.093
+      }
+    ],
+    "performance_pct": -12.093,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz COHU quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=COHU&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "费城半导体下跌约3.7%，数据中心建设放缓预期打压芯片股。",
+    "output_conclusion": "暂未找到同日直接催化；费城半导体下跌约3.7%，数据中心建设放缓预期打压芯片股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CPNG": {
+    "company": "Coupang Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "E-commerce",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": 11.95
+      }
+    ],
+    "performance_pct": 11.95,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 2,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Coupang三季度营收重新加速",
+    "event_time_et": "2026-11-03T16:05:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Coupang Announces Results for Third Quarter 2026",
+        "url": "https://www.businesswire.com/news/home/20261103569824/en/",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:05:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 E-commerce 的偏强方向一致。",
+    "output_conclusion": "Coupang三季度营收重新加速",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CSCO": {
+    "company": "Cisco Systems Inc",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": 0.622
+      }
+    ],
+    "performance_pct": 0.622,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz CSCO quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=CSCO&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "道指科技成分随英伟达走弱，资金在科技内部转向超大规模云厂商。",
+    "output_conclusion": "暂未找到同日直接催化；道指科技成分随英伟达走弱，资金在科技内部转向超大规模云厂商。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CVNA": {
+    "company": "Carvana Co",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": 8.81
+      }
+    ],
+    "performance_pct": 8.81,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz CVNA quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=CVNA&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "收益率与油价下行，住宅建筑和可选消费上涨。",
+    "output_conclusion": "暂未找到同日直接催化；收益率与油价下行，住宅建筑和可选消费上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "CVX": {
+    "company": "Chevron Corp",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": -3.689
+      }
+    ],
+    "performance_pct": -3.689,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 2,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz CVX quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=CVX&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "布伦特单日跌约8%，能源股下跌。",
+    "output_conclusion": "暂未找到同日直接催化；布伦特单日跌约8%，能源股下跌。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "DFH": {
+    "company": "Dream Finders Homes Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": 26.832
+      },
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": 26.832
+      }
+    ],
+    "performance_pct": 26.832,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz DFH quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=DFH&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "收益率与油价下行，住宅建筑和可选消费上涨。",
+    "output_conclusion": "暂未找到同日直接催化；收益率与油价下行，住宅建筑和可选消费上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "DG": {
+    "company": "Dollar General Corp",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": 8.52
+      }
+    ],
+    "performance_pct": 8.52,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz DG quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=DG&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "必需消费反弹，折扣零售与食品股上涨。",
+    "output_conclusion": "暂未找到同日直接催化；必需消费反弹，折扣零售与食品股上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "DLTR": {
+    "company": "Dollar Tree Inc",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": 9.644
+      }
+    ],
+    "performance_pct": 9.644,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz DLTR quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=DLTR&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "必需消费反弹，折扣零售与食品股上涨。",
+    "output_conclusion": "暂未找到同日直接催化；必需消费反弹，折扣零售与食品股上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "DVN": {
+    "company": "Devon Energy Corp",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 3,
+        "perf": -7.35
+      }
+    ],
+    "performance_pct": -7.35,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz DVN quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=DVN&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Energy 的偏弱方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Energy 的偏弱方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "ECG": {
+    "company": "Everus Construction Group",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": -29.291
+      }
+    ],
+    "performance_pct": -29.291,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz ECG quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=ECG&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "output_conclusion": "暂未找到同日直接催化；民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "EXC": {
+    "company": "Exelon Corp",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "down",
+        "group": "Utilities",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": 1.626
+      }
+    ],
+    "performance_pct": 1.626,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz EXC quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=EXC&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "公用事业分化，独立发电商大跌拖累纳指100公用事业。",
+    "output_conclusion": "暂未找到同日直接催化；公用事业分化，独立发电商大跌拖累纳指100公用事业。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "EXPE": {
+    "company": "Expedia Group Inc",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": 10.536
+      }
+    ],
+    "performance_pct": 10.536,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 4,
+      "candidate_event_count": 2,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Expedia公布三季度业绩并上调全年营收展望",
+    "event_time_et": "2026-11-04T15:01:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Expedia Group Reports Third Quarter 2026 Results",
+        "url": "https://finviz.com/news/415794/expedia-group-reports-third-quarter-2026-results",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T15:01:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Cyclical 的偏强方向一致。",
+    "output_conclusion": "Expedia公布三季度业绩并上调全年营收展望",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "FANG": {
+    "company": "Diamondback Energy Inc",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": -4.918
+      }
+    ],
+    "performance_pct": -4.918,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz FANG quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=FANG&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Energy 的偏弱方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Energy 的偏弱方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "FIX": {
+    "company": "Comfort Systems USA Inc",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": -15.082
+      }
+    ],
+    "performance_pct": -15.082,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz FIX quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=FIX&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "output_conclusion": "暂未找到同日直接催化；民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "FORM": {
+    "company": "FormFactor Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Semiconductors",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": -11.933
+      }
+    ],
+    "performance_pct": -11.933,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz FORM quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=FORM&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "费城半导体下跌约3.7%，数据中心建设放缓预期打压芯片股。",
+    "output_conclusion": "暂未找到同日直接催化；费城半导体下跌约3.7%，数据中心建设放缓预期打压芯片股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "GERN": {
+    "company": "Geron Corp",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "Aging Population & Longevity",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": 16.129
+      }
+    ],
+    "performance_pct": 16.129,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Geron公布三季度业绩",
+    "event_time_et": "2026-11-04T07:03:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Geron Corporation Reports Third Quarter 2026 Financial Results and Recent Business Highlights",
+        "url": "https://finviz.com/news/415248/geron-corporation-reports-third-quarter-2026-financial-results-and-recent-business-highlights",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T07:03:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Aging Population & Longevity 的偏强方向一致。",
+    "output_conclusion": "Geron公布三季度业绩",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "GS": {
+    "company": "Goldman Sachs Group Inc",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "up",
+        "group": "Financial",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": 3.561
+      }
+    ],
+    "performance_pct": 3.561,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz GS quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=GS&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Financial 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Financial 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "HD": {
+    "company": "Home Depot Inc",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": 6.528
+      }
+    ],
+    "performance_pct": 6.528,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 5,
+      "candidate_event_count": 1,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz HD quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=HD&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "选后资本开支放缓预期改善超大规模云厂商自由现金流，收益率下行利好家装零售。",
+    "output_conclusion": "暂未找到同日直接催化；选后资本开支放缓预期改善超大规模云厂商自由现金流，收益率下行利好家装零售。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "HELE": {
+    "company": "Helen of Troy Ltd",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": 25.389
+      }
+    ],
+    "performance_pct": 25.389,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 4,
+      "candidate_event_count": 3,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Helen of Troy拒绝每股37美元收购提议，股价创25年来最大涨幅",
+    "event_time_et": "2026-11-04T14:47:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "HELE Stock On Track For Best Day In Over 25 Years After Rejecting $37 Per Share Takeover Bid",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/hele-stock-track-best-day-194723803.html",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T14:47:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Defensive 的偏强方向一致。",
+    "output_conclusion": "Helen of Troy拒绝每股37美元收购提议，股价创25年来最大涨幅",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "HON": {
+    "company": "Honeywell International Inc",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": 1.973
+      }
+    ],
+    "performance_pct": 1.973,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 2,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz HON quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=HON&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "道指工业成分分化，选后资金转向可选消费与金融。",
+    "output_conclusion": "暂未找到同日直接催化；道指工业成分分化，选后资金转向可选消费与金融。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "HONA": {
+    "company": "Honeywell Aerospace Inc",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": -0.705
+      }
+    ],
+    "performance_pct": -0.705,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz HONA quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=HONA&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Industrials 的偏弱方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Industrials 的偏弱方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "HRL": {
+    "company": "Hormel Foods Corp",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": 7.056
+      }
+    ],
+    "performance_pct": 7.056,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 1,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz HRL quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=HRL&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "必需消费反弹，折扣零售与食品股上涨。",
+    "output_conclusion": "暂未找到同日直接催化；必需消费反弹，折扣零售与食品股上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "IBM": {
+    "company": "International Business Machines Corp",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": 1.712
+      }
+    ],
+    "performance_pct": 1.712,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz IBM quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=IBM&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "道指科技成分随英伟达走弱，资金在科技内部转向超大规模云厂商。",
+    "output_conclusion": "暂未找到同日直接催化；道指科技成分随英伟达走弱，资金在科技内部转向超大规模云厂商。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "JPM": {
+    "company": "JPMorgan Chase & Co",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "up",
+        "group": "Financial",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": 4.181
+      }
+    ],
+    "performance_pct": 4.181,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 4,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz JPM quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=JPM&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Financial 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Financial 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "KDP": {
+    "company": "Keurig Dr Pepper Inc",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": 5.901
+      }
+    ],
+    "performance_pct": 5.901,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 1,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Keurig Dr Pepper咖啡业务业绩后回落，次日随必需消费反弹",
+    "event_time_et": "2026-11-03T17:40:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Keurig Dr Pepper's Coffee Results Left Investors a Bitter Taste. What's Next for the Stock.",
+        "url": "https://www.barrons.com/articles/keurig-dr-pepper-earnings-stock-price-cb14990b?mod=bar_FV",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T17:40:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Defensive 的偏强方向一致。",
+    "output_conclusion": "Keurig Dr Pepper咖啡业务业绩后回落，次日随必需消费反弹",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "KTOS": {
+    "company": "Kratos Defense & Security Solutions Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Space Tech",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": -12.271
+      }
+    ],
+    "performance_pct": -12.271,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz KTOS quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=KTOS&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "马斯克在选举中大额押注共和党失利，SpaceX及太空股下跌，太空科技主题走弱。",
+    "output_conclusion": "暂未找到同日直接催化；马斯克在选举中大额押注共和党失利，SpaceX及太空股下跌，太空科技主题走弱。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "LIME": {
+    "company": "Neutron Holdings Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": -27.826
+      }
+    ],
+    "performance_pct": -27.826,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 2,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Lime三季度业绩超预期但单车收入下降、EBITDA指引偏弱",
+    "event_time_et": "2026-11-03T16:05:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Lime Announces Third Quarter 2026 Financial Results",
+        "url": "https://finviz.com/news/414716/lime-announces-third-quarter-2026-financial-results",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:05:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Industrials 的偏弱方向一致。",
+    "output_conclusion": "Lime三季度业绩超预期但单车收入下降、EBITDA指引偏弱",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "LIVN": {
+    "company": "LivaNova PLC",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Healthcare",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": 17.885
+      }
+    ],
+    "performance_pct": 17.885,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 3,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "LivaNova第三次上调指引",
+    "event_time_et": "2026-11-04T09:28:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "LivaNova Beats And Raises A Third Time As Epilepsy Accelerates, But Flat Cash Guidance And A Q4 Reset Temper The Upgrade",
+        "url": "https://finviz.com/news/415567/livanova-beats-and-raises-a-third-time-as-epilepsy-accelerates-but-flat-cash-guidance-and-a-q4-reset-temper-the-upgrade",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T09:28:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Healthcare 的偏强方向一致。",
+    "output_conclusion": "LivaNova第三次上调指引",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "LMT": {
+    "company": "Lockheed Martin Corp",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Space Tech",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": -6.88
+      }
+    ],
+    "performance_pct": -6.88,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 10,
+      "candidate_event_count": 1,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz LMT quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=LMT&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "国防股选后下跌，和解法案中的国防支出落空，伊朗战争拨款面临约束。",
+    "output_conclusion": "暂未找到同日直接催化；国防股选后下跌，和解法案中的国防支出落空，伊朗战争拨款面临约束。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "LYEL": {
+    "company": "Lyell Immunopharma Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Healthcare",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": 43.268
+      }
+    ],
+    "performance_pct": 43.268,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz LYEL quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=LYEL&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "小盘生物科技上涨，未见公司事件。",
+    "output_conclusion": "暂未找到同日直接催化；小盘生物科技上涨，未见公司事件。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "MCD": {
+    "company": "McDonald's Corp",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": 6.531
+      }
+    ],
+    "performance_pct": 6.531,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 22,
+      "candidate_event_count": 13,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "麦当劳三季度盈利超预期，美国销售降幅小于预期",
+    "event_time_et": "2026-11-04T13:28:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "McDonald's Beats On Earnings As Refranchising Gains Mask A U.S. Business That Has Stopped Growing",
+        "url": "https://finviz.com/news/415664/mcdonalds-beats-on-earnings-as-refranchising-gains-mask-a-us-business-that-has-stopped-growing",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T13:28:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Cyclical 的偏强方向一致。",
+    "output_conclusion": "麦当劳三季度盈利超预期，美国销售降幅小于预期",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "MERC": {
+    "company": "Mercer International Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Basic Materials",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": 17.925
+      }
+    ],
+    "performance_pct": 17.925,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz MERC quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=MERC&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "小盘股上涨，未见公司事件。",
+    "output_conclusion": "暂未找到同日直接催化；小盘股上涨，未见公司事件。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "MOS": {
+    "company": "Mosaic Company",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Basic Materials",
+        "group_rank": 1,
+        "stock_rank": 3,
+        "perf": 17.372
+      }
+    ],
+    "performance_pct": 17.372,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 2,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "美盛公布三季度业绩",
+    "event_time_et": "2026-11-03T16:15:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Mosaic Announces Third Quarter 2026 Results",
+        "url": "https://finviz.com/news/414810/mosaic-announces-third-quarter-2026-results",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:15:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Basic Materials 的偏强方向一致。",
+    "output_conclusion": "美盛公布三季度业绩",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "MPC": {
+    "company": "Marathon Petroleum Corp",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": -8.111
+      }
+    ],
+    "performance_pct": -8.111,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 2,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "马拉松原油三季度业绩创纪录但仅小幅超预期，并向CVR Energy出售两座炼厂（42亿美元），叠加油价大跌",
+    "event_time_et": "2026-11-03T16:53:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Marathon Petroleum Posts Record Quarter, But A Narrow Beat And Slipping Margin Capture Temper The Victory Lap",
+        "url": "https://finviz.com/news/414974/marathon-petroleum-posts-record-quarter-but-a-narrow-beat-and-slipping-margin-capture-temper-the-victory-lap",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:53:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Energy 的偏弱方向一致。",
+    "output_conclusion": "马拉松原油三季度业绩创纪录但仅小幅超预期，并向CVR Energy出售两座炼厂（42亿美元），叠加油价大跌",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "NRG": {
+    "company": "NRG Energy Inc",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Utilities",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": -13.515
+      },
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Energy Traditional",
+        "group_rank": 1,
+        "stock_rank": 3,
+        "perf": -13.515
+      }
+    ],
+    "performance_pct": -13.515,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz NRG quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=NRG&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "得州州长易手，数据中心电力需求预期下调，独立发电商大跌。",
+    "output_conclusion": "暂未找到同日直接催化；得州州长易手，数据中心电力需求预期下调，独立发电商大跌。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "NUAI": {
+    "company": "New Era Energy & Digital Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": -21.223
+      }
+    ],
+    "performance_pct": -21.223,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz NUAI quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=NUAI&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "小盘科技与AI算力股随数据中心交易下跌，未见公司事件。",
+    "output_conclusion": "暂未找到同日直接催化；小盘科技与AI算力股随数据中心交易下跌，未见公司事件。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "NVDA": {
+    "company": "NVIDIA Corp",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": -3.174
+      }
+    ],
+    "performance_pct": -3.174,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 25,
+      "candidate_event_count": 6,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz NVDA quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=NVDA&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "费城半导体下跌约3.7%，数据中心建设放缓预期打压芯片股。",
+    "output_conclusion": "暂未找到同日直接催化；费城半导体下跌约3.7%，数据中心建设放缓预期打压芯片股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "OPRT": {
+    "company": "Oportun Financial Corp",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Financial",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": 29.582
+      }
+    ],
+    "performance_pct": 29.582,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 2,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Oportun恢复营收增长并上调全年展望",
+    "event_time_et": "2026-11-03T16:05:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Oportun Returns to Revenue Growth and Raises Full-Year Outlook",
+        "url": "https://finviz.com/news/414740/oportun-returns-to-revenue-growth-and-raises-full-year-outlook",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:05:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Financial 的偏强方向一致。",
+    "output_conclusion": "Oportun恢复营收增长并上调全年展望",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "PARA": {
+    "company": "Banzai International Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": -88.272
+      }
+    ],
+    "performance_pct": -88.272,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Parabolic Technologies定价1,350万美元承销发行，股价暴跌",
+    "event_time_et": "2026-11-04T08:45:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Parabolic Technologies, Inc. Announces Pricing of $13.5 Million Underwritten Public Offering",
+        "url": "https://finviz.com/news/415429/parabolic-technologies-inc-announces-pricing-of-135-million-underwritten-public-offering",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T08:45:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Technology 的偏弱方向一致。",
+    "output_conclusion": "Parabolic Technologies定价1,350万美元承销发行，股价暴跌",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "PEP": {
+    "company": "PepsiCo Inc",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": 3.752
+      }
+    ],
+    "performance_pct": 3.752,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz PEP quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=PEP&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Defensive 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Consumer Defensive 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "PMAX": {
+    "company": "Powell Max Ltd",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Financial",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": 54.074
+      }
+    ],
+    "performance_pct": 54.074,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz PMAX quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=PMAX&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "小盘股上涨，未见公司事件。",
+    "output_conclusion": "暂未找到同日直接催化；小盘股上涨，未见公司事件。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "POLA": {
+    "company": "Polar Power Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": -28.225
+      }
+    ],
+    "performance_pct": -28.225,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz POLA quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=POLA&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "output_conclusion": "暂未找到同日直接催化；民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "PSIX": {
+    "company": "Power Solutions International Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": -19.745
+      }
+    ],
+    "performance_pct": -19.745,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz PSIX quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=PSIX&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "output_conclusion": "暂未找到同日直接催化；民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "PSQH": {
+    "company": "PSQ Holdings Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": -32.632
+      }
+    ],
+    "performance_pct": -32.632,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz PSQH quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=PSQH&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "小盘科技与AI算力股随数据中心交易下跌，未见公司事件。",
+    "output_conclusion": "暂未找到同日直接催化；小盘科技与AI算力股随数据中心交易下跌，未见公司事件。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "PWR": {
+    "company": "Quanta Services Inc",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": -11.653
+      }
+    ],
+    "performance_pct": -11.653,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz PWR quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=PWR&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "output_conclusion": "暂未找到同日直接催化；民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "PYPL": {
+    "company": "PayPal Holdings Inc",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "up",
+        "group": "Financial",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": 3.419
+      }
+    ],
+    "performance_pct": 3.419,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 4,
+      "candidate_event_count": 2,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz PYPL quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=PYPL&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "支付与金融股选后上涨。",
+    "output_conclusion": "暂未找到同日直接催化；支付与金融股选后上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "RENT": {
+    "company": "Rent the Runway Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "Consumer Goods",
+        "group_rank": 1,
+        "stock_rank": 3,
+        "perf": 9.333
+      }
+    ],
+    "performance_pct": 9.333,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz RENT quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=RENT&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "收益率与油价下行，住宅建筑和可选消费上涨。",
+    "output_conclusion": "暂未找到同日直接催化；收益率与油价下行，住宅建筑和可选消费上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "RETO": {
+    "company": "ReTo Eco-Solutions Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Basic Materials",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": 20.606
+      }
+    ],
+    "performance_pct": 20.606,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz RETO quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=RETO&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "小盘股上涨，未见公司事件。",
+    "output_conclusion": "暂未找到同日直接催化；小盘股上涨，未见公司事件。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "RKLB": {
+    "company": "Rocket Lab Corp",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": -3.785
+      }
+    ],
+    "performance_pct": -3.785,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 1,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz RKLB quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=RKLB&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "马斯克在选举中大额押注共和党失利，SpaceX及太空股下跌，太空科技主题走弱。",
+    "output_conclusion": "暂未找到同日直接催化；马斯克在选举中大额押注共和党失利，SpaceX及太空股下跌，太空科技主题走弱。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "RYTM": {
+    "company": "Rhythm Pharmaceuticals Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Healthcare",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": 28.043
+      }
+    ],
+    "performance_pct": 28.043,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Rhythm获英国NICE对IMCIVREE的推荐",
+    "event_time_et": "2026-11-04T08:00:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Rhythm Pharmaceuticals Announces NICE Guidance for IMCIVREE (Setmelanotide) Updated to Include Adults Living with Bardet-Biedl Syndrome",
+        "url": "https://finviz.com/news/415329/rhythm-pharmaceuticals-announces-nice-guidance-for-imcivree-setmelanotide-updated-to-include-adults-living-with-bardet-biedl-syndrome",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T08:00:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Healthcare 的偏强方向一致。",
+    "output_conclusion": "Rhythm获英国NICE对IMCIVREE的推荐",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "RZAI": {
+    "company": "Roze AI Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": -35.142
+      }
+    ],
+    "performance_pct": -35.142,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz RZAI quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=RZAI&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "小盘科技与AI算力股随数据中心交易下跌，未见公司事件。",
+    "output_conclusion": "暂未找到同日直接催化；小盘科技与AI算力股随数据中心交易下跌，未见公司事件。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "SBAC": {
+    "company": "SBA Communications Corp",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "up",
+        "group": "Real Estate",
+        "group_rank": 1,
+        "stock_rank": 3,
+        "perf": 5.842
+      }
+    ],
+    "performance_pct": 5.842,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz SBAC quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=SBAC&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Real Estate 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Real Estate 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "SHW": {
+    "company": "Sherwin-Williams Co",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "up",
+        "group": "Basic Materials",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": 6.639
+      }
+    ],
+    "performance_pct": 6.639,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz SHW quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=SHW&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Basic Materials 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Basic Materials 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "SMX": {
+    "company": "SMX (Security Matters) Plc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": -31.395
+      }
+    ],
+    "performance_pct": -31.395,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 6,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "SMX宣布反向拆股生效日",
+    "event_time_et": "2026-11-04T11:30:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "SMX Announces Effective Date of Reverse Stock Split",
+        "url": "https://finviz.com/news/415615/smx-announces-effective-date-of-reverse-stock-split",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T11:30:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Industrials 的偏弱方向一致。",
+    "output_conclusion": "SMX宣布反向拆股生效日",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "SOC": {
+    "company": "Sable Offshore Corp",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": -20.161
+      },
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": -20.161
+      }
+    ],
+    "performance_pct": -20.161,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz SOC quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=SOC&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "布伦特单日跌约8%，能源股下跌。",
+    "output_conclusion": "暂未找到同日直接催化；布伦特单日跌约8%，能源股下跌。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "SPCX": {
+    "company": "Space Exploration Technologies Corp",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 1,
+        "perf": -3.814
+      }
+    ],
+    "performance_pct": -3.814,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 51,
+      "candidate_event_count": 9,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz SPCX quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=SPCX&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "马斯克在选举中大额押注共和党失利，SpaceX及太空股下跌，太空科技主题走弱。",
+    "output_conclusion": "暂未找到同日直接催化；马斯克在选举中大额押注共和党失利，SpaceX及太空股下跌，太空科技主题走弱。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "SWMR": {
+    "company": "Swarmer Inc",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Technology",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": -16.161
+      }
+    ],
+    "performance_pct": -16.161,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz SWMR quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=SWMR&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "小盘科技与AI算力股随数据中心交易下跌，未见公司事件。",
+    "output_conclusion": "暂未找到同日直接催化；小盘科技与AI算力股随数据中心交易下跌，未见公司事件。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "SYK": {
+    "company": "Stryker Corp",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "Aging Population & Longevity",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": 9.37
+      }
+    ],
+    "performance_pct": 9.37,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "同业Zimmer Biomet上调销售预测，骨科器械股上涨",
+    "event_time_et": "2026-11-04T12:30:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Zimmer raises sales forecast despite slower knee business",
+        "url": "https://finance.yahoo.com/healthcare/articles/zimmer-raises-sales-forecast-despite-173043006.html",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T12:30:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Aging Population & Longevity 的偏强方向一致。",
+    "output_conclusion": "同业Zimmer Biomet上调销售预测，骨科器械股上涨",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "TDUP": {
+    "company": "ThredUp Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "Consumer Goods",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": 9.5
+      },
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "E-commerce",
+        "group_rank": 3,
+        "stock_rank": 3,
+        "perf": 9.5
+      }
+    ],
+    "performance_pct": 9.5,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz TDUP quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=TDUP&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "收益率与油价下行，住宅建筑和可选消费上涨。",
+    "output_conclusion": "暂未找到同日直接催化；收益率与油价下行，住宅建筑和可选消费上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "TH": {
+    "company": "Target Hospitality Corp",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": -22.084
+      }
+    ],
+    "performance_pct": -22.084,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz TH quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=TH&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "output_conclusion": "暂未找到同日直接催化；民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "TPL": {
+    "company": "Texas Pacific Land Corp",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": -13.358
+      }
+    ],
+    "performance_pct": -13.358,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Texas Pacific Land公布三季度业绩，得州政局变化与油价下跌",
+    "event_time_et": "2026-11-04T15:15:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Texas Pacific Land Corporation Announces Third Quarter Results",
+        "url": "https://finviz.com/news/416034/texas-pacific-land-corporation-announces-third-quarter-results",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T15:15:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Energy 的偏弱方向一致。",
+    "output_conclusion": "Texas Pacific Land公布三季度业绩，得州政局变化与油价下跌",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "TREE": {
+    "company": "LendingTree Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Financial",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": 32.837
+      }
+    ],
+    "performance_pct": 32.837,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 2,
+      "candidate_event_count": 2,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "LendingTree三季度计提9,900万美元减值但营收超预期",
+    "event_time_et": "2026-11-03T16:10:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "LENDINGTREE REPORTS THIRD QUARTER 2026 RESULTS",
+        "url": "https://finviz.com/news/414757/lendingtree-reports-third-quarter-2026-results",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:10:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Financial 的偏强方向一致。",
+    "output_conclusion": "LendingTree三季度计提9,900万美元减值但营收超预期",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "TTWO": {
+    "company": "Take-Two Interactive Software Inc",
+    "occurrences": [
+      {
+        "scope": "Nasdaq 100",
+        "scope_key": "nasdaq100",
+        "direction": "up",
+        "group": "Communication Services",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": 7.134
+      }
+    ],
+    "performance_pct": 7.134,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz TTWO quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=TTWO&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Communication Services 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Communication Services 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "V": {
+    "company": "Visa Inc",
+    "occurrences": [
+      {
+        "scope": "Dow Jones 30",
+        "scope_key": "dow30",
+        "direction": "up",
+        "group": "Financial",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": 3.841
+      }
+    ],
+    "performance_pct": 3.841,
+    "research_level": "normal",
+    "deep_research_reason": null,
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "result": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "model_adjudication": {
+      "performed": false,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz V quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=V&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Financial 的偏强方向一致。",
+    "output_conclusion": "暂未找到同日直接催化；该股与当日所选 Financial 的偏强方向一致。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "BATCH_SCREEN_NO_CANDIDATE_AND_GROUP_ALIGNED",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "VIVK": {
+    "company": "Vivakor Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "down",
+        "group": "Energy",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": -27.45
+      }
+    ],
+    "performance_pct": -27.45,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz VIVK quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=VIVK&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "布伦特单日跌约8%，能源股下跌。",
+    "output_conclusion": "暂未找到同日直接催化；布伦特单日跌约8%，能源股下跌。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "VRT": {
+    "company": "Vertiv Holdings Co",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Industrials",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": -12.891
+      }
+    ],
+    "performance_pct": -12.891,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz VRT quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=VRT&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "output_conclusion": "暂未找到同日直接催化；民主党横扫两院及得州、俄亥俄等州长易手，数据中心审批收紧预期打压AI电力与机电工程股。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "VSAT": {
+    "company": "Viasat Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Space Tech",
+        "group_rank": 3,
+        "stock_rank": 2,
+        "perf": -11.231
+      }
+    ],
+    "performance_pct": -11.231,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz VSAT quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=VSAT&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "马斯克在选举中大额押注共和党失利，SpaceX及太空股下跌，太空科技主题走弱。",
+    "output_conclusion": "暂未找到同日直接催化；马斯克在选举中大额押注共和党失利，SpaceX及太空股下跌，太空科技主题走弱。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "VST": {
+    "company": "Vistra Corp",
+    "occurrences": [
+      {
+        "scope": "S&P 500",
+        "scope_key": "sp500",
+        "direction": "down",
+        "group": "Utilities",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": -13.826
+      },
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "down",
+        "group": "Energy Traditional",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": -13.826
+      }
+    ],
+    "performance_pct": -13.826,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 5,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz VST quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=VST&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "得州州长易手，数据中心电力需求预期下调，独立发电商大跌。",
+    "output_conclusion": "暂未找到同日直接催化；得州州长易手，数据中心电力需求预期下调，独立发电商大跌。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "W": {
+    "company": "Wayfair Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "Consumer Goods",
+        "group_rank": 1,
+        "stock_rank": 1,
+        "perf": 10.995
+      }
+    ],
+    "performance_pct": 10.995,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 8,
+      "candidate_event_count": 5,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Wayfair录得疫情以来最强增长季度并实现盈利",
+    "event_time_et": "2026-11-04T07:47:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Wayfair Logs Profit as U.S. Sales Drive Revenue Growth",
+        "url": "https://www.wsj.com/business/retail/wayfair-logs-profit-as-u-s-sales-drive-revenue-growth-d85c49aa?mod=wsj_FV",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T07:47:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Goods 的偏强方向一致。",
+    "output_conclusion": "Wayfair录得疫情以来最强增长季度并实现盈利",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "WEST": {
+    "company": "Westrock Coffee Company",
+    "occurrences": [
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Consumer Defensive",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": 9.398
+      }
+    ],
+    "performance_pct": 9.398,
+    "research_level": "deep",
+    "deep_research_reason": "异常涨跌、权重成分或板块方向核验",
+    "status": "NO_SAME_DAY_DIRECT_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "no_qualifying_event_found"
+    },
+    "direct_event": null,
+    "event_time_et": null,
+    "event_within_price_window": null,
+    "sources": [
+      {
+        "title": "Finviz WEST quote-news feed checked through the regular-session close",
+        "url": "https://finviz.com/quote.ashx?t=WEST&p=d",
+        "publisher": "Finviz news aggregation",
+        "published_at": "2026-11-04T16:00:00-04:00",
+        "time_semantics": "research_cutoff_not_article_publication_time"
+      }
+    ],
+    "confirmed_linkage": "必需消费反弹，折扣零售与食品股上涨。",
+    "output_conclusion": "暂未找到同日直接催化；必需消费反弹，折扣零售与食品股上涨。",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DEEP_RESEARCH_COMPLETED_NO_DIRECT_EVENT",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "WEYS": {
+    "company": "Weyco Group Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 2,
+        "stock_rank": 3,
+        "perf": 23.546
+      },
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 1,
+        "stock_rank": 3,
+        "perf": 23.546
+      }
+    ],
+    "performance_pct": 23.546,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 3,
+      "candidate_event_count": 3,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Weyco公布三季度业绩并宣布特别股息",
+    "event_time_et": "2026-11-03T16:05:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Weyco Reports Third Quarter 2026 Sales and Earnings; Declares Special Cash Dividend of $2.00 Per Share",
+        "url": "https://finviz.com/news/414727/weyco-reports-third-quarter-2026-sales-and-earnings-declares-special-cash-dividend-of-200-per-share",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:05:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Cyclical 的偏强方向一致。",
+    "output_conclusion": "Weyco公布三季度业绩并宣布特别股息",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "XMAX": {
+    "company": "XMax Inc",
+    "occurrences": [
+      {
+        "scope": "All Stocks",
+        "scope_key": "all_stocks",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": 24.434
+      },
+      {
+        "scope": "Russell 2000",
+        "scope_key": "russell2000",
+        "direction": "up",
+        "group": "Consumer Cyclical",
+        "group_rank": 1,
+        "stock_rank": 2,
+        "perf": 24.434
+      }
+    ],
+    "performance_pct": 24.434,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "XMax公布三季度初步业绩",
+    "event_time_et": "2026-11-03T16:30:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "XMax Inc. Announces Preliminary Third Quarter 2026 Financial Results",
+        "url": "https://finviz.com/news/414921/xmax-inc-announces-preliminary-third-quarter-2026-financial-results",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-03T16:30:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Consumer Cyclical 的偏强方向一致。",
+    "output_conclusion": "XMax公布三季度初步业绩",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "XYZ": {
+    "company": "Block Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "E-commerce",
+        "group_rank": 3,
+        "stock_rank": 1,
+        "perf": 15.303
+      }
+    ],
+    "performance_pct": 15.303,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 15,
+      "candidate_event_count": 7,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Block上调指引，Cash App与Square推动增长",
+    "event_time_et": "2026-11-04T11:34:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Block earnings lift outlook, shares as Cash App and Square drive growth",
+        "url": "https://finance.yahoo.com/markets/stocks/articles/block-earnings-lift-outlook-shares-163400926.html",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T11:34:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 E-commerce 的偏强方向一致。",
+    "output_conclusion": "Block上调指引，Cash App与Square推动增长",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  },
+  "ZBH": {
+    "company": "Zimmer Biomet Holdings Inc",
+    "occurrences": [
+      {
+        "scope": "Themes",
+        "scope_key": "themes",
+        "direction": "up",
+        "group": "Aging Population & Longevity",
+        "group_rank": 2,
+        "stock_rank": 2,
+        "perf": 13.487
+      }
+    ],
+    "performance_pct": 13.487,
+    "research_level": "deep",
+    "deep_research_reason": "财报、公司事件或异常涨跌",
+    "status": "DIRECT_SAME_DAY_CATALYST",
+    "mechanical_screen": {
+      "news_in_window_count": 5,
+      "candidate_event_count": 4,
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "result": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "model_adjudication": {
+      "performed": true,
+      "result": "direct_event_confirmed"
+    },
+    "direct_event": "Zimmer Biomet再次上调指引",
+    "event_time_et": "2026-11-04T14:31:00-05:00",
+    "event_within_price_window": true,
+    "sources": [
+      {
+        "title": "Zimmer Biomet Raises Guidance Again On Hips And S.E.T., But Flat EPS And A Knee Slide Leave It Short Of The Whisper",
+        "url": "https://finviz.com/news/415706/zimmer-biomet-raises-guidance-again-on-hips-and-set-but-flat-eps-and-a-knee-slide-leave-it-short-of-the-whisper",
+        "publisher": "Finviz-linked source",
+        "published_at": "2026-11-04T14:31:00-05:00",
+        "time_semantics": "publication_time_et"
+      }
+    ],
+    "confirmed_linkage": "该股与当日所选 Aging Population & Longevity 的偏强方向一致。",
+    "output_conclusion": "Zimmer Biomet再次上调指引",
+    "evidence_conflict": false,
+    "timeline_note": "The scan covered 2026-11-03 after close through 2026-11-04 16:00 ET; later 2026-11-04 items were excluded from causal attribution.",
+    "stop_reason": "DIRECT_EVENT_FOUND_STOP",
+    "completed_at": "2026-11-04T23:55:38.820439Z"
+  }
+}

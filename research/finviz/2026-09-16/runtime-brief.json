@@ -1,0 +1,3750 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "brief_type": "finviz_runtime_brief",
+    "date": "2026-09-16",
+    "generated_at": "2026-09-17T01:04:00.060939+00:00",
+    "purpose": "LLM drafting input; complete machine artifacts remain authoritative",
+    "source_hashes": {
+      "calculated-statistics.json": "8a17d29930dfe422600d000473397671ea41e1684d10e2db7875d4abb3b58c97",
+      "coverage-audit.json": "58ebaa8bbee53c5c4459c1c67847fda38bcceb28eeb88e76779fef4e5910eeb3",
+      "mandatory-rotation-coverage-set.json": "baf0b5de7b767d217ccb4c61a4aa83ddd1faec564514e2c55e205cdaeb1a48f6",
+      "etf-universe-audit.json": "2ebdcfbc7739580d26871a1b86def2a884ef6a3c06b044d7dc9b694cf4d5a955",
+      "etf_perf.json": "3e474342834fecfe219cb39f94e729196fdb57cb59bc2762db8b966d5099fbb5",
+      "stock-ticker-universe.json": "35d42b83c25cafeab4a4753280c6c4a8a532f88970a05e406ec95403c6b04e4e"
+    },
+    "full_artifacts_preserved": [
+      "calculated-statistics.json",
+      "coverage-audit.json",
+      "mandatory-rotation-coverage-set.json",
+      "all hierarchy/performance JSON files",
+      "etf-universe-audit.json",
+      "stock-ticker-universe.json"
+    ],
+    "normal_llm_read_policy": "Read this brief, not the full calculated/hierarchy/performance/coverage files; open a complete artifact only for a named anomaly."
+  },
+  "statistics": {
+    "all_stocks": {
+      "label": "All Stocks",
+      "selected_up": [
+        {
+          "name": "Industrials",
+          "component_count": 696,
+          "up": 286,
+          "down": 391,
+          "flat": 19,
+          "up_pct": 41.0919540229885,
+          "down_pct": 56.17816091954023,
+          "overall_perf": 1.015078510766678,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "AEHL",
+              "company": "Antelope Enterprise Holdings Ltd",
+              "perf": 78.682
+            },
+            {
+              "ticker": "NCT",
+              "company": "Intercont (Cayman) Ltd",
+              "perf": 18.399
+            },
+            {
+              "ticker": "SDST",
+              "company": "Stardust Power Inc",
+              "perf": 17.353
+            }
+          ]
+        },
+        {
+          "name": "Technology",
+          "component_count": 785,
+          "up": 319,
+          "down": 447,
+          "flat": 19,
+          "up_pct": 40.63694267515923,
+          "down_pct": 56.94267515923567,
+          "overall_perf": 0.22055289931048475,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "QCLS",
+              "company": "Q/C Technologies Inc",
+              "perf": 118.445
+            },
+            {
+              "ticker": "FRGT",
+              "company": "Freight Technologies Inc",
+              "perf": 30.215
+            },
+            {
+              "ticker": "GLOO",
+              "company": "Gloo Holdings Inc",
+              "perf": 24.085
+            }
+          ]
+        },
+        {
+          "name": "Utilities",
+          "component_count": 108,
+          "up": 78,
+          "down": 28,
+          "flat": 2,
+          "up_pct": 72.22222222222223,
+          "down_pct": 25.925925925925927,
+          "overall_perf": 0.2133121915653833,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "VGAS",
+              "company": "Verde Clean Fuels Inc",
+              "perf": 4.688
+            },
+            {
+              "ticker": "TAC",
+              "company": "Transalta Corp",
+              "perf": 3.913
+            },
+            {
+              "ticker": "OPAL",
+              "company": "OPAL Fuels Inc",
+              "perf": 3.784
+            }
+          ]
+        }
+      ],
+      "selected_down": [
+        {
+          "name": "Energy",
+          "component_count": 248,
+          "up": 41,
+          "down": 205,
+          "flat": 2,
+          "up_pct": 16.532258064516128,
+          "down_pct": 82.66129032258064,
+          "overall_perf": -2.7364947435487044,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "EONR",
+              "company": "EON Resources Inc",
+              "perf": -9.783
+            },
+            {
+              "ticker": "INR",
+              "company": "Infinity Natural Resources Inc",
+              "perf": -9.68
+            },
+            {
+              "ticker": "HPK",
+              "company": "HighPeak Energy Inc",
+              "perf": -8.912
+            }
+          ]
+        },
+        {
+          "name": "Financial",
+          "component_count": 1074,
+          "up": 229,
+          "down": 729,
+          "flat": 116,
+          "up_pct": 21.32216014897579,
+          "down_pct": 67.87709497206704,
+          "overall_perf": -1.4503160743673749,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "FGNX",
+              "company": "FG Nexus Inc",
+              "perf": -22.101
+            },
+            {
+              "ticker": "LGHL",
+              "company": "Lion Group Holding Ltd ADR",
+              "perf": -20.47
+            },
+            {
+              "ticker": "IPST",
+              "company": "IP Strategy Holdings Inc",
+              "perf": -12.623
+            }
+          ]
+        },
+        {
+          "name": "Basic Materials",
+          "component_count": 283,
+          "up": 78,
+          "down": 199,
+          "flat": 6,
+          "up_pct": 27.56183745583039,
+          "down_pct": 70.31802120141343,
+          "overall_perf": -0.8772043449040003,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "RETO",
+              "company": "ReTo Eco-Solutions Inc",
+              "perf": -34.286
+            },
+            {
+              "ticker": "YMAT",
+              "company": "J-Star Holding Co Ltd",
+              "perf": -16.867
+            },
+            {
+              "ticker": "BAK",
+              "company": "Braskem SA ADR",
+              "perf": -15.714
+            }
+          ]
+        }
+      ]
+    },
+    "sp500": {
+      "label": "S&P 500",
+      "selected_up": [
+        {
+          "name": "Technology",
+          "component_count": 86,
+          "up": 35,
+          "down": 51,
+          "flat": 0,
+          "up_pct": 40.69767441860465,
+          "down_pct": 59.30232558139535,
+          "overall_perf": 0.13592785575844787,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "LITE",
+              "company": "Lumentum Holdings Inc",
+              "perf": 9.588
+            },
+            {
+              "ticker": "COHR",
+              "company": "Coherent Corp",
+              "perf": 6.918
+            },
+            {
+              "ticker": "INTC",
+              "company": "Intel Corp",
+              "perf": 4.025
+            }
+          ]
+        },
+        {
+          "name": "Healthcare",
+          "component_count": 59,
+          "up": 29,
+          "down": 29,
+          "flat": 1,
+          "up_pct": 49.152542372881356,
+          "down_pct": 49.152542372881356,
+          "overall_perf": 0.059512457567172036,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "EW",
+              "company": "Edwards Lifesciences Corp",
+              "perf": 4.129
+            },
+            {
+              "ticker": "RVTY",
+              "company": "Revvity Inc",
+              "perf": 3.952
+            },
+            {
+              "ticker": "MTD",
+              "company": "Mettler-Toledo International Inc",
+              "perf": 3.63
+            }
+          ]
+        },
+        {
+          "name": "Utilities",
+          "component_count": 31,
+          "up": 21,
+          "down": 10,
+          "flat": 0,
+          "up_pct": 67.74193548387096,
+          "down_pct": 32.25806451612903,
+          "overall_perf": 0.025935920431746563,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "PCG",
+              "company": "PG&E Corp",
+              "perf": 1.521
+            },
+            {
+              "ticker": "NRG",
+              "company": "NRG Energy Inc",
+              "perf": 1.311
+            },
+            {
+              "ticker": "ES",
+              "company": "Eversource Energy",
+              "perf": 0.967
+            }
+          ]
+        }
+      ],
+      "selected_down": [
+        {
+          "name": "Energy",
+          "component_count": 21,
+          "up": 2,
+          "down": 19,
+          "flat": 0,
+          "up_pct": 9.523809523809524,
+          "down_pct": 90.47619047619048,
+          "overall_perf": -3.0325722447783416,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "FANG",
+              "company": "Diamondback Energy Inc",
+              "perf": -8.03
+            },
+            {
+              "ticker": "OXY",
+              "company": "Occidental Petroleum Corp",
+              "perf": -6.549
+            },
+            {
+              "ticker": "TPL",
+              "company": "Texas Pacific Land Corp",
+              "perf": -6.205
+            }
+          ]
+        },
+        {
+          "name": "Financial",
+          "component_count": 70,
+          "up": 3,
+          "down": 67,
+          "flat": 0,
+          "up_pct": 4.285714285714286,
+          "down_pct": 95.71428571428571,
+          "overall_perf": -1.6642882115760398,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "HBAN",
+              "company": "Huntington Bancshares Inc",
+              "perf": -5.552
+            },
+            {
+              "ticker": "HOOD",
+              "company": "Robinhood Markets Inc",
+              "perf": -5.459
+            },
+            {
+              "ticker": "CFG",
+              "company": "Citizens Financial Group Inc",
+              "perf": -4.841
+            }
+          ]
+        },
+        {
+          "name": "Basic Materials",
+          "component_count": 20,
+          "up": 4,
+          "down": 16,
+          "flat": 0,
+          "up_pct": 20.0,
+          "down_pct": 80.0,
+          "overall_perf": -0.8100975625769389,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "ALB",
+              "company": "Albemarle Corp",
+              "perf": -3.508
+            },
+            {
+              "ticker": "CTVA",
+              "company": "Corteva Inc",
+              "perf": -2.854
+            },
+            {
+              "ticker": "MOS",
+              "company": "Mosaic Company",
+              "perf": -2.632
+            }
+          ]
+        }
+      ]
+    },
+    "dow30": {
+      "label": "Dow Jones 30",
+      "selected_up": [
+        {
+          "name": "Healthcare",
+          "component_count": 4,
+          "up": 3,
+          "down": 1,
+          "flat": 0,
+          "up_pct": 75.0,
+          "down_pct": 25.0,
+          "overall_perf": 0.17315592931909288,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "MRK",
+              "company": "Merck & Co Inc",
+              "perf": 0.779
+            },
+            {
+              "ticker": "AMGN",
+              "company": "AMGEN Inc",
+              "perf": 0.186
+            },
+            {
+              "ticker": "JNJ",
+              "company": "Johnson & Johnson",
+              "perf": 0.03
+            }
+          ]
+        },
+        {
+          "name": "Technology",
+          "component_count": 6,
+          "up": 2,
+          "down": 4,
+          "flat": 0,
+          "up_pct": 33.333333333333336,
+          "down_pct": 66.66666666666667,
+          "overall_perf": -0.09097455938645613,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "NVDA",
+              "company": "NVIDIA Corp",
+              "perf": 0.815
+            },
+            {
+              "ticker": "AAPL",
+              "company": "Apple Inc",
+              "perf": 0.323
+            },
+            {
+              "ticker": "MSFT",
+              "company": "Microsoft Corp",
+              "perf": -1.372
+            }
+          ]
+        },
+        {
+          "name": "Consumer Defensive",
+          "component_count": 3,
+          "up": 1,
+          "down": 2,
+          "flat": 0,
+          "up_pct": 33.333333333333336,
+          "down_pct": 66.66666666666667,
+          "overall_perf": -0.4794878409431145,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "PG",
+              "company": "Procter & Gamble Co",
+              "perf": 0.239
+            },
+            {
+              "ticker": "WMT",
+              "company": "Walmart Inc",
+              "perf": -0.546
+            },
+            {
+              "ticker": "KO",
+              "company": "Coca-Cola Co",
+              "perf": -0.947
+            }
+          ]
+        }
+      ],
+      "selected_down": [
+        {
+          "name": "Energy",
+          "component_count": 1,
+          "up": 0,
+          "down": 1,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -2.861,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "CVX",
+              "company": "Chevron Corp",
+              "perf": -2.861
+            }
+          ]
+        },
+        {
+          "name": "Consumer Cyclical",
+          "component_count": 4,
+          "up": 0,
+          "down": 4,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -1.031244699987587,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "MCD",
+              "company": "McDonald's Corp",
+              "perf": -1.669
+            },
+            {
+              "ticker": "NKE",
+              "company": "Nike Inc",
+              "perf": -1.215
+            },
+            {
+              "ticker": "AMZN",
+              "company": "Amazon.com Inc",
+              "perf": -0.99
+            }
+          ]
+        },
+        {
+          "name": "Basic Materials",
+          "component_count": 1,
+          "up": 0,
+          "down": 1,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -0.545,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "SHW",
+              "company": "Sherwin-Williams Co",
+              "perf": -0.545
+            }
+          ]
+        }
+      ]
+    },
+    "nasdaq100": {
+      "label": "Nasdaq 100",
+      "selected_up": [
+        {
+          "name": "Industrials",
+          "component_count": 13,
+          "up": 7,
+          "down": 6,
+          "flat": 0,
+          "up_pct": 53.84615384615385,
+          "down_pct": 46.15384615384615,
+          "overall_perf": 3.8350386208708094,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "AXON",
+              "company": "Axon Enterprise Inc",
+              "perf": 5.958
+            },
+            {
+              "ticker": "SPCX",
+              "company": "Space Exploration Technologies Corp",
+              "perf": 5.15
+            },
+            {
+              "ticker": "HONA",
+              "company": "Honeywell Aerospace Inc",
+              "perf": 3.587
+            }
+          ]
+        },
+        {
+          "name": "Healthcare",
+          "component_count": 9,
+          "up": 7,
+          "down": 2,
+          "flat": 0,
+          "up_pct": 77.77777777777777,
+          "down_pct": 22.22222222222222,
+          "overall_perf": 0.4556476963875406,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "ISRG",
+              "company": "Intuitive Surgical Inc",
+              "perf": 1.36
+            },
+            {
+              "ticker": "DXCM",
+              "company": "Dexcom Inc",
+              "perf": 1.029
+            },
+            {
+              "ticker": "GILD",
+              "company": "Gilead Sciences Inc",
+              "perf": 0.943
+            }
+          ]
+        },
+        {
+          "name": "Technology",
+          "component_count": 44,
+          "up": 23,
+          "down": 21,
+          "flat": 0,
+          "up_pct": 52.27272727272727,
+          "down_pct": 47.72727272727273,
+          "overall_perf": 0.18402080746855812,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "LITE",
+              "company": "Lumentum Holdings Inc",
+              "perf": 9.588
+            },
+            {
+              "ticker": "ALAB",
+              "company": "Astera Labs Inc",
+              "perf": 6.589
+            },
+            {
+              "ticker": "INTC",
+              "company": "Intel Corp",
+              "perf": 4.025
+            }
+          ]
+        }
+      ],
+      "selected_down": [
+        {
+          "name": "Energy",
+          "component_count": 2,
+          "up": 0,
+          "down": 2,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -4.225750835166625,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "FANG",
+              "company": "Diamondback Energy Inc",
+              "perf": -8.03
+            },
+            {
+              "ticker": "BKR",
+              "company": "Baker Hughes Co",
+              "perf": -0.705
+            }
+          ]
+        },
+        {
+          "name": "Financial",
+          "component_count": 1,
+          "up": 0,
+          "down": 1,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -2.044,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "PYPL",
+              "company": "PayPal Holdings Inc",
+              "perf": -2.044
+            }
+          ]
+        },
+        {
+          "name": "Basic Materials",
+          "component_count": 1,
+          "up": 0,
+          "down": 1,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -0.188,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "LIN",
+              "company": "Linde Plc",
+              "perf": -0.188
+            }
+          ]
+        }
+      ]
+    },
+    "russell2000": {
+      "label": "Russell 2000",
+      "selected_up": [
+        {
+          "name": "Consumer Defensive",
+          "component_count": 67,
+          "up": 37,
+          "down": 30,
+          "flat": 0,
+          "up_pct": 55.223880597014926,
+          "down_pct": 44.776119402985074,
+          "overall_perf": 0.5969629871627334,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "MAMA",
+              "company": "Mama's Creations Inc",
+              "perf": 8.447
+            },
+            {
+              "ticker": "BRCC",
+              "company": "BRC Inc",
+              "perf": 7.886
+            },
+            {
+              "ticker": "SENEA",
+              "company": "Seneca Foods Corp",
+              "perf": 3.701
+            }
+          ]
+        },
+        {
+          "name": "Utilities",
+          "component_count": 32,
+          "up": 26,
+          "down": 6,
+          "flat": 0,
+          "up_pct": 81.25,
+          "down_pct": 18.75,
+          "overall_perf": 0.5003460892954397,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "OPAL",
+              "company": "OPAL Fuels Inc",
+              "perf": 3.784
+            },
+            {
+              "ticker": "HNRG",
+              "company": "Hallador Energy Co",
+              "perf": 2.512
+            },
+            {
+              "ticker": "CDZI",
+              "company": "Cadiz Inc",
+              "perf": 1.425
+            }
+          ]
+        },
+        {
+          "name": "Industrials",
+          "component_count": 248,
+          "up": 116,
+          "down": 127,
+          "flat": 5,
+          "up_pct": 46.774193548387096,
+          "down_pct": 51.20967741935484,
+          "overall_perf": 0.050978860595802554,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "EAF",
+              "company": "GrafTech International Ltd",
+              "perf": 13.745
+            },
+            {
+              "ticker": "WOR",
+              "company": "Worthington Enterprises Inc",
+              "perf": 8.241
+            },
+            {
+              "ticker": "FLYX",
+              "company": "flyExclusive Inc",
+              "perf": 7.018
+            }
+          ]
+        }
+      ],
+      "selected_down": [
+        {
+          "name": "Energy",
+          "component_count": 91,
+          "up": 17,
+          "down": 74,
+          "flat": 0,
+          "up_pct": 18.681318681318682,
+          "down_pct": 81.31868131868131,
+          "overall_perf": -2.4209539241478484,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "INR",
+              "company": "Infinity Natural Resources Inc",
+              "perf": -9.68
+            },
+            {
+              "ticker": "HPK",
+              "company": "HighPeak Energy Inc",
+              "perf": -8.912
+            },
+            {
+              "ticker": "MGY",
+              "company": "Magnolia Oil & Gas Corp",
+              "perf": -8.581
+            }
+          ]
+        },
+        {
+          "name": "Financial",
+          "component_count": 357,
+          "up": 43,
+          "down": 312,
+          "flat": 2,
+          "up_pct": 12.044817927170868,
+          "down_pct": 87.39495798319328,
+          "overall_perf": -0.9678989098986319,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "BUR",
+              "company": "Burford Capital Limited",
+              "perf": -7.416
+            },
+            {
+              "ticker": "VRTS",
+              "company": "Virtus Investment Partners Inc",
+              "perf": -5.164
+            },
+            {
+              "ticker": "PWP",
+              "company": "Perella Weinberg Partners",
+              "perf": -4.922
+            }
+          ]
+        },
+        {
+          "name": "Real Estate",
+          "component_count": 124,
+          "up": 30,
+          "down": 91,
+          "flat": 3,
+          "up_pct": 24.193548387096776,
+          "down_pct": 73.38709677419355,
+          "overall_perf": -0.8711583003778891,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "NTST",
+              "company": "Netstreit Corp",
+              "perf": -5.391
+            },
+            {
+              "ticker": "GTY",
+              "company": "Getty Realty Corp",
+              "perf": -4.295
+            },
+            {
+              "ticker": "EPRT",
+              "company": "Essential Properties Realty Trust Inc",
+              "perf": -4.287
+            }
+          ]
+        }
+      ]
+    },
+    "themes": {
+      "label": "Themes",
+      "selected_up": [
+        {
+          "name": "Hardware",
+          "component_count": 11,
+          "up": 7,
+          "down": 4,
+          "flat": 0,
+          "up_pct": 63.63636363636363,
+          "down_pct": 36.36363636363637,
+          "overall_perf": 0.4358181818181819,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "LITE",
+              "company": "Lumentum Holdings Inc",
+              "perf": 9.588
+            },
+            {
+              "ticker": "INTC",
+              "company": "Intel Corp",
+              "perf": 4.025
+            },
+            {
+              "ticker": "DELL",
+              "company": "Dell Technologies Inc",
+              "perf": 3.639
+            }
+          ],
+          "subthemes": [
+            {
+              "name": "hardwarepcsdevices",
+              "display": "PCs & Devices",
+              "description": "Personal Computing & Devices",
+              "perf": 0.305
+            },
+            {
+              "name": "hardwareservers",
+              "display": "Servers",
+              "description": "Servers, OEMs & Enterprise Systems",
+              "perf": 0.747
+            },
+            {
+              "name": "hardwarenetworking",
+              "display": "Networking",
+              "description": "Networking Equipment",
+              "perf": 0.866
+            },
+            {
+              "name": "hardwarestorage",
+              "display": "Storage",
+              "description": "Storage",
+              "perf": 1.609
+            },
+            {
+              "name": "hardwaredatacenters",
+              "display": "Data Centers",
+              "description": "Data Center Infrastructure",
+              "perf": 1.659
+            },
+            {
+              "name": "hardwareelectronics",
+              "display": "Electronics",
+              "description": "Consumer Electronics, Gaming PCs & Consoles",
+              "perf": -0.569
+            },
+            {
+              "name": "hardwaregaming",
+              "display": "Gaming",
+              "description": "Gaming & Immersive Pheriperals",
+              "perf": -0.844
+            },
+            {
+              "name": "hardwareprinting",
+              "display": "Printing",
+              "description": "Printing & Imaging",
+              "perf": -0.149
+            },
+            {
+              "name": "hardwaretelecom",
+              "display": "Telecom",
+              "description": "Communications & Telecom",
+              "perf": 1.458
+            },
+            {
+              "name": "hardwareindustrialiot",
+              "display": "Industrial IoT",
+              "description": "Industrial & IoT",
+              "perf": -0.407
+            },
+            {
+              "name": "hardwarenextgen",
+              "display": "Next-Gen",
+              "description": "Next-Gen & Specialty",
+              "perf": 0.119
+            }
+          ]
+        },
+        {
+          "name": "Semiconductors",
+          "component_count": 9,
+          "up": 4,
+          "down": 5,
+          "flat": 0,
+          "up_pct": 44.44444444444444,
+          "down_pct": 55.55555555555556,
+          "overall_perf": 0.27588888888888896,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "UMC",
+              "company": "United Micro Electronics ADR",
+              "perf": 4.257
+            },
+            {
+              "ticker": "INTC",
+              "company": "Intel Corp",
+              "perf": 4.025
+            },
+            {
+              "ticker": "MRVL",
+              "company": "Marvell Technology Inc",
+              "perf": 3.613
+            }
+          ],
+          "subthemes": [
+            {
+              "name": "semiscompute",
+              "display": "Compute",
+              "description": "Logic & CPUs, GPUs, Accelerators",
+              "perf": 1.305
+            },
+            {
+              "name": "semismemory",
+              "display": "Memory",
+              "description": "Memory & Storage",
+              "perf": -0.037
+            },
+            {
+              "name": "semisanalog",
+              "display": "Analog",
+              "description": "Analog, Mixed-Signal & Power Management",
+              "perf": -2.149
+            },
+            {
+              "name": "semiswireless",
+              "display": "Wireless",
+              "description": "Wireless & Connectivity",
+              "perf": -1.585
+            },
+            {
+              "name": "semisfoundries",
+              "display": "Foundries",
+              "description": "Foundries & Manufacturing",
+              "perf": 2.474
+            },
+            {
+              "name": "semisdesigntools",
+              "display": "Design Tools",
+              "description": "EDA Tools & Design Software",
+              "perf": 1.34
+            },
+            {
+              "name": "semislithography",
+              "display": "Lithography",
+              "description": "Equipment, Lithography & Deposition",
+              "perf": -0.585
+            },
+            {
+              "name": "semispackaging",
+              "display": "Packaging",
+              "description": "Testing, Packaging & Assembly",
+              "perf": 2.115
+            },
+            {
+              "name": "semisnextgen",
+              "display": "Next-Gen",
+              "description": "Emerging Technologies",
+              "perf": -0.395
+            }
+          ]
+        },
+        {
+          "name": "Space Tech",
+          "component_count": 5,
+          "up": 3,
+          "down": 2,
+          "flat": 0,
+          "up_pct": 60.0,
+          "down_pct": 40.0,
+          "overall_perf": 0.2716,
+          "uniform_up": false,
+          "uniform_down": false,
+          "selection_identity": "平均表现补位",
+          "target_stocks": [
+            {
+              "ticker": "SPCX",
+              "company": "Space Exploration Technologies Corp",
+              "perf": 5.15
+            },
+            {
+              "ticker": "MNTS",
+              "company": "Momentus Inc",
+              "perf": 1.741
+            },
+            {
+              "ticker": "ASTS",
+              "company": "AST SpaceMobile Inc",
+              "perf": 0.851
+            }
+          ],
+          "subthemes": [
+            {
+              "name": "spacelaunch",
+              "display": "Launch",
+              "description": "Logistics & Launch Services",
+              "perf": -0.01
+            },
+            {
+              "name": "spacesatellites",
+              "display": "Satellites",
+              "description": "Satellite Networks & Connectivity",
+              "perf": 1.231
+            },
+            {
+              "name": "spacedataanalytics",
+              "display": "Data Analytics",
+              "description": "Data Analytics & Earth Observation",
+              "perf": 0.067
+            },
+            {
+              "name": "spacedefense",
+              "display": "Defense",
+              "description": "Defense & Cybersecurity",
+              "perf": 0.328
+            },
+            {
+              "name": "spaceinfrastructure",
+              "display": "Infrastructure",
+              "description": "Infrastructure & Exploration",
+              "perf": -0.258
+            }
+          ]
+        }
+      ],
+      "selected_down": [
+        {
+          "name": "Agriculture & FoodTech",
+          "component_count": 5,
+          "up": 0,
+          "down": 5,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -2.4484000000000004,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "LOCL",
+              "company": "Local Bounti Corp",
+              "perf": -12.295
+            },
+            {
+              "ticker": "LSF",
+              "company": "Laird Superfood Inc",
+              "perf": -9.561
+            },
+            {
+              "ticker": "MLEC",
+              "company": "Moolec Science SA",
+              "perf": -8.995
+            }
+          ],
+          "subthemes": [
+            {
+              "name": "agriculturesmartfarming",
+              "display": "Smart Farming",
+              "description": "Precision Agriculture & Farm Automation",
+              "perf": -2.104
+            },
+            {
+              "name": "agriculturecropinputs",
+              "display": "Crop Inputs",
+              "description": "Agricultural Inputs & Crop Science",
+              "perf": -2.971
+            },
+            {
+              "name": "agricultureindoorfarming",
+              "display": "Indoor Farming",
+              "description": "Controlled Environment Agriculture",
+              "perf": -4.918
+            },
+            {
+              "name": "agriculturealtprotein",
+              "display": "Alt Protein",
+              "description": "Alternative Proteins",
+              "perf": -1.919
+            },
+            {
+              "name": "agricultureprocessing",
+              "display": "Processing",
+              "description": "Agri-Food Processing & Distribution",
+              "perf": -0.33
+            }
+          ]
+        },
+        {
+          "name": "Commodities Energy",
+          "component_count": 4,
+          "up": 0,
+          "down": 4,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -2.05625,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "AR",
+              "company": "Antero Resources Corp",
+              "perf": -8.112
+            },
+            {
+              "ticker": "FANG",
+              "company": "Diamondback Energy Inc",
+              "perf": -8.03
+            },
+            {
+              "ticker": "OXY",
+              "company": "Occidental Petroleum Corp",
+              "perf": -6.549
+            }
+          ],
+          "subthemes": [
+            {
+              "name": "commenergyoil",
+              "display": "Oil",
+              "description": "Crude Oil",
+              "perf": -4.439
+            },
+            {
+              "name": "commenergygaslng",
+              "display": "Gas & LNG",
+              "description": "Natural Gas & LNG",
+              "perf": -2.28
+            },
+            {
+              "name": "commenergyuranium",
+              "display": "Uranium",
+              "description": "Uranium & Nuclear Fuels",
+              "perf": -1.193
+            },
+            {
+              "name": "commenergybiofuels",
+              "display": "Biofuels",
+              "description": "Biofuels & Renewable Fuels",
+              "perf": -0.313
+            }
+          ]
+        },
+        {
+          "name": "Transportation & Logistics",
+          "component_count": 8,
+          "up": 0,
+          "down": 8,
+          "flat": 0,
+          "up_pct": 0.0,
+          "down_pct": 100.0,
+          "overall_perf": -1.843375,
+          "uniform_up": false,
+          "uniform_down": true,
+          "selection_identity": "清一色优先",
+          "target_stocks": [
+            {
+              "ticker": "JBHT",
+              "company": "J.B. Hunt Transport Services Inc",
+              "perf": -13.302
+            },
+            {
+              "ticker": "FWRD",
+              "company": "Forward Air Corp",
+              "perf": -5.549
+            },
+            {
+              "ticker": "TFII",
+              "company": "TFI International Inc",
+              "perf": -5.394
+            }
+          ],
+          "subthemes": [
+            {
+              "name": "transportationrail",
+              "display": "Rail",
+              "description": "Freight Rail & Infrastructure",
+              "perf": -1.276
+            },
+            {
+              "name": "transportationtrucking",
+              "display": "Trucking",
+              "description": "Trucking, LTL & Ground Freight",
+              "perf": -4.313
+            },
+            {
+              "name": "transportationaircargo",
+              "display": "Air Cargo",
+              "description": "Air Freight & Express Delivery",
+              "perf": -2.937
+            },
+            {
+              "name": "transportationmaritime",
+              "display": "Maritime",
+              "description": "Marine Shipping & Ports",
+              "perf": -1.124
+            },
+            {
+              "name": "transportationwarehousing",
+              "display": "Warehousing",
+              "description": "Logistics, Warehousing & Supply Chain Solutions",
+              "perf": -2.155
+            },
+            {
+              "name": "transportationairtravel",
+              "display": "Air Travel",
+              "description": "Air Travel & Passenger Transportation",
+              "perf": -1.013
+            },
+            {
+              "name": "transportationinfrastructure",
+              "display": "Infrastructure",
+              "description": "Infrastructure & Equipment",
+              "perf": -1.377
+            },
+            {
+              "name": "transportationnextgen",
+              "display": "Next-Gen",
+              "description": "Urban Mobility & Emerging Transport Tech",
+              "perf": -0.552
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "consistency_priority_audit": {
+    "all_stocks": {
+      "status": "PASS",
+      "uniform_up_candidate_count": 0,
+      "uniform_up_candidates": [],
+      "uniform_down_candidate_count": 0,
+      "uniform_down_candidates": [],
+      "expected_selected_up": [
+        "Industrials",
+        "Technology",
+        "Utilities"
+      ],
+      "actual_selected_up": [
+        "Industrials",
+        "Technology",
+        "Utilities"
+      ],
+      "expected_selected_down": [
+        "Energy",
+        "Financial",
+        "Basic Materials"
+      ],
+      "actual_selected_down": [
+        "Energy",
+        "Financial",
+        "Basic Materials"
+      ]
+    },
+    "sp500": {
+      "status": "PASS",
+      "uniform_up_candidate_count": 0,
+      "uniform_up_candidates": [],
+      "uniform_down_candidate_count": 0,
+      "uniform_down_candidates": [],
+      "expected_selected_up": [
+        "Technology",
+        "Healthcare",
+        "Utilities"
+      ],
+      "actual_selected_up": [
+        "Technology",
+        "Healthcare",
+        "Utilities"
+      ],
+      "expected_selected_down": [
+        "Energy",
+        "Financial",
+        "Basic Materials"
+      ],
+      "actual_selected_down": [
+        "Energy",
+        "Financial",
+        "Basic Materials"
+      ]
+    },
+    "dow30": {
+      "status": "PASS",
+      "uniform_up_candidate_count": 0,
+      "uniform_up_candidates": [],
+      "uniform_down_candidate_count": 3,
+      "uniform_down_candidates": [
+        "Energy",
+        "Consumer Cyclical",
+        "Basic Materials"
+      ],
+      "expected_selected_up": [
+        "Healthcare",
+        "Technology",
+        "Consumer Defensive"
+      ],
+      "actual_selected_up": [
+        "Healthcare",
+        "Technology",
+        "Consumer Defensive"
+      ],
+      "expected_selected_down": [
+        "Energy",
+        "Consumer Cyclical",
+        "Basic Materials"
+      ],
+      "actual_selected_down": [
+        "Energy",
+        "Consumer Cyclical",
+        "Basic Materials"
+      ]
+    },
+    "nasdaq100": {
+      "status": "PASS",
+      "uniform_up_candidate_count": 0,
+      "uniform_up_candidates": [],
+      "uniform_down_candidate_count": 3,
+      "uniform_down_candidates": [
+        "Energy",
+        "Financial",
+        "Basic Materials"
+      ],
+      "expected_selected_up": [
+        "Industrials",
+        "Healthcare",
+        "Technology"
+      ],
+      "actual_selected_up": [
+        "Industrials",
+        "Healthcare",
+        "Technology"
+      ],
+      "expected_selected_down": [
+        "Energy",
+        "Financial",
+        "Basic Materials"
+      ],
+      "actual_selected_down": [
+        "Energy",
+        "Financial",
+        "Basic Materials"
+      ]
+    },
+    "russell2000": {
+      "status": "PASS",
+      "uniform_up_candidate_count": 0,
+      "uniform_up_candidates": [],
+      "uniform_down_candidate_count": 0,
+      "uniform_down_candidates": [],
+      "expected_selected_up": [
+        "Consumer Defensive",
+        "Utilities",
+        "Industrials"
+      ],
+      "actual_selected_up": [
+        "Consumer Defensive",
+        "Utilities",
+        "Industrials"
+      ],
+      "expected_selected_down": [
+        "Energy",
+        "Financial",
+        "Real Estate"
+      ],
+      "actual_selected_down": [
+        "Energy",
+        "Financial",
+        "Real Estate"
+      ]
+    },
+    "themes": {
+      "status": "PASS",
+      "uniform_up_candidate_count": 0,
+      "uniform_up_candidates": [],
+      "uniform_down_candidate_count": 14,
+      "uniform_down_candidates": [
+        "Agriculture & FoodTech",
+        "Commodities Energy",
+        "Transportation & Logistics",
+        "FinTech",
+        "Biometrics",
+        "Commodities Metals",
+        "Software",
+        "Electric Vehicles",
+        "Social Media",
+        "Wearables",
+        "E-commerce",
+        "Autonomous Systems",
+        "Cybersecurity",
+        "Smart Home"
+      ],
+      "expected_selected_up": [
+        "Hardware",
+        "Semiconductors",
+        "Space Tech"
+      ],
+      "actual_selected_up": [
+        "Hardware",
+        "Semiconductors",
+        "Space Tech"
+      ],
+      "expected_selected_down": [
+        "Agriculture & FoodTech",
+        "Commodities Energy",
+        "Transportation & Logistics"
+      ],
+      "actual_selected_down": [
+        "Agriculture & FoodTech",
+        "Commodities Energy",
+        "Transportation & Logistics"
+      ]
+    },
+    "overall_status": "PASS"
+  },
+  "etf_selection": {
+    "selected_up": [
+      {
+        "ticker": "PTF",
+        "description": "Invesco Dorsey Wright Technology Momentum ETF",
+        "perf": 1.992,
+        "cluster": "us sector technology｜invesco dorsey wright technology momentum etf",
+        "primary_exposure": null,
+        "legal_form": null,
+        "merged_same_exposure": []
+      },
+      {
+        "ticker": "EWT",
+        "description": "iShares MSCI Taiwan ETF",
+        "perf": 1.622,
+        "cluster": "international asia-pacific｜ishares msci taiwan etf",
+        "primary_exposure": null,
+        "legal_form": null,
+        "merged_same_exposure": []
+      },
+      {
+        "ticker": "PRN",
+        "description": "Invesco Dorsey Wright Industrials Momentum ETF",
+        "perf": 1.338,
+        "cluster": "us sector industrials｜invesco dorsey wright industrials momentum etf",
+        "primary_exposure": null,
+        "legal_form": null,
+        "merged_same_exposure": []
+      }
+    ],
+    "selected_down": [
+      {
+        "ticker": "TUR",
+        "description": "iShares MSCI Turkey ETF",
+        "perf": -6.608,
+        "cluster": "international europe｜ishares msci turkey etf",
+        "primary_exposure": null,
+        "legal_form": null,
+        "merged_same_exposure": []
+      },
+      {
+        "ticker": "FCG",
+        "description": "First Trust Natural Gas ETF",
+        "perf": -5.626,
+        "cluster": "us sector energy｜first trust natural gas etf",
+        "primary_exposure": null,
+        "legal_form": null,
+        "merged_same_exposure": []
+      },
+      {
+        "ticker": "FXN",
+        "description": "First Trust Energy AlphaDEX Fund",
+        "perf": -4.148,
+        "cluster": "能源生产商股票",
+        "primary_exposure": null,
+        "legal_form": null,
+        "merged_same_exposure": [
+          {
+            "ticker": "PXE",
+            "description": "Invesco Energy Exploration & Production ETF",
+            "perf": -3.956,
+            "path": [
+              "US Sector",
+              "Energy"
+            ],
+            "cluster": "能源生产商股票"
+          },
+          {
+            "ticker": "IYE",
+            "description": "iShares U.S. Energy ETF",
+            "perf": -3.004,
+            "path": [
+              "US Sector",
+              "Energy"
+            ],
+            "cluster": "能源生产商股票"
+          },
+          {
+            "ticker": "FENY",
+            "description": "Fidelity MSCI Energy Index ETF",
+            "perf": -2.958,
+            "path": [
+              "US Sector",
+              "Energy"
+            ],
+            "cluster": "能源生产商股票"
+          },
+          {
+            "ticker": "DBE",
+            "description": "Invesco DB Energy Fund",
+            "perf": -2.949,
+            "path": [
+              "Commodity",
+              "Broad Market"
+            ],
+            "cluster": "能源生产商股票"
+          },
+          {
+            "ticker": "VDE",
+            "description": "Vanguard Energy ETF",
+            "perf": -2.936,
+            "path": [
+              "US Sector",
+              "Energy"
+            ],
+            "cluster": "能源生产商股票"
+          }
+        ]
+      }
+    ],
+    "same_economic_exposure_audit": null,
+    "audit_status": "PASS",
+    "calculated_tickers": {
+      "up": [
+        "PTF",
+        "EWT",
+        "PRN"
+      ],
+      "down": [
+        "TUR",
+        "FCG",
+        "FXN"
+      ]
+    },
+    "audit_tickers": {
+      "up": [
+        "PTF",
+        "EWT",
+        "PRN"
+      ],
+      "down": [
+        "TUR",
+        "FCG",
+        "FXN"
+      ]
+    }
+  },
+  "mandatory_rotation_coverage": {
+    "date": "2026-09-16",
+    "source": "calculated-statistics.json",
+    "selection_basis": "All Stocks, S&P 500, Dow Jones 30, Nasdaq 100, Russell 2000 and Themes each contribute exactly three selected up groups and three selected down groups; the complete union is preserved before the 3-in/3-out synthesis.",
+    "scope_count": 6,
+    "scopes": {
+      "all_stocks": {
+        "label": "All Stocks",
+        "selected_up": [
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "up",
+            "rank": 1,
+            "name": "Industrials",
+            "identity": "平均表现补位",
+            "component_count": 696,
+            "up": 286,
+            "down": 391,
+            "flat": 19,
+            "up_pct": 41.0919540229885,
+            "down_pct": 56.17816091954023,
+            "overall_perf": 1.015078510766678,
+            "uniform": false
+          },
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "up",
+            "rank": 2,
+            "name": "Technology",
+            "identity": "平均表现补位",
+            "component_count": 785,
+            "up": 319,
+            "down": 447,
+            "flat": 19,
+            "up_pct": 40.63694267515923,
+            "down_pct": 56.94267515923567,
+            "overall_perf": 0.22055289931048475,
+            "uniform": false
+          },
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "up",
+            "rank": 3,
+            "name": "Utilities",
+            "identity": "平均表现补位",
+            "component_count": 108,
+            "up": 78,
+            "down": 28,
+            "flat": 2,
+            "up_pct": 72.22222222222223,
+            "down_pct": 25.925925925925927,
+            "overall_perf": 0.2133121915653833,
+            "uniform": false
+          }
+        ],
+        "selected_down": [
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "平均表现补位",
+            "component_count": 248,
+            "up": 41,
+            "down": 205,
+            "flat": 2,
+            "up_pct": 16.532258064516128,
+            "down_pct": 82.66129032258064,
+            "overall_perf": -2.7364947435487044,
+            "uniform": false
+          },
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "down",
+            "rank": 2,
+            "name": "Financial",
+            "identity": "平均表现补位",
+            "component_count": 1074,
+            "up": 229,
+            "down": 729,
+            "flat": 116,
+            "up_pct": 21.32216014897579,
+            "down_pct": 67.87709497206704,
+            "overall_perf": -1.4503160743673749,
+            "uniform": false
+          },
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "down",
+            "rank": 3,
+            "name": "Basic Materials",
+            "identity": "平均表现补位",
+            "component_count": 283,
+            "up": 78,
+            "down": 199,
+            "flat": 6,
+            "up_pct": 27.56183745583039,
+            "down_pct": 70.31802120141343,
+            "overall_perf": -0.8772043449040003,
+            "uniform": false
+          }
+        ]
+      },
+      "sp500": {
+        "label": "S&P 500",
+        "selected_up": [
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "up",
+            "rank": 1,
+            "name": "Technology",
+            "identity": "平均表现补位",
+            "component_count": 86,
+            "up": 35,
+            "down": 51,
+            "flat": 0,
+            "up_pct": 40.69767441860465,
+            "down_pct": 59.30232558139535,
+            "overall_perf": 0.13592785575844787,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "up",
+            "rank": 2,
+            "name": "Healthcare",
+            "identity": "平均表现补位",
+            "component_count": 59,
+            "up": 29,
+            "down": 29,
+            "flat": 1,
+            "up_pct": 49.152542372881356,
+            "down_pct": 49.152542372881356,
+            "overall_perf": 0.059512457567172036,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "up",
+            "rank": 3,
+            "name": "Utilities",
+            "identity": "平均表现补位",
+            "component_count": 31,
+            "up": 21,
+            "down": 10,
+            "flat": 0,
+            "up_pct": 67.74193548387096,
+            "down_pct": 32.25806451612903,
+            "overall_perf": 0.025935920431746563,
+            "uniform": false
+          }
+        ],
+        "selected_down": [
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "平均表现补位",
+            "component_count": 21,
+            "up": 2,
+            "down": 19,
+            "flat": 0,
+            "up_pct": 9.523809523809524,
+            "down_pct": 90.47619047619048,
+            "overall_perf": -3.0325722447783416,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "down",
+            "rank": 2,
+            "name": "Financial",
+            "identity": "平均表现补位",
+            "component_count": 70,
+            "up": 3,
+            "down": 67,
+            "flat": 0,
+            "up_pct": 4.285714285714286,
+            "down_pct": 95.71428571428571,
+            "overall_perf": -1.6642882115760398,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "down",
+            "rank": 3,
+            "name": "Basic Materials",
+            "identity": "平均表现补位",
+            "component_count": 20,
+            "up": 4,
+            "down": 16,
+            "flat": 0,
+            "up_pct": 20.0,
+            "down_pct": 80.0,
+            "overall_perf": -0.8100975625769389,
+            "uniform": false
+          }
+        ]
+      },
+      "dow30": {
+        "label": "Dow Jones 30",
+        "selected_up": [
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "up",
+            "rank": 1,
+            "name": "Healthcare",
+            "identity": "平均表现补位",
+            "component_count": 4,
+            "up": 3,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 75.0,
+            "down_pct": 25.0,
+            "overall_perf": 0.17315592931909288,
+            "uniform": false
+          },
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "up",
+            "rank": 2,
+            "name": "Technology",
+            "identity": "平均表现补位",
+            "component_count": 6,
+            "up": 2,
+            "down": 4,
+            "flat": 0,
+            "up_pct": 33.333333333333336,
+            "down_pct": 66.66666666666667,
+            "overall_perf": -0.09097455938645613,
+            "uniform": false
+          },
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "up",
+            "rank": 3,
+            "name": "Consumer Defensive",
+            "identity": "平均表现补位",
+            "component_count": 3,
+            "up": 1,
+            "down": 2,
+            "flat": 0,
+            "up_pct": 33.333333333333336,
+            "down_pct": 66.66666666666667,
+            "overall_perf": -0.4794878409431145,
+            "uniform": false
+          }
+        ],
+        "selected_down": [
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "清一色优先",
+            "component_count": 1,
+            "up": 0,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -2.861,
+            "uniform": true
+          },
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "down",
+            "rank": 2,
+            "name": "Consumer Cyclical",
+            "identity": "清一色优先",
+            "component_count": 4,
+            "up": 0,
+            "down": 4,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -1.031244699987587,
+            "uniform": true
+          },
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "down",
+            "rank": 3,
+            "name": "Basic Materials",
+            "identity": "清一色优先",
+            "component_count": 1,
+            "up": 0,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -0.545,
+            "uniform": true
+          }
+        ]
+      },
+      "nasdaq100": {
+        "label": "Nasdaq 100",
+        "selected_up": [
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "up",
+            "rank": 1,
+            "name": "Industrials",
+            "identity": "平均表现补位",
+            "component_count": 13,
+            "up": 7,
+            "down": 6,
+            "flat": 0,
+            "up_pct": 53.84615384615385,
+            "down_pct": 46.15384615384615,
+            "overall_perf": 3.8350386208708094,
+            "uniform": false
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "up",
+            "rank": 2,
+            "name": "Healthcare",
+            "identity": "平均表现补位",
+            "component_count": 9,
+            "up": 7,
+            "down": 2,
+            "flat": 0,
+            "up_pct": 77.77777777777777,
+            "down_pct": 22.22222222222222,
+            "overall_perf": 0.4556476963875406,
+            "uniform": false
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "up",
+            "rank": 3,
+            "name": "Technology",
+            "identity": "平均表现补位",
+            "component_count": 44,
+            "up": 23,
+            "down": 21,
+            "flat": 0,
+            "up_pct": 52.27272727272727,
+            "down_pct": 47.72727272727273,
+            "overall_perf": 0.18402080746855812,
+            "uniform": false
+          }
+        ],
+        "selected_down": [
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "清一色优先",
+            "component_count": 2,
+            "up": 0,
+            "down": 2,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -4.225750835166625,
+            "uniform": true
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "down",
+            "rank": 2,
+            "name": "Financial",
+            "identity": "清一色优先",
+            "component_count": 1,
+            "up": 0,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -2.044,
+            "uniform": true
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "down",
+            "rank": 3,
+            "name": "Basic Materials",
+            "identity": "清一色优先",
+            "component_count": 1,
+            "up": 0,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -0.188,
+            "uniform": true
+          }
+        ]
+      },
+      "russell2000": {
+        "label": "Russell 2000",
+        "selected_up": [
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "up",
+            "rank": 1,
+            "name": "Consumer Defensive",
+            "identity": "平均表现补位",
+            "component_count": 67,
+            "up": 37,
+            "down": 30,
+            "flat": 0,
+            "up_pct": 55.223880597014926,
+            "down_pct": 44.776119402985074,
+            "overall_perf": 0.5969629871627334,
+            "uniform": false
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "up",
+            "rank": 2,
+            "name": "Utilities",
+            "identity": "平均表现补位",
+            "component_count": 32,
+            "up": 26,
+            "down": 6,
+            "flat": 0,
+            "up_pct": 81.25,
+            "down_pct": 18.75,
+            "overall_perf": 0.5003460892954397,
+            "uniform": false
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "up",
+            "rank": 3,
+            "name": "Industrials",
+            "identity": "平均表现补位",
+            "component_count": 248,
+            "up": 116,
+            "down": 127,
+            "flat": 5,
+            "up_pct": 46.774193548387096,
+            "down_pct": 51.20967741935484,
+            "overall_perf": 0.050978860595802554,
+            "uniform": false
+          }
+        ],
+        "selected_down": [
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "平均表现补位",
+            "component_count": 91,
+            "up": 17,
+            "down": 74,
+            "flat": 0,
+            "up_pct": 18.681318681318682,
+            "down_pct": 81.31868131868131,
+            "overall_perf": -2.4209539241478484,
+            "uniform": false
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "down",
+            "rank": 2,
+            "name": "Financial",
+            "identity": "平均表现补位",
+            "component_count": 357,
+            "up": 43,
+            "down": 312,
+            "flat": 2,
+            "up_pct": 12.044817927170868,
+            "down_pct": 87.39495798319328,
+            "overall_perf": -0.9678989098986319,
+            "uniform": false
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "down",
+            "rank": 3,
+            "name": "Real Estate",
+            "identity": "平均表现补位",
+            "component_count": 124,
+            "up": 30,
+            "down": 91,
+            "flat": 3,
+            "up_pct": 24.193548387096776,
+            "down_pct": 73.38709677419355,
+            "overall_perf": -0.8711583003778891,
+            "uniform": false
+          }
+        ]
+      },
+      "themes": {
+        "label": "Themes",
+        "selected_up": [
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "up",
+            "rank": 1,
+            "name": "Hardware",
+            "identity": "平均表现补位",
+            "component_count": 11,
+            "up": 7,
+            "down": 4,
+            "flat": 0,
+            "up_pct": 63.63636363636363,
+            "down_pct": 36.36363636363637,
+            "overall_perf": 0.4358181818181819,
+            "uniform": false
+          },
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "up",
+            "rank": 2,
+            "name": "Semiconductors",
+            "identity": "平均表现补位",
+            "component_count": 9,
+            "up": 4,
+            "down": 5,
+            "flat": 0,
+            "up_pct": 44.44444444444444,
+            "down_pct": 55.55555555555556,
+            "overall_perf": 0.27588888888888896,
+            "uniform": false
+          },
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "up",
+            "rank": 3,
+            "name": "Space Tech",
+            "identity": "平均表现补位",
+            "component_count": 5,
+            "up": 3,
+            "down": 2,
+            "flat": 0,
+            "up_pct": 60.0,
+            "down_pct": 40.0,
+            "overall_perf": 0.2716,
+            "uniform": false
+          }
+        ],
+        "selected_down": [
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "down",
+            "rank": 1,
+            "name": "Agriculture & FoodTech",
+            "identity": "清一色优先",
+            "component_count": 5,
+            "up": 0,
+            "down": 5,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -2.4484000000000004,
+            "uniform": true
+          },
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "down",
+            "rank": 2,
+            "name": "Commodities Energy",
+            "identity": "清一色优先",
+            "component_count": 4,
+            "up": 0,
+            "down": 4,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -2.05625,
+            "uniform": true
+          },
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "down",
+            "rank": 3,
+            "name": "Transportation & Logistics",
+            "identity": "清一色优先",
+            "component_count": 8,
+            "up": 0,
+            "down": 8,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -1.843375,
+            "uniform": true
+          }
+        ]
+      }
+    },
+    "unique_item_count": 16,
+    "items": [
+      {
+        "name": "Agriculture & FoodTech",
+        "total_frequency": 1,
+        "up_frequency": 0,
+        "down_frequency": 1,
+        "net_direction_score": -1,
+        "independent_scope_count": 1,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 1,
+        "average_selected_up_perf": null,
+        "average_selected_down_perf": -2.4484000000000004,
+        "evidence": [
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "down",
+            "rank": 1,
+            "name": "Agriculture & FoodTech",
+            "identity": "清一色优先",
+            "component_count": 5,
+            "up": 0,
+            "down": 5,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -2.4484000000000004,
+            "uniform": true
+          }
+        ]
+      },
+      {
+        "name": "Basic Materials",
+        "total_frequency": 4,
+        "up_frequency": 0,
+        "down_frequency": 4,
+        "net_direction_score": -4,
+        "independent_scope_count": 4,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 2,
+        "average_selected_up_perf": null,
+        "average_selected_down_perf": -0.6050754768702348,
+        "evidence": [
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "down",
+            "rank": 3,
+            "name": "Basic Materials",
+            "identity": "平均表现补位",
+            "component_count": 283,
+            "up": 78,
+            "down": 199,
+            "flat": 6,
+            "up_pct": 27.56183745583039,
+            "down_pct": 70.31802120141343,
+            "overall_perf": -0.8772043449040003,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "down",
+            "rank": 3,
+            "name": "Basic Materials",
+            "identity": "平均表现补位",
+            "component_count": 20,
+            "up": 4,
+            "down": 16,
+            "flat": 0,
+            "up_pct": 20.0,
+            "down_pct": 80.0,
+            "overall_perf": -0.8100975625769389,
+            "uniform": false
+          },
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "down",
+            "rank": 3,
+            "name": "Basic Materials",
+            "identity": "清一色优先",
+            "component_count": 1,
+            "up": 0,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -0.545,
+            "uniform": true
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "down",
+            "rank": 3,
+            "name": "Basic Materials",
+            "identity": "清一色优先",
+            "component_count": 1,
+            "up": 0,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -0.188,
+            "uniform": true
+          }
+        ]
+      },
+      {
+        "name": "Commodities Energy",
+        "total_frequency": 1,
+        "up_frequency": 0,
+        "down_frequency": 1,
+        "net_direction_score": -1,
+        "independent_scope_count": 1,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 1,
+        "average_selected_up_perf": null,
+        "average_selected_down_perf": -2.05625,
+        "evidence": [
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "down",
+            "rank": 2,
+            "name": "Commodities Energy",
+            "identity": "清一色优先",
+            "component_count": 4,
+            "up": 0,
+            "down": 4,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -2.05625,
+            "uniform": true
+          }
+        ]
+      },
+      {
+        "name": "Consumer Cyclical",
+        "total_frequency": 1,
+        "up_frequency": 0,
+        "down_frequency": 1,
+        "net_direction_score": -1,
+        "independent_scope_count": 1,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 1,
+        "average_selected_up_perf": null,
+        "average_selected_down_perf": -1.031244699987587,
+        "evidence": [
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "down",
+            "rank": 2,
+            "name": "Consumer Cyclical",
+            "identity": "清一色优先",
+            "component_count": 4,
+            "up": 0,
+            "down": 4,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -1.031244699987587,
+            "uniform": true
+          }
+        ]
+      },
+      {
+        "name": "Consumer Defensive",
+        "total_frequency": 2,
+        "up_frequency": 2,
+        "down_frequency": 0,
+        "net_direction_score": 2,
+        "independent_scope_count": 2,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": 0.05873757310980948,
+        "average_selected_down_perf": null,
+        "evidence": [
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "up",
+            "rank": 3,
+            "name": "Consumer Defensive",
+            "identity": "平均表现补位",
+            "component_count": 3,
+            "up": 1,
+            "down": 2,
+            "flat": 0,
+            "up_pct": 33.333333333333336,
+            "down_pct": 66.66666666666667,
+            "overall_perf": -0.4794878409431145,
+            "uniform": false
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "up",
+            "rank": 1,
+            "name": "Consumer Defensive",
+            "identity": "平均表现补位",
+            "component_count": 67,
+            "up": 37,
+            "down": 30,
+            "flat": 0,
+            "up_pct": 55.223880597014926,
+            "down_pct": 44.776119402985074,
+            "overall_perf": 0.5969629871627334,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Energy",
+        "total_frequency": 5,
+        "up_frequency": 0,
+        "down_frequency": 5,
+        "net_direction_score": -5,
+        "independent_scope_count": 5,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 2,
+        "average_selected_up_perf": null,
+        "average_selected_down_perf": -3.055354349528304,
+        "evidence": [
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "平均表现补位",
+            "component_count": 248,
+            "up": 41,
+            "down": 205,
+            "flat": 2,
+            "up_pct": 16.532258064516128,
+            "down_pct": 82.66129032258064,
+            "overall_perf": -2.7364947435487044,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "平均表现补位",
+            "component_count": 21,
+            "up": 2,
+            "down": 19,
+            "flat": 0,
+            "up_pct": 9.523809523809524,
+            "down_pct": 90.47619047619048,
+            "overall_perf": -3.0325722447783416,
+            "uniform": false
+          },
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "清一色优先",
+            "component_count": 1,
+            "up": 0,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -2.861,
+            "uniform": true
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "清一色优先",
+            "component_count": 2,
+            "up": 0,
+            "down": 2,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -4.225750835166625,
+            "uniform": true
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "down",
+            "rank": 1,
+            "name": "Energy",
+            "identity": "平均表现补位",
+            "component_count": 91,
+            "up": 17,
+            "down": 74,
+            "flat": 0,
+            "up_pct": 18.681318681318682,
+            "down_pct": 81.31868131868131,
+            "overall_perf": -2.4209539241478484,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Financial",
+        "total_frequency": 4,
+        "up_frequency": 0,
+        "down_frequency": 4,
+        "net_direction_score": -4,
+        "independent_scope_count": 4,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 1,
+        "average_selected_up_perf": null,
+        "average_selected_down_perf": -1.5316257989605115,
+        "evidence": [
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "down",
+            "rank": 2,
+            "name": "Financial",
+            "identity": "平均表现补位",
+            "component_count": 1074,
+            "up": 229,
+            "down": 729,
+            "flat": 116,
+            "up_pct": 21.32216014897579,
+            "down_pct": 67.87709497206704,
+            "overall_perf": -1.4503160743673749,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "down",
+            "rank": 2,
+            "name": "Financial",
+            "identity": "平均表现补位",
+            "component_count": 70,
+            "up": 3,
+            "down": 67,
+            "flat": 0,
+            "up_pct": 4.285714285714286,
+            "down_pct": 95.71428571428571,
+            "overall_perf": -1.6642882115760398,
+            "uniform": false
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "down",
+            "rank": 2,
+            "name": "Financial",
+            "identity": "清一色优先",
+            "component_count": 1,
+            "up": 0,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -2.044,
+            "uniform": true
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "down",
+            "rank": 2,
+            "name": "Financial",
+            "identity": "平均表现补位",
+            "component_count": 357,
+            "up": 43,
+            "down": 312,
+            "flat": 2,
+            "up_pct": 12.044817927170868,
+            "down_pct": 87.39495798319328,
+            "overall_perf": -0.9678989098986319,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Hardware",
+        "total_frequency": 1,
+        "up_frequency": 1,
+        "down_frequency": 0,
+        "net_direction_score": 1,
+        "independent_scope_count": 1,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": 0.4358181818181819,
+        "average_selected_down_perf": null,
+        "evidence": [
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "up",
+            "rank": 1,
+            "name": "Hardware",
+            "identity": "平均表现补位",
+            "component_count": 11,
+            "up": 7,
+            "down": 4,
+            "flat": 0,
+            "up_pct": 63.63636363636363,
+            "down_pct": 36.36363636363637,
+            "overall_perf": 0.4358181818181819,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Healthcare",
+        "total_frequency": 3,
+        "up_frequency": 3,
+        "down_frequency": 0,
+        "net_direction_score": 3,
+        "independent_scope_count": 3,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": 0.22943869442460185,
+        "average_selected_down_perf": null,
+        "evidence": [
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "up",
+            "rank": 2,
+            "name": "Healthcare",
+            "identity": "平均表现补位",
+            "component_count": 59,
+            "up": 29,
+            "down": 29,
+            "flat": 1,
+            "up_pct": 49.152542372881356,
+            "down_pct": 49.152542372881356,
+            "overall_perf": 0.059512457567172036,
+            "uniform": false
+          },
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "up",
+            "rank": 1,
+            "name": "Healthcare",
+            "identity": "平均表现补位",
+            "component_count": 4,
+            "up": 3,
+            "down": 1,
+            "flat": 0,
+            "up_pct": 75.0,
+            "down_pct": 25.0,
+            "overall_perf": 0.17315592931909288,
+            "uniform": false
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "up",
+            "rank": 2,
+            "name": "Healthcare",
+            "identity": "平均表现补位",
+            "component_count": 9,
+            "up": 7,
+            "down": 2,
+            "flat": 0,
+            "up_pct": 77.77777777777777,
+            "down_pct": 22.22222222222222,
+            "overall_perf": 0.4556476963875406,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Industrials",
+        "total_frequency": 3,
+        "up_frequency": 3,
+        "down_frequency": 0,
+        "net_direction_score": 3,
+        "independent_scope_count": 3,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": 1.6336986640777633,
+        "average_selected_down_perf": null,
+        "evidence": [
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "up",
+            "rank": 1,
+            "name": "Industrials",
+            "identity": "平均表现补位",
+            "component_count": 696,
+            "up": 286,
+            "down": 391,
+            "flat": 19,
+            "up_pct": 41.0919540229885,
+            "down_pct": 56.17816091954023,
+            "overall_perf": 1.015078510766678,
+            "uniform": false
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "up",
+            "rank": 1,
+            "name": "Industrials",
+            "identity": "平均表现补位",
+            "component_count": 13,
+            "up": 7,
+            "down": 6,
+            "flat": 0,
+            "up_pct": 53.84615384615385,
+            "down_pct": 46.15384615384615,
+            "overall_perf": 3.8350386208708094,
+            "uniform": false
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "up",
+            "rank": 3,
+            "name": "Industrials",
+            "identity": "平均表现补位",
+            "component_count": 248,
+            "up": 116,
+            "down": 127,
+            "flat": 5,
+            "up_pct": 46.774193548387096,
+            "down_pct": 51.20967741935484,
+            "overall_perf": 0.050978860595802554,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Real Estate",
+        "total_frequency": 1,
+        "up_frequency": 0,
+        "down_frequency": 1,
+        "net_direction_score": -1,
+        "independent_scope_count": 1,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": null,
+        "average_selected_down_perf": -0.8711583003778891,
+        "evidence": [
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "down",
+            "rank": 3,
+            "name": "Real Estate",
+            "identity": "平均表现补位",
+            "component_count": 124,
+            "up": 30,
+            "down": 91,
+            "flat": 3,
+            "up_pct": 24.193548387096776,
+            "down_pct": 73.38709677419355,
+            "overall_perf": -0.8711583003778891,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Semiconductors",
+        "total_frequency": 1,
+        "up_frequency": 1,
+        "down_frequency": 0,
+        "net_direction_score": 1,
+        "independent_scope_count": 1,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": 0.27588888888888896,
+        "average_selected_down_perf": null,
+        "evidence": [
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "up",
+            "rank": 2,
+            "name": "Semiconductors",
+            "identity": "平均表现补位",
+            "component_count": 9,
+            "up": 4,
+            "down": 5,
+            "flat": 0,
+            "up_pct": 44.44444444444444,
+            "down_pct": 55.55555555555556,
+            "overall_perf": 0.27588888888888896,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Space Tech",
+        "total_frequency": 1,
+        "up_frequency": 1,
+        "down_frequency": 0,
+        "net_direction_score": 1,
+        "independent_scope_count": 1,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": 0.2716,
+        "average_selected_down_perf": null,
+        "evidence": [
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "up",
+            "rank": 3,
+            "name": "Space Tech",
+            "identity": "平均表现补位",
+            "component_count": 5,
+            "up": 3,
+            "down": 2,
+            "flat": 0,
+            "up_pct": 60.0,
+            "down_pct": 40.0,
+            "overall_perf": 0.2716,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Technology",
+        "total_frequency": 4,
+        "up_frequency": 4,
+        "down_frequency": 0,
+        "net_direction_score": 4,
+        "independent_scope_count": 4,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": 0.11238175078775865,
+        "average_selected_down_perf": null,
+        "evidence": [
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "up",
+            "rank": 2,
+            "name": "Technology",
+            "identity": "平均表现补位",
+            "component_count": 785,
+            "up": 319,
+            "down": 447,
+            "flat": 19,
+            "up_pct": 40.63694267515923,
+            "down_pct": 56.94267515923567,
+            "overall_perf": 0.22055289931048475,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "up",
+            "rank": 1,
+            "name": "Technology",
+            "identity": "平均表现补位",
+            "component_count": 86,
+            "up": 35,
+            "down": 51,
+            "flat": 0,
+            "up_pct": 40.69767441860465,
+            "down_pct": 59.30232558139535,
+            "overall_perf": 0.13592785575844787,
+            "uniform": false
+          },
+          {
+            "scope": "Dow Jones 30",
+            "scope_key": "dow30",
+            "direction": "up",
+            "rank": 2,
+            "name": "Technology",
+            "identity": "平均表现补位",
+            "component_count": 6,
+            "up": 2,
+            "down": 4,
+            "flat": 0,
+            "up_pct": 33.333333333333336,
+            "down_pct": 66.66666666666667,
+            "overall_perf": -0.09097455938645613,
+            "uniform": false
+          },
+          {
+            "scope": "Nasdaq 100",
+            "scope_key": "nasdaq100",
+            "direction": "up",
+            "rank": 3,
+            "name": "Technology",
+            "identity": "平均表现补位",
+            "component_count": 44,
+            "up": 23,
+            "down": 21,
+            "flat": 0,
+            "up_pct": 52.27272727272727,
+            "down_pct": 47.72727272727273,
+            "overall_perf": 0.18402080746855812,
+            "uniform": false
+          }
+        ]
+      },
+      {
+        "name": "Transportation & Logistics",
+        "total_frequency": 1,
+        "up_frequency": 0,
+        "down_frequency": 1,
+        "net_direction_score": -1,
+        "independent_scope_count": 1,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 1,
+        "average_selected_up_perf": null,
+        "average_selected_down_perf": -1.843375,
+        "evidence": [
+          {
+            "scope": "Themes",
+            "scope_key": "themes",
+            "direction": "down",
+            "rank": 3,
+            "name": "Transportation & Logistics",
+            "identity": "清一色优先",
+            "component_count": 8,
+            "up": 0,
+            "down": 8,
+            "flat": 0,
+            "up_pct": 0.0,
+            "down_pct": 100.0,
+            "overall_perf": -1.843375,
+            "uniform": true
+          }
+        ]
+      },
+      {
+        "name": "Utilities",
+        "total_frequency": 3,
+        "up_frequency": 3,
+        "down_frequency": 0,
+        "net_direction_score": 3,
+        "independent_scope_count": 3,
+        "uniform_up_frequency": 0,
+        "uniform_down_frequency": 0,
+        "average_selected_up_perf": 0.24653140043085653,
+        "average_selected_down_perf": null,
+        "evidence": [
+          {
+            "scope": "All Stocks",
+            "scope_key": "all_stocks",
+            "direction": "up",
+            "rank": 3,
+            "name": "Utilities",
+            "identity": "平均表现补位",
+            "component_count": 108,
+            "up": 78,
+            "down": 28,
+            "flat": 2,
+            "up_pct": 72.22222222222223,
+            "down_pct": 25.925925925925927,
+            "overall_perf": 0.2133121915653833,
+            "uniform": false
+          },
+          {
+            "scope": "S&P 500",
+            "scope_key": "sp500",
+            "direction": "up",
+            "rank": 3,
+            "name": "Utilities",
+            "identity": "平均表现补位",
+            "component_count": 31,
+            "up": 21,
+            "down": 10,
+            "flat": 0,
+            "up_pct": 67.74193548387096,
+            "down_pct": 32.25806451612903,
+            "overall_perf": 0.025935920431746563,
+            "uniform": false
+          },
+          {
+            "scope": "Russell 2000",
+            "scope_key": "russell2000",
+            "direction": "up",
+            "rank": 2,
+            "name": "Utilities",
+            "identity": "平均表现补位",
+            "component_count": 32,
+            "up": 26,
+            "down": 6,
+            "flat": 0,
+            "up_pct": 81.25,
+            "down_pct": 18.75,
+            "overall_perf": 0.5003460892954397,
+            "uniform": false
+          }
+        ]
+      }
+    ],
+    "selected_rotation_3_in_3_out": {
+      "method": "Rank by net directional frequency, same-direction frequency, uniform-consistency frequency and average performance; preserve conflicting scope evidence.",
+      "in": [
+        {
+          "name": "Technology",
+          "up_frequency": 4,
+          "down_frequency": 0,
+          "net_direction_score": 4,
+          "average_selected_up_perf": 0.11238175078775865
+        },
+        {
+          "name": "Industrials",
+          "up_frequency": 3,
+          "down_frequency": 0,
+          "net_direction_score": 3,
+          "average_selected_up_perf": 1.6336986640777633
+        },
+        {
+          "name": "Utilities",
+          "up_frequency": 3,
+          "down_frequency": 0,
+          "net_direction_score": 3,
+          "average_selected_up_perf": 0.24653140043085653
+        }
+      ],
+      "out": [
+        {
+          "name": "Energy",
+          "up_frequency": 0,
+          "down_frequency": 5,
+          "net_direction_score": -5,
+          "average_selected_down_perf": -3.055354349528304
+        },
+        {
+          "name": "Basic Materials",
+          "up_frequency": 0,
+          "down_frequency": 4,
+          "net_direction_score": -4,
+          "average_selected_down_perf": -0.6050754768702348
+        },
+        {
+          "name": "Financial",
+          "up_frequency": 0,
+          "down_frequency": 4,
+          "net_direction_score": -4,
+          "average_selected_down_perf": -1.5316257989605115
+        }
+      ]
+    }
+  },
+  "ticker_universe": {
+    "ticker_count": 87,
+    "ticker_set_sha256": "8300b0808eae6e2634f28d8b569f09ac54efa151fd7ba6daeab1b9c5b378763b",
+    "tickers": [
+      "AAPL",
+      "AEHL",
+      "ALAB",
+      "ALB",
+      "AMGN",
+      "AMZN",
+      "AR",
+      "ASTS",
+      "AXON",
+      "BAK",
+      "BKR",
+      "BRCC",
+      "BUR",
+      "CDZI",
+      "CFG",
+      "COHR",
+      "CTVA",
+      "CVX",
+      "DELL",
+      "DXCM",
+      "EAF",
+      "EONR",
+      "EPRT",
+      "ES",
+      "EW",
+      "FANG",
+      "FGNX",
+      "FLYX",
+      "FRGT",
+      "FWRD",
+      "GILD",
+      "GLOO",
+      "GTY",
+      "HBAN",
+      "HNRG",
+      "HONA",
+      "HOOD",
+      "HPK",
+      "INR",
+      "INTC",
+      "IPST",
+      "ISRG",
+      "JBHT",
+      "JNJ",
+      "KO",
+      "LGHL",
+      "LIN",
+      "LITE",
+      "LOCL",
+      "LSF",
+      "MAMA",
+      "MCD",
+      "MGY",
+      "MLEC",
+      "MNTS",
+      "MOS",
+      "MRK",
+      "MRVL",
+      "MSFT",
+      "MTD",
+      "NCT",
+      "NKE",
+      "NRG",
+      "NTST",
+      "NVDA",
+      "OPAL",
+      "OXY",
+      "PCG",
+      "PG",
+      "PWP",
+      "PYPL",
+      "QCLS",
+      "RETO",
+      "RVTY",
+      "SDST",
+      "SENEA",
+      "SHW",
+      "SPCX",
+      "TAC",
+      "TFII",
+      "TPL",
+      "UMC",
+      "VGAS",
+      "VRTS",
+      "WMT",
+      "WOR",
+      "YMAT"
+    ]
+  },
+  "section_four_etf_observation": {
+    "fixed_row_count": 25,
+    "fixed_rows": [
+      {
+        "order": 1,
+        "label": "信息技术",
+        "tickers": [
+          "XLK"
+        ],
+        "performances": {
+          "XLK": 0.103
+        }
+      },
+      {
+        "order": 2,
+        "label": "半导体",
+        "tickers": [
+          "SOXX",
+          "XSD"
+        ],
+        "performances": {
+          "SOXX": 0.643,
+          "XSD": -0.144
+        }
+      },
+      {
+        "order": 3,
+        "label": "存储器",
+        "tickers": [
+          "DRAM"
+        ],
+        "performances": {
+          "DRAM": 0.582
+        }
+      },
+      {
+        "order": 4,
+        "label": "软件",
+        "tickers": [
+          "IGV",
+          "XSW"
+        ],
+        "performances": {
+          "IGV": -0.559,
+          "XSW": -1.216
+        }
+      },
+      {
+        "order": 5,
+        "label": "云计算",
+        "tickers": [
+          "WCLD"
+        ],
+        "performances": {
+          "WCLD": -0.753
+        }
+      },
+      {
+        "order": 6,
+        "label": "网络安全",
+        "tickers": [
+          "IHAK"
+        ],
+        "performances": {
+          "IHAK": -1.025
+        }
+      },
+      {
+        "order": 7,
+        "label": "通信服务",
+        "tickers": [
+          "XLC",
+          "RSPC"
+        ],
+        "performances": {
+          "XLC": -0.903,
+          "RSPC": -0.868
+        }
+      },
+      {
+        "order": 8,
+        "label": "可选消费",
+        "tickers": [
+          "XLY",
+          "RSPD"
+        ],
+        "performances": {
+          "XLY": -0.631,
+          "RSPD": -0.83
+        }
+      },
+      {
+        "order": 9,
+        "label": "必需消费",
+        "tickers": [
+          "XLP"
+        ],
+        "performances": {
+          "XLP": -0.478
+        }
+      },
+      {
+        "order": 10,
+        "label": "食品饮料",
+        "tickers": [
+          "PBJ"
+        ],
+        "performances": {
+          "PBJ": -0.297
+        }
+      },
+      {
+        "order": 11,
+        "label": "零售",
+        "tickers": [
+          "XRT"
+        ],
+        "performances": {
+          "XRT": -0.589
+        }
+      },
+      {
+        "order": 12,
+        "label": "住宅建筑",
+        "tickers": [
+          "XHB"
+        ],
+        "performances": {
+          "XHB": -0.982
+        }
+      },
+      {
+        "order": 13,
+        "label": "能源",
+        "tickers": [
+          "XLE",
+          "XOP",
+          "AMLP",
+          "CRAK"
+        ],
+        "performances": {
+          "XLE": -2.882,
+          "XOP": -3.956,
+          "AMLP": -1.031,
+          "CRAK": -0.473
+        }
+      },
+      {
+        "order": 14,
+        "label": "医疗保健",
+        "tickers": [
+          "XLV"
+        ],
+        "performances": {
+          "XLV": 0.066
+        }
+      },
+      {
+        "order": 15,
+        "label": "生物科技",
+        "tickers": [
+          "XBI"
+        ],
+        "performances": {
+          "XBI": 0.097
+        }
+      },
+      {
+        "order": 16,
+        "label": "金融",
+        "tickers": [
+          "XLF",
+          "KBE",
+          "KRE",
+          "KIE",
+          "IAI"
+        ],
+        "performances": {
+          "XLF": -1.618,
+          "KBE": -1.722,
+          "KRE": -1.769,
+          "KIE": -0.792,
+          "IAI": -2.197
+        }
+      },
+      {
+        "order": 17,
+        "label": "工业",
+        "tickers": [
+          "XLI"
+        ],
+        "performances": {
+          "XLI": -0.083
+        }
+      },
+      {
+        "order": 18,
+        "label": "航空国防",
+        "tickers": [
+          "ITA"
+        ],
+        "performances": {
+          "ITA": 0.593
+        }
+      },
+      {
+        "order": 19,
+        "label": "运输",
+        "tickers": [
+          "IYT"
+        ],
+        "performances": {
+          "IYT": -2.029
+        }
+      },
+      {
+        "order": 20,
+        "label": "基础材料",
+        "tickers": [
+          "XLB"
+        ],
+        "performances": {
+          "XLB": -0.729
+        }
+      },
+      {
+        "order": 21,
+        "label": "金属矿业",
+        "tickers": [
+          "XME"
+        ],
+        "performances": {
+          "XME": -0.612
+        }
+      },
+      {
+        "order": 22,
+        "label": "房地产",
+        "tickers": [
+          "IYR",
+          "RSPR"
+        ],
+        "performances": {
+          "IYR": -0.665,
+          "RSPR": -0.849
+        }
+      },
+      {
+        "order": 23,
+        "label": "电信",
+        "tickers": [
+          "IYZ"
+        ],
+        "performances": {
+          "IYZ": -0.591
+        }
+      },
+      {
+        "order": 24,
+        "label": "公用事业",
+        "tickers": [
+          "XLU"
+        ],
+        "performances": {
+          "XLU": 0
+        }
+      },
+      {
+        "order": 25,
+        "label": "加密货币",
+        "tickers": [
+          "IBIT",
+          "ETHA",
+          "DIME"
+        ],
+        "performances": {
+          "IBIT": -0.162,
+          "ETHA": -0.275,
+          "DIME": 0.823
+        }
+      }
+    ],
+    "append_candidates": [],
+    "prohibited_without_reliable_etf_examples": [
+      "大数据",
+      "金属商品",
+      "生物识别"
+    ]
+  },
+  "commodity_observation": {
+    "row_count": 6,
+    "rows": [
+      {
+        "label": "原油",
+        "tickers": [
+          "BNO"
+        ],
+        "performances": {
+          "BNO": -2.911
+        }
+      },
+      {
+        "label": "天然气",
+        "tickers": [
+          "UNG"
+        ],
+        "performances": {
+          "UNG": -1.708
+        }
+      },
+      {
+        "label": "黄金",
+        "tickers": [
+          "GLD"
+        ],
+        "performances": {
+          "GLD": -0.611
+        }
+      },
+      {
+        "label": "白银",
+        "tickers": [
+          "SLV"
+        ],
+        "performances": {
+          "SLV": -0.834
+        }
+      },
+      {
+        "label": "工业金属",
+        "tickers": [
+          "DBB"
+        ],
+        "performances": {
+          "DBB": 0.199
+        }
+      },
+      {
+        "label": "玉米",
+        "tickers": [
+          "CORN"
+        ],
+        "performances": {
+          "CORN": -0.349
+        }
+      }
+    ],
+    "status": "PASS"
+  },
+  "coverage": {
+    "status": "PASS",
+    "qualification": "disclosed_source_gaps",
+    "source_status": "source_gaps_present",
+    "missing_code_count": 60,
+    "fatal_errors": [],
+    "ranges": {
+      "all_stocks": {
+        "hierarchy_leaf_count": 5547,
+        "hierarchy_unique_leaf_count": 5547,
+        "performance_node_count": 5902,
+        "matched_leaf_count": 5495,
+        "missing_performance_count": 52,
+        "missing_performance_nodes": [
+          "AAC-U",
+          "AACB",
+          "AIHS",
+          "ALOT",
+          "AMACU",
+          "ANSC",
+          "AREN",
+          "AVB",
+          "AXIA",
+          "BBCQ",
+          "BCAB",
+          "BCAR",
+          "BGI",
+          "BRTMU",
+          "BTOG",
+          "CGCFU",
+          "CMII",
+          "CRNX",
+          "CYCN",
+          "FBRX",
+          "FLZH",
+          "FTRK",
+          "GGRP",
+          "GLMD",
+          "HLX",
+          "IPCX",
+          "JAB",
+          "JONEU",
+          "KWM",
+          "LBRDK",
+          "LEG",
+          "MDV",
+          "MIACU",
+          "MRCOU",
+          "NCSM",
+          "NSAIU",
+          "NTZ",
+          "OCLTU",
+          "OSPRU",
+          "OSRH",
+          "PHGE",
+          "RAY",
+          "RMAX",
+          "SAMO-U",
+          "SBEV",
+          "TALK",
+          "TWO",
+          "WBS",
+          "WILC",
+          "XTERU",
+          "YYGH",
+          "ZTEK"
+        ],
+        "out_of_hierarchy_performance_count": 407
+      },
+      "sp500": {
+        "hierarchy_leaf_count": 500,
+        "hierarchy_unique_leaf_count": 500,
+        "performance_node_count": 503,
+        "matched_leaf_count": 500,
+        "missing_performance_count": 0,
+        "missing_performance_nodes": [],
+        "out_of_hierarchy_performance_count": 3
+      },
+      "dow30": {
+        "hierarchy_leaf_count": 30,
+        "hierarchy_unique_leaf_count": 30,
+        "performance_node_count": 30,
+        "matched_leaf_count": 30,
+        "missing_performance_count": 0,
+        "missing_performance_nodes": [],
+        "out_of_hierarchy_performance_count": 0
+      },
+      "nasdaq100": {
+        "hierarchy_leaf_count": 101,
+        "hierarchy_unique_leaf_count": 101,
+        "performance_node_count": 102,
+        "matched_leaf_count": 101,
+        "missing_performance_count": 0,
+        "missing_performance_nodes": [],
+        "out_of_hierarchy_performance_count": 1
+      },
+      "russell2000": {
+        "hierarchy_leaf_count": 1943,
+        "hierarchy_unique_leaf_count": 1943,
+        "performance_node_count": 1943,
+        "matched_leaf_count": 1936,
+        "missing_performance_count": 7,
+        "missing_performance_nodes": [
+          "APGE",
+          "ATAI",
+          "CRNX",
+          "FBRX",
+          "HLX",
+          "LEG",
+          "RMAX"
+        ],
+        "out_of_hierarchy_performance_count": 7
+      },
+      "themes": {
+        "hierarchy_leaf_count": 268,
+        "hierarchy_unique_leaf_count": 268,
+        "performance_node_count": 268,
+        "matched_leaf_count": 268,
+        "missing_performance_count": 0,
+        "missing_performance_nodes": [],
+        "out_of_hierarchy_performance_count": 0
+      },
+      "etf": {
+        "hierarchy_leaf_count": 658,
+        "hierarchy_unique_leaf_count": 658,
+        "performance_node_count": 6025,
+        "matched_leaf_count": 657,
+        "missing_performance_count": 1,
+        "missing_performance_nodes": [
+          "GBF"
+        ],
+        "out_of_hierarchy_performance_count": 5368
+      }
+    }
+  },
+  "overall_status": "PASS"
+}

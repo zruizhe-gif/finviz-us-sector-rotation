@@ -1,20 +1,15 @@
-# AI Candidate Reports
+# AI Reports（AI 运行结果层）
 
-本目录只保存AI自动生成、尚未经过作者人工修改或明确确认的轮动候选稿。
+本目录保存 AI 自动生成的正式候选轮动报告，属于 AI 运行结果层——不是 Skill 规则，也不是作者状态。
 
-- 日度候选稿：`daily/美股板块轮动观察｜YYYY.M.D.md`（月份和日期不补0）
-- 周度候选稿：`weekly/us_sector_rotation_week_YYYY-MM-DD.md`
+- 日度：`daily/美股板块轮动观察｜YYYY.M.D.md`（2026-08-16起新命名，月日不补0，如 美股板块轮动观察｜2026.8.14）
+- 周度：`weekly/美股板块轮动观察｜YYYY.M.D.md`（日期取该周最后一个交易日）
+- 旧命名 `us_sector_rotation_YYYY-MM-DD.md` 已废止；既有历史文件不重命名。报告不得放到Skill根目录。
 
-`AI_reports = AI候选稿`；`history = 作者正式历史`。
+分离规则：
 
-AI不得自行把本目录文件复制、移动或覆盖到 `history/daily/` 或 `history/weekly/`。只有作者人工修改完成或明确确认后的版本才可进入正式历史。
-
-本目录内容不得反向更新：
-
-- `state/market-state-ledger.yaml` 中的作者正式判断、`author_exact_state` 或作者历史同步游标；
-- `state/author-terminology.yaml` 中的作者术语和翻译；
-- `history/` 中的任何正式文件。
-
-AI若基于真正结构变化更新五类 `base_state`，必须直接记录经核验的结构证据和日期；不得把候选报告本身当作作者来源。
-
-新日度候选稿从本规则生效后使用上述中文文件名；既有历史候选稿不追溯重命名。
+- 只有作者人工修改或明确确认后的报告才进入 `history/daily/`（或 `history/weekly/`），属于 `AUTHOR_CONFIRMED_HISTORY`；
+- AI 不得自行把本目录中的文件复制进 `history/`；
+- 第二天行情性质与术语同步只从 `history/daily/` 读取；禁止从本目录反向更新 `state/`；
+- 优先级：作者正式历史 > 本目录自动稿 > 旧 state > Codex 此前自动判断；
+- Finviz 机械统计主报告与两个 TXT 仍按现有数据产物结构保存在 Skill 根目录。

@@ -1,0 +1,3091 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "date": "2026-10-09",
+    "previous_trading_date": "2026-10-08",
+    "research_window_et": "2026-10-08T16:00:00-04:00 / 2026-10-09T16:00:00-04:00",
+    "source": "Finviz quote news tables; mechanical candidate screen only",
+    "source_ticker_universe": "research/finviz/2026-10-09/stock-ticker-universe.json",
+    "source_ticker_universe_sha256": "4a80f8861e7f97c4d7bff0fa95de64c622fe521f86718e2ecdd58022c8e3aa89",
+    "expected_ticker_count": 92,
+    "covered_ticker_count": 92,
+    "coverage_pct": 100.0,
+    "status": "PASS",
+    "failed_tickers": {},
+    "candidate_ticker_count": 28,
+    "model_verification_ticker_count": 61,
+    "generated_at": "2026-10-09T19:54:30.936082-04:00"
+  },
+  "records": {
+    "AAPL": {
+      "ticker": "AAPL",
+      "company": "Apple Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -1.11
+        }
+      ],
+      "perf": -1.11,
+      "source_status": "OK",
+      "news_in_window_count": 29,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T14:12:00-04:00",
+          "title": "Apple Faces Double Blow as Shares Dip Amid iPhone 18 Pro Order Cuts",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/apple-faces-double-blow-shares-181231308.html",
+          "candidate_categories": [
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T08:15:00-04:00",
+          "title": "Stock Market Today: Dow Rises As Apple Sells Off; Delta Slides On Earnings Miss (Live Coverage)",
+          "url": "https://www.investors.com/market-trend/stock-market-today/dow-jones-sp500-nasdaq-apple-stock-aapl-delta-earnings?mod=IBD_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T03:38:00-04:00",
+          "title": "Stock Market Today: Dow, S&P 500 and Nasdaq set to climb after selloff in chip stocks on OpenAI revenue concerns; Apple stock falls on report of cut in iPhone orders",
+          "url": "https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-selloff-chip-stocks-openai-revenue-apple-iphone?mod=mw_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ADM": {
+      "ticker": "ADM",
+      "company": "Archer Daniels Midland Co",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -3.105
+        }
+      ],
+      "perf": -3.105,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "AEP": {
+      "ticker": "AEP",
+      "company": "American Electric Power Company Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 0.401
+        }
+      ],
+      "perf": 0.401,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "AMD": {
+      "ticker": "AMD",
+      "company": "Advanced Micro Devices Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -2.027
+        }
+      ],
+      "perf": -2.027,
+      "source_status": "OK",
+      "news_in_window_count": 13,
+      "candidate_event_count": 4,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T02:43:00-04:00",
+          "title": "Stocktwits AI Roundup: OpenAI Revenue Woes Rattle Chip Stocks, SoftBank Hunts $100B, Microsoft Goes AI-First",
+          "url": "https://finance.yahoo.com/technology/ai/articles/stocktwits-ai-roundup-openai-revenue-064330853.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T22:22:00-04:00",
+          "title": "Chip, Cloud Stocks Edge Up Overnight After OpenAIs $50B Revenue Figure Sparks Selloff: Analyst Calls Reaction Overblown",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/chip-cloud-stocks-edge-overnight-022218189.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T21:06:00-04:00",
+          "title": "U.S. stock futures rise amid OpenAI revenue reports, easing oil prices",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/u-stock-futures-steady-nasdaq-010640302.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T18:08:00-04:00",
+          "title": "Micron, Nvidia and AI chip stocks fall as report on OpenAI's revenue causes 'undue concern'",
+          "url": "https://www.marketwatch.com/story/micron-nvidia-and-ai-chip-stocks-fall-as-report-on-openais-revenue-causes-undue-concern-2a2bcf53?mod=mw_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "AMT": {
+      "ticker": "AMT",
+      "company": "American Tower Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Real Estate",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 9.302
+        }
+      ],
+      "perf": 9.302,
+      "source_status": "OK",
+      "news_in_window_count": 7,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "AMTX": {
+      "ticker": "AMTX",
+      "company": "Aemetis Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Commodities Energy",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -4.046
+        }
+      ],
+      "perf": -4.046,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "AMZN": {
+      "ticker": "AMZN",
+      "company": "Amazon.com Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Consumer Cyclical",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 3.294
+        }
+      ],
+      "perf": 3.294,
+      "source_status": "OK",
+      "news_in_window_count": 20,
+      "candidate_event_count": 2,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T12:10:00-04:00",
+          "title": "Is it too late to claim Amazon class action settlement?",
+          "url": "https://finance.yahoo.com/small-business/articles/too-claim-amazon-class-action-161010346.html",
+          "candidate_categories": [
+            "regulatory_legal"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T06:03:00-04:00",
+          "title": "AI-related companies to drive most third-quarter US earnings gains",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/ai-related-companies-drive-most-100304282.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ARM": {
+      "ticker": "ARM",
+      "company": "Arm Holdings Plc ADR",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -3.273
+        }
+      ],
+      "perf": -3.273,
+      "source_status": "OK",
+      "news_in_window_count": 4,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T12:27:00-04:00",
+          "title": "Arm Holdings Stock Fell 6% in a Day as an OpenAI Revenue Report Hit Chip Stocks. Heres Where OpenAI Touches Arms Business",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/arm-holdings-stock-fell-6-162732475.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T08:02:00-04:00",
+          "title": "Qualcomm and Arm set for jury verdict in contract breach feud",
+          "url": "https://finance.yahoo.com/technology/articles/qualcomm-arm-set-jury-verdict-120240684.html",
+          "candidate_categories": [
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T16:11:00-04:00",
+          "title": "Worries About OpenAIs Revenue Rattle the AI Trade",
+          "url": "https://finance.yahoo.com/technology/ai/articles/worries-openai-revenue-rattle-ai-201110597.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "AUGO": {
+      "ticker": "AUGO",
+      "company": "Aura Minerals Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Basic Materials",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 10.632
+        }
+      ],
+      "perf": 10.632,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T07:30:00-04:00",
+          "title": "Aura Announces Preliminary Record High Production in Q3 2026 and 9M 2026 Production Results",
+          "url": "https://finviz.com/news/400791/aura-announces-preliminary-record-high-production-in-q3-2026-and-9m-2026-production-results",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "BANL": {
+      "ticker": "BANL",
+      "company": "CBL International Ltd",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -11.795
+        }
+      ],
+      "perf": -11.795,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "BG": {
+      "ticker": "BG",
+      "company": "Bunge Global SA",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -4.721
+        }
+      ],
+      "perf": -4.721,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "BKR": {
+      "ticker": "BKR",
+      "company": "Baker Hughes Co",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 0.71
+        }
+      ],
+      "perf": 0.71,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "BRBR": {
+      "ticker": "BRBR",
+      "company": "Bellring Brands Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 7.009
+        }
+      ],
+      "perf": 7.009,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "CABO": {
+      "ticker": "CABO",
+      "company": "Cable One Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -27.568
+        },
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -27.568
+        }
+      ],
+      "perf": -27.568,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "CCI": {
+      "ticker": "CCI",
+      "company": "Crown Castle Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Real Estate",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 15.605
+        }
+      ],
+      "perf": 15.605,
+      "source_status": "OK",
+      "news_in_window_count": 8,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "CCOI": {
+      "ticker": "CCOI",
+      "company": "Cogent Communications Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -10.669
+        }
+      ],
+      "perf": -10.669,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "CD": {
+      "ticker": "CD",
+      "company": "Chaince Digital Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -20.623
+        }
+      ],
+      "perf": -20.623,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "CEG": {
+      "ticker": "CEG",
+      "company": "Constellation Energy Corp",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 4.56
+        }
+      ],
+      "perf": 4.56,
+      "source_status": "OK",
+      "news_in_window_count": 5,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T10:53:00-04:00",
+          "title": "AI Losers Turn Winners as Dust Settles From OpenAI Revenue Fiasco",
+          "url": "https://www.barrons.com/livecoverage/stock-market-news-today-100926/card/ai-losers-turn-winners-as-dust-settles-from-openai-revenue-fiasco-vv9FwZlwZCLtpLg6KKm7?mod=bar_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "CLNE": {
+      "ticker": "CLNE",
+      "company": "Clean Energy Fuels Corp",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Commodities Energy",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -3.289
+        }
+      ],
+      "perf": -3.289,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "CMCSA": {
+      "ticker": "CMCSA",
+      "company": "Comcast Corp",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -2.593
+        }
+      ],
+      "perf": -2.593,
+      "source_status": "OK",
+      "news_in_window_count": 7,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "CMRC": {
+      "ticker": "CMRC",
+      "company": "Commerce.com Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 8.075
+        }
+      ],
+      "perf": 8.075,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "COST": {
+      "ticker": "COST",
+      "company": "Costco Wholesale Corp",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -0.105
+        }
+      ],
+      "perf": -0.105,
+      "source_status": "OK",
+      "news_in_window_count": 3,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T12:20:00-04:00",
+          "title": "Costco September 2026 monthly sales results",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/costco-september-2026-monthly-sales-162006783.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "CVX": {
+      "ticker": "CVX",
+      "company": "Chevron Corp",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 0.203
+        }
+      ],
+      "perf": 0.203,
+      "source_status": "OK",
+      "news_in_window_count": 6,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-08T16:10:00-04:00",
+          "title": "Nasdaq Sinks 345 Points as OpenAI Revenue Woes Weigh on Tech Stocks: Stock Market Today",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-sinks-345-points-openai-201020246.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "detached_from_selected_groups": true,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "DASH": {
+      "ticker": "DASH",
+      "company": "DoorDash Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Consumer Cyclical",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 2.499
+        }
+      ],
+      "perf": 2.499,
+      "source_status": "OK",
+      "news_in_window_count": 2,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T09:00:00-04:00",
+          "title": "DoorDash to Announce Third Quarter 2026 Results on November 4, 2026",
+          "url": "https://finviz.com/news/400882/doordash-to-announce-third-quarter-2026-results-on-november-4-2026",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "DIS": {
+      "ticker": "DIS",
+      "company": "Walt Disney Co",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Communication Services",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 0.962
+        }
+      ],
+      "perf": 0.962,
+      "source_status": "OK",
+      "news_in_window_count": 5,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "DKI": {
+      "ticker": "DKI",
+      "company": "Darkiris Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -54.083
+        }
+      ],
+      "perf": -54.083,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "DOCN": {
+      "ticker": "DOCN",
+      "company": "DigitalOcean Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Cloud Computing",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 8.814
+        }
+      ],
+      "perf": 8.814,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "DVN": {
+      "ticker": "DVN",
+      "company": "Devon Energy Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -1.349
+        }
+      ],
+      "perf": -1.349,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "EPSM": {
+      "ticker": "EPSM",
+      "company": "Epsium Enterprise Ltd",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -9.921
+        }
+      ],
+      "perf": -9.921,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "EU": {
+      "ticker": "EU",
+      "company": "enCore Energy Corp",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -3.99
+        }
+      ],
+      "perf": -3.99,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "FANG": {
+      "ticker": "FANG",
+      "company": "Diamondback Energy Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 0.235
+        }
+      ],
+      "perf": 0.235,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "FEAM": {
+      "ticker": "FEAM",
+      "company": "5E Advanced Materials Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Basic Materials",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 9.97
+        }
+      ],
+      "perf": 9.97,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "FMC": {
+      "ticker": "FMC",
+      "company": "FMC Corp",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Agriculture & FoodTech",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -6.39
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Commodities Agriculture",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -6.39
+        }
+      ],
+      "perf": -6.39,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "FSLY": {
+      "ticker": "FSLY",
+      "company": "Fastly Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 15.856
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Cloud Computing",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 15.856
+        }
+      ],
+      "perf": 15.856,
+      "source_status": "OK",
+      "news_in_window_count": 8,
+      "candidate_event_count": 2,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T13:25:00-04:00",
+          "title": "Fastly Soars 17% on Oppenheimer Upgrade Citing Growing Contract Values and Agentic AI Opportunity",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/fastly-soars-17-oppenheimer-upgrade-172552847.html",
+          "candidate_categories": [
+            "contract_partnership",
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T17:00:00-04:00",
+          "title": "Fastly to Announce Third Quarter 2026 Financial Results",
+          "url": "https://finviz.com/news/400697/fastly-to-announce-third-quarter-2026-financial-results",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "GLIBK": {
+      "ticker": "GLIBK",
+      "company": "Liberty Capital Corp",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -15.006
+        },
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -15.006
+        }
+      ],
+      "perf": -15.006,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "GOOGL": {
+      "ticker": "GOOGL",
+      "company": "Alphabet Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Communication Services",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 0.968
+        }
+      ],
+      "perf": 0.968,
+      "source_status": "OK",
+      "news_in_window_count": 26,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T06:03:00-04:00",
+          "title": "AI-related companies to drive most third-quarter US earnings gains",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/ai-related-companies-drive-most-100304282.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T05:10:00-04:00",
+          "title": "PwC Australia moves beyond advising with AI cybersecurity offering",
+          "url": "https://finance.yahoo.com/news/pwc-australia-moves-beyond-advising-091057264.html",
+          "candidate_categories": [
+            "financing_capital_structure"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T18:02:00-04:00",
+          "title": "Lawmakers raise alarm at Google plan to acquire Spirit Airlines data for AI models",
+          "url": "https://finance.yahoo.com/technology/ai/articles/lawmakers-raise-alarm-google-plan-220259221.html",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "HELP": {
+      "ticker": "HELP",
+      "company": "Helus Pharma Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Healthcare & Biotech",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 10.075
+        }
+      ],
+      "perf": 10.075,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "HIMS": {
+      "ticker": "HIMS",
+      "company": "Hims & Hers Health Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Healthcare & Biotech",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 10.192
+        }
+      ],
+      "perf": 10.192,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "HUM": {
+      "ticker": "HUM",
+      "company": "Humana Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 11.56
+        }
+      ],
+      "perf": 11.56,
+      "source_status": "OK",
+      "news_in_window_count": 23,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T05:51:00-04:00",
+          "title": "Humana Stock Surges After Key Medicare Advantage Plan Gets Higher Rating",
+          "url": "https://www.barrons.com/articles/humana-medicare-star-rating-stock-2b6edbed?mod=bar_FV",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T18:28:00-04:00",
+          "title": "Humana Soars On Medicare Advantage Star Rating",
+          "url": "https://www.investors.com/news/humana-stock-soars-on-medicare-advantage-star-rating?mod=IBD_FV",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T17:12:00-04:00",
+          "title": "Humana soars, Alignment Healthcare sinks on Medicare rating changes",
+          "url": "https://finance.yahoo.com/healthcare/articles/humana-soars-alignment-healthcare-sinks-211245601.html",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "HYFM": {
+      "ticker": "HYFM",
+      "company": "Hydrofarm Holdings Group Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Agriculture & FoodTech",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -12.5
+        }
+      ],
+      "perf": -12.5,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "IBM": {
+      "ticker": "IBM",
+      "company": "International Business Machines Corp",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 0.229
+        }
+      ],
+      "perf": 0.229,
+      "source_status": "OK",
+      "news_in_window_count": 5,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "detached_from_selected_groups": true,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ILMN": {
+      "ticker": "ILMN",
+      "company": "Illumina Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 5.14
+        }
+      ],
+      "perf": 5.14,
+      "source_status": "OK",
+      "news_in_window_count": 2,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-08T16:06:00-04:00",
+          "title": "Illumina to Announce Third Quarter 2026 Financial Results on Thursday, October 29, 2026",
+          "url": "https://finviz.com/news/400608/illumina-to-announce-third-quarter-2026-financial-results-on-thursday-october-29-2026",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "INTC": {
+      "ticker": "INTC",
+      "company": "Intel Corp",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -2.223
+        }
+      ],
+      "perf": -2.223,
+      "source_status": "OK",
+      "news_in_window_count": 10,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T12:27:00-04:00",
+          "title": "Arm Holdings Stock Fell 6% in a Day as an OpenAI Revenue Report Hit Chip Stocks. Heres Where OpenAI Touches Arms Business",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/arm-holdings-stock-fell-6-162732475.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T22:22:00-04:00",
+          "title": "Chip, Cloud Stocks Edge Up Overnight After OpenAIs $50B Revenue Figure Sparks Selloff: Analyst Calls Reaction Overblown",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/chip-cloud-stocks-edge-overnight-022218189.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T18:08:00-04:00",
+          "title": "Micron, Nvidia and AI chip stocks fall as report on OpenAI's revenue causes 'undue concern'",
+          "url": "https://www.marketwatch.com/story/micron-nvidia-and-ai-chip-stocks-fall-as-report-on-openais-revenue-causes-undue-concern-2a2bcf53?mod=mw_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "INV": {
+      "ticker": "INV",
+      "company": "Innventure Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -11.012
+        }
+      ],
+      "perf": -11.012,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "IPX": {
+      "ticker": "IPX",
+      "company": "IperionX Ltd ADR",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Basic Materials",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 7.853
+        }
+      ],
+      "perf": 7.853,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "JNJ": {
+      "ticker": "JNJ",
+      "company": "Johnson & Johnson",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 1.934
+        }
+      ],
+      "perf": 1.934,
+      "source_status": "OK",
+      "news_in_window_count": 5,
+      "candidate_event_count": 2,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T10:56:00-04:00",
+          "title": "Earnings Calendar and Analysis for This Week",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/earnings-calendar-analysis-week-june-162434561.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T07:00:00-04:00",
+          "title": "New Johnson & Johnson ICOTYDE (icotrokinra) long-term data demonstrate robust 2-year results in the treatment of adults and adolescents with plaque psoriasis",
+          "url": "https://finviz.com/news/400770/new-johnson-johnson-icotyde-icotrokinra-long-term-data-demonstrate-robust-2-year-results-in-the-treatment-of-adults-and-adolescents-with-plaque-psoriasis",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "KLRA": {
+      "ticker": "KLRA",
+      "company": "Kailera Therapeutics Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 16.1
+        }
+      ],
+      "perf": 16.1,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "KO": {
+      "ticker": "KO",
+      "company": "Coca-Cola Co",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 0.319
+        }
+      ],
+      "perf": 0.319,
+      "source_status": "OK",
+      "news_in_window_count": 4,
+      "candidate_event_count": 2,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T09:05:00-04:00",
+          "title": "Coca-Cola Seeks to Unwind $5 Billion Costa Coffee Acquisition",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/coca-cola-seeks-unwind-5-130526534.html",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T17:03:00-04:00",
+          "title": "PepsiCo vs. Coca-Cola: Can PEP Stock Catch Up to KO After Its Q3 Earnings Beat?",
+          "url": "https://finviz.com/news/400723/pepsico-vs-coca-cola-can-pep-stock-catch-up-to-ko-after-its-q3-earnings-beat",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "LDI": {
+      "ticker": "LDI",
+      "company": "LoanDepot Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -8.976
+        }
+      ],
+      "perf": -8.976,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "LRN": {
+      "ticker": "LRN",
+      "company": "Stride Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 5.199
+        }
+      ],
+      "perf": 5.199,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T08:00:00-04:00",
+          "title": "Stride to Appoint Steven Guttentag and Dylan Haggart to Board of Directors and Form Capital Allocation Committee",
+          "url": "https://finviz.com/news/400803/stride-to-appoint-steven-guttentag-and-dylan-haggart-to-board-of-directors-and-form-capital-allocation-committee",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "MDLZ": {
+      "ticker": "MDLZ",
+      "company": "Mondelez International Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -0.429
+        }
+      ],
+      "perf": -0.429,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "MKC": {
+      "ticker": "MKC",
+      "company": "McCormick & Co Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -2.46
+        }
+      ],
+      "perf": -2.46,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "MLEC": {
+      "ticker": "MLEC",
+      "company": "Moolec Science SA",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Agriculture & FoodTech",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -47.494
+        }
+      ],
+      "perf": -47.494,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "MNTK": {
+      "ticker": "MNTK",
+      "company": "Montauk Renewables Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Commodities Energy",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -7.664
+        }
+      ],
+      "perf": -7.664,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "MOGU": {
+      "ticker": "MOGU",
+      "company": "MOGU Inc ADR",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Consumer Cyclical",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 20.107
+        }
+      ],
+      "perf": 20.107,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "MOS": {
+      "ticker": "MOS",
+      "company": "Mosaic Company",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Commodities Agriculture",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -5.018
+        }
+      ],
+      "perf": -5.018,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "MPC": {
+      "ticker": "MPC",
+      "company": "Marathon Petroleum Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -1.793
+        }
+      ],
+      "perf": -1.793,
+      "source_status": "OK",
+      "news_in_window_count": 8,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T06:46:00-04:00",
+          "title": "Valero and US Refiners Expected to Report Record Earnings as Global Fuel Supply Tightens",
+          "url": "https://finviz.com/news/400758/valero-and-us-refiners-expected-to-report-record-earnings-as-global-fuel-supply-tightens",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "MRK": {
+      "ticker": "MRK",
+      "company": "Merck & Co Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 2.262
+        }
+      ],
+      "perf": 2.262,
+      "source_status": "OK",
+      "news_in_window_count": 4,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "MRNA": {
+      "ticker": "MRNA",
+      "company": "Moderna Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 14.213
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Healthcare & Biotech",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 14.213
+        }
+      ],
+      "perf": 14.213,
+      "source_status": "OK",
+      "news_in_window_count": 2,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "NAUT": {
+      "ticker": "NAUT",
+      "company": "Nautilus Biotechnology Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 23.626
+        }
+      ],
+      "perf": 23.626,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "NFLX": {
+      "ticker": "NFLX",
+      "company": "Netflix Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -1.774
+        }
+      ],
+      "perf": -1.774,
+      "source_status": "OK",
+      "news_in_window_count": 8,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "NVAX": {
+      "ticker": "NVAX",
+      "company": "Novavax Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 15.804
+        }
+      ],
+      "perf": 15.804,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "company": "NVIDIA Corp",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -0.521
+        }
+      ],
+      "perf": -0.521,
+      "source_status": "OK",
+      "news_in_window_count": 46,
+      "candidate_event_count": 16,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T14:20:00-04:00",
+          "title": "Nvidia-Backed Fermus Wanted $30 Billion Valuation on Just $51 Million in Revenue",
+          "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-backed-fermus-wanted-30-182039299.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T12:58:00-04:00",
+          "title": "CoreWeave Stock Fell Nearly 8% in a Day on an OpenAI Revenue Report. Heres Why Its Borrowing Model Raises the Stakes",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/coreweave-stock-fell-nearly-8-165813372.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T12:50:00-04:00",
+          "title": "Delta Air Lines, Inc. Q3 2026 Earnings Call Summary",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/delta-air-lines-inc-q3-165043770.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T12:41:00-04:00",
+          "title": "MARAs CEO Expects Two AI Leases by Year-End. Heres What the Stock Needs to Show Before December 31",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/mara-ceo-expects-two-ai-164155359.html",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T12:27:00-04:00",
+          "title": "Arm Holdings Stock Fell 6% in a Day as an OpenAI Revenue Report Hit Chip Stocks. Heres Where OpenAI Touches Arms Business",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/arm-holdings-stock-fell-6-162732475.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T09:40:00-04:00",
+          "title": "Nvidia and Micron stocks bounce after OpenAI projects $70 billion in revenue by year-end",
+          "url": "https://qz.com/nvidia-micron-stocks-openai-70-billion-revenue-2026-100926",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T09:34:00-04:00",
+          "title": "Nvidia and Micron stocks bounce on OpenAI $70B revenue target",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-micron-stocks-bounce-openai-133435783.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T08:57:00-04:00",
+          "title": "The OpenAI Revenue Scare Was Overblown. The AI Trade's Real Risk Isn't.",
+          "url": "https://www.barrons.com/articles/openai-revenue-scare-ai-stocks-risk-d4f7ea23?mod=bar_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T06:04:00-04:00",
+          "title": "OpenAIs Revenue Appears $20 Billion Lighter Than Reported and the Gap Is Accounting, Not Demand",
+          "url": "https://finance.yahoo.com/technology/ai/articles/openai-revenue-appears-20-billion-100435362.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T02:55:00-04:00",
+          "title": "BTDR Stock Rises Overnight: Bitdeer Secures Malaysia Data Center Agreement As AI Infrastructure Pipeline Tops $10B",
+          "url": "https://finance.yahoo.com/technology/ai/articles/btdr-stock-rises-overnight-bitdeer-065529982.html",
+          "candidate_categories": [
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T02:43:00-04:00",
+          "title": "Stocktwits AI Roundup: OpenAI Revenue Woes Rattle Chip Stocks, SoftBank Hunts $100B, Microsoft Goes AI-First",
+          "url": "https://finance.yahoo.com/technology/ai/articles/stocktwits-ai-roundup-openai-revenue-064330853.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T01:32:00-04:00",
+          "title": "OpenAI expects to reach $70 bln revenue by end-2026, Bloomberg reports",
+          "url": "https://finance.yahoo.com/technology/ai/articles/openai-expects-reach-70-bln-053202604.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T23:08:00-04:00",
+          "title": "LITE, COHR, AAOI, POET Rise Overnight After Lumentum CEO Says Optical Parts Are Completely Sold Out Through Early 2029",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/lite-cohr-aaoi-poet-rise-030824125.html",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T22:22:00-04:00",
+          "title": "Chip, Cloud Stocks Edge Up Overnight After OpenAIs $50B Revenue Figure Sparks Selloff: Analyst Calls Reaction Overblown",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/chip-cloud-stocks-edge-overnight-022218189.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T18:55:00-04:00",
+          "title": "Nasdaq 100 Ends Lower As Report Of Weaker-Than-Expected OpenAI Revenue Drags Chipmakers NVDA, DIS, ORCL, SBUX In Focus",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/nasdaq-100-ends-lower-report-225519360.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T18:08:00-04:00",
+          "title": "Micron, Nvidia and AI chip stocks fall as report on OpenAI's revenue causes 'undue concern'",
+          "url": "https://www.marketwatch.com/story/micron-nvidia-and-ai-chip-stocks-fall-as-report-on-openais-revenue-causes-undue-concern-2a2bcf53?mod=mw_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "NXGL": {
+      "ticker": "NXGL",
+      "company": "Nexgel Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 33.533
+        }
+      ],
+      "perf": 33.533,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ODD": {
+      "ticker": "ODD",
+      "company": "ODDITY Tech Ltd",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 7.98
+        }
+      ],
+      "perf": 7.98,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "PARR": {
+      "ticker": "PARR",
+      "company": "Par Pacific Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -6.572
+        },
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -6.572
+        }
+      ],
+      "perf": -6.572,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "PBF": {
+      "ticker": "PBF",
+      "company": "PBF Energy Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -5.675
+        }
+      ],
+      "perf": -5.675,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "PDSB": {
+      "ticker": "PDSB",
+      "company": "PDS Biotechnology Corp",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 35.294
+        }
+      ],
+      "perf": 35.294,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "PEP": {
+      "ticker": "PEP",
+      "company": "PepsiCo Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -1.847
+        }
+      ],
+      "perf": -1.847,
+      "source_status": "OK",
+      "news_in_window_count": 10,
+      "candidate_event_count": 9,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T15:11:00-04:00",
+          "title": "PepsiCo CFO touts cost discipline, slashes guidance",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/pepsico-cfo-touts-cost-discipline-191150337.html",
+          "candidate_categories": [
+            "earnings_guidance",
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T14:58:00-04:00",
+          "title": "Pepsi offers attractive risk-reward despite lowered 2026 outlook, says UBS",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/pepsi-offers-attractive-risk-reward-185800828.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T08:26:00-04:00",
+          "title": "PepsiCo Stock Rallies After Beating Q3 Revenue Expectations",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/pepsico-stock-rallies-beating-q3-122614285.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T07:46:00-04:00",
+          "title": "Weight-loss drugs are hitting alcohol a lot harder than snacks, food-and-beverage VC explains",
+          "url": "https://finance.yahoo.com/healthcare/article/weight-loss-drugs-are-hitting-alcohol-a-lot-harder-than-snacks-food-and-beverage-vc-explains-114640352.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T07:24:00-04:00",
+          "title": "PepsiCo Q3 2026 earnings: profit outlook cut, cost reductions planned",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/pepsico-q3-2026-earnings-profit-112448947.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T05:02:00-04:00",
+          "title": "PepsiCo Is Raising 1 Billion a Day After Cutting Profit Outlook",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/pepsico-raising-1-billion-day-090254229.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T22:02:00-04:00",
+          "title": "PEP Stock Looks To Snap 6-Week Losing Streak: Goldman Sachs Trims Price Target But Sees Decade Of Growth For PepsiCo",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/pep-stock-looks-snap-6-020201933.html",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T17:43:00-04:00",
+          "title": "PepsiCo CEO's message to employees: If you're not producing growth, you're out",
+          "url": "https://www.marketwatch.com/story/pepsico-ceos-message-to-employees-if-youre-not-producing-growth-youre-out-13af0335?mod=mw_FV",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T17:03:00-04:00",
+          "title": "PepsiCo vs. Coca-Cola: Can PEP Stock Catch Up to KO After Its Q3 Earnings Beat?",
+          "url": "https://finviz.com/news/400723/pepsico-vs-coca-cola-can-pep-stock-catch-up-to-ko-after-its-q3-earnings-beat",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "PFAI": {
+      "ticker": "PFAI",
+      "company": "Pinnacle Food Group Ltd",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -27.896
+        }
+      ],
+      "perf": -27.896,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "PG": {
+      "ticker": "PG",
+      "company": "Procter & Gamble Co",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 0.425
+        }
+      ],
+      "perf": 0.425,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "PYPL": {
+      "ticker": "PYPL",
+      "company": "PayPal Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Financial",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 0.927
+        }
+      ],
+      "perf": 0.927,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "REX": {
+      "ticker": "REX",
+      "company": "REX American Resources Corp",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Commodities Agriculture",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -6.133
+        }
+      ],
+      "perf": -6.133,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "RPD": {
+      "ticker": "RPD",
+      "company": "Rapid7 Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Cybersecurity",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 6.019
+        }
+      ],
+      "perf": 6.019,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SBAC": {
+      "ticker": "SBAC",
+      "company": "SBA Communications Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Real Estate",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 7.341
+        }
+      ],
+      "perf": 7.341,
+      "source_status": "OK",
+      "news_in_window_count": 6,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SHW": {
+      "ticker": "SHW",
+      "company": "Sherwin-Williams Co",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Basic Materials",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -0.52
+        }
+      ],
+      "perf": -0.52,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SMJF": {
+      "ticker": "SMJF",
+      "company": "SMJ International Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Consumer Cyclical",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 23.387
+        }
+      ],
+      "perf": 23.387,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "T": {
+      "ticker": "T",
+      "company": "AT&T Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -10.816
+        }
+      ],
+      "perf": -10.816,
+      "source_status": "OK",
+      "news_in_window_count": 37,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T09:53:00-04:00",
+          "title": "AT&T, Telecom Stocks Sink as SpaceX Acquires Spectrum Portfolio",
+          "url": "https://finviz.com/news/400898/att-telecom-stocks-sink-as-spacex-acquires-spectrum-portfolio",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T06:41:00-04:00",
+          "title": "AT&T Shares Fall 7.4% in Premarket Trading Following SpaceX Spectrum Acquisition",
+          "url": "https://finviz.com/news/400752/att-shares-fall-74-in-premarket-trading-following-spacex-spectrum-acquisition",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T17:03:00-04:00",
+          "title": "Telecom stocks tumble on SpaceX spectrum acquisition news",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/telecom-stocks-tumble-spacex-spectrum-210324491.html",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "TENB": {
+      "ticker": "TENB",
+      "company": "Tenable Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Cybersecurity",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 6.614
+        }
+      ],
+      "perf": 6.614,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "TMUS": {
+      "ticker": "TMUS",
+      "company": "T-Mobile US Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -13.268
+        },
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -13.268
+        }
+      ],
+      "perf": -13.268,
+      "source_status": "OK",
+      "news_in_window_count": 35,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T09:53:00-04:00",
+          "title": "AT&T, Telecom Stocks Sink as SpaceX Acquires Spectrum Portfolio",
+          "url": "https://finviz.com/news/400898/att-telecom-stocks-sink-as-spacex-acquires-spectrum-portfolio",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T06:42:00-04:00",
+          "title": "T-Mobile Shares Fall 6.9% as SpaceX Spectrum Acquisition Raises Competition Concerns",
+          "url": "https://finviz.com/news/400753/t-mobile-shares-fall-69-as-spacex-spectrum-acquisition-raises-competition-concerns",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T17:03:00-04:00",
+          "title": "Telecom stocks tumble on SpaceX spectrum acquisition news",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/telecom-stocks-tumble-spacex-spectrum-210324491.html",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "TORO": {
+      "ticker": "TORO",
+      "company": "Toro Corp",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -19.526
+        }
+      ],
+      "perf": -19.526,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "TSLA": {
+      "ticker": "TSLA",
+      "company": "Tesla Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Consumer Cyclical",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 2.053
+        }
+      ],
+      "perf": 2.053,
+      "source_status": "OK",
+      "news_in_window_count": 18,
+      "candidate_event_count": 2,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T15:05:00-04:00",
+          "title": "I drive a Tesla: After Elon Musk said hed lose his job, Delta CEO Ed Bastian says theres no tit for tat as airline unveils earnings miss",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/drive-tesla-elon-musk-said-190523244.html",
+          "candidate_categories": [
+            "earnings_guidance",
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-09T10:35:00-04:00",
+          "title": "Delta Air Lines CEO Ed Bastian on Elon Musk remarks: 'There's no tit for tat as far as I'm concened'",
+          "url": "https://www.youtube.com/shorts/EaqL0NARKp8",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "UNH": {
+      "ticker": "UNH",
+      "company": "Unitedhealth Group Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 2.251
+        }
+      ],
+      "perf": 2.251,
+      "source_status": "OK",
+      "news_in_window_count": 6,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T05:51:00-04:00",
+          "title": "Humana Stock Surges After Key Medicare Advantage Plan Gets Higher Rating",
+          "url": "https://www.barrons.com/articles/humana-medicare-star-rating-stock-2b6edbed?mod=bar_FV",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "VLO": {
+      "ticker": "VLO",
+      "company": "Valero Energy Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -2.265
+        }
+      ],
+      "perf": -2.265,
+      "source_status": "OK",
+      "news_in_window_count": 7,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T06:46:00-04:00",
+          "title": "Valero and US Refiners Expected to Report Record Earnings as Global Fuel Supply Tightens",
+          "url": "https://finviz.com/news/400758/valero-and-us-refiners-expected-to-report-record-earnings-as-global-fuel-supply-tightens",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "VZ": {
+      "ticker": "VZ",
+      "company": "Verizon Communications Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Communication Services",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -10.14
+        }
+      ],
+      "perf": -10.14,
+      "source_status": "OK",
+      "news_in_window_count": 37,
+      "candidate_event_count": 2,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T09:53:00-04:00",
+          "title": "AT&T, Telecom Stocks Sink as SpaceX Acquires Spectrum Portfolio",
+          "url": "https://finviz.com/news/400898/att-telecom-stocks-sink-as-spacex-acquires-spectrum-portfolio",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-10-08T17:03:00-04:00",
+          "title": "Telecom stocks tumble on SpaceX spectrum acquisition news",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/telecom-stocks-tumble-spacex-spectrum-210324491.html",
+          "candidate_categories": [
+            "merger_acquisition"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "WMT": {
+      "ticker": "WMT",
+      "company": "Walmart Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 0.715
+        }
+      ],
+      "perf": 0.715,
+      "source_status": "OK",
+      "news_in_window_count": 5,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "WYHG": {
+      "ticker": "WYHG",
+      "company": "Wing Yip Food Holdings Group Ltd ADR",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -11.748
+        }
+      ],
+      "perf": -11.748,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "XEL": {
+      "ticker": "XEL",
+      "company": "Xcel Energy Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 0.566
+        }
+      ],
+      "perf": 0.566,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T06:57:00-04:00",
+          "title": "Stark Power signs agreement for Cottage Grove campus acquisition in US",
+          "url": "https://finance.yahoo.com/energy/articles/stark-power-signs-agreement-cottage-105716398.html",
+          "candidate_categories": [
+            "merger_acquisition",
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "YJ": {
+      "ticker": "YJ",
+      "company": "Yunji Inc ADR",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Consumer Cyclical",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 12.579
+        }
+      ],
+      "perf": 12.579,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ZS": {
+      "ticker": "ZS",
+      "company": "Zscaler Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Cybersecurity",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 7.804
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Cloud Computing",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 7.804
+        }
+      ],
+      "perf": 7.804,
+      "source_status": "OK",
+      "news_in_window_count": 3,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-10-09T15:58:00-04:00",
+          "title": "Farm equipment stocks fall on regulatory probe and falling crop prices",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/farm-equipment-stocks-fall-regulatory-195845976.html",
+          "candidate_categories": [
+            "regulatory_legal"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ZSQR": {
+      "ticker": "ZSQR",
+      "company": "Z Squared Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 14.343
+        }
+      ],
+      "perf": 14.343,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ZYBT": {
+      "ticker": "ZYBT",
+      "company": "Zhengye Biotechnology Holding Ltd",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Healthcare",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 50.448
+        }
+      ],
+      "perf": 50.448,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    }
+  }
+}

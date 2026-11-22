@@ -1,0 +1,185 @@
+{
+  "date": "2026-08-17",
+  "selection_basis": "All Stocks、S&P 500、Dow Jones 30、Nasdaq 100、Russell 2000和主题各自涨3/跌3；同名项目合并，保留全部范围证据。第二节3入3出只使用五大股票范围的一级行业（2026-08-16规则：主题/子行业不参与第二节排序）。",
+  "source_label_note": "Finviz的Biometrics与Cybersecurity是两个独立主题：前者固定译为生物识别，后者固定译为网络安全；不得依据代表ETF或子主题近似含义互换。第四部分执行24行固定观察池：无可靠代表ETF的主题不进入报告第四部分，仅在台账维护。",
+  "unique_count": 14,
+  "items": [
+    {
+      "name": "能源",
+      "evidence": [
+        "All Stocks涨1",
+        "S&P 500涨1",
+        "Dow Jones 30涨1（清一色优先）",
+        "Nasdaq 100涨1（清一色优先）",
+        "Russell 2000涨1"
+      ]
+    },
+    {
+      "name": "基础材料",
+      "evidence": [
+        "All Stocks涨2",
+        "Dow Jones 30跌1（清一色优先）",
+        "Nasdaq 100跌2（清一色优先）"
+      ]
+    },
+    {
+      "name": "工业",
+      "evidence": [
+        "All Stocks涨3",
+        "S&P 500涨2",
+        "Dow Jones 30涨2",
+        "Nasdaq 100涨2",
+        "Russell 2000涨3"
+      ]
+    },
+    {
+      "name": "必需消费",
+      "evidence": [
+        "All Stocks跌1",
+        "S&P 500跌1",
+        "Dow Jones 30跌2（清一色优先）",
+        "Russell 2000跌3"
+      ]
+    },
+    {
+      "name": "通信服务",
+      "evidence": [
+        "All Stocks跌2",
+        "S&P 500跌2",
+        "Nasdaq 100跌3（清一色优先）",
+        "Russell 2000跌1"
+      ]
+    },
+    {
+      "name": "可选消费",
+      "evidence": [
+        "All Stocks跌3",
+        "Dow Jones 30跌3（清一色优先）",
+        "Russell 2000跌2"
+      ]
+    },
+    {
+      "name": "医疗保健",
+      "evidence": [
+        "S&P 500涨3",
+        "Dow Jones 30涨3",
+        "Nasdaq 100涨3",
+        "Russell 2000涨2"
+      ]
+    },
+    {
+      "name": "金融",
+      "evidence": [
+        "S&P 500跌3",
+        "Nasdaq 100跌1（清一色优先）"
+      ]
+    },
+    {
+      "name": "半导体",
+      "evidence": [
+        "主题涨1"
+      ]
+    },
+    {
+      "name": "金属商品",
+      "evidence": [
+        "主题涨2"
+      ]
+    },
+    {
+      "name": "传统能源",
+      "evidence": [
+        "主题涨3"
+      ]
+    },
+    {
+      "name": "社交媒体",
+      "evidence": [
+        "主题跌1（清一色优先）"
+      ]
+    },
+    {
+      "name": "生物识别",
+      "evidence": [
+        "主题跌2（清一色优先）"
+      ]
+    },
+    {
+      "name": "网络安全",
+      "evidence": [
+        "主题跌3（清一色优先）"
+      ]
+    }
+  ],
+  "etf_final_selection": {
+    "up": [
+      {
+        "ticker": "PTF",
+        "perf": 4.009,
+        "cluster": "科技动量（Dorsey Wright）"
+      },
+      {
+        "ticker": "UGA",
+        "perf": 3.253,
+        "cluster": "汽油期货（商品信托）"
+      },
+      {
+        "ticker": "DBO",
+        "perf": 3.059,
+        "cluster": "原油期货（商品信托）"
+      }
+    ],
+    "down": [
+      {
+        "ticker": "PNQI",
+        "perf": -2.231,
+        "cluster": "纳斯达克互联网"
+      },
+      {
+        "ticker": "HACK",
+        "perf": -2.217,
+        "cluster": "网络安全"
+      },
+      {
+        "ticker": "CUT",
+        "perf": -2.117,
+        "cluster": "全球木材"
+      }
+    ],
+    "merged_up": [
+      {
+        "ticker": "USO",
+        "perf": 2.918,
+        "cluster": "原油期货（与DBO同簇合并）"
+      },
+      {
+        "ticker": "DBE",
+        "perf": 2.929,
+        "cluster": "能源商品期货（与DBO同簇合并）"
+      },
+      {
+        "ticker": "BNO",
+        "perf": 2.626,
+        "cluster": "原油期货（与DBO同簇合并）"
+      },
+      {
+        "ticker": "FDN",
+        "perf": -1.524,
+        "cluster": "互联网（与PNQI同簇合并，下跌侧）"
+      }
+    ],
+    "merged_down": [
+      {
+        "ticker": "FDN",
+        "perf": -1.524,
+        "cluster": "互联网（与PNQI同簇合并）"
+      },
+      {
+        "ticker": "CIBR",
+        "perf": -1.817,
+        "cluster": "网络安全（与HACK同簇合并）"
+      }
+    ],
+    "note": "成稿层按相同经济敞口只保留最极端一只：原油期货簇DBO/USO/BNO/DBE保留DBO；互联网簇PNQI/FDN保留PNQI；网络安全簇HACK/CIBR保留HACK。UGA为汽油期货（与原油不同精炼层级敞口）、CUT为全球木材，相互独立。金矿簇（RING +2.32/GDX +2.13/SGDM +2.09/GDXJ未入极值候选）未进入最终三只。"
+  }
+}

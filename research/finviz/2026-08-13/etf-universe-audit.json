@@ -260,9 +260,7 @@
         "Global",
         "Technology"
       ],
-      "cluster": "Cloud computing equities",
-      "primary_exposure": "Cloud computing equities",
-      "legal_form": "ETF",
+      "cluster": "global technology｜first trust cloud computing etf",
       "merged": []
     },
     {
@@ -273,9 +271,7 @@
         "Global",
         "Technology"
       ],
-      "cluster": "Cybersecurity equities",
-      "primary_exposure": "Cybersecurity equities",
-      "legal_form": "ETF",
+      "cluster": "global technology｜amplify cybersecurity etf",
       "merged": []
     },
     {
@@ -286,71 +282,8 @@
         "US Sector",
         "Technology"
       ],
-      "cluster": "Diversified NASDAQ-100 technology equities",
-      "primary_exposure": "Diversified NASDAQ-100 technology equities",
-      "legal_form": "ETF",
-      "merged": [
-        {
-          "ticker": "FXL",
-          "description": "First Trust Technology AlphaDEX Fund",
-          "perf": 1.774,
-          "path": [
-            "US Sector",
-            "Technology"
-          ],
-          "cluster": "Diversified NASDAQ-100 technology equities",
-          "primary_exposure": "Diversified NASDAQ-100 technology equities",
-          "legal_form": "ETF"
-        },
-        {
-          "ticker": "IYW",
-          "description": "iShares U.S. Technology ETF",
-          "perf": 1.387,
-          "path": [
-            "US Sector",
-            "Technology"
-          ],
-          "cluster": "Diversified NASDAQ-100 technology equities",
-          "primary_exposure": "Diversified NASDAQ-100 technology equities",
-          "legal_form": "ETF"
-        },
-        {
-          "ticker": "VGT",
-          "description": "Vanguard Information Technology ETF",
-          "perf": 1.143,
-          "path": [
-            "US Sector",
-            "Technology"
-          ],
-          "cluster": "Diversified NASDAQ-100 technology equities",
-          "primary_exposure": "Diversified NASDAQ-100 technology equities",
-          "legal_form": "ETF"
-        },
-        {
-          "ticker": "FTEC",
-          "description": "Fidelity MSCI Information Technology Index ETF",
-          "perf": 1.116,
-          "path": [
-            "US Sector",
-            "Technology"
-          ],
-          "cluster": "Diversified NASDAQ-100 technology equities",
-          "primary_exposure": "Diversified NASDAQ-100 technology equities",
-          "legal_form": "ETF"
-        },
-        {
-          "ticker": "XLK",
-          "description": "State Street Technology Select Sector SPDR ETF",
-          "perf": 1.011,
-          "path": [
-            "US Sector",
-            "Technology"
-          ],
-          "cluster": "Diversified NASDAQ-100 technology equities",
-          "primary_exposure": "Diversified NASDAQ-100 technology equities",
-          "legal_form": "ETF"
-        }
-      ]
+      "cluster": "us sector technology｜first trust nasdaq-100 technology sector index fund",
+      "merged": []
     }
   ],
   "selected_down": [
@@ -362,9 +295,7 @@
         "Commodity",
         "Precious Metals"
       ],
-      "cluster": "Physical palladium",
-      "primary_exposure": "Physical palladium",
-      "legal_form": "Grantor trust",
+      "cluster": "commodity precious metals｜abrdn palladium etf trust",
       "merged": []
     },
     {
@@ -375,59 +306,18 @@
         "Global",
         "Gold Miners"
       ],
-      "cluster": "Global gold-mining equities",
-      "primary_exposure": "Global gold-mining equities",
-      "legal_form": "ETF",
-      "merged": [
-        {
-          "ticker": "GDXJ",
-          "description": "VanEck Junior Gold Miners ETF",
-          "perf": -3.013,
-          "path": [
-            "Global",
-            "Gold Miners"
-          ],
-          "cluster": "Global gold-mining equities",
-          "primary_exposure": "Global gold-mining equities",
-          "legal_form": "ETF"
-        },
-        {
-          "ticker": "GDX",
-          "description": "VanEck Gold Miners ETF",
-          "perf": -2.957,
-          "path": [
-            "Global",
-            "Gold Miners"
-          ],
-          "cluster": "Global gold-mining equities",
-          "primary_exposure": "Global gold-mining equities",
-          "legal_form": "ETF"
-        },
-        {
-          "ticker": "SGDM",
-          "description": "Sprott Gold Miners ETF",
-          "perf": -2.16,
-          "path": [
-            "Global",
-            "Gold Miners"
-          ],
-          "cluster": "Global gold-mining equities",
-          "primary_exposure": "Global gold-mining equities",
-          "legal_form": "ETF"
-        }
-      ]
+      "cluster": "global gold miners｜ishares msci global gold miners etf",
+      "merged": []
     },
     {
-      "ticker": "SIL",
-      "description": "Global X Silver Miners ETF",
-      "perf": -2.88,
+      "ticker": "GDXJ",
+      "description": "VanEck Junior Gold Miners ETF",
+      "perf": -3.013,
       "path": [
         "Global",
-        "Sectors"
+        "Gold Miners"
       ],
-      "cluster": "Global silver-mining equities",
-      "primary_exposure": "Global silver-mining equities",
-      "legal_form": "ETF",
+      "cluster": "global gold miners｜vaneck junior gold miners etf",
       "merged": []
     }
   ],
@@ -435,32 +325,5 @@
     "API nodes outside the map hierarchy are not part of the original Finviz map contract universe.",
     "The named new out-of-map products are leveraged and would be excluded even under an expanded universe.",
     "VXX and VIXY are 1x long VIX short-term-futures products; `short-term` does not mean inverse."
-  ],
-  "same_economic_exposure_audit": {
-    "status": "complete",
-    "selected_up_unique_exposures": [
-      "Cloud computing equities",
-      "Cybersecurity equities",
-      "Diversified NASDAQ-100 technology equities"
-    ],
-    "selected_down_unique_exposures": [
-      "Physical palladium",
-      "Global gold-mining equities",
-      "Global silver-mining equities"
-    ],
-    "merged_same_exposure_products": {
-      "QTEC": [
-        "FXL",
-        "IYW",
-        "VGT",
-        "FTEC",
-        "XLK"
-      ],
-      "RING": [
-        "GDXJ",
-        "GDX",
-        "SGDM"
-      ]
-    }
-  }
+  ]
 }

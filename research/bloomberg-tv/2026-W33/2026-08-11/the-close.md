@@ -1,8 +1,9 @@
-# The Close｜2026-08-11
+﻿# The Close｜2026-08-11
 
 - 节目日期：2026-08-11
 - 节目名称：The Close
 - 本地字幕文件：`{SKILL_ROOT}\script\The_Close_2026-08-11.txt`
+- 来源字幕SHA-256：CABD9ED0D4DF91B33B6F16E9CAF6A69F8275A8B161BEC1063BAD2A5886677ED2
 - 字幕覆盖：00:00:01—01:31:59，覆盖完整节目主体、收盘、盘后财报和结尾观察事项。
 
 ## 节目主线

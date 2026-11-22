@@ -1,0 +1,2658 @@
+{
+  "_meta": {
+    "schema_version": 1,
+    "date": "2026-09-08",
+    "previous_trading_date": "2026-09-07",
+    "research_window_et": "2026-09-07T16:00:00-04:00 / 2026-09-08T16:00:00-04:00",
+    "source": "Finviz quote news tables; mechanical candidate screen only",
+    "source_ticker_universe": "research/finviz/2026-09-08/stock-ticker-universe.json",
+    "source_ticker_universe_sha256": "8689972965073039cea84a018a0e028ead1d7a68344037c4dfc8e59ae317af36",
+    "expected_ticker_count": 85,
+    "covered_ticker_count": 85,
+    "coverage_pct": 100.0,
+    "status": "PASS",
+    "failed_tickers": {},
+    "candidate_ticker_count": 15,
+    "model_verification_ticker_count": 41,
+    "generated_at": "2026-09-08T19:53:19.817837-04:00"
+  },
+  "records": {
+    "AEP": {
+      "ticker": "AEP",
+      "company": "American Electric Power Company Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 0.739
+        }
+      ],
+      "perf": 0.739,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "AIFU": {
+      "ticker": "AIFU",
+      "company": "AIFU Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -14.316
+        }
+      ],
+      "perf": -14.316,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "AJG": {
+      "ticker": "AJG",
+      "company": "Arthur J. Gallagher & Co",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -4.279
+        }
+      ],
+      "perf": -4.279,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "AMGN": {
+      "ticker": "AMGN",
+      "company": "AMGEN Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -10.077
+        },
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -10.077
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Healthcare & Biotech",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -10.077
+        }
+      ],
+      "perf": -10.077,
+      "source_status": "OK",
+      "news_in_window_count": 24,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T10:33:00-04:00",
+          "title": "Disappointing Clinical Trial Results Are Dragging Novartis, Amgen and the Dow Lower Tuesday",
+          "url": "https://finance.yahoo.com/m/474c6ffd-6a2e-3e27-bf17-8de84f3f3b08/disappointing-clinical-trial.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T07:59:00-04:00",
+          "title": "Why Novartis' Drug Trial Results Are Blowing Up Amgen Stock",
+          "url": "https://www.barrons.com/articles/amgen-stock-price-novartis-drug-trial-failure-6d070c81?mod=bar_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T06:52:00-04:00",
+          "title": "Amgen Shares Fall as Investors Assess Novartis Lp(a) Trial Result and BMO Downgrade",
+          "url": "https://finviz.com/news/389354/amgen-shares-fall-as-investors-assess-novartis-lpa-trial-result-and-bmo-downgrade",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ASTS": {
+      "ticker": "ASTS",
+      "company": "AST SpaceMobile Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Space Tech",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 6.115
+        }
+      ],
+      "perf": 6.115,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "BENF": {
+      "ticker": "BENF",
+      "company": "Beneficient",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -22.961
+        }
+      ],
+      "perf": -22.961,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "BIAF": {
+      "ticker": "BIAF",
+      "company": "BioAffinity Technologies Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -41.519
+        }
+      ],
+      "perf": -41.519,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "BKR": {
+      "ticker": "BKR",
+      "company": "Baker Hughes Co",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 0.661
+        }
+      ],
+      "perf": 0.661,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "BKSY": {
+      "ticker": "BKSY",
+      "company": "BlackSky Technology Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Space Tech",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 7.707
+        }
+      ],
+      "perf": 7.707,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "BNC": {
+      "ticker": "BNC",
+      "company": "CEA Industries Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 50.43
+        }
+      ],
+      "perf": 50.43,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "BRBR": {
+      "ticker": "BRBR",
+      "company": "Bellring Brands Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -5.775
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Healthy Food & Nutrition",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -5.775
+        }
+      ],
+      "perf": -5.775,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "BRO": {
+      "ticker": "BRO",
+      "company": "Brown & Brown Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -4.537
+        }
+      ],
+      "perf": -4.537,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "BSX": {
+      "ticker": "BSX",
+      "company": "Boston Scientific Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -5.9
+        }
+      ],
+      "perf": -5.9,
+      "source_status": "OK",
+      "news_in_window_count": 10,
+      "candidate_event_count": 7,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T13:40:00-04:00",
+          "title": "Boston Scientific misses 2026 guidance after cyberattack",
+          "url": "https://finance.yahoo.com/m/7c762517-914a-338a-8207-cf4852d73963/boston-scientific-misses-2026.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T13:18:00-04:00",
+          "title": "Boston Scientific Says Cyberattack Will Impact 2026 Results Says It Is Unlikely To Meet Net Sales Growth, EPS Guidance Ranges",
+          "url": "https://finance.yahoo.com/m/4edacacf-e926-3ee7-a218-9be0d915c0e0/boston-scientific-says.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T09:58:00-04:00",
+          "title": "Boston Scientific Slammed After Cyberattack Hamstrings Sales, Profit",
+          "url": "https://www.investors.com/news/technology/boston-scientific-cybersecurity-attack-guidance?mod=IBD_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T07:44:00-04:00",
+          "title": "Boston Scientific unlikely to meet guidance due to cyberattack",
+          "url": "https://finance.yahoo.com/m/f1cf6435-0249-35d6-a0ae-e615bceba6ef/boston-scientific-unlikely-to.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T07:06:00-04:00",
+          "title": "Boston Scientific 'Unlikely to Meet' Earnings Guidance After Cyberattack. Stock Falls.",
+          "url": "https://www.barrons.com/articles/boston-scientific-stock-earnings-guidance-cyberattack-bd0e8c0b?mod=bar_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T06:58:00-04:00",
+          "title": "Boston Scientific Won't Meet Guidance Due to Cyberattack",
+          "url": "https://www.wsj.com/business/boston-scientific-wont-meet-guidance-due-to-cyberattack-feb29ee1?mod=wsj_FV",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T06:42:00-04:00",
+          "title": "Boston Scientific says cyberattack likely to hurt 2026 sales, profit",
+          "url": "https://finance.yahoo.com/healthcare/articles/boston-scientific-says-cyberattack-likely-104232391.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "CAT": {
+      "ticker": "CAT",
+      "company": "Caterpillar Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 1.049
+        }
+      ],
+      "perf": 1.049,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "CD": {
+      "ticker": "CD",
+      "company": "Chaince Digital Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -13.759
+        },
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -13.759
+        }
+      ],
+      "perf": -13.759,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "CDZI": {
+      "ticker": "CDZI",
+      "company": "Cadiz Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 3.481
+        }
+      ],
+      "perf": 3.481,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "CHGG": {
+      "ticker": "CHGG",
+      "company": "Chegg Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Education Technology",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -6.449
+        }
+      ],
+      "perf": -6.449,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "COTY": {
+      "ticker": "COTY",
+      "company": "Coty Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -5.802
+        }
+      ],
+      "perf": -5.802,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "CRH": {
+      "ticker": "CRH",
+      "company": "CRH Plc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Basic Materials",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -3.872
+        }
+      ],
+      "perf": -3.872,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "CRM": {
+      "ticker": "CRM",
+      "company": "Salesforce Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -3.9
+        }
+      ],
+      "perf": -3.9,
+      "source_status": "OK",
+      "news_in_window_count": 5,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "CVX": {
+      "ticker": "CVX",
+      "company": "Chevron Corp",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 0.575
+        }
+      ],
+      "perf": 0.575,
+      "source_status": "OK",
+      "news_in_window_count": 3,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T05:59:00-04:00",
+          "title": "Premarket movers: Energy stocks rise on Iran tensions, Eaton jumps on UBS upgrade",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/premarket-movers-energy-stocks-rise-095904641.html",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "DCBO": {
+      "ticker": "DCBO",
+      "company": "Docebo Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Education Technology",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -4.845
+        }
+      ],
+      "perf": -4.845,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "DIS": {
+      "ticker": "DIS",
+      "company": "Walt Disney Co",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Communication Services",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -0.237
+        }
+      ],
+      "perf": -0.237,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "detached_from_selected_groups": true,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "DK": {
+      "ticker": "DK",
+      "company": "Delek US Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 5.302
+        }
+      ],
+      "perf": 5.302,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "DUOL": {
+      "ticker": "DUOL",
+      "company": "Duolingo Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Education Technology",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -5.225
+        }
+      ],
+      "perf": -5.225,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "DXCM": {
+      "ticker": "DXCM",
+      "company": "Dexcom Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -3.834
+        }
+      ],
+      "perf": -3.834,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "EIX": {
+      "ticker": "EIX",
+      "company": "Edison International",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 4.509
+        }
+      ],
+      "perf": 4.509,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "EXC": {
+      "ticker": "EXC",
+      "company": "Exelon Corp",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 0.71
+        }
+      ],
+      "perf": 0.71,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "FANG": {
+      "ticker": "FANG",
+      "company": "Diamondback Energy Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 0.216
+        }
+      ],
+      "perf": 0.216,
+      "source_status": "OK",
+      "news_in_window_count": 3,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T05:59:00-04:00",
+          "title": "Premarket movers: Energy stocks rise on Iran tensions, Eaton jumps on UBS upgrade",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/premarket-movers-energy-stocks-rise-095904641.html",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "FCEL": {
+      "ticker": "FCEL",
+      "company": "Fuelcell Energy Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 18.796
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Energy Renewable",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 18.796
+        }
+      ],
+      "perf": 18.796,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "FDS": {
+      "ticker": "FDS",
+      "company": "Factset Research Systems Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -4.292
+        }
+      ],
+      "perf": -4.292,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "FLNC": {
+      "ticker": "FLNC",
+      "company": "Fluence Energy Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 6.667
+        }
+      ],
+      "perf": 6.667,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "GOOGL": {
+      "ticker": "GOOGL",
+      "company": "Alphabet Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Communication Services",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -0.03
+        }
+      ],
+      "perf": -0.03,
+      "source_status": "OK",
+      "news_in_window_count": 13,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T14:07:00-04:00",
+          "title": "Google degrades E.U. search results to comply with DMA rules",
+          "url": "https://finance.yahoo.com/m/0023c573-6fbd-34d6-81bc-6390f5972c88/google-degrades-e.u.-search.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T11:25:00-04:00",
+          "title": "Googles revived nuclear power plant gets $1.9B loan from US government",
+          "url": "https://finance.yahoo.com/energy/articles/google-revived-nuclear-power-plant-152535672.html",
+          "candidate_categories": [
+            "financing_capital_structure"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T11:07:00-04:00",
+          "title": "What investors 'really' need to see from Oracle earnings this week",
+          "url": "https://finance.yahoo.com/video/investors-really-see-oracle-earnings-150710768.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "detached_from_selected_groups": true,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "GPCR": {
+      "ticker": "GPCR",
+      "company": "Structure Therapeutics Inc ADR",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Healthcare & Biotech",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -14.702
+        }
+      ],
+      "perf": -14.702,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "GWH": {
+      "ticker": "GWH",
+      "company": "ESS Tech Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Energy Renewable",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 13.267
+        }
+      ],
+      "perf": 13.267,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "HON": {
+      "ticker": "HON",
+      "company": "Honeywell International Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -0.654
+        }
+      ],
+      "perf": -0.654,
+      "source_status": "OK",
+      "news_in_window_count": 2,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T11:04:00-04:00",
+          "title": "Is Honeywell Aerospace Stock Riskier Than Its Order Book Looks?",
+          "url": "https://finance.yahoo.com/m/66c5d499-3261-3803-9336-dd00deeb23d3/is-honeywell-aerospace-stock.html",
+          "candidate_categories": [
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "detached_from_selected_groups": true,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "IBM": {
+      "ticker": "IBM",
+      "company": "International Business Machines Corp",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": -1.192
+        }
+      ],
+      "perf": -1.192,
+      "source_status": "OK",
+      "news_in_window_count": 3,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "IMSR": {
+      "ticker": "IMSR",
+      "company": "Terrestrial Energy Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 10.097
+        }
+      ],
+      "perf": 10.097,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ISRG": {
+      "ticker": "ISRG",
+      "company": "Intuitive Surgical Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -4.511
+        }
+      ],
+      "perf": -4.511,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "JAGX": {
+      "ticker": "JAGX",
+      "company": "Jaguar Health Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -30.597
+        }
+      ],
+      "perf": -30.597,
+      "source_status": "OK",
+      "news_in_window_count": 2,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "JPM": {
+      "ticker": "JPM",
+      "company": "JPMorgan Chase & Co",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -1.43
+        }
+      ],
+      "perf": -1.43,
+      "source_status": "OK",
+      "news_in_window_count": 5,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "LDI": {
+      "ticker": "LDI",
+      "company": "LoanDepot Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -12.341
+        }
+      ],
+      "perf": -12.341,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "LEU": {
+      "ticker": "LEU",
+      "company": "Centrus Energy Corp",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 6.694
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Commodities Energy",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 6.694
+        }
+      ],
+      "perf": 6.694,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "LEXX": {
+      "ticker": "LEXX",
+      "company": "Lexaria Bioscience Corp",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -33.781
+        }
+      ],
+      "perf": -33.781,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "LIN": {
+      "ticker": "LIN",
+      "company": "Linde Plc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Basic Materials",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -1.924
+        }
+      ],
+      "perf": -1.924,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "MMM": {
+      "ticker": "MMM",
+      "company": "3M Co",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -0.617
+        }
+      ],
+      "perf": -0.617,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": false,
+      "detached_from_selected_groups": true,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "MNTK": {
+      "ticker": "MNTK",
+      "company": "Montauk Renewables Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Commodities Energy",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 12.108
+        }
+      ],
+      "perf": 12.108,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "MPC": {
+      "ticker": "MPC",
+      "company": "Marathon Petroleum Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 2.281
+        }
+      ],
+      "perf": 2.281,
+      "source_status": "OK",
+      "news_in_window_count": 5,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T05:59:00-04:00",
+          "title": "Premarket movers: Energy stocks rise on Iran tensions, Eaton jumps on UBS upgrade",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/premarket-movers-energy-stocks-rise-095904641.html",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "NKLR": {
+      "ticker": "NKLR",
+      "company": "Terra Innovatum Global NV",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 7.4
+        }
+      ],
+      "perf": 7.4,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "NRGV": {
+      "ticker": "NRGV",
+      "company": "Energy Vault Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 12.5
+        },
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": 12.5
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Energy Renewable",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 12.5
+        }
+      ],
+      "perf": 12.5,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "NVDA": {
+      "ticker": "NVDA",
+      "company": "NVIDIA Corp",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Technology",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -2.01
+        }
+      ],
+      "perf": -2.01,
+      "source_status": "OK",
+      "news_in_window_count": 47,
+      "candidate_event_count": 11,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T13:00:00-04:00",
+          "title": "United Natural Foods, Inc. Q4 2026 Earnings Call Summary",
+          "url": "https://finance.yahoo.com/m/1346628a-5b21-3d70-899e-37f159f94829/united-natural-foods%2C-inc.-q4.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T13:00:00-04:00",
+          "title": "Gamehaus Holdings Inc. Q4 2026 Earnings Call Summary",
+          "url": "https://finance.yahoo.com/m/95287468-7175-344f-af45-54b12f1faa00/gamehaus-holdings-inc.-q4.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T12:44:00-04:00",
+          "title": "ABM Industries Incorporated Q3 2026 Earnings Call Summary",
+          "url": "https://finance.yahoo.com/m/db816eb6-9b19-340b-93d7-fdbb4206d2cb/abm-industries-incorporated.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T11:09:00-04:00",
+          "title": "Rubis Turns Expensive Oil Into a Guidance Upgrade",
+          "url": "https://finance.yahoo.com/m/e71cf8c5-a9de-30b7-8dd1-9344708c622b/rubis-turns-expensive-oil.html",
+          "candidate_categories": [
+            "earnings_guidance",
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T11:07:00-04:00",
+          "title": "What investors 'really' need to see from Oracle earnings this week",
+          "url": "https://finance.yahoo.com/video/investors-really-see-oracle-earnings-150710768.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T09:15:00-04:00",
+          "title": "Nvidia CEO Makes Bold Claim About Aging AI Chips",
+          "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-ceo-makes-bold-claim-131540783.html",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T09:03:00-04:00",
+          "title": "This Nvidia Supplier Raised $1.47 Billion -- and the Stock Fell 6%",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/nvidia-supplier-raised-1-47-130343137.html",
+          "candidate_categories": [
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T07:31:00-04:00",
+          "title": "Lab Notes: The Week AI Infrastructure Got Serious and Its Safety Got Fragile",
+          "url": "https://finance.yahoo.com/technology/ai/articles/lab-notes-week-ai-infrastructure-113150450.html",
+          "candidate_categories": [
+            "financing_capital_structure"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T01:09:00-04:00",
+          "title": "NVDA Rises Overnight After Strong Week: CEO Jensen Huang Pumps Nvidia Chips As Highly Rentable Money-Minting Assets",
+          "url": "https://finance.yahoo.com/m/67034af4-46ea-38cb-a822-ac8116c5113e/nvda-rises-overnight-after.html",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-07T17:50:00-04:00",
+          "title": "Nvidia Gets a $1.47 Billion Supplier Cushion Without Spending a Dollar",
+          "url": "https://finance.yahoo.com/technology/ai/articles/nvidia-gets-1-47-billion-215008444.html",
+          "candidate_categories": [
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-07T17:23:00-04:00",
+          "title": "Nvidia CEO Says Human-Level AI Is Here. He Sells the Chips.",
+          "url": "https://finance.yahoo.com/m/f7537bdd-c748-3014-9fd1-bae37cc99e97/nvidia-ceo-says-human-level.html",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ODFL": {
+      "ticker": "ODFL",
+      "company": "Old Dominion Freight Line Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 0.613
+        }
+      ],
+      "perf": 0.613,
+      "source_status": "OK",
+      "news_in_window_count": 3,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T05:59:00-04:00",
+          "title": "Premarket movers: Energy stocks rise on Iran tensions, Eaton jumps on UBS upgrade",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/premarket-movers-energy-stocks-rise-095904641.html",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "ONEW": {
+      "ticker": "ONEW",
+      "company": "Onewater Marine Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Consumer Cyclical",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -7.953
+        }
+      ],
+      "perf": -7.953,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T07:00:00-04:00",
+          "title": "OneWater Marine Inc. Announces Change to Board of Directors",
+          "url": "https://finviz.com/news/389409/onewater-marine-inc-announces-change-to-board-of-directors",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "PCG": {
+      "ticker": "PCG",
+      "company": "PG&E Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": 3.636
+        }
+      ],
+      "perf": 3.636,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "PPG": {
+      "ticker": "PPG",
+      "company": "PPG Industries Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Basic Materials",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -2.497
+        }
+      ],
+      "perf": -2.497,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "PRCH": {
+      "ticker": "PRCH",
+      "company": "Porch Group Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -6.745
+        }
+      ],
+      "perf": -6.745,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "PTON": {
+      "ticker": "PTON",
+      "company": "Peloton Interactive Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Consumer Cyclical",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": -6.667
+        }
+      ],
+      "perf": -6.667,
+      "source_status": "OK",
+      "news_in_window_count": 3,
+      "candidate_event_count": 1,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T08:11:00-04:00",
+          "title": "Morgan Stanley cuts Peloton rating on structural fitness headwinds",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/morgan-stanley-cuts-peloton-rating-121100284.html",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "PYPL": {
+      "ticker": "PYPL",
+      "company": "PayPal Holdings Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -3.239
+        }
+      ],
+      "perf": -3.239,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "RDW": {
+      "ticker": "RDW",
+      "company": "Redwire Corp",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Space Tech",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 6.648
+        }
+      ],
+      "perf": 6.648,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "REBN": {
+      "ticker": "REBN",
+      "company": "Reborn Coffee Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Consumer Cyclical",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -32.883
+        }
+      ],
+      "perf": -32.883,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "REG": {
+      "ticker": "REG",
+      "company": "Regency Centers Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Real Estate",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 0.89
+        }
+      ],
+      "perf": 0.89,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "RENT": {
+      "ticker": "RENT",
+      "company": "Rent the Runway Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Consumer Cyclical",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -15.9
+        },
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Consumer Cyclical",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -15.9
+        }
+      ],
+      "perf": -15.9,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "RKLB": {
+      "ticker": "RKLB",
+      "company": "Rocket Lab Corp",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 2.505
+        }
+      ],
+      "perf": 2.505,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SANA": {
+      "ticker": "SANA",
+      "company": "Sana Biotechnology Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Healthcare & Biotech",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": -10.39
+        }
+      ],
+      "perf": -10.39,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "SATL": {
+      "ticker": "SATL",
+      "company": "Satellogic Inc",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 15.302
+        }
+      ],
+      "perf": 15.302,
+      "source_status": "OK",
+      "news_in_window_count": 2,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "SDA": {
+      "ticker": "SDA",
+      "company": "SunCar Technology Group Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "down",
+          "group": "Consumer Cyclical",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -14.519
+        }
+      ],
+      "perf": -14.519,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "SEI": {
+      "ticker": "SEI",
+      "company": "Solaris Energy Infrastructure Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 16.291
+        },
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 16.291
+        }
+      ],
+      "perf": 16.291,
+      "source_status": "OK",
+      "news_in_window_count": 4,
+      "candidate_event_count": 2,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T08:49:00-04:00",
+          "title": "Solaris Energy Infrastructure Shares Rise After Raising 2026 EBITDA Guidance",
+          "url": "https://finviz.com/news/389619/solaris-energy-infrastructure-shares-rise-after-raising-2026-ebitda-guidance",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T06:45:00-04:00",
+          "title": "Solaris Energy Infrastructure Raises 2026 and Initiates First Quarter 2027 Guidance",
+          "url": "https://finviz.com/news/389360/solaris-energy-infrastructure-raises-2026-and-initiates-first-quarter-2027-guidance",
+          "candidate_categories": [
+            "earnings_guidance",
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "SFM": {
+      "ticker": "SFM",
+      "company": "Sprouts Farmers Market Inc",
+      "occurrences": [
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Healthy Food & Nutrition",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -6.499
+        }
+      ],
+      "perf": -6.499,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SHW": {
+      "ticker": "SHW",
+      "company": "Sherwin-Williams Co",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Basic Materials",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -2.283
+        },
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Basic Materials",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": -2.283
+        }
+      ],
+      "perf": -2.283,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SMPL": {
+      "ticker": "SMPL",
+      "company": "Simply Good Foods Co",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "down",
+          "group": "Consumer Defensive",
+          "group_rank": 2,
+          "stock_rank": 1,
+          "perf": -6.026
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "down",
+          "group": "Healthy Food & Nutrition",
+          "group_rank": 2,
+          "stock_rank": 2,
+          "perf": -6.026
+        }
+      ],
+      "perf": -6.026,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SMR": {
+      "ticker": "SMR",
+      "company": "NuScale Power Corp",
+      "occurrences": [
+        {
+          "scope": "Russell 2000",
+          "scope_key": "russell2000",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 15.258
+        },
+        {
+          "scope": "Themes",
+          "scope_key": "themes",
+          "direction": "up",
+          "group": "Commodities Energy",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 15.258
+        }
+      ],
+      "perf": 15.258,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "SPCX": {
+      "ticker": "SPCX",
+      "company": "Space Exploration Technologies Corp",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 3.731
+        }
+      ],
+      "perf": 3.731,
+      "source_status": "OK",
+      "news_in_window_count": 28,
+      "candidate_event_count": 3,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T11:04:00-04:00",
+          "title": "Is Honeywell Aerospace Stock Riskier Than Its Order Book Looks?",
+          "url": "https://finance.yahoo.com/m/66c5d499-3261-3803-9336-dd00deeb23d3/is-honeywell-aerospace-stock.html",
+          "candidate_categories": [
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T09:56:00-04:00",
+          "title": "What SpaceX CEO Elon Musk needs to do to launch the stock into the stratosphere",
+          "url": "https://finance.yahoo.com/markets/stocks/article/what-spacex-ceo-elon-musk-needs-to-do-to-launch-the-stock-into-the-stratosphere-135636297.html",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T09:45:00-04:00",
+          "title": "Stoke Space CEO: Third-party launch supply can't compete with SpaceX",
+          "url": "https://www.youtube.com/shorts/7cNLomI8vfQ",
+          "candidate_categories": [
+            "management_governance"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "SPG": {
+      "ticker": "SPG",
+      "company": "Simon Property Group Inc",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Real Estate",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 1.165
+        }
+      ],
+      "perf": 1.165,
+      "source_status": "OK",
+      "news_in_window_count": 4,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SRE": {
+      "ticker": "SRE",
+      "company": "Sempra",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 2,
+          "stock_rank": 3,
+          "perf": 1.702
+        }
+      ],
+      "perf": 1.702,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "SST": {
+      "ticker": "SST",
+      "company": "System1 Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 2,
+          "perf": 30.548
+        }
+      ],
+      "perf": 30.548,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "SWVL": {
+      "ticker": "SWVL",
+      "company": "Swvl Holdings Corp",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Industrials",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": 30.223
+        }
+      ],
+      "perf": 30.223,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "SYK": {
+      "ticker": "SYK",
+      "company": "Stryker Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "down",
+          "group": "Healthcare",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": -8.808
+        }
+      ],
+      "perf": -8.808,
+      "source_status": "OK",
+      "news_in_window_count": 1,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "TPL": {
+      "ticker": "TPL",
+      "company": "Texas Pacific Land Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 5.375
+        }
+      ],
+      "perf": 5.375,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "TRV": {
+      "ticker": "TRV",
+      "company": "Travelers Companies Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 3,
+          "perf": -0.999
+        }
+      ],
+      "perf": -0.999,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "UROY": {
+      "ticker": "UROY",
+      "company": "Uranium Royalty Corp",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 8.559
+        }
+      ],
+      "perf": 8.559,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": true,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "V": {
+      "ticker": "V",
+      "company": "Visa Inc",
+      "occurrences": [
+        {
+          "scope": "Dow Jones 30",
+          "scope_key": "dow30",
+          "direction": "down",
+          "group": "Financial",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": -1.714
+        }
+      ],
+      "perf": -1.714,
+      "source_status": "OK",
+      "news_in_window_count": 9,
+      "candidate_event_count": 4,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T15:51:00-04:00",
+          "title": "Visa Falls as UPI's Quarterly Pace Tops Its 71.7 Billion Transactions",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/visa-falls-upis-quarterly-pace-195139912.html",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T10:59:00-04:00",
+          "title": "Visa Taps Onchain Credit for Stablecoin Card Settlement",
+          "url": "https://finance.yahoo.com/m/419bfb26-16d5-3339-8f93-bc8e417911c6/visa-taps-onchain-credit-for.html",
+          "candidate_categories": [
+            "regulatory_legal"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T10:12:00-04:00",
+          "title": "Visa connects settlement data to blockchain lenders for stablecoin cards",
+          "url": "https://finance.yahoo.com/m/15eba120-d074-3156-b885-271543bc0d13/visa-connects-settlement-data.html",
+          "candidate_categories": [
+            "regulatory_legal"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T08:00:00-04:00",
+          "title": "Visa and TIFF Renew Partnership, Bringing Fans Even Closer to the Films, Talent and Festival Experiences They Love",
+          "url": "https://finviz.com/news/389485/visa-and-tiff-renew-partnership-bringing-fans-even-closer-to-the-films-talent-and-festival-experiences-they-love",
+          "candidate_categories": [
+            "contract_partnership"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "VIVK": {
+      "ticker": "VIVK",
+      "company": "Vivakor Inc",
+      "occurrences": [
+        {
+          "scope": "All Stocks",
+          "scope_key": "all_stocks",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 3,
+          "perf": 7.653
+        }
+      ],
+      "perf": 7.653,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "VLO": {
+      "ticker": "VLO",
+      "company": "Valero Energy Corp",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Energy",
+          "group_rank": 1,
+          "stock_rank": 2,
+          "perf": 3.272
+        }
+      ],
+      "perf": 3.272,
+      "source_status": "OK",
+      "news_in_window_count": 4,
+      "candidate_event_count": 2,
+      "candidate_events": [
+        {
+          "published_at_et": "2026-09-08T15:23:00-04:00",
+          "title": "Valero Energy Corporation to Announce Third Quarter 2026 Earnings Results on October 22, 2026",
+          "url": "https://finviz.com/news/389791/valero-energy-corporation-to-announce-third-quarter-2026-earnings-results-on-october-22-2026",
+          "candidate_categories": [
+            "earnings_guidance"
+          ],
+          "is_candidate_event": true
+        },
+        {
+          "published_at_et": "2026-09-08T05:59:00-04:00",
+          "title": "Premarket movers: Energy stocks rise on Iran tensions, Eaton jumps on UBS upgrade",
+          "url": "https://finance.yahoo.com/markets/stocks/articles/premarket-movers-energy-stocks-rise-095904641.html",
+          "candidate_categories": [
+            "analyst_action"
+          ],
+          "is_candidate_event": true
+        }
+      ],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": true,
+      "screen_conclusion": "CANDIDATE_OR_EXCEPTION_REQUIRES_VERIFICATION"
+    },
+    "VMRK": {
+      "ticker": "VMRK",
+      "company": "Vivmark Residential",
+      "occurrences": [
+        {
+          "scope": "S&P 500",
+          "scope_key": "sp500",
+          "direction": "up",
+          "group": "Real Estate",
+          "group_rank": 3,
+          "stock_rank": 1,
+          "perf": 1.285
+        }
+      ],
+      "perf": 1.285,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    },
+    "XEL": {
+      "ticker": "XEL",
+      "company": "Xcel Energy Inc",
+      "occurrences": [
+        {
+          "scope": "Nasdaq 100",
+          "scope_key": "nasdaq100",
+          "direction": "up",
+          "group": "Utilities",
+          "group_rank": 1,
+          "stock_rank": 1,
+          "perf": 1.532
+        }
+      ],
+      "perf": 1.532,
+      "source_status": "OK",
+      "news_in_window_count": 0,
+      "candidate_event_count": 0,
+      "candidate_events": [],
+      "abnormal_move": false,
+      "aligned_with_selected_groups": true,
+      "detached_from_selected_groups": false,
+      "requires_model_verification": false,
+      "screen_conclusion": "NO_CANDIDATE_EVENT_AND_GROUP_ALIGNED"
+    }
+  }
+}

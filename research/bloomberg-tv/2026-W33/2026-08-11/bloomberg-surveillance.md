@@ -1,8 +1,9 @@
-# Bloomberg Surveillance｜2026-08-11
+﻿# Bloomberg Surveillance｜2026-08-11
 
 - 节目日期：2026-08-11
 - 节目名称：Bloomberg Surveillance
-- 本地字幕文件：`{SKILL_ROOT}\script\Bloomberg_Surveillance_2026-08-11 (1).txt`
+- 本地字幕文件：`{SKILL_ROOT}\script\Bloomberg_Surveillance_2026-08-11.txt`
+- 来源字幕SHA-256：729470F6236B92AC6646F323CEEF5FB38BF6318E2DD67CAD99FE9CC5EAE1A02B
 - 字幕覆盖：00:00:05—02:24:02，覆盖三小时节目主体至结尾。
 
 ## 节目主线
